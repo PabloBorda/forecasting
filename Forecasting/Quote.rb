@@ -20,7 +20,7 @@ class Quote
   
   
     def self.from_openstruct(quote_openstruct)
-      Quote.new(quote_openstruct['trade_date'].to_s,quote_openstruct[:open].to_f,quote_openstruct[:close].to_f,quote_openstruct['high'].to_f,quote_openstruct['low'].to_f,quote_openstruct['volume'].to_f,quote_openstruct['adjusted_close'].to_f,quote_openstruct['symbol'].to_s)
+      Quote.new(quote_openstruct['trade_date'].to_s,quote_openstruct[:open].to_f.round(2),quote_openstruct[:close].to_f.round(2),quote_openstruct['high'].to_f.round(2),quote_openstruct['low'].to_f.round(2),quote_openstruct['volume'].to_f.round(2),quote_openstruct['adjusted_close'].to_f.round(2),quote_openstruct['symbol'].to_s)
   
   
     end
@@ -30,12 +30,12 @@ class Quote
   
     def initialize(trade_date,open,close,high,low,volume,adjusted_close,symbol)
       self.trade_date = trade_date
-      self.open = open.to_f
-      self.close = close.to_f
-      self.high = high.to_f
-      self.low = low.to_f
+      self.open = open.to_f.round(2)
+      self.close = close.to_f.round(2)
+      self.high = high.to_f.round(2)
+      self.low = low.to_f.round(2)
       self.volume = volume.to_i
-      self.adjusted_close = adjusted_close.to_f
+      self.adjusted_close = adjusted_close.to_f.round(2)
       self.symbol = symbol
     end
   
@@ -56,7 +56,7 @@ class Quote
   
   
     def self.neutral_element
-       Quote.new(Time.now.strftime("%Y-%m-%d").to_s,'0'.to_f,'0'.to_f,'0'.to_f,'0'.to_f,'0'.to_i,'0'.to_f,@symbol)
+       Quote.new(Time.now.strftime("%Y-%m-%d").to_s,'0'.to_f.round(2),'0'.to_f.round(2),'0'.to_f.round(2),'0'.to_f.round(2),'0'.to_i,'0'.to_f.round(2),@symbol)
     end
   
   
@@ -69,22 +69,16 @@ class Quote
   
     
     def compare(q)
-      (self.trade_date == q.trade_date) &&
-      (self.open == q.open) &&
       (self.close == q.close) &&
-      (self.high == q.high) &&
-      (self.low == q.low) &&
-      (self.volume == q.volume) &&
-      (self.adjusted_close == q.adjusted_close) &&
       (self.symbol == q.symbol)
     end
   
   
   
     def <=>(q)
-      if (((self.high+self.low)/2) < ((q.high+q.low)/2))
+      if ((self.close) < (q.close))
         -1
-      elsif (((self.high+self.low)/2) > ((q.high+q.low)/2))
+      elsif ((self.close) > (q.close))
         1
       else
         0

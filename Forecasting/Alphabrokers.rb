@@ -2,6 +2,7 @@ load 'Chunk.rb'
 load 'Company.rb'
 load 'Point.rb'
 load 'Quote.rb'
+load 'DrawSelector.rb'
 
 require 'sinatra'
 require 'json'

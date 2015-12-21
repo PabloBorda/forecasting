@@ -4,11 +4,18 @@ require 'json'
 
 module Forecasting
 
+
+  
+  
+
+  
 class Chunk
 
   @chunk_data
+  @selector
   def initialize(chunk)
     @chunk_data = chunk
+    @selector = DrawSelector.new(@chunk_data)
   end
   
 
@@ -37,15 +44,14 @@ class Chunk
     }    
     delta  
   end
-
+  
+  
+  
   def similar_points_not_stepping_on_each_other(last_quote,amount_of_days)
     #Sort quotes by similarity with current quote, and then sort by date descendant
 
-    similar_quotations = @chunk_data.sort_by { |q| 
-     (Quote.from_openstruct(q) - last_quote).abs
-    }.sort_by { |q|
-      Date.strptime(q.trade_date,"%Y-%m-%d")
-    }
+    similar_quotations = @selector.draw_horizontal_line(last_quote)
+    
     similar_quotations_reverse = similar_quotations.reverse
     similar_quotations_reverse_first_element_removed = similar_quotations_reverse[1..-1]
     similar_quotations = similar_quotations_reverse_first_element_removed[0..amount_of_days].map {|q| Quote.from_openstruct(q) }
