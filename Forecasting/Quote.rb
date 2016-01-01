@@ -76,9 +76,9 @@ class Quote
   
   
     def <=>(q)
-      if ((self.close) < (q.close))
+      if ((self.close.to_f) < (q.close.to_f))
         -1
-      elsif ((self.close) > (q.close))
+      elsif ((self.close.to_f) > (q.close.to_f))
         1
       else
         0
