@@ -81,8 +81,9 @@ class Company
         p_index_in_all_history = self.all_history.find_quote(p.quote)
         if !p_index_in_all_history.nil?
           a = []
+          b = []
           next_chunk = Chunk.new(a)          
-          previous_chunk = Chunk.new(a)
+          previous_chunk = Chunk.new(b)
           if (((p_index_in_all_history-amount_of_days-1)>=0) and
               ((p_index_in_all_history-1)<self.all_history.size)) 
             previous_chunk = Chunk.new(self.all_history.data[(p_index_in_all_history-amount_of_days-1)..(p_index_in_all_history-1)])

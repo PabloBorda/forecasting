@@ -18,7 +18,7 @@ module Forecasting
     
     end
   
-    def draw_horizontal_line(at_quote)   
+    def draw_horizontal_line_aproximate(at_quote)   
             
       similar_quotations = @chunk.collect_with_index { |q,i| 
                current_quote = Quote.from_openstruct(q)
@@ -38,7 +38,17 @@ module Forecasting
     end
   
   
-  
+    def draw_horizontal_line(at_quote)   
+            
+      similar_quotations = @chunk.collect { |q| 
+               ((q.close.to_f - at_quote.close.to_f).abs <= 0.5) 
+               }
+      similar_quotations
+    end
+    
+    
+    
+    
   end
   
 end
