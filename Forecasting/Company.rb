@@ -80,8 +80,17 @@ class Company
       #puts "q class is: "  + q.class.to_s
         p_index_in_all_history = self.all_history.find_quote(p.quote)
         if !p_index_in_all_history.nil?
-          next_chunk = Chunk.new(self.all_history.data[(p_index_in_all_history-amount_of_days-1)..(p_index_in_all_history-1)])
-          previous_chunk = Chunk.new(self.all_history.data[(p_index_in_all_history+1)..(p_index_in_all_history+amount_of_days+1)])
+          a = []
+          next_chunk = Chunk.new(a)          
+          previous_chunk = Chunk.new(a)
+          if (((p_index_in_all_history-amount_of_days-1)>=0) and
+              ((p_index_in_all_history-1)<self.all_history.size)) 
+            previous_chunk = Chunk.new(self.all_history.data[(p_index_in_all_history-amount_of_days-1)..(p_index_in_all_history-1)])
+          end
+          if (((p_index_in_all_history+1)>=0) and
+             ((p_index_in_all_history+amount_of_days+1)<self.all_history.size))  
+            next_chunk = Chunk.new(self.all_history.data[(p_index_in_all_history+1)..(p_index_in_all_history+amount_of_days+1)])
+          end    
           points_with_chunks.push(Point.new(p.quote,previous_chunk,next_chunk))
         end
       end
