@@ -80,23 +80,26 @@ class Chunk
   
   similar_points_stepping_on_each_other.each_with_index.map {|p,i|
       count = i+1     
-      while (!similar_points_stepping_on_each_other[count].nil?) do 
+      if (!similar_points_stepping_on_each_other[count].nil?) 
          p1 = similar_points_stepping_on_each_other[count]     
          p.remove_repeated_prev_and_next_chunk_from_point(p1)
-     similar_points_not_stepping_on_each_other_var.push(p)
-         count = count + 1
+         similar_points_not_stepping_on_each_other_var.push(p)
       end
 
     }
 
     puts "POINTS NOT STEPING ON EACH OTHER" + similar_points_not_stepping_on_each_other_var.inspect
-    similar_points_not_stepping_on_each_other_var
+    similar_points_not_stepping_on_each_other_var.compact.sort_by { |p|
+
+      Date.strptime(p.quote.trade_date,"%Y-%m-%d")
+
+     }.reverse   
 
 
 
   end
 
-
+  
 
   def last
     @chunk_data.last

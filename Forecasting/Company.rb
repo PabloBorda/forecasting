@@ -75,9 +75,6 @@ class Company
  
     points_from_line.each {|p|
       if !p.nil?
-        #puts "q has " + q.inspect
-        #puts "all history has " + self.all_history.inspect
-      #puts "q class is: "  + q.class.to_s
         p_index_in_all_history = self.all_history.find_quote(p.quote)
         if !p_index_in_all_history.nil?
           a = []
@@ -86,11 +83,11 @@ class Company
           previous_chunk = Chunk.new(b)
           if (((p_index_in_all_history-amount_of_days-1)>=0) and
               ((p_index_in_all_history-1)<self.all_history.size)) 
-            previous_chunk = Chunk.new(self.all_history.data[(p_index_in_all_history-amount_of_days-1)..(p_index_in_all_history-1)])
+            next_chunk = Chunk.new(self.all_history.data[(p_index_in_all_history-amount_of_days-1)..(p_index_in_all_history-1)].reverse)
           end
           if (((p_index_in_all_history+1)>=0) and
              ((p_index_in_all_history+amount_of_days+1)<self.all_history.size))  
-            next_chunk = Chunk.new(self.all_history.data[(p_index_in_all_history+1)..(p_index_in_all_history+amount_of_days+1)])
+            previous_chunk = Chunk.new(self.all_history.data[(p_index_in_all_history+1)..(p_index_in_all_history+amount_of_days+1)].reverse)
           end    
           points_with_chunks.push(Point.new(p.quote,previous_chunk,next_chunk))
         end

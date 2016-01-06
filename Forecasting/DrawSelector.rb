@@ -40,10 +40,11 @@ module Forecasting
   
     def draw_horizontal_line(at_quote)   
             
-      similar_quotations = @chunk.collect { |q| 
-               ((q.close.to_f - at_quote.close.to_f).abs <= 0.5) 
+      similar_quotations = @chunk.select { |q| 
+               ((q.close.to_f - at_quote.close.to_f).abs <= 0.1)
+                
                }
-      similar_quotations
+      similar_quotations.uniq
     end
     
     

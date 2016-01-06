@@ -70,9 +70,21 @@ class Quote
     
     def compare(q)
       (self.close == q.close) &&
-      (self.symbol == q.symbol)
+      (self.symbol == q.symbol) &&
+      (self.trade_date.to_s.eql?(q.trade_date.to_s))
     end
   
+    
+    def compare_full(q)
+      (self.trade_date.eql?(q.trade_date) &&
+      (self.symbol == q.symbol) &&
+      (self.open == q.open) &&
+      (self.close == q.close) &&
+      (self.high == q.high) &&
+      (self.low == q.low) &&
+      (self.volume == q.volume) &&
+      (self.adjusted_close == q.adjusted_close))
+    end
   
   
     def <=>(q)
