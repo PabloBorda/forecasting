@@ -14,15 +14,15 @@ class Chunk
   @chunk_data
   @selector
   def initialize(chunk)
-    @chunk_data = chunk
+    @chunk_data = chunk.compact
     @selector = DrawSelector.new(@chunk_data)
   end
   
 
   def to_html
     
-    (@chunk_data.inject("<table border=\"1\"><tr><td>SYMBOL</td><td>TRADE_DATE</td><td>OPEN</td><td>CLOSE</td><td>HIGH</td><td>LOW</td><td>VOLUME</td</td><td>ADJUSTED_CLOSE</td>") {|o,q|
-       o = o + Quote.from_openstruct(q).to_row
+    (@chunk_data.compact.inject("<table border=\"1\"><tr><td>SYMBOL</td><td>TRADE_DATE</td><td>OPEN</td><td>CLOSE</td><td>HIGH</td><td>LOW</td><td>VOLUME</td</td><td>ADJUSTED_CLOSE</td>") {|o,q|       
+         o = o + Quote.from_openstruct(q).to_row.to_s       
     }) + "</table>"
   
   end
@@ -62,19 +62,16 @@ class Chunk
 
     point_count = 0
     while (point_count<(similar_quotations.size)) do
-      current_quote = similar_quotations[point_count]
-      #puts "CURRENT DATA: " + @chunk_data.class.to_s  
+      current_quote = similar_quotations[point_count]      
       current_quote_position_in_all_quotes = @chunk_data.find_index {|q| Quote.from_openstruct(q).compare(current_quote) }
-      previous_chunk_from_current_quote = @chunk_data[current_quote_position_in_all_quotes-amount_of_days..current_quote_position_in_all_quotes-1]
-    #puts "previous_chunk_from_current_quote: " + previous_chunk_from_current_quote.inspect
+      previous_chunk_from_current_quote = @chunk_data[current_quote_position_in_all_quotes-amount_of_days..current_quote_position_in_all_quotes-1]    
       next_chunk_from_current_quote = @chunk_data[current_quote_position_in_all_quotes+1..current_quote_position_in_all_quotes+amount_of_days]
       puts "next_chunk_from_current_quote: " + next_chunk_from_current_quote.inspect
-      similar_points_stepping_on_each_other.push(Point.new(current_quote,previous_chunk_from_current_quote,next_chunk_from_current_quote))
-    
+      similar_points_stepping_on_each_other.push(Point.new(current_quote,previous_chunk_from_current_quote,next_chunk_from_current_quote))    
       point_count = point_count + 1
 
     end
-   # puts "POINTS STEPING ON EACH OTHER" + similar_points_stepping_on_each_other.inspect
+   
    
     similar_points_not_stepping_on_each_other_var = []
   

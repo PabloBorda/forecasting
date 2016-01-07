@@ -62,6 +62,35 @@ class Company
 
   private
   
+  
+  
+  def forecast_merge_avg(points_with_chunks)
+    pivot_quote = points_with_chunks[0].quote
+    all_left_chunks = []
+    all_right_chunks = []
+    points_with_chunks.each {|p| all_left_chunks.push(p.previous_n_quotes_chunk) }
+    points_with_chunks.each {|p| all_right_chunks.push(p.next_n_quotes_chunk) }
+    
+    forecasting_for_next_days = Point.new(pivot_quote,calculate_avg_for_chunks(all_left_chunks),calculate_avg_for_chunks(all_right_chunks))
+    
+    
+  end
+  
+  
+  def forecast_merge_worst_drop(points_with_chunks)
+    
+    
+    
+  end
+  
+  
+  
+  
+  
+  
+  
+  
+  
   def forecast(amount_of_days,format)
     current_date = Time.now.strftime("%Y-%m-%d")
     last_quote = self.last_quote
@@ -96,6 +125,8 @@ class Company
     output = "AMOUNT OF QUOTES " + self.all_history.size.to_s + " <br> LAST QUOTE <br>" + last_quote.to_s + "<br>"
     output = output + "<b>RETRIEVED POINTS AND ITS PREVIOUS AND NEXT CHUNKS</b><br>"
     
+    
+  points_with_chunks = points_with_chunks.compact  
   if (format.eql? "html")
    points_with_chunks.each {|p|
       
@@ -108,7 +139,8 @@ class Company
     end
   end
   
-  output 
+  output = output + "<br><br> Forecasting for the next days <br><br>" + forecast_merge_avg(points_with_chunks).to_html()
+  output
     
 
   end
@@ -125,7 +157,7 @@ class Company
       column=[]
       chunks.each {
         |current_chunk|
-        column.push(current_chunk[colnum])
+        column.push(current_chunk.data[colnum])
       }
       column
     end
@@ -133,10 +165,10 @@ class Company
     
     def calculate_avg_for_column(column)
      count = 0
-      sum_col = column.inject(Quote.neutral_element) {
+      sum_col = column.inject(0) {
         |sum,q|
-       count = count + 1
-        sum = sum + q
+        count = count + 1
+        sum = sum + q['close'].to_f
       }
       (sum_col/column.size)
     end
@@ -147,12 +179,12 @@ class Company
       avg_chunk = []
       chunks[0].size.times {
         |i|
-        calculated_chunk = calculate_avg_for_column(column_from_chunks(chunks,i)) 
-        calculated_chunk.trade_date = (current_trade_date + i).strftime("%Y-%m-%d").to_s
+        avg_quote = calculate_avg_for_column(column_from_chunks(chunks,i)) 
+        avg_quote.trade_date = (current_trade_date + i).strftime("%Y-%m-%d").to_s
                 
-        avg_chunk.push(calculated_chunk)
+        avg_chunk.push(avg_quote)
       }
-      avg_chunk
+      Chunk.new(avg_chunk)
 
     end
 

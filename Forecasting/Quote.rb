@@ -20,8 +20,10 @@ class Quote
   
   
     def self.from_openstruct(quote_openstruct)
-      Quote.new(quote_openstruct['trade_date'].to_s,quote_openstruct[:open].to_f.round(2),quote_openstruct[:close].to_f.round(2),quote_openstruct['high'].to_f.round(2),quote_openstruct['low'].to_f.round(2),quote_openstruct['volume'].to_f.round(2),quote_openstruct['adjusted_close'].to_f.round(2),quote_openstruct['symbol'].to_s)
-  
+      puts "QUOTE_OPENSTRUCT CLASS IS " + quote_openstruct.class.to_s + "     " + quote_openstruct.inspect
+      if !quote_openstruct.class.eql? "Quote"      
+        Quote.new(quote_openstruct['trade_date'].to_s,quote_openstruct['open'].to_f.round(2),quote_openstruct['close'].to_f.round(2),quote_openstruct['high'].to_f.round(2),quote_openstruct['low'].to_f.round(2),quote_openstruct['volume'].to_f.round(2),quote_openstruct['adjusted_close'].to_f.round(2),quote_openstruct['symbol'].to_s)
+      end
   
     end
   
@@ -45,7 +47,7 @@ class Quote
   
   
     def + (q)
-      Quote.new(self.trade_date,self.open + q.open,self.close + q.close,self.high + q.high,self.low + q.low,self.volume + q.volume,self.adjusted_close + q.adjusted_close,self.symbol)
+      Quote.new(self.trade_date,self.open.to_f + q.open.to_f,self.close.to_f + q.close.to_f,self.high.to_f + q.high.to_f,self.low.to_f + q.low.to_f,self.volume.to_f + q.volume.to_f,self.adjusted_close.to_f + q.adjusted_close.to_f,self.symbol)
    end
    
     def / (number)
@@ -63,7 +65,8 @@ class Quote
   
     def to_row
   
-      "<tr><td>" + self.symbol.to_s + "</td><td>" + self.trade_date.to_s + "</td><td>" + self.open.to_s +  "</td><td>"  + self.close.to_s + "</td><td>" + self.high.to_s + "</td><td>" + self.low.to_s + "</td><td>" + self.volume.to_s + "</td><td>" + self.adjusted_close.to_s + "</td></tr>"
+      a = "<tr><td>" + self.symbol.to_s + "</td><td>" + self.trade_date.to_s + "</td><td>" + self.open.to_s +  "</td><td>"  + self.close.to_s + "</td><td>" + self.high.to_s + "</td><td>" + self.low.to_s + "</td><td>" + self.volume.to_s + "</td><td>" + self.adjusted_close.to_s + "</td></tr>"
+      a
     end
   
   

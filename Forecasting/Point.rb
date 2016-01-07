@@ -26,7 +26,7 @@ class Point
     end
   
     def to_html
-      "<table><tr><td>SYMBOL</td><td>TRADE_DATE</td><td>OPEN</td><td>CLOSE</td><td>HIGH</td><td>LOW</td><td>VOLUME</td</td><td>ADJUSTED_CLOSE</td>" + self.quote.to_row + "</table>" + "<br><br>" + "<b>PREVIOUS CHUNK</b>" + self.previous_n_quotes_chunk.to_html + "<b>NEXT CHUNK</b>" + self.next_n_quotes_chunk.to_html
+      "<table><tr><td>SYMBOL</td><td>TRADE_DATE</td><td>OPEN</td><td>CLOSE</td><td>HIGH</td><td>LOW</td><td>VOLUME</td</td><td>ADJUSTED_CLOSE</td>" + self.quote.to_row() + "</table>" + "<br><br>" + "<b>PREVIOUS CHUNK</b>" + self.previous_n_quotes_chunk.to_html() + "<b>NEXT CHUNK</b>" + self.next_n_quotes_chunk.to_html()
   
     end
   
