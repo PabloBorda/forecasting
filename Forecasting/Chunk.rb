@@ -15,7 +15,7 @@ class Chunk
   @selector
   def initialize(chunk)
     @chunk_data = chunk.compact
-    @selector = DrawSelector.new(@chunk_data)
+    @selector = DrawSelector.new(self)
   end
   
 
@@ -101,6 +101,10 @@ class Chunk
   def last
     @chunk_data.last
   end
+  
+  def first
+    @chunk_data.first
+  end
 
   def find_quote(q)
     #puts "IM A TYPE: " + q.class.to_s
@@ -112,8 +116,14 @@ class Chunk
   end
 
   def data
+    @chunk_data.map {|os| Quote.from_openstruct(os) }
+  end
+  
+  def data_raw
     @chunk_data
   end
+  
+  
 end
 
 end

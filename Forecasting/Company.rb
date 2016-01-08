@@ -30,9 +30,8 @@ class Company
 
   def all_history_between(period)
       data = @yahoo_client.historical_quotes(@symbol,period)
-      data.map{|q|
-        Quote.new(q['trade_date'],q['open'],q['close'],q['high'],q['low'],q['volume'],q['adjusted_close'],q['symbol'])
-      }
+      
+      puts "YAHOO " + data.inspect
       Chunk.new(data)
   end
 
@@ -42,8 +41,8 @@ class Company
   end
 
   def last_quote
-    l = self.all_history_between({ start_date: Time::now-(24*60*60*7), end_date: Time::now }).last
-    #puts "LASTQUOTE " + l.inspect
+    l = self.all_history_between({ start_date: Time::now-(24*60*60*7), end_date: Time::now }).first
+    puts "LASTQUOTE " + l.inspect
 #    Quote.new(l['trade_date'],l['open'],l['close'],l['high'],l['low'],l['volume'],l['adjusted_close'],l['symbol'])
     Quote.from_openstruct(l)
   end
@@ -95,7 +94,7 @@ class Company
     current_date = Time.now.strftime("%Y-%m-%d")
     last_quote = self.last_quote
     
-    
+    puts "LAST QUOTE IS " + last_quote.inspect
 
     points_from_line = self.all_history.similar_points_not_stepping_on_each_other(last_quote,amount_of_days)[0..(amount_of_days*2-1)]
      
@@ -168,7 +167,7 @@ class Company
       sum_col = column.inject(0) {
         |sum,q|
         count = count + 1
-        sum = sum + q['close'].to_f
+        sum = sum + q.close.to_f
       }
       (sum_col/column.size)
     end
@@ -179,10 +178,8 @@ class Company
       avg_chunk = []
       chunks[0].size.times {
         |i|
-        avg_quote = calculate_avg_for_column(column_from_chunks(chunks,i)) 
-        avg_quote.trade_date = (current_trade_date + i).strftime("%Y-%m-%d").to_s
-                
-        avg_chunk.push(avg_quote)
+        q = Quote.new((current_trade_date + i).strftime("%Y-%m-%d").to_s,"0",calculate_avg_for_column(column_from_chunks(chunks,i)),"0","0","0","0","XXXX")
+        avg_chunk.push(q)
       }
       Chunk.new(avg_chunk)
 
