@@ -16,7 +16,7 @@ set :port, 9494
 get '/' do
 
 
-  Company.new("AAPL").forecast_html(60)
+  Company.new("AAPL").forecast_avg_forecaster(60,"html")
 #"HELLO WORLD!"
   #Company.new("AAPL").all_history.each do |q| o = o + q.inspect.to_s end
     
