@@ -1,10 +1,13 @@
 require 'Forecaster'
+require 'Chunks'
+
+
 
 module Forecasting
   class AvgForecaster < Forecaster
     def forecast_html(amount_of_days)
-      points_with_chunks = super(amount_of_days)
-      output = output + "<br><br> Forecasting for the next days <br><br>" + self.forecast_merge_avg(points_with_chunks).to_html()
+      points_with_chunks = super(amount_of_days)     
+      output = "<br><br> Forecasting for the next days <br><br> Average algorithm<br>" + self.forecast_merge(points_with_chunks).unless_nil(&:to_html)
       output
     end
 
@@ -25,17 +28,20 @@ module Forecasting
       (sum_col/column.size)
     end
 
-    def forecast_merge_avg(points_with_chunks)
-      pivot_quote = points_with_chunks[0].quote
-      all_left_chunks = []
-      all_right_chunks = []
-      points_with_chunks.each {|p| all_left_chunks.push(p.previous_n_quotes_chunk) }
-      points_with_chunks.each {|p| all_right_chunks.push(p.next_n_quotes_chunk) }
 
-      forecasting_for_next_days = Point.new(pivot_quote,calculate_avg_for_chunks(all_left_chunks),calculate_avg_for_chunks(all_right_chunks))
-
+    def forecast_merge(points_with_chunks)
+      all_chunks = super(points_with_chunks)
+      if (!all_chunks.nil?)
+        pivot_quote = all_chunks[0]
+        all_left_chunks_wrapped = all_chunks[1]
+        all_right_chunks_wrapped = all_chunks[2]
+        forecasting_for_next_days = Point.new(pivot_quote,all_left_chunks_wrapped.calculate_avg_for_chunks,all_right_chunks_wrapped.calculate_avg_for_chunks)
+      end      
     end
+    
 
+    
+    
   end
 
 end

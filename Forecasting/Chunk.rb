@@ -12,6 +12,7 @@ module Forecasting
 class Chunk
 
   @chunk_data
+  
   @selector
   def initialize(chunk)
     @chunk_data = chunk.compact
@@ -22,7 +23,7 @@ class Chunk
   def to_html
     
     (@chunk_data.compact.inject("<table border=\"1\"><tr><td>SYMBOL</td><td>TRADE_DATE</td><td>OPEN</td><td>CLOSE</td><td>HIGH</td><td>LOW</td><td>VOLUME</td</td><td>ADJUSTED_CLOSE</td>") {|o,q|       
-         o = o + Quote.from_openstruct(q).to_row.to_s       
+         o = o + Quote.from_openstruct(q).to_row.to_s      
     }) + "</table>"
   
   end
@@ -56,7 +57,7 @@ class Chunk
     similar_quotations_reverse_first_element_removed = similar_quotations_reverse[1..-1]
     similar_quotations = similar_quotations_reverse_first_element_removed[0..amount_of_days].map {|q| Quote.from_openstruct(q) }
       
-    puts "SIMILAR QUOTATIONS ARE " + similar_quotations.to_json  
+   # puts "SIMILAR QUOTATIONS ARE " + similar_quotations.to_json  
     similar_points_stepping_on_each_other = []
    
 
@@ -66,7 +67,7 @@ class Chunk
       current_quote_position_in_all_quotes = @chunk_data.find_index {|q| Quote.from_openstruct(q).compare(current_quote) }
       previous_chunk_from_current_quote = @chunk_data[current_quote_position_in_all_quotes-amount_of_days..current_quote_position_in_all_quotes-1]    
       next_chunk_from_current_quote = @chunk_data[current_quote_position_in_all_quotes+1..current_quote_position_in_all_quotes+amount_of_days]
-      puts "next_chunk_from_current_quote: " + next_chunk_from_current_quote.inspect
+    #  puts "next_chunk_from_current_quote: " + next_chunk_from_current_quote.inspect
       similar_points_stepping_on_each_other.push(Point.new(current_quote,previous_chunk_from_current_quote,next_chunk_from_current_quote))    
       point_count = point_count + 1
 
@@ -85,7 +86,7 @@ class Chunk
 
     }
 
-    puts "POINTS NOT STEPING ON EACH OTHER" + similar_points_not_stepping_on_each_other_var.inspect
+ #   puts "POINTS NOT STEPING ON EACH OTHER" + similar_points_not_stepping_on_each_other_var.inspect
     similar_points_not_stepping_on_each_other_var.compact.sort_by { |p|
 
       Date.strptime(p.quote.trade_date,"%Y-%m-%d")
@@ -116,12 +117,27 @@ class Chunk
   end
 
   def data
-    @chunk_data.map {|os| Quote.from_openstruct(os) }
+    if (@chunk_data[0].class.to_s.include?("OpenStruct"))
+      @chunk_data.map {|os| Quote.from_openstruct(os) }
+    else
+      @chunk_data  
+    end   
   end
   
   def data_raw
-    @chunk_data
+      @chunk_data
   end
+  
+  
+  def - (another_chunk)
+    result = []
+    self.data_raw().each_with_index{ |q,i| 
+      result.push(Quote.from_openstruct(q) - Quote.from_openstruct(another_chunk.data_raw()[i]))      
+    }
+    result
+    
+  end
+  
   
   
 end

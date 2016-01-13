@@ -2,10 +2,21 @@ require 'yahoo-finance'
 require 'json'
 require 'Forecaster'
 require 'AvgForecaster'
+require 'DeltaForecaster'
+
+
+class Object
+  def unless_nil(default = nil, &block)
+    nil? ? default : block[self]
+  end
+end
+
+
+
 
 module Forecasting
 
-
+  
   
 class Company
 
@@ -45,7 +56,7 @@ class Company
 
   def last_quote
     l = self.all_history_between({ start_date: Time::now-(24*60*60*7), end_date: Time::now }).first
-    puts "LASTQUOTE " + l.inspect
+    #puts "LASTQUOTE " + l.inspect
 #    Quote.new(l['trade_date'],l['open'],l['close'],l['high'],l['low'],l['volume'],l['adjusted_close'],l['symbol'])
     Quote.from_openstruct(l)
   end
@@ -64,7 +75,7 @@ class Company
   
   
   def forecast_html_deltas_forecaster(amount_of_days,format)
-    delta_forecaster = DeltaForecaster.new(self)
+    delta_forecaster = Forecaster::DeltaForecaster.new(self)
     if (format.eql? "html")      
       delta_forecaster.forecast_html(amount_of_days)
     else
@@ -76,7 +87,7 @@ class Company
   
   
   def forecast_deltas_psychological_forecaster(amount_of_days,format)
-    deltas_psychological_forecaster = AvgForecaster.new(self)
+    deltas_psychological_forecaster = Forecaster::AvgForecaster.new(self)
     if (format.eql? "html")      
       deltas_psychological_forecaster.forecast_html(amount_of_days)
     else

@@ -16,14 +16,13 @@ module Forecasting
 
     end
 
-    
     protected
-    
+
     def forecast(amount_of_days)
       current_date = Time.now.strftime("%Y-%m-%d")
       last_quote = @company.last_quote
 
-      puts "LAST QUOTE IS " + last_quote.inspect
+      #puts "LAST QUOTE IS " + last_quote.inspect
 
       points_from_line = @company.all_history.similar_points_not_stepping_on_each_other(last_quote,amount_of_days)[0..(amount_of_days*2-1)]
 
@@ -52,16 +51,31 @@ module Forecasting
 
       points_with_chunks = points_with_chunks.compact
 
+      #puts "POINTS WITH CHUNKS: " + points_with_chunks.inspect
+      puts "POINTS WITH CHUNKS: " + points_with_chunks.size.to_s
       points_with_chunks
+      
+    end
+
+    def forecast_merge(points_with_chunks)
+      if (points_with_chunks.size>0)
+        pivot_quote = points_with_chunks[0].quote
+        all_left_chunks = []
+        all_right_chunks = []
+        points_with_chunks.each {|p| all_left_chunks.push(p.previous_n_quotes_chunk) }
+        points_with_chunks.each {|p| all_right_chunks.push(p.next_n_quotes_chunk) }
+
+        all_left_chunks_wrapped = Forecasting::Chunks.new(all_left_chunks)
+        all_right_chunks_wrapped = Forecasting::Chunks.new(all_right_chunks)
+
+        [pivot_quote,all_left_chunks_wrapped,all_right_chunks_wrapped]
+
+      else
+        nil  
+      end
 
     end
 
-    
-
-
-
-  
-
-end
+  end
 
 end
