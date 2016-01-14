@@ -15,6 +15,9 @@ class Chunk
   
   @selector
   def initialize(chunk)
+    if (chunk.class.to_s.include? "Chunk")
+      puts "YOU INSERTING A CHUNK!"
+    end
     @chunk_data = chunk.compact
     @selector = DrawSelector.new(self)
   end
@@ -23,7 +26,11 @@ class Chunk
   def to_html
     
     (@chunk_data.compact.inject("<table border=\"1\"><tr><td>SYMBOL</td><td>TRADE_DATE</td><td>OPEN</td><td>CLOSE</td><td>HIGH</td><td>LOW</td><td>VOLUME</td</td><td>ADJUSTED_CLOSE</td>") {|o,q|       
-         o = o + Quote.from_openstruct(q).to_row.to_s      
+       puts "Q: " + q.inspect   
+       if (q.class.to_s.include? "Chunk")
+         puts "YOU INSERTING A CHUNK!"
+       end      
+       o = o + Quote.from_openstruct(q).to_row.to_s             
     }) + "</table>"
   
   end
@@ -97,6 +104,13 @@ class Chunk
 
   end
 
+  
+  
+  def to_row
+    o = ""
+    @chunk_data.each {|q| o = o + q.to_row }
+    o
+  end
   
 
   def last

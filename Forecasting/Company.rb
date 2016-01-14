@@ -74,7 +74,7 @@ class Company
   end
   
   
-  def forecast_html_deltas_forecaster(amount_of_days,format)
+  def forecast_deltas_forecaster(amount_of_days,format)
     delta_forecaster = Forecaster::DeltaForecaster.new(self)
     if (format.eql? "html")      
       delta_forecaster.forecast_html(amount_of_days)

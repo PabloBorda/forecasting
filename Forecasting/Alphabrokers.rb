@@ -16,7 +16,7 @@ set :port, 9494
 get '/' do
 
 
-  Company.new("AAPL").forecast_html_deltas_forecaster(60,"html")
+  Company.new("AAPL").forecast_deltas_forecaster(60,"html")
 #"HELLO WORLD!"
   #Company.new("AAPL").all_history.each do |q| o = o + q.inspect.to_s end
     

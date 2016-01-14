@@ -31,6 +31,7 @@ module Forecasting
 
     def forecast_merge(points_with_chunks)
       all_chunks = super(points_with_chunks)
+      puts "ALL_CHUNKS: " + all_chunks.size.to_s
       if (!all_chunks.nil?)
         pivot_quote = all_chunks[0]
         all_left_chunks_wrapped = all_chunks[1]

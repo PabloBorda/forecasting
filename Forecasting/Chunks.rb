@@ -44,7 +44,7 @@ module Forecasting
           delta.push(q - @chunks[i-1])
         end
       }
-      Forecasting::Chunk.new(delta)
+      Forecasting::Chunks.new(delta)
     end
 
     def forecast_merge_worst_drop(points_with_chunks)
@@ -62,6 +62,18 @@ module Forecasting
       }
       (sum_col/column.size)
     end
+    
+    
+    def to_html
+      o = ""
+      @chunks.each {|c|        
+          o = o + c.to_html()        
+      }
+      o
+      
+      
+    end
+    
 
   end
 

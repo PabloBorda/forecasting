@@ -25,7 +25,7 @@ module Forecasting
       #puts "LAST QUOTE IS " + last_quote.inspect
 
       points_from_line = @company.all_history.similar_points_not_stepping_on_each_other(last_quote,amount_of_days)[0..(amount_of_days*2-1)]
-
+      puts "POINTS_FROM_LINE: " + points_from_line.size.to_s
       points_with_chunks = []
 
       points_from_line.each {|p|
