@@ -4,6 +4,7 @@ module Forecasting
   require 'nokogiri'
   require 'open-uri'
   require 'open_uri_redirections'
+  require 'json'
   
   class Scraper
     
@@ -79,14 +80,14 @@ module Forecasting
            
             result = countWords(link.href)
             
-            positiveCounter = positiveCounter + result[0]
-            negativeCounter = negativeCounter + result[1]
+            positiveCounter = positiveCounter + result[:Positive]
+            negativeCounter = negativeCounter + result[:Negative]
             
          #end
          
        end
        
-       return positiveCounter, negativeCounter
+       return { :Positive => positiveCounter, :Negative => negativeCounter, :Symbol => @symbol, :Date => Time.now.strftime("%d/%m/%Y")}
        
      end
      
@@ -153,18 +154,20 @@ module Forecasting
                       
        end
        
-       return positiveCounter, negativeCounter
+     return { :Positive => positiveCounter, :Negative => negativeCounter, :Symbol => @symbol, :Date => Time.now.strftime("%d/%m/%Y")}
        
      end
     
   end
   
-
-  t = Scraper.new('AAPL')
+  
+  t = Scraper.new('PYPL')
   #result = t.countWords('http://www.usatoday.com/story/money/markets/2015/12/14/apple-stock-fails-again/77290488/')
   result = t.scrapeCNNPage()
-  puts "Positive words: " + result[0].to_s
-  puts "Negative words: " + result[1].to_s
+  puts "Positive words: " + result[:Positive].to_s
+  puts "Negative words: " + result[:Negative].to_s
+  puts result.to_json
+  
    
 end
 
