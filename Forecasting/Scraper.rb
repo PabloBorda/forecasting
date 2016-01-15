@@ -5,10 +5,17 @@ module Forecasting
   require 'open-uri'
   require 'open_uri_redirections'
   require 'json'
+  require 'logger'
   
   class Scraper
     
+    @logger = Logger.new('Files/logfile.log')
+    def self.logger
+      @logger
+    end
+    
     def initialize(symbol)       
+                   
           # Create CNN news URL based on symbol
           @symbol = symbol
           @url = 'http://money.cnn.com/quote/news/news.html?symb=' + @symbol 
@@ -34,7 +41,9 @@ module Forecasting
           f3.each_line do |line|
             if line.chomp.include? @symbol          
                @symbolName=line.chomp.split('=')[1]
-               puts @symbolName
+               
+               Scraper.logger.info @symbolName 
+               
                break
             end
           end
@@ -75,7 +84,8 @@ module Forecasting
        # Iterate each link and call countWords for each
        arrayLinks.each do |link| 
          
-         puts link.href
+         Scraper.logger.info link.href
+         #puts link.href
          #if !link.href.include?("www.ft.com") 
            
             result = countWords(link.href)
@@ -134,8 +144,9 @@ module Forecasting
               
               # Count word if it equals a positive words            
               @positiveWordsArray.each do |line|          
-                if s2.upcase == line              
-                  puts s2 
+                if s2.upcase == line     
+                  Scraper.logger.info s2         
+                  #puts s2 
                   positiveCounter = positiveCounter + 1                              
                 end                  
               end
@@ -143,7 +154,8 @@ module Forecasting
               # Count word if it equals a negative words   
               @negativeWordsArray.each do |line|
                 if s2.upcase == line
-                  puts s2                
+                  Scraper.logger.info s2
+                  #puts s2                
                   negativeCounter = negativeCounter + 1     
                 end                                 
               end
@@ -153,6 +165,9 @@ module Forecasting
          end
                       
        end
+       
+     Scraper.logger.info positiveCounter
+     Scraper.logger.info positiveCounter 
        
      return { :Positive => positiveCounter, :Negative => negativeCounter, :Symbol => @symbol, :Date => Time.now.strftime("%d/%m/%Y")}
        
