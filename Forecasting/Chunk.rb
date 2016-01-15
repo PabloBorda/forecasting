@@ -26,7 +26,7 @@ class Chunk
   def to_html
     
     (@chunk_data.compact.inject("<table border=\"1\"><tr><td>SYMBOL</td><td>TRADE_DATE</td><td>OPEN</td><td>CLOSE</td><td>HIGH</td><td>LOW</td><td>VOLUME</td</td><td>ADJUSTED_CLOSE</td>") {|o,q|       
-       puts "Q: " + q.inspect   
+       #puts "Q: " + q.inspect   
        if (q.class.to_s.include? "Chunk")
          puts "YOU INSERTING A CHUNK!"
        end      
@@ -41,6 +41,14 @@ class Chunk
   end
 
 
+  def to_j
+    o = @chunk_data.inject(""){|o,q| o = o + "," + q.to_j }
+    "[" + o[1..o.size] + "]"  
+    
+  end
+  
+  
+  
   def to_deltas
     delta = []
     @chunk_data.each_with_index { |q,i| 
@@ -144,11 +152,12 @@ class Chunk
   
   
   def - (another_chunk)
+    #puts "RESTING CHUNK" + self.inspect + " WITH " + another_chunk.inspect
     result = []
     self.data_raw().each_with_index{ |q,i| 
       result.push(Quote.from_openstruct(q) - Quote.from_openstruct(another_chunk.data_raw()[i]))      
     }
-    result
+    Forecasting::Chunk.new(result)
     
   end
   

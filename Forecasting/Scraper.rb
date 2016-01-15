@@ -161,7 +161,7 @@ module Forecasting
   end
   
   
-  t = Scraper.new('PYPL')
+  t = Scraper.new('AAPL')
   #result = t.countWords('http://www.usatoday.com/story/money/markets/2015/12/14/apple-stock-fails-again/77290488/')
   result = t.scrapeCNNPage()
   puts "Positive words: " + result[:Positive].to_s

@@ -3,6 +3,9 @@ load 'Company.rb'
 load 'Point.rb'
 load 'Quote.rb'
 load 'DrawSelector.rb'
+load 'Forecaster.rb'
+load 'AvgForecaster.rb'
+load 'DeltaForecaster.rb'
 
 require 'sinatra'
 require 'json'
@@ -15,9 +18,17 @@ set :port, 9494
 
 get '/' do
 
-
-  Company.new("AAPL").forecast_deltas_forecaster(60,"html")
-#"HELLO WORLD!"
-  #Company.new("AAPL").all_history.each do |q| o = o + q.inspect.to_s end
+  out = ""
+  
+  company = Forecasting::Company.new("AAPL")
+  
+  
+  avgf = Forecasting::Forecaster::AvgForecaster.new
+  deltaf = Forecasting::Forecaster::DeltaForecaster.new
+  
+  
+  
+  "Average Algorithm <br>" +  avgf.forecast_on_me(company,60).to_html + "Delta Algorithm <br>" + deltaf.forecast_on_me(company,60).to_html
+  
     
 end

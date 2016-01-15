@@ -2,19 +2,25 @@ module Forecasting
   class Forecaster
 
     @company
-    def initialize(company)
+    def initialize
+      
+    end
+    
+    
+    def forecast_on_me(company,amount_of_days)
       @company = company
+      @company.all_history      
+      self.forecast_merge(self.forecast(amount_of_days))
     end
-
-    def forecast_html(amount_of_days)
-      self.forecast(amount_of_days)
-
+    
+    
+    def accuracy
+      
+      
     end
-
-    def forecast_json(amount_of_days)
-      self.forecast(amount_of_days)
-
-    end
+    
+    
+    
 
     protected
 

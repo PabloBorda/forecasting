@@ -29,23 +29,14 @@ module Forecasting
 
     end
 
-    def calculate_deltas_for_chunks(chunks)
-      @chunks.map{|c|
-        calculate_delta_for_chunk(c)
-      }
+  
+    
+   
+    def chunks
+      @chunks
     end
-
-    def calculate_delta_for_chunks
-      delta = []
-      @chunks.each_with_index { |q,i|
-        if (i==0)
-          delta.push(q)
-        else
-          delta.push(q - @chunks[i-1])
-        end
-      }
-      Forecasting::Chunks.new(delta)
-    end
+    
+    
 
     def forecast_merge_worst_drop(points_with_chunks)
 
@@ -66,8 +57,10 @@ module Forecasting
     
     def to_html
       o = ""
-      @chunks.each {|c|        
-          o = o + c.to_html()        
+      @chunks.each {|c|    
+        if !c.class.to_s.include? "Array"    
+          o = o + c.to_html()
+        end        
       }
       o
       

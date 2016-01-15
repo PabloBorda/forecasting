@@ -42,6 +42,13 @@ module Forecasting
       
     end
 
+    
+    def to_j
+      "{ \"quote\": " + self.quote.to_j + ",\"previous_n_quotes_chunk\": " + self.previous_n_quotes_chunk.to_j + ",\" next_n_quotes_chunk\": " + self.next_n_quotes_chunk.to_j + "}"   
+    end
+    
+    
+    
     def remove_repeated_prev_and_next_chunk_from_point(another_point)
       another_point.previous_n_quotes_chunk = another_point.previous_n_quotes_chunk - self.previous_n_quotes_chunk
       another_point.next_n_quotes_chunk = another_point.next_n_quotes_chunk - self.next_n_quotes_chunk
