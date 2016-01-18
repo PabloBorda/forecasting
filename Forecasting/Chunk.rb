@@ -42,9 +42,21 @@ class Chunk
 
 
   def to_j
-    o = @chunk_data.inject(""){|o,q| o = o + "," + q.to_j }
-    "[" + o[1..o.size] + "]"  
+    if @chunk_data.size>1
+      o = @chunk_data.inject(""){|o,q| if q.class.to_s.include? "Quote" 
+                                         o = o + "," + q.to_j 
+                                       end
+      }
+      ("[" + o[2..-1] + "]")
+    else
+      ""
+    end  
     
+  end
+  
+  
+  def get_quote_by_number(i)
+    Quote.from_openstruct(@chunk_data[i])    
   end
   
   
@@ -58,7 +70,7 @@ class Chunk
         delta.push(q - Quote.from_openstruct(@chunk_data[i-1]))
       end
     }    
-    delta  
+    Forecasting::Chunk.new(delta)  
   end
   
   
@@ -149,6 +161,12 @@ class Chunk
   def data_raw
       @chunk_data
   end
+  
+  
+  def get_symbol
+    @chunk_data[0].symbol
+  end
+  
   
   
   def - (another_chunk)

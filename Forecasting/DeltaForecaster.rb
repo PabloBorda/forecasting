@@ -3,59 +3,66 @@ require 'Chunk'
 
 module Forecasting
   class DeltaForecaster < Forecaster
-    
-    
-    
-    
     def forecast_merge(points_with_chunks)
       all_chunks = super(points_with_chunks)
       if (!all_chunks.nil?)
         pivot_quote = @company.last_quote
         all_left_chunks_wrapped = all_chunks[1]
         all_right_chunks_wrapped = all_chunks[2]
-        forecasting_for_next_days = Point.new(pivot_quote,calculate_delta_for_chunks(all_left_chunks_wrapped),calculate_delta_for_chunks(all_right_chunks_wrapped))
+        forecasting_for_next_days = Point.new(pivot_quote,calculate_min_delta_for_chunks(all_left_chunks_wrapped),calculate_min_delta_for_chunks(all_right_chunks_wrapped))
         forecasting_for_next_days
       else
         Forecasting::Point.new(Quote.neutral_element(),Forecasting::Chunk.new([]),Forecasting::Chunk.new([]))
       end
     end
 
-    
-    
-    
-    
     private
 
-    
-    
-    def calculate_deltas_for_chunks(chunks)
-      chunks.chunks.map{|c|
-        calculate_delta_for_chunk(c)
+    def calculate_min_delta_for_chunks(chunks)
+      deltas = []
+      chunks.chunks.each {|c|
+        deltas.push(calculate_delta_for_single_chunk(c))
       }
-    end
-
-    def calculate_delta_for_chunks(chunks)
-      delta = []
-      chunks.chunks.each_with_index { |q,i|
-        puts "Q IS A CHUNK: " + q.class.to_s
-        if (i==0)
-          delta.push(q)
-        else
-          delta.push(q - chunks.chunks[i-1])
+      
+     total_delta = []
+     
+     close_lowest = 9999999
+     quote_lowest = nil
+      
+     
+        
+     deltas.size().times {|i|
+      deltas[i].size.times { |j|
+        if deltas[i].get_quote_by_number(j).close.to_f <= close_lowest.to_f
+          quote_lowest = deltas[i].get_quote_by_number(j)
         end
       }
-      Forecasting::Chunks.new(delta).calculate_avg_for_chunks
+      total_delta.push(quote_lowest)      
+    }
+    
+    Forecasting::Chunk.new(total_delta)
+      
+      
     end
+
 
     
     
     
+    def calculate_delta_for_single_chunk(chunk)
+      chunk.to_deltas               
+    end
     
     
     
     
     
     
+    
+    
+    
+    
+
   end
 
 end

@@ -2,6 +2,7 @@ module Forecasting
   class Forecaster
 
     @company
+    @amount_of_days
     def initialize
       
     end
@@ -9,7 +10,8 @@ module Forecasting
     
     def forecast_on_me(company,amount_of_days)
       @company = company
-      @company.all_history      
+      @company.all_history
+      @amount_of_days = amount_of_days      
       self.forecast_merge(self.forecast(amount_of_days))
     end
     
@@ -19,6 +21,9 @@ module Forecasting
       
     end
     
+    def amount_of_days
+      @amount_of_days
+    end
     
     
 
@@ -31,7 +36,7 @@ module Forecasting
       #puts "LAST QUOTE IS " + last_quote.inspect
 
       points_from_line = @company.all_history.similar_points_not_stepping_on_each_other(last_quote,amount_of_days)[0..(amount_of_days*2-1)]
-      puts "POINTS_FROM_LINE: " + points_from_line.size.to_s
+      #puts "POINTS_FROM_LINE: " + points_from_line.size.to_s
       points_with_chunks = []
 
       points_from_line.each {|p|
@@ -58,7 +63,7 @@ module Forecasting
       points_with_chunks = points_with_chunks.compact
 
       #puts "POINTS WITH CHUNKS: " + points_with_chunks.inspect
-      puts "POINTS WITH CHUNKS: " + points_with_chunks.size.to_s
+      #puts "POINTS WITH CHUNKS: " + points_with_chunks.size.to_s
       points_with_chunks
       
     end
@@ -73,7 +78,8 @@ module Forecasting
 
         all_left_chunks_wrapped = Forecasting::Chunks.new(all_left_chunks)
         all_right_chunks_wrapped = Forecasting::Chunks.new(all_right_chunks)
-
+        puts "ALL_CHUNKS LEFT: " + all_left_chunks_wrapped.to_j
+        puts "ALL_CHUNKS RIGHT: " + all_right_chunks_wrapped.to_j
         [pivot_quote,all_left_chunks_wrapped,all_right_chunks_wrapped]
 
       else
