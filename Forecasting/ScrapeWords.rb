@@ -1,9 +1,11 @@
 module Forecasting
   
   require 'json'
-  require 'Scraper'
-  require 'mongo'
 
+  require 'mongo'
+  
+  load 'Scraper.rb'
+  
   class ScrapeWords
   
     result = {:Date => Time.now.strftime("%d/%m/%Y"), :Data =>[] }
