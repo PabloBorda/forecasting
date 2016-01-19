@@ -5,7 +5,7 @@ module Forecasting
     @chunks
     def initialize(chunks)
       @chunks = chunks
-      puts "CHUNK SIZE IS: " + chunks.size.to_s
+      puts "CHUNKS SIZE IS: " + chunks.size.to_s
     end
 
     def get_column_by_number(colnum)
@@ -17,6 +17,44 @@ module Forecasting
       column
     end
 
+    
+    
+    def self.from_chunk_collection_to_chunks_with_previous_dates(chunk_collection)
+      
+      
+    end
+    
+    def self.from_chunk_collection_to_chunks_with_next_dates(chunk_collection)
+        
+        
+    end
+    
+    
+    def size
+      @chunks.size
+    end
+    
+    def get_row(i)
+      @chunks.collect {|c| c.get_quote_by_number(i) }                 
+    end
+    
+    
+    def get_min_from_row(i)
+      self.get_row(i).min
+    end
+    
+    def get_min_from_each_row_into_a_chunk
+      
+      amount_of_chunks = @chunks.size
+      puts "get_min_from_each_row_into_a_chunk, amount of chunks: " + amount_of_chunks.to_s
+      result = []      
+      amount_of_chunks.times {|i|
+        result.push(self.get_min_from_row(i))        
+      }
+      Forecasting::Chunk.new(result)
+      
+    end
+    
 
 
     def chunks
@@ -40,7 +78,7 @@ module Forecasting
     def to_html
       o = ""
       @chunks.each {|c|
-        if !c.class.to_s.include? "Array"
+        if c.size>0
           o = o + c.to_html()
         end
       }
@@ -48,14 +86,17 @@ module Forecasting
     end
 
     def to_j
-      o = "[" + 
-      p = @chunks.inject("") {|o,c|
+     
         
-          o = o + c.to_j + "," 
-        
-      }
+      if @chunks.size==0
+        "[]"
+      else
+        p = @chunks.inject("") {|o,c|
+              o = o + c.to_j + ","           
+        }
       
-      "[" + p[0..-2]+ "]"
+        "[" + p[0..-2]+ "]"
+      end
       
     end
 

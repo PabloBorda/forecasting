@@ -36,10 +36,12 @@ module Forecasting
       avg_chunk = []
       chunks.chunks[0].size.times {
         |i|
-        q = Quote.new((current_trade_date + i).strftime("%Y-%m-%d").to_s,"0",self.calculate_avg_for_column(chunks.chunks.get_column_by_number(i)),"0","0","0","0",chunks.chunks.get_symbol)
+        q = Quote.new("","0",self.calculate_avg_for_column(chunks.get_column_by_number(i)),"0","0","0","0",chunks.chunks[0].get_symbol)
         avg_chunk.push(q)
       }
-      Chunk.new(avg_chunk)
+      c = Chunk.new(avg_chunk)
+      c.set_future_dates_in_all_quotes()
+      
 
     end
 
@@ -48,10 +50,12 @@ module Forecasting
       avg_chunk = []
       chunks.chunks[0].size.times {
         |i|
-        q = Quote.new((current_trade_date - i).strftime("%Y-%m-%d").to_s,"0",self.calculate_avg_for_column(chunks.get_column_by_number(i)),"0","0","0","0",chunks.chunks[0].get_symbol)
+        q = Quote.new("","0",self.calculate_avg_for_column(chunks.get_column_by_number(i)),"0","0","0","0",chunks.chunks[0].get_symbol)
         avg_chunk.push(q)
       }
-      Chunk.new(avg_chunk)
+      c = Chunk.new(avg_chunk)
+      c.set_past_dates_in_all_quotes()
+      
 
     end
 

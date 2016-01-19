@@ -20,9 +20,40 @@ class Chunk
     end
     @chunk_data = chunk.compact
     @selector = DrawSelector.new(self)
+    
   end
   
 
+  
+  def set_future_dates_in_all_quotes    
+    current_trade_date = Date.today
+    @chunk_data = @chunk_data.map {|q|
+      current_trade_date = current_trade_date + 1          
+      while (((current_trade_date).wday == 6) or ((current_trade_date).wday == 0))        
+        current_trade_date = current_trade_date + 1
+      end                                          
+      q.trade_date = ((current_trade_date).strftime("%Y-%m-%d").to_s)      
+      q      
+    }
+    self
+    
+  end
+  
+  
+  def set_past_dates_in_all_quotes
+    current_trade_date = Date.today
+    @chunk_data = @chunk_data.map {|q|             
+      current_trade_date = current_trade_date - 1
+      while  (((current_trade_date).wday == 0) or ((current_trade_date).wday == 6))        
+        current_trade_date = current_trade_date - 1
+      end                                                                  
+      q.trade_date = ((current_trade_date).strftime("%Y-%m-%d").to_s)      
+      q
+    }  
+    self     
+  end
+  
+  
   def to_html
     
     (@chunk_data.compact.inject("<table border=\"1\"><tr><td>SYMBOL</td><td>TRADE_DATE</td><td>OPEN</td><td>CLOSE</td><td>HIGH</td><td>LOW</td><td>VOLUME</td</td><td>ADJUSTED_CLOSE</td>") {|o,q|       
@@ -47,9 +78,9 @@ class Chunk
                                          o = o + "," + q.to_j 
                                        end
       }
-      ("[" + o[2..-1] + "]")
+      ("[" + o[1..-1] + "]")
     else
-      ""
+      "[]"
     end  
     
   end
@@ -59,19 +90,7 @@ class Chunk
     Quote.from_openstruct(@chunk_data[i])    
   end
   
-  
-  
-  def to_deltas
-    delta = []
-    @chunk_data.each_with_index { |q,i| 
-      if (i==0)
-        delta.push(q)        
-      else
-        delta.push(q - Quote.from_openstruct(@chunk_data[i-1]))
-      end
-    }    
-    Forecasting::Chunk.new(delta)  
-  end
+
   
   
   

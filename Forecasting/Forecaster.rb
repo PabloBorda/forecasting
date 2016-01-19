@@ -49,11 +49,11 @@ module Forecasting
             previous_chunk = Chunk.new(b)
             if (((p_index_in_all_history-amount_of_days-1)>=0) and
             ((p_index_in_all_history-1)<@company.all_history.size))
-              next_chunk = Chunk.new(@company.all_history.data[(p_index_in_all_history-amount_of_days-1)..(p_index_in_all_history-1)].reverse)
+              next_chunk = Chunk.new(@company.all_history.data[(p_index_in_all_history-amount_of_days-1)..(p_index_in_all_history-1)].reverse)             
             end
             if (((p_index_in_all_history+1)>=0) and
             ((p_index_in_all_history+amount_of_days+1)<@company.all_history.size))
-              previous_chunk = Chunk.new(@company.all_history.data[(p_index_in_all_history+1)..(p_index_in_all_history+amount_of_days+1)].reverse)
+              previous_chunk = Chunk.new(@company.all_history.data[(p_index_in_all_history+1)..(p_index_in_all_history+amount_of_days+1)].reverse)              
             end
             points_with_chunks.push(Point.new(p.quote,previous_chunk,next_chunk))
           end
@@ -61,9 +61,8 @@ module Forecasting
       }
 
       points_with_chunks = points_with_chunks.compact
+      puts "POINTS_WITH_CHUNKS" + (points_with_chunks.inject("["){|o,p| o = o + p.to_j + ","})[0..-2] + "]" 
 
-      #puts "POINTS WITH CHUNKS: " + points_with_chunks.inspect
-      #puts "POINTS WITH CHUNKS: " + points_with_chunks.size.to_s
       points_with_chunks
       
     end
@@ -73,14 +72,16 @@ module Forecasting
         pivot_quote = points_with_chunks[0].quote
         all_left_chunks = []
         all_right_chunks = []
-        points_with_chunks.each {|p| all_left_chunks.push(p.previous_n_quotes_chunk) }
-        points_with_chunks.each {|p| all_right_chunks.push(p.next_n_quotes_chunk) }
-
+        points_with_chunks.each {|p| 
+          if (p.previous_n_quotes_chunk.size > 0) and (p.next_n_quotes_chunk.size>0) 
+            all_left_chunks.push(p.previous_n_quotes_chunk)
+            all_right_chunks.push(p.next_n_quotes_chunk)
+          end         
+        }        
         all_left_chunks_wrapped = Forecasting::Chunks.new(all_left_chunks)
         all_right_chunks_wrapped = Forecasting::Chunks.new(all_right_chunks)
-        puts "ALL_CHUNKS LEFT: " + all_left_chunks_wrapped.to_j
-        puts "ALL_CHUNKS RIGHT: " + all_right_chunks_wrapped.to_j
-        [pivot_quote,all_left_chunks_wrapped,all_right_chunks_wrapped]
+
+        [pivot_quote,all_left_chunks_wrapped,all_right_chunks_wrapped,points_with_chunks]
 
       else
         nil  
