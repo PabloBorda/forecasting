@@ -23,22 +23,49 @@ class Company
   @symbol
   @yahoo_client
   @history
-
+  @splits
+  
+  
   def initialize(symbol)
     @yahoo_client = YahooFinance::Client.new
     @symbol = symbol
     @history = nil
+    @splits = nil
   end
 
   def all_history
     if @history.nil?
       @history = @yahoo_client.historical_quotes(@symbol)
+      puts "HISTORY: " + Chunk.new(@history).to_j
     end
     @history.map{|q| 
       Quote.new(q['trade_date'],q['open'],q['close'],q['high'],q['low'],q['volume'],q['adjusted_close'],q['symbol'])
     } 
+    if !self.get_last_split_date.nil?
+      @history = @history.select{|q|      
+        Date.strptime(q.trade_date,"%Y-%m-%d") >= self.get_last_split_date}
+    end
+    
     Chunk.new(@history)
+    
   end
+  
+  
+  def get_split_dates
+    if @splits==nil
+      @splits = @yahoo_client.splits(@symbol, :start_date => Date.today - 20*365)
+    end
+    @splits
+  end
+  
+  def get_last_split_date
+    if !@splits.nil?
+      self.get_split_dates[0]['date']
+    else
+      nil  
+    end
+  end
+  
 
 
 

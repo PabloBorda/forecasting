@@ -35,23 +35,27 @@ module Forecasting
     end
     
     def get_row(i)
-      @chunks.collect {|c| c.get_quote_by_number(i) }                 
+      @chunks.map {|c| c.get_quote_by_number(i) }                 
     end
     
     
     def get_min_from_row(i)
+     
       self.get_row(i).min
     end
     
     def get_min_from_each_row_into_a_chunk
-      
-      amount_of_chunks = @chunks.size
-      puts "get_min_from_each_row_into_a_chunk, amount of chunks: " + amount_of_chunks.to_s
-      result = []      
-      amount_of_chunks.times {|i|
-        result.push(self.get_min_from_row(i))        
-      }
-      Forecasting::Chunk.new(result)
+      if (chunks.size > 0)
+        amount_of_chunks = @chunks[0].size
+        puts "get_min_from_each_row_into_a_chunk, amount of chunks: " + amount_of_chunks.to_s
+        result = []      
+        amount_of_chunks.times {|i|
+          result.push(self.get_min_from_row(i))        
+        }
+        Forecasting::Chunk.new(result)
+      else
+        puts "THERE ARE NO CHUNKS INSIDE"  
+      end 
       
     end
     

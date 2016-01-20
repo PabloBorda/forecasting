@@ -26,7 +26,7 @@ class Chunk
 
   
   def set_future_dates_in_all_quotes    
-    current_trade_date = Date.today
+    current_trade_date = Date.today - 1
     @chunk_data = @chunk_data.map {|q|
       current_trade_date = current_trade_date + 1          
       while (((current_trade_date).wday == 6) or ((current_trade_date).wday == 0))        
@@ -41,7 +41,7 @@ class Chunk
   
   
   def set_past_dates_in_all_quotes
-    current_trade_date = Date.today
+    current_trade_date = Date.today - 1
     @chunk_data = @chunk_data.map {|q|             
       current_trade_date = current_trade_date - 1
       while  (((current_trade_date).wday == 0) or ((current_trade_date).wday == 6))        
@@ -76,6 +76,8 @@ class Chunk
     if @chunk_data.size>1
       o = @chunk_data.inject(""){|o,q| if q.class.to_s.include? "Quote" 
                                          o = o + "," + q.to_j 
+                                       else
+                                         o = o + "," + Quote.from_openstruct(q).to_j
                                        end
       }
       ("[" + o[1..-1] + "]")
@@ -111,8 +113,45 @@ class Chunk
     while (point_count<(similar_quotations.size)) do
       current_quote = similar_quotations[point_count]      
       current_quote_position_in_all_quotes = @chunk_data.find_index {|q| Quote.from_openstruct(q).compare(current_quote) }
-      previous_chunk_from_current_quote = @chunk_data[current_quote_position_in_all_quotes-amount_of_days..current_quote_position_in_all_quotes-1]    
-      next_chunk_from_current_quote = @chunk_data[current_quote_position_in_all_quotes+1..current_quote_position_in_all_quotes+amount_of_days]
+      
+      
+      prev_lower_limit = 0
+      prev_upper_limit = 0 
+      next_lower_limit = current_quote_position_in_all_quotes + 1  
+      next_upper_limit = @chunk_data.size
+        
+      if (current_quote_position_in_all_quotes!=0)
+      
+        if ((current_quote_position_in_all_quotes - 1 - amount_of_days) >= 0)
+          prev_lower_limit = (current_quote_position_in_all_quotes - 1 - amount_of_days)
+          prev_upper_limit = current_quote_position_in_all_quotes - 1       
+        else
+          prev_lower_limit = 0
+          prev_upper_limit = current_quote_position_in_all_quotes - 1
+        end  
+      
+      
+        previous_chunk_from_current_quote = @chunk_data[prev_lower_limit..prev_upper_limit]    
+      else
+        previous_chunk_from_current_quote = []
+      end
+      
+      
+      if (current_quote_position_in_all_quotes!=@chunk_data.size)
+      
+        if ((current_quote_position_in_all_quotes + 1 + amount_of_days) < @chunk_data.size)
+          next_lower_limit = current_quote_position_in_all_quotes + 1
+          next_upper_limit = current_quote_position_in_all_quotes + 1 + amount_of_days        
+        else
+          next_lower_limit = current_quote_position_in_all_quotes + 1
+          next_upper_limit = @chunk_data.size
+        end
+                                
+        next_chunk_from_current_quote = @chunk_data[next_lower_limit..next_upper_limit]
+        
+      else
+        next_chunk_from_current_quote = []        
+      end
     #  puts "next_chunk_from_current_quote: " + next_chunk_from_current_quote.inspect
       similar_points_stepping_on_each_other.push(Point.new(current_quote,previous_chunk_from_current_quote,next_chunk_from_current_quote))    
       point_count = point_count + 1

@@ -47,6 +47,8 @@ def to_deltas(chunk)
       delta.push(q - Quote.from_openstruct(chunk.data[i-1]))
     end
   }    
+  
+  puts "DELTA: " + Forecasting::Chunk.new(delta).to_j
   Forecasting::Chunk.new(delta)  
 end
    
