@@ -35,18 +35,27 @@ class Company
 
   def all_history
     if @history.nil?
-      @history = @yahoo_client.historical_quotes(@symbol)
-      puts "HISTORY: " + Chunk.new(@history).to_j
+      begin
+        @history = @yahoo_client.historical_quotes(@symbol)        
+        #puts "HISTORY: " + Chunk.new(@history).to_j
+      rescue OpenURI::HTTPError => e
+      
+        #puts e.message
+        
+      end  
+        
     end
-    @history.map{|q| 
-      Quote.new(q['trade_date'],q['open'],q['close'],q['high'],q['low'],q['volume'],q['adjusted_close'],q['symbol'])
-    } 
-    if !self.get_last_split_date.nil?
-      @history = @history.select{|q|      
-        Date.strptime(q.trade_date,"%Y-%m-%d") >= self.get_last_split_date}
+    if !@history.nil?
+      @history.map{|q| 
+        Quote.new(q['trade_date'],q['open'],q['close'],q['high'],q['low'],q['volume'],q['adjusted_close'],q['symbol'])
+      } 
+      if !self.get_last_split_date.nil?
+        @history = @history.select{|q|      
+          Date.strptime(q.trade_date,"%Y-%m-%d") >= self.get_last_split_date}
+      end
+      
+      Chunk.new(@history)
     end
-    
-    Chunk.new(@history)
     
   end
   
@@ -70,10 +79,15 @@ class Company
 
 
   def all_history_between(period)
+    begin
       data = @yahoo_client.historical_quotes(@symbol,period)
       
-      puts "YAHOO " + data.inspect
+      #puts "YAHOO " + data.inspect
       Chunk.new(data)
+    rescue
+      #puts "FAILED TO GET HISTORY FOR COMPANY " + @symbol
+      
+    end
   end
 
   def current_quote_realtime
@@ -82,10 +96,14 @@ class Company
   end
 
   def last_quote
-    l = self.all_history_between({ start_date: Time::now-(24*60*60*7), end_date: Time::now }).first
-    #puts "LASTQUOTE " + l.inspect
+    begin
+      l = self.all_history_between({ start_date: Time::now-(24*60*60*7), end_date: Time::now }).first
+    ##puts "LASTQUOTE " + l.inspect
 #    Quote.new(l['trade_date'],l['open'],l['close'],l['high'],l['low'],l['volume'],l['adjusted_close'],l['symbol'])
-    Quote.from_openstruct(l)
+      Quote.from_openstruct(l)
+    rescue
+      #puts "FAILED TO GET LAST QUOTE FOR COMPANY: " + @symbol
+    end
   end
   
   

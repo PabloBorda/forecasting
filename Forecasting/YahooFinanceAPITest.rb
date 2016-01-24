@@ -2,4 +2,4 @@ require "YahooFinanceAPI"
 
 
 yahoo = YahooFinanceAPI.new
-puts yahoo.get_all_us_symbols().inspect 
+#puts yahoo.get_all_us_symbols().inspect 

@@ -5,12 +5,16 @@ module Forecasting
   class DeltaForecaster < Forecaster
     def forecast_merge(points_with_chunks)
       all_chunks = super(points_with_chunks)
-      if (!all_chunks.nil?)
+      if (!all_chunks.nil?) and (!all_chunks[1].nil?) and (!all_chunks[2].nil?)
         pivot_quote = @company.last_quote
         all_left_chunks_wrapped = all_chunks[1]
         all_right_chunks_wrapped = all_chunks[2]
-        forecasting_for_next_days = Point.new(pivot_quote,calculate_min_delta_for_chunks(all_left_chunks_wrapped).set_past_dates_in_all_quotes(),calculate_min_delta_for_chunks(all_right_chunks_wrapped).set_future_dates_in_all_quotes())
-        forecasting_for_next_days
+        min_delta_for_all_left_chunks_wrapped = calculate_min_delta_for_chunks(all_left_chunks_wrapped)
+        min_delta_for_all_right_chunks_wrapped = calculate_min_delta_for_chunks(all_right_chunks_wrapped)        
+        if (!min_delta_for_all_left_chunks_wrapped.nil?) and (!min_delta_for_all_left_chunks_wrapped.nil?)
+          forecasting_for_next_days = Point.new(pivot_quote,min_delta_for_all_left_chunks_wrapped.set_past_dates_in_all_quotes(),min_delta_for_all_right_chunks_wrapped.set_future_dates_in_all_quotes())
+          forecasting_for_next_days
+        end
       else
         Forecasting::Point.new(Quote.neutral_element(),Forecasting::Chunk.new([]),Forecasting::Chunk.new([]))
       end
@@ -26,7 +30,7 @@ module Forecasting
     
    def get_deltas_for_chunks(chunks) 
      deltas = []
-     puts "MYSIZE: " + chunks.size.to_s 
+     #puts "MYSIZE: " + chunks.size.to_s 
      chunks.chunks.each {|c|
        deltas.push(to_deltas(c))        
      }
@@ -48,7 +52,7 @@ def to_deltas(chunk)
     end
   }    
   
-  puts "DELTA: " + Forecasting::Chunk.new(delta).to_j
+  #puts "DELTA: " + Forecasting::Chunk.new(delta).to_j
   Forecasting::Chunk.new(delta)  
 end
    

@@ -1,0 +1,9 @@
+db.createUser(
+    {
+      user: "root",
+      pwd: "alphabrokers",
+      roles: [
+         { role: "readWrite", db: "alphabrokers" }
+      ]
+    }
+)
