@@ -1,5 +1,5 @@
-require 'Point'
-require 'Chunk'
+load 'Point.rb'
+load 'Chunk.rb'
 
 module Forecasting
   class DeltaForecaster < Forecaster

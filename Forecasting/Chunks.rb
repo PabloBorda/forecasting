@@ -1,4 +1,4 @@
-require 'Chunk'
+load 'Chunk.rb'
 
 module Forecasting
   class Chunks

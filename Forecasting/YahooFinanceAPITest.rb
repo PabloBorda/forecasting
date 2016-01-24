@@ -1,4 +1,4 @@
-require "YahooFinanceAPI"
+load "YahooFinanceAPI.rb"
 
 
 yahoo = YahooFinanceAPI.new

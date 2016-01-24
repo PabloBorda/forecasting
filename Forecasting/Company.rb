@@ -1,8 +1,8 @@
 require 'yahoo-finance'
 require 'json'
-require 'Forecaster'
-require 'AvgForecaster'
-require 'DeltaForecaster'
+load 'Forecaster.rb'
+load 'AvgForecaster.rb'
+load 'DeltaForecaster.rb'
 
 
 class Object
