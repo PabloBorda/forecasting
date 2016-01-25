@@ -6,7 +6,7 @@ load 'DrawSelector.rb'
 load 'Forecaster.rb'
 load 'AvgForecaster.rb'
 load 'DeltaForecaster.rb'
-load 'files/symbols.rb'
+load 'Files/symbols.rb'
 require 'date'
 require 'json'
 require 'rubygems'
@@ -39,8 +39,7 @@ class BatchForecasting
     
     @algorithms = [avgf,deltaf]
     
-    @db = Mongo::Client.new([ 'localhost:27017' ], :database => 'alphabrokers') 
- 
+    @db = nil 
  
    
   end
@@ -79,8 +78,11 @@ class BatchForecasting
           
             output_to_insert_to_mongo[:forecasts].push algorithm      
           end
-          @db[:Forecasts].insert_one(output_to_insert_to_mongo)  # Here should be the mongo insert  
-        end
+          db = Mongo::Client.new([ 'localhost:27017' ], :database => 'alphabrokers') 
+          db[:Forecasts].insert_one(output_to_insert_to_mongo)  # Here should be the mongo insert  
+          db = nil
+          #puts output_to_insert_to_mongo.to_json
+         end
         
         output_to_insert_to_mongo = nil
         
@@ -113,7 +115,7 @@ end
 
 
 GC.enable
-GC.garbage_collect
+GC.start(full_mark: true, immediate_sweep: true)
 
 bf = BatchForecasting.new(@symbols)
 
