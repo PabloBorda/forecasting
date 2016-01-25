@@ -7,6 +7,7 @@ load 'Forecaster.rb'
 load 'AvgForecaster.rb'
 load 'DeltaForecaster.rb'
 load 'Files/symbols.rb'
+load 'Files/last_symbol.rb'
 require 'date'
 require 'json'
 require 'rubygems'
@@ -49,7 +50,11 @@ class BatchForecasting
   def run(amount_of_days)
     
     
-    @symbols.each do |s|
+    index = @symbols.find_index(@last_symbol)
+    
+    
+    
+    @symbols[index..-1].each do |s|
       
       company = Forecasting::Company.new(s)
       company_history = company.all_history
@@ -90,7 +95,7 @@ class BatchForecasting
       
       company = nil
       company_history = nil
-      
+      File.open("Files/last_symbol.rb", 'w') {|f| f.write("@last_symbol = " + s) }
       
       
     end
@@ -113,9 +118,6 @@ end
 
 
 
-
-GC.enable
-GC.start(full_mark: true, immediate_sweep: true)
 
 bf = BatchForecasting.new(@symbols)
 
