@@ -39,7 +39,7 @@ module Forecasting
   
   
     def draw_horizontal_line(at_quote)   
-      #puts "DRAW HORIZONTAL LINE " + @chunk.data_raw.inspect 
+      puts "DRAW HORIZONTAL LINE " + @chunk.data_raw.inspect 
             
       similar_quotations = @chunk.data_raw.compact.select { |q| 
               # puts "DRAW HORIZONTAL LINE Q" + q.inspect

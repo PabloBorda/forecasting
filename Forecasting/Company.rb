@@ -37,10 +37,10 @@ class Company
     if @history.nil?
       begin
         @history = @yahoo_client.historical_quotes(@symbol)        
-        #puts "HISTORY: " + Chunk.new(@history).to_j
+        puts "HISTORY: " + Chunk.new(@history).to_j
       rescue OpenURI::HTTPError => e
       
-        #puts e.message
+        puts e.message
         
       end  
         
@@ -82,10 +82,10 @@ class Company
     begin
       data = @yahoo_client.historical_quotes(@symbol,period)
       
-      #puts "YAHOO " + data.inspect
+      puts "YAHOO " + data.inspect
       Chunk.new(data)
     rescue
-      #puts "FAILED TO GET HISTORY FOR COMPANY " + @symbol
+      puts "FAILED TO GET HISTORY FOR COMPANY " + @symbol
       
     end
   end
@@ -98,11 +98,11 @@ class Company
   def last_quote
     begin
       l = self.all_history_between({ start_date: Time::now-(24*60*60*7), end_date: Time::now }).first
-    ##puts "LASTQUOTE " + l.inspect
+    #puts "LASTQUOTE " + l.inspect
 #    Quote.new(l['trade_date'],l['open'],l['close'],l['high'],l['low'],l['volume'],l['adjusted_close'],l['symbol'])
       Quote.from_openstruct(l)
     rescue
-      #puts "FAILED TO GET LAST QUOTE FOR COMPANY: " + @symbol
+      puts "FAILED TO GET LAST QUOTE FOR COMPANY: " + @symbol
     end
   end
   

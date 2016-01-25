@@ -29,7 +29,7 @@ module Forecasting
     
      db[:Scraper].insert_one(result)
     
-     #puts result.to_json
+     puts result.to_json
      
               
   end

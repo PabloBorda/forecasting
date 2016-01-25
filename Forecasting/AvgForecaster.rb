@@ -7,13 +7,13 @@ module Forecasting
     protected
     def calculate_avg_for_column(column)
       count = 0
-      #puts "CALCULATING AVG FOR COLUMN: " + column.inspect
+      puts "CALCULATING AVG FOR COLUMN: " + column.inspect
       sum_col = column.inject(0) {
         |sum,q|
         count = count + 1
         sum = sum + q.close.to_f
       }
-      #puts "AVERAGE IS: " + (sum_col/count).to_s
+      puts "AVERAGE IS: " + (sum_col/count).to_s
       (sum_col/count)
     end
 

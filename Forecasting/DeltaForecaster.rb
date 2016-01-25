@@ -30,7 +30,7 @@ module Forecasting
     
    def get_deltas_for_chunks(chunks) 
      deltas = []
-     #puts "MYSIZE: " + chunks.size.to_s 
+     puts "MYSIZE: " + chunks.size.to_s 
      chunks.chunks.each {|c|
        deltas.push(to_deltas(c))        
      }
@@ -52,7 +52,7 @@ def to_deltas(chunk)
     end
   }    
   
-  #puts "DELTA: " + Forecasting::Chunk.new(delta).to_j
+  puts "DELTA: " + Forecasting::Chunk.new(delta).to_j
   Forecasting::Chunk.new(delta)  
 end
    

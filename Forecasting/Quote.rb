@@ -45,7 +45,7 @@ class Quote
     end
   
     def - (q)
-      #puts "RESTING: " + self.close.to_s + " AND " + q.close.to_s + " = " + (self.close - q.close).to_s 
+      puts "RESTING: " + self.close.to_s + " AND " + q.close.to_s + " = " + (self.close - q.close).to_s 
       return Quote.new(self.trade_date,self.open - q.open,self.close - q.close,self.high - q.high,self.low - q.low,self.volume - q.volume,self.adjusted_close - q.adjusted_close,self.symbol)
     end
   

@@ -29,10 +29,10 @@ module Forecasting
         current_date = Time.now.strftime("%Y-%m-%d")
         last_quote = @company.last_quote
 
-        ##puts "LAST QUOTE IS " + last_quote.inspect
+        #puts "LAST QUOTE IS " + last_quote.inspect
 
         points_from_line = @company.all_history.similar_points_not_stepping_on_each_other(last_quote,amount_of_days)[0..(amount_of_days*2-1)]
-        ##puts "POINTS_FROM_LINE: " + points_from_line.size.to_s
+        #puts "POINTS_FROM_LINE: " + points_from_line.size.to_s
         points_with_chunks = []
 
         points_from_line.each {|p|
@@ -57,7 +57,7 @@ module Forecasting
         }
 
         points_with_chunks = points_with_chunks.compact
-        #puts "POINTS_WITH_CHUNKS" + (points_with_chunks.inject("["){|o,p| o = o + p.to_j + ","})[0..-2] + "]"
+        puts "POINTS_WITH_CHUNKS" + (points_with_chunks.inject("["){|o,p| o = o + p.to_j + ","})[0..-2] + "]"
 
         points_with_chunks
       end

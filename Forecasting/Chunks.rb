@@ -5,7 +5,7 @@ module Forecasting
     @chunks
     def initialize(chunks)
       @chunks = chunks
-      #puts "CHUNKS SIZE IS: " + chunks.size.to_s
+      puts "CHUNKS SIZE IS: " + chunks.size.to_s
     end
 
     def get_column_by_number(colnum)
@@ -47,14 +47,14 @@ module Forecasting
     def get_min_from_each_row_into_a_chunk
       if (chunks.size > 0)
         amount_of_chunks = @chunks[0].size
-        #puts "get_min_from_each_row_into_a_chunk, amount of chunks: " + amount_of_chunks.to_s
+        puts "get_min_from_each_row_into_a_chunk, amount of chunks: " + amount_of_chunks.to_s
         result = []      
         amount_of_chunks.times {|i|
           result.push(self.get_min_from_row(i))        
         }
         Forecasting::Chunk.new(result)
       else
-        #puts "THERE ARE NO CHUNKS INSIDE"  
+        puts "THERE ARE NO CHUNKS INSIDE"  
       end 
       
     end

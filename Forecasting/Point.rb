@@ -12,7 +12,7 @@ module Forecasting
         self.previous_n_quotes_chunk = previous_n_quotes_chunk
         self.next_n_quotes_chunk = next_n_quotes_chunk
       else
-        #puts "NO NILS ACCEPTED"
+        puts "NO NILS ACCEPTED"
       end
     end
 
@@ -34,10 +34,10 @@ module Forecasting
           "NIL"
         end
       rescue
-        #puts "MYCLASSIS: " + self.previous_n_quotes_chunk.class.to_s 
-        #puts "MYCLASSIS: " + self.previous_n_quotes_chunk.to_html
-        #puts "MYCLASSIS: " + self.next_n_quotes_chunk.class.to_s
-        #puts "MYCLASSIS: " + self.quote.class.to_s
+        puts "MYCLASSIS: " + self.previous_n_quotes_chunk.class.to_s 
+        puts "MYCLASSIS: " + self.previous_n_quotes_chunk.to_html
+        puts "MYCLASSIS: " + self.next_n_quotes_chunk.class.to_s
+        puts "MYCLASSIS: " + self.quote.class.to_s
       end
       
     end

@@ -16,7 +16,7 @@ class Chunk
   @selector
   def initialize(chunk)
     if (chunk.class.to_s.include? "Chunk")
-      #puts "YOU INSERTING A CHUNK!"
+      puts "YOU INSERTING A CHUNK!"
     end
     @chunk_data = chunk.compact
     @selector = DrawSelector.new(self)
@@ -57,9 +57,9 @@ class Chunk
   def to_html
     
     (@chunk_data.compact.inject("<table border=\"1\"><tr><td>SYMBOL</td><td>TRADE_DATE</td><td>OPEN</td><td>CLOSE</td><td>HIGH</td><td>LOW</td><td>VOLUME</td</td><td>ADJUSTED_CLOSE</td>") {|o,q|       
-       ##puts "Q: " + q.inspect   
+       #puts "Q: " + q.inspect   
        if (q.class.to_s.include? "Chunk")
-         #puts "YOU INSERTING A CHUNK!"
+         puts "YOU INSERTING A CHUNK!"
        end      
        o = o + Quote.from_openstruct(q).to_row.to_s             
     }) + "</table>"
@@ -105,7 +105,7 @@ class Chunk
     similar_quotations_reverse_first_element_removed = similar_quotations_reverse[1..-1]
     similar_quotations = similar_quotations_reverse_first_element_removed[0..amount_of_days].map {|q| Quote.from_openstruct(q) }
       
-   # #puts "SIMILAR QUOTATIONS ARE " + similar_quotations.to_json  
+   # puts "SIMILAR QUOTATIONS ARE " + similar_quotations.to_json  
     similar_points_stepping_on_each_other = []
    
 
@@ -152,7 +152,7 @@ class Chunk
       else
         next_chunk_from_current_quote = []        
       end
-    #  #puts "next_chunk_from_current_quote: " + next_chunk_from_current_quote.inspect
+    #  puts "next_chunk_from_current_quote: " + next_chunk_from_current_quote.inspect
       similar_points_stepping_on_each_other.push(Point.new(current_quote,previous_chunk_from_current_quote,next_chunk_from_current_quote))    
       point_count = point_count + 1
 
@@ -171,7 +171,7 @@ class Chunk
 
     }
 
- #   #puts "POINTS NOT STEPING ON EACH OTHER" + similar_points_not_stepping_on_each_other_var.inspect
+ #   puts "POINTS NOT STEPING ON EACH OTHER" + similar_points_not_stepping_on_each_other_var.inspect
     similar_points_not_stepping_on_each_other_var.compact.sort_by { |p|
 
       Date.strptime(p.quote.trade_date,"%Y-%m-%d")
@@ -200,7 +200,7 @@ class Chunk
   end
 
   def find_quote(q)
-    ##puts "IM A TYPE: " + q.class.to_s
+    #puts "IM A TYPE: " + q.class.to_s
     @chunk_data.find_index {|h| Quote.from_openstruct(h).compare(q)}
   end
 
@@ -228,7 +228,7 @@ class Chunk
   
   
   def - (another_chunk)
-    ##puts "RESTING CHUNK" + self.inspect + " WITH " + another_chunk.inspect
+    #puts "RESTING CHUNK" + self.inspect + " WITH " + another_chunk.inspect
     result = []
     self.data_raw().each_with_index{ |q,i| 
       result.push(Quote.from_openstruct(q) - Quote.from_openstruct(another_chunk.data_raw()[i]))      
