@@ -113,6 +113,7 @@ end
 
 
 GC.enable
+GC.garbage_collect
 
 bf = BatchForecasting.new(@symbols)
 
