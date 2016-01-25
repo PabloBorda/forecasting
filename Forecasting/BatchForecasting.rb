@@ -82,8 +82,15 @@ class BatchForecasting
           @db[:Forecasts].insert_one(output_to_insert_to_mongo)  # Here should be the mongo insert  
         end
         
-      
+        output_to_insert_to_mongo = nil
+        
       end
+      
+      company = nil
+      company_history = nil
+      
+      
+      
     end
     
   end
@@ -105,7 +112,7 @@ end
 
 
 
-
+GC.enable
 
 bf = BatchForecasting.new(@symbols)
 
