@@ -40,7 +40,7 @@ class BatchForecasting
     
     @algorithms = [avgf,deltaf]
     
-    @db = nil 
+    @db  = Mongo::Client.new([ 'localhost:27017' ], :database => 'alphabrokers') 
  
    
   end
@@ -52,7 +52,7 @@ class BatchForecasting
     
     index = @symbols.find_index(@last_symbol)
     
-    
+    count_insert = 1
     
     @symbols[index..-1].each do |s|
       
@@ -83,11 +83,15 @@ class BatchForecasting
           
             output_to_insert_to_mongo[:forecasts].push algorithm      
           end
-          db = Mongo::Client.new([ 'localhost:27017' ], :database => 'alphabrokers') 
-          db[:Forecasts].insert_one(output_to_insert_to_mongo)  # Here should be the mongo insert  
-          db = nil
+          
+          
+          if count_insert==1
+            @db[:Forecasts].insert_one(output_to_insert_to_mongo)  # Here should be the mongo insert
+            count_insert = count_insert - 1
+          end  
+ 
           ##puts output_to_insert_to_mongo.to_json
-         end
+        end
         
         output_to_insert_to_mongo = nil
         
@@ -96,9 +100,10 @@ class BatchForecasting
       company = nil
       company_history = nil
       File.open("Files/last_symbol.rb", 'w') {|f| f.write("@last_symbol = " + s) }
-      
+      count_insert = 1  
       
     end
+    
     
   end
   
