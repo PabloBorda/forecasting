@@ -86,7 +86,7 @@ class BatchForecasting
           db = Mongo::Client.new([ 'localhost:27017' ], :database => 'alphabrokers') 
           db[:Forecasts].insert_one(output_to_insert_to_mongo)  # Here should be the mongo insert  
           db = nil
-          #puts output_to_insert_to_mongo.to_json
+          ##puts output_to_insert_to_mongo.to_json
          end
         
         output_to_insert_to_mongo = nil

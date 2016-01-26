@@ -82,7 +82,7 @@ module Forecasting
       arrayLinks.each do |link|
 
         Scraper.logger.info link.href
-        puts link.href
+        #puts link.href
         #if !link.href.include?("www.ft.com")
 
         result = countWords(link.href)
@@ -152,7 +152,7 @@ module Forecasting
             @positiveWordsArray.each do |line|
               if s2.upcase == line
                 Scraper.logger.info s2
-                puts s2
+                #puts s2
                 positiveCounter = positiveCounter + 1
               end
             end
@@ -161,7 +161,7 @@ module Forecasting
             @negativeWordsArray.each do |line|
               if s2.upcase == line
                 Scraper.logger.info s2
-                puts s2
+                #puts s2
                 negativeCounter = negativeCounter + 1
               end
             end
@@ -186,8 +186,8 @@ module Forecasting
   #t = Scraper.new('AAPL')
   #result = t.countWords('http://www.usatoday.com/story/money/markets/2015/12/14/apple-stock-fails-again/77290488/')
   #result = t.scrapeCNNPage()
-  puts "Positive words: " + result[:Positive].to_s
-  puts "Negative words: " + result[:Negative].to_s
-  puts result.to_json
+  #puts "Positive words: " + result[:Positive].to_s
+  #puts "Negative words: " + result[:Negative].to_s
+  #puts result.to_json
 
 end

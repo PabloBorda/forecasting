@@ -20,7 +20,7 @@ class Quote
   
   
     def self.from_openstruct(quote_openstruct)
-     # puts "QUOTE_OPENSTRUCT CLASS IS " + quote_openstruct.class.to_s + "     " + quote_openstruct.inspect
+     # #puts "QUOTE_OPENSTRUCT CLASS IS " + quote_openstruct.class.to_s + "     " + quote_openstruct.inspect
       if quote_openstruct.class.to_s.eql? "OpenStruct"      
         return Quote.new(quote_openstruct['trade_date'].to_s,quote_openstruct['open'].to_f.round(2),quote_openstruct['close'].to_f.round(2),quote_openstruct['high'].to_f.round(2),quote_openstruct['low'].to_f.round(2),quote_openstruct['volume'].to_f.round(2),quote_openstruct['adjusted_close'].to_f.round(2),quote_openstruct['symbol'].to_s)
       else
@@ -45,7 +45,7 @@ class Quote
     end
   
     def - (q)
-      puts "RESTING: " + self.close.to_s + " AND " + q.close.to_s + " = " + (self.close - q.close).to_s 
+      #puts "RESTING: " + self.close.to_s + " AND " + q.close.to_s + " = " + (self.close - q.close).to_s 
       return Quote.new(self.trade_date,self.open - q.open,self.close - q.close,self.high - q.high,self.low - q.low,self.volume - q.volume,self.adjusted_close - q.adjusted_close,self.symbol)
     end
   
