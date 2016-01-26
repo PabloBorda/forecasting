@@ -1,0 +1,10 @@
+
+Bluepill.application("BatchForecaster",log_file: "batch.log") do |app|
+  app.process("BatchForecaster") do |process|
+    process.start_command = "ruby BatchForecaster.rb"
+    process.stdout = process.stderr = "batch.log"
+    process.pid_file = "/tmp/some_pid_file.pid"
+    process.working_dir = "/home/forecast/alphabrokers/Forecasting"
+  end
+end
+

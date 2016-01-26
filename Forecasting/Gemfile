@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 gem 'yahoo-finance'
 gem 'sinatra'
 gem 'json'
-
+gem 'logger'
 gem 'mechanize'
 gem 'nokogiri'
 

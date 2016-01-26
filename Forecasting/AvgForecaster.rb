@@ -1,5 +1,5 @@
-require 'Forecaster'
-require 'Chunks'
+load 'Forecaster.rb'
+load 'Chunks.rb'
 
 module Forecasting
   class AvgForecaster < Forecaster
