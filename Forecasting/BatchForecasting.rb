@@ -83,15 +83,15 @@ class BatchForecasting
           
             output_to_insert_to_mongo[:forecasts].push algorithm      
           end
-          
-          
-          if count_insert==1
-            @db[:Forecasts].insert_one(output_to_insert_to_mongo)  # Here should be the mongo insert
-            count_insert = count_insert - 1
-          end  
- 
+                             
           ##puts output_to_insert_to_mongo.to_json
         end
+        
+        if count_insert==1
+          @db[:Forecasts].insert_one(output_to_insert_to_mongo)  # Here should be the mongo insert
+          count_insert = count_insert - 1
+        end  
+         
         
         output_to_insert_to_mongo = nil
         
