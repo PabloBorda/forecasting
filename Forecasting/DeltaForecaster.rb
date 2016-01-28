@@ -13,6 +13,7 @@ module Forecasting
         min_delta_for_all_right_chunks_wrapped = calculate_min_delta_for_chunks(all_right_chunks_wrapped)        
         if (!min_delta_for_all_left_chunks_wrapped.nil?) and (!min_delta_for_all_left_chunks_wrapped.nil?)
           forecasting_for_next_days = Point.new(pivot_quote,min_delta_for_all_left_chunks_wrapped.set_past_dates_in_all_quotes(),min_delta_for_all_right_chunks_wrapped.set_future_dates_in_all_quotes())
+          forecasting_for_next_days.amount_of_samples=(points_with_chunks.size)
           forecasting_for_next_days
         end
       else

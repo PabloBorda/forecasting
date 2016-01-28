@@ -20,7 +20,7 @@ get '/' do
 
   out = ""
   
-  company = Forecasting::Company.new("AAPL")
+  company = Forecasting::Company.new("PYPL")
   
   
   avgf = Forecasting::Forecaster::AvgForecaster.new

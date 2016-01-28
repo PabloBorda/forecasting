@@ -6,6 +6,8 @@ module Forecasting
     attr_accessor :quote
     attr_accessor :previous_n_quotes_chunk
     attr_accessor :next_n_quotes_chunk
+    attr_accessor :amount_of_samples
+    
     def initialize(quote,previous_n_quotes_chunk,next_n_quotes_chunk)
       if (!quote.nil? and !previous_n_quotes_chunk.nil? and !next_n_quotes_chunk.nil?)
         self.quote = quote
@@ -28,7 +30,12 @@ module Forecasting
      
         if (!self.previous_n_quotes_chunk.nil? and !self.next_n_quotes_chunk.nil?)
 
-          "<table><tr><td>SYMBOL</td><td>TRADE_DATE</td><td>OPEN</td><td>CLOSE</td><td>HIGH</td><td>LOW</td><td>VOLUME</td</td><td>ADJUSTED_CLOSE</td>" + self.quote.to_row() + "</table>" + "<br><br>" + "<b>PREVIOUS CHUNK</b>" + self.previous_n_quotes_chunk.to_html() + "<b>NEXT CHUNK</b>" + self.next_n_quotes_chunk.to_html()
+          samples = ""
+          if !amount_of_samples.nil?
+            samples = "<td>" + amount_of_samples.to_s + "</td>"
+          end
+          
+          "<table border=\"1\"><tr><td>SYMBOL</td><td>TRADE_DATE</td><td>OPEN</td><td>CLOSE</td><td>HIGH</td><td>LOW</td><td>VOLUME</td</td><td>ADJUSTED_CLOSE</td><td>SAMPLES TAKEN</td>" + self.quote.to_row() + samples + "</table>" + "<br><br>" + "<b>PREVIOUS CHUNK</b>" + self.previous_n_quotes_chunk.to_html() + "<b>NEXT CHUNK</b>" + self.next_n_quotes_chunk.to_html()
         else
           
           "NIL"
@@ -44,7 +51,14 @@ module Forecasting
 
     
     def to_j
-      "{ \"quote\": " + self.quote.to_j + ",\"previous_n_quotes_chunk\": " + self.previous_n_quotes_chunk.to_j + ",\" next_n_quotes_chunk\": " + self.next_n_quotes_chunk.to_j + "}"   
+      
+      samples = ""
+      if !amount_of_samples.nil?
+        samples = ",\"amount_of_samples\": \"" + amount_of_samples.to_s + "\""
+      end
+    
+      
+      "{ \"quote\": " + self.quote.to_j + samples + ",\"previous_n_quotes_chunk\": " + self.previous_n_quotes_chunk.to_j + ",\" next_n_quotes_chunk\": " + self.next_n_quotes_chunk.to_j + "}"   
     end
     
     

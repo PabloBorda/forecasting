@@ -24,6 +24,7 @@ module Forecasting
         all_left_chunks_wrapped = all_chunks[1]
         all_right_chunks_wrapped = all_chunks[2]
         forecasting_for_next_days = Point.new(pivot_quote,avg_left(all_left_chunks_wrapped),avg_right(all_right_chunks_wrapped))
+        forecasting_for_next_days.amount_of_samples=(points_with_chunks.size)        
         return forecasting_for_next_days
       else
         return Point.new(Quote.neutral_element(),Chunk.new([]),Chunk.new([]))
