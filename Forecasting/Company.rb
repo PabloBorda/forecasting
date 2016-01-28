@@ -3,6 +3,7 @@ require 'json'
 load 'Forecaster.rb'
 load 'AvgForecaster.rb'
 load 'DeltaForecaster.rb'
+load 'Quote.rb'
 
 
 class Object
@@ -81,9 +82,10 @@ class Company
   def all_history_between(period)
     begin
       data = @yahoo_client.historical_quotes(@symbol,period)
+      data_chunk = Chunk.new(data)
+      #puts "YAHOO " + data_chunk.inspect
       
-      #puts "YAHOO " + data.inspect
-      Chunk.new(data)
+      data_chunk
     rescue
       #puts "FAILED TO GET HISTORY FOR COMPANY " + @symbol
       
@@ -96,9 +98,9 @@ class Company
   end
 
   def last_quote
-    begin
-      l = self.all_history_between({ start_date: Time::now-(24*60*60*7), end_date: Time::now }).first
-    ##puts "LASTQUOTE " + l.inspect
+    begin      
+      l = self.all_history_between({ start_date: Time::now-(24*60*60*2), end_date: Time::now }).first
+    #puts "LASTQUOTE " + l.inspect
 #    Quote.new(l['trade_date'],l['open'],l['close'],l['high'],l['low'],l['volume'],l['adjusted_close'],l['symbol'])
       Quote.from_openstruct(l)
     rescue

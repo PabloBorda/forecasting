@@ -1,6 +1,8 @@
 require 'yahoo-finance'
 require 'json'
 
+load 'DrawSelector.rb'
+
 
 module Forecasting
 
@@ -14,11 +16,13 @@ class Chunk
   @chunk_data
   
   @selector
+  
   def initialize(chunk)
     if (chunk.class.to_s.include? "Chunk")
-      #puts "YOU INSERTING A CHUNK!"
+      puts "YOU INSERTING A CHUNK!"
     end
     @chunk_data = chunk.compact
+    
     @selector = DrawSelector.new(self)
     
   end
@@ -196,6 +200,7 @@ class Chunk
   end
   
   def first
+    
     @chunk_data.first
   end
 
