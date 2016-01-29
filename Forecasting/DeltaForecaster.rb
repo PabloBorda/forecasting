@@ -21,6 +21,17 @@ module Forecasting
       end
     end
 
+    
+
+    def self.accucheck_me(q1,q2)
+      company = Company.new(q1.symbol)
+      previous_quote_to_current_one = 
+      q1 - (q1 + q2)
+  
+    end
+
+    
+    
     private
 
     def calculate_min_delta_for_chunks(chunks)

@@ -21,7 +21,7 @@ class Quote
   
     def self.from_openstruct(quote_openstruct)
      # #puts "QUOTE_OPENSTRUCT CLASS IS " + quote_openstruct.class.to_s + "     " + quote_openstruct.inspect
-      if quote_openstruct.class.to_s.eql? "OpenStruct"      
+      if ((quote_openstruct.class.to_s.eql? "OpenStruct") or (quote_openstruct.class==Hash))      
         return Quote.new(quote_openstruct['trade_date'].to_s,quote_openstruct['open'].to_f.round(2),quote_openstruct['close'].to_f.round(2),quote_openstruct['high'].to_f.round(2),quote_openstruct['low'].to_f.round(2),quote_openstruct['volume'].to_f.round(2),quote_openstruct['adjusted_close'].to_f.round(2),quote_openstruct['symbol'].to_s)
       else
         if quote_openstruct.class.to_s.include? "Quote"
@@ -32,6 +32,18 @@ class Quote
   
     end
   
+    
+    def self.from_ruby_hash(quote_hash)
+      self.from_openstruct(quote_hash)
+      
+    end
+    
+    def self.from_json_string(quote_json_string)
+      self.from_openstruct(JSON.parse(quote_json_string))
+    end
+    
+    
+    
   
     def initialize(trade_date,open,close,high,low,volume,adjusted_close,symbol)
       self.trade_date = trade_date
@@ -76,6 +88,24 @@ class Quote
     def to_j
     "{ \"trade_date\": \"" + self.trade_date.to_s + "\",\"open\": \"" + self.open.to_s + "\",\"close\": \"" + self.close.to_s + "\",\"high\": \"" + self.high.to_s + "\",\"low\":\"" + self.low.to_s + "\",\"volume\":\"" + self.volume.to_s + "\",\"symbol\":\"" + self.symbol.to_s + "\",\"adjusted_close\":\"" + self.adjusted_close.to_s + "\"}"     
     end
+    
+    
+    def to_hash
+      
+      
+      { :trade_date => self.trade_date,
+        :open => self.open.to_s,
+        :close => self.close.to_s,
+        :low => self.low.to_s,
+        :high => self.high.to_s,
+        :volume => self.volume.to_s,
+        :symbol => self.symbol.to_s,
+        :adjusted_close => self.adjusted_close.to_s
+      }
+      
+    
+    end
+      
     
     
     

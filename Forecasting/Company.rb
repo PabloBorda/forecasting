@@ -1,5 +1,6 @@
 require 'yahoo-finance'
 require 'json'
+require 'date'
 load 'Forecaster.rb'
 load 'AvgForecaster.rb'
 load 'DeltaForecaster.rb'
@@ -33,6 +34,21 @@ class Company
     @history = nil
     @splits = nil
   end
+  
+  
+  
+  
+  def quote_for_date(date)
+    five_previous_quotes = @yahoo_client.historical_quotes(@symbol,{start_date: Time.now-(24*60*60*5), end_date: Time::now }).map do
+                           |q|
+                             Quote.from_openstruct(q)
+                           end
+
+    current_date = Date.strptime(Date.today,"%Y-%m-%d") 
+                               
+  end
+  
+  
 
   def all_history
     if @history.nil?

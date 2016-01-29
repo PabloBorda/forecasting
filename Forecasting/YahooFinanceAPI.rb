@@ -4,9 +4,14 @@ require 'yahoo-finance'
 class YahooFinanceAPI
   
   @yahoo_client
+  @singleton
   
   def initialize
-    @yahoo_client = YahooFinance::Client.new
+    if @singleton.nil?     
+      @yahoo_client = YahooFinance::Client.new
+      @singleton = self  
+    end
+    
   end
   
   def get_all_us_symbols

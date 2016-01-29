@@ -4,6 +4,17 @@ load 'Chunks.rb'
 module Forecasting
   class AvgForecaster < Forecaster
 
+    
+    
+  
+    def self.accucheck_me(q1,q2)
+      q1 - q2  
+      
+    end
+    
+    
+    
+    
     protected
     def calculate_avg_for_column(column)
       count = 0
