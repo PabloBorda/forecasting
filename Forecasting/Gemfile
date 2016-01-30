@@ -5,4 +5,5 @@ gem 'json'
 gem 'logger'
 gem 'mechanize'
 gem 'nokogiri'
-
+gem 'net-ssh-gateway'
+gem 'mongo'
