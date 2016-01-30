@@ -76,7 +76,7 @@ module Forecasting
     end
 
     def forecast_merge(points_with_chunks)
-      if !@company.all_history.nil?
+      if !@company.all_history.nil? and !points_with_chunks.nil?
         if (points_with_chunks.size>0)
           pivot_quote = points_with_chunks[0].quote
           all_left_chunks = []
