@@ -25,8 +25,9 @@ module Forecasting
 
     def self.accucheck_me(q1,q2)
       company = Company.new(q1.symbol)
-      previous_quote_to_current_one = 
-      q1 - (q1 + q2)
+      previous_quote_to_current_one = company.get_previous_quote
+      forecasted_result =  previous_quote_to_current_one + q2
+      return (q1 - forecasted_result)
   
     end
 

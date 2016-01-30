@@ -38,14 +38,9 @@ class Company
   
   
   
-  def quote_for_date(date)
-    five_previous_quotes = @yahoo_client.historical_quotes(@symbol,{start_date: Time.now-(24*60*60*5), end_date: Time::now }).map do
-                           |q|
-                             Quote.from_openstruct(q)
-                           end
-
-    current_date = Date.strptime(Date.today,"%Y-%m-%d") 
-                               
+  def get_previous_quote
+    previous_quote = Quote.from_openstruct(@yahoo_client.historical_quotes(@symbol,{start_date: Time.now-(24*60*60*5), end_date: Time::now })[-2])
+    previous_quote                      
   end
   
   
