@@ -65,9 +65,9 @@ class Accucheck
        #end
     end
     
-    puts "THE AVERAGE ERROR IS: " + (close_difference_sum/count).to_s
-    
   end
+  
+    puts "THE AVERAGE ERROR IS: " + (close_difference_sum/count).to_s
   
   end
   
