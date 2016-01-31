@@ -25,6 +25,54 @@ class Accucheck
     puts @db['alphabrokers'].find({}).limit(1).to_a.to_json
   end
 
+  
+  def accuracy_per_algorithm_per_company
+    
+    
+    
+  end
+  
+  def accuracy_global
+    count = @db[:Accuchecks].count()
+   
+    pages = (count/10).round
+   
+    page_size = 10
+    
+    close_difference_sum = 0
+    
+    pages.times.each do |i|
+      @db[:Accuchecks].find({}).skip(i*page_size).limit(page_size).to_a.each do |f|
+        f_parsed = JSON.parse(f.to_json)
+        close_difference_sum = close_difference_sum + f_parsed['difference']['close'].to_f
+        #puts f_parsed['symbol']
+        #accuracy_by_company_and_algorithm = {'symbol' => f_parsed['symbol'] }
+        #@db[:Accuchecks].find({'symbol' => f_parsed['symbol']}).each do
+        #  |ac|
+        #  if accuracy_by_company_and_algorithm[f_parsed['algorithm']].nil?
+        #    accuracy_by_company_and_algorithm[f_parsed['algorithm']] = 0
+        #  else
+        #    accuracy_by_company_and_algorithm[f_parsed['algorithm']] = accuracy_by_company_and_algorithm[f_parsed['algorithm']] + f_parsed['difference']['close'].to_f
+        #  end
+          
+        #end
+        
+        
+          
+          
+        #puts f_parsed['algorithm']
+         
+       #end
+    end
+    
+    puts "THE AVERAGE ERROR IS: " + (close_difference_sum/count).to_s
+    
+  end
+  
+  end
+  
+  
+  
   def run
 
     count = @db[:Forecasts].count()
@@ -100,5 +148,5 @@ class Accucheck
 end
 
 ac = Accucheck.new
-ac.run
+ac.accuracy_global
 
