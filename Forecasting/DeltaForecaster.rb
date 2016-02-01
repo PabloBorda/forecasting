@@ -24,10 +24,18 @@ module Forecasting
     
 
     def self.accucheck_me(q1,q2)
-      company = Company.new(q1.symbol)
-      previous_quote_to_current_one = company.get_previous_quote
-      forecasted_result =  previous_quote_to_current_one + q2
-      return (q1 - forecasted_result)
+      if !q1.nil? and !q2.nil? and q1.close>0 and q2.close>0
+        puts "q1: " + q1.inspect
+        puts "q2: " + q2.inspect
+        company = Company.new(q1.symbol)
+        previous_quote_to_current_one = company.get_previous_quote
+        if !previous_quote_to_current_one.nil?
+          forecasted_result =  previous_quote_to_current_one + q2
+          return (q1 - forecasted_result)
+        else
+          return nil
+        end
+      end
   
     end
 
