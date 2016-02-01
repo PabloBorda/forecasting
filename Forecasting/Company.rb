@@ -39,15 +39,11 @@ class Company
   
   
   def get_previous_quote
-    begin
-      last_five_quotes = @yahoo_client.historical_quotes(@symbol,{start_date: Time.now-(24*60*60*5), end_date: Time::now })
-      previous_quote = Quote.from_openstruct(last_five_quotes[-2])
-      previous_quote                      
-    rescue
-      puts "Error retrieving previous quote for symbol " + @symbol
-      nil
-      
-    end
+    puts "SYMBOL: " + @symbol.to_s
+    last_five_quotes = @yahoo_client.historical_quotes(@symbol,{start_date: Time.now-(24*60*60*5), end_date: Time::now })
+    puts "LAST FIVE" + last_five_quotes.inspect
+    previous_quote = Quote.from_openstruct(last_five_quotes)[-2]
+    previous_quote                      
   end
   
   
