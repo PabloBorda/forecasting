@@ -7,3 +7,16 @@ db.createUser(
       ]
     }
 )
+
+
+
+
+Calculate close difference average and group by algorithm
+
+
+db.getCollection('Accuchecks').aggregate({
+    $group: {
+        _id: "$algorithm",
+        accuracy: { $avg: "$difference.close"}
+     }
+})
