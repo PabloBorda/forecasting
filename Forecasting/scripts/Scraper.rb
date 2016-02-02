@@ -101,23 +101,21 @@ module Forecasting
     # Method to count the positive/negative words found in an HTML page related to the financial symbol
 
     def countWords(href)
-      
-      
 
       # Use mechanize to follow link and get contents
       mechanize = Mechanize.new
       mechanize.user_agent_alias = "Windows Mozilla"
       mechanize.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       mechanize.redirect_ok = true
-      
-      begin 
-        
+
+      begin
+
         page = mechanize.get(href)
-      
+
       rescue
-          
+
         return { :Positive => 0, :Negative => 0, :Symbol => @symbol, :Date => Time.now.strftime("%d/%m/%Y")}
-          
+
       end
 
       # Use Nokogiri to get the HTML content of a link.
@@ -177,8 +175,6 @@ module Forecasting
 
       return { :Positive => positiveCounter, :Negative => negativeCounter, :Symbol => @symbol, :Date => Time.now.strftime("%d/%m/%Y")}
 
-        
-        
     end
 
   end

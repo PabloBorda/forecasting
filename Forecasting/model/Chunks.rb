@@ -1,4 +1,4 @@
-load 'Chunk.rb'
+require_relative 'Chunk.rb'
 
 module Forecasting
   class Chunks
@@ -17,49 +17,41 @@ module Forecasting
       column
     end
 
-    
-    
     def self.from_chunk_collection_to_chunks_with_previous_dates(chunk_collection)
-      
-      
+
     end
-    
+
     def self.from_chunk_collection_to_chunks_with_next_dates(chunk_collection)
-        
-        
+
     end
-    
-    
+
     def size
       @chunks.size
     end
-    
+
     def get_row(i)
-      @chunks.map {|c| c.get_quote_by_number(i) }                 
+      @chunks.map {|c| c.get_quote_by_number(i) }
     end
-    
-    
+
     def get_min_from_row(i)
-     
+
       self.get_row(i).min
     end
-    
+
     def get_min_from_each_row_into_a_chunk
       if (chunks.size > 0)
         amount_of_chunks = @chunks[0].size
         #puts "get_min_from_each_row_into_a_chunk, amount of chunks: " + amount_of_chunks.to_s
-        result = []      
+        result = []
         amount_of_chunks.times {|i|
-          result.push(self.get_min_from_row(i))        
+          result.push(self.get_min_from_row(i))
         }
         Forecasting::Chunk.new(result)
       else
-        #puts "THERE ARE NO CHUNKS INSIDE"  
-      end 
-      
-    end
-    
+        #puts "THERE ARE NO CHUNKS INSIDE"
+      end
 
+    end
 
     def chunks
       @chunks
@@ -90,18 +82,17 @@ module Forecasting
     end
 
     def to_j
-     
-        
+
       if @chunks.size==0
         "[]"
       else
         p = @chunks.inject("") {|o,c|
-              o = o + c.to_j + ","           
+          o = o + c.to_j + ","
         }
-      
+
         "[" + p[0..-2]+ "]"
       end
-      
+
     end
 
   end

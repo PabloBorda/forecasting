@@ -22,15 +22,10 @@ module Forecasting
       @amount_of_days
     end
 
-    
     def self.accucheck_me(q1,q2)
-      
-      
+
     end
-    
-    
-    
-    
+
     protected
 
     def forecast(amount_of_days)
