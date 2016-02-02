@@ -86,7 +86,7 @@ class Accucheck
     page_size = 10
 
 
-    @last_symbol = File.open('Files/last_symbol.rb',"rb").read
+    
 
 
     pages.times.each do |i|
@@ -112,7 +112,7 @@ class Accucheck
                   |q|
                       (q['trade_date'] == f_last_quote.trade_date)
                 end
-               if !forecasted_quote.nil? and forecasted_quote.close>0
+               if !forecasted_quote.nil? and forecasted_quote['close'].to_f>0
  
                   puts "forecasted_quote: " + forecasted_quote.inspect
                   puts "real quote value: " + f_last_quote.inspect
