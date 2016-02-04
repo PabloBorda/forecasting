@@ -1,3 +1,7 @@
+Create user and give priviledges
+
+
+
 db.createUser(
     {
       user: "root",
@@ -7,6 +11,16 @@ db.createUser(
       ]
     }
 )
+
+
+
+
+Change type of string numerical data
+
+
+db.getCollection('Accuchecks').find({}).forEach( function(obj) { obj.difference.close = parseFloat( obj.difference.close ); 
+db.getCollection('Accuchecks').save(obj); } );
+
 
 
 

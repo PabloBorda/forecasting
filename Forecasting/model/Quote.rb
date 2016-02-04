@@ -77,13 +77,13 @@ module Forecasting
     def to_hash
 
       { :trade_date => self.trade_date,
-        :open => self.open.to_s,
-        :close => self.close.to_s,
-        :low => self.low.to_s,
-        :high => self.high.to_s,
-        :volume => self.volume.to_s,
+        :open => self.open.to_f,
+        :close => self.close.to_f,
+        :low => self.low.to_f,
+        :high => self.high.to_f,
+        :volume => self.volume.to_f,
         :symbol => self.symbol.to_s,
-        :adjusted_close => self.adjusted_close.to_s
+        :adjusted_close => self.adjusted_close.to_f
       }
 
     end

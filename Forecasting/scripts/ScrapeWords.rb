@@ -4,7 +4,7 @@ module Forecasting
 
   require 'mongo'
 
-  load 'Scraper.rb'
+  require_relative 'Scraper.rb'
 
   class ScrapeWords
 

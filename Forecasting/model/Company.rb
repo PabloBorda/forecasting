@@ -1,7 +1,7 @@
-require 'yahoo-finance'
+
 require 'json'
 require 'date'
-
+require_relative '../services/YahooFinanceAPI.rb'
 require_relative '../algorithms/Forecaster.rb'
 require_relative '../algorithms/AvgForecaster.rb'
 require_relative '../algorithms/DeltaForecaster.rb'
@@ -21,88 +21,38 @@ module Forecasting
     @history
     @splits
     def initialize(symbol)
-      @yahoo_client = YahooFinance::Client.new
+      @yahoo_client = YahooFinanceAPI.getInstance
       @symbol = symbol
       @history = nil
       @splits = nil
     end
 
     def get_previous_quote
-      puts "SYMBOL: " + @symbol.to_s
-      last_five_quotes = @yahoo_client.historical_quotes(@symbol,{start_date: Time.now-(24*60*60*5), end_date: Time::now })
-      puts "LAST FIVE" + last_five_quotes.inspect
-      previous_quote = Quote.from_openstruct(last_five_quotes[-2])
-      previous_quote
+      @yahoo_client.get_previous_quote(@symbol)
     end
 
     def all_history
-      if @history.nil?
-        begin
-          @history = @yahoo_client.historical_quotes(@symbol)
-          #puts "HISTORY: " + Chunk.new(@history).to_j
-        rescue OpenURI::HTTPError => e
-
-          #puts e.message
-
-        end
-
-      end
-      if !@history.nil?
-        @history.map{|q|
-          Quote.new(q['trade_date'],q['open'],q['close'],q['high'],q['low'],q['volume'],q['adjusted_close'],q['symbol'])
-        }
-        if !self.get_last_split_date.nil?
-          @history = @history.select{|q|
-            Date.strptime(q.trade_date,"%Y-%m-%d") >= self.get_last_split_date}
-        end
-
-        Chunk.new(@history)
-      end
-
+      @yahoo_client.all_history(@symbol)
     end
 
     def get_split_dates
-      if @splits==nil
-        @splits = @yahoo_client.splits(@symbol, :start_date => Date.today - 20*365)
-      end
-      @splits
+      @yahoo_client.get_split_dates(@symbol)
     end
 
     def get_last_split_date
-      if !@splits.nil?
-        self.get_split_dates[0]['date']
-      else
-        nil
-      end
+      @yahoo_client.get_last_split_date(@symbol)
     end
 
     def all_history_between(period)
-      begin
-        data = @yahoo_client.historical_quotes(@symbol,period)
-        data_chunk = Chunk.new(data)
-        #puts "YAHOO " + data_chunk.inspect
-
-        data_chunk
-      rescue
-        #puts "FAILED TO GET HISTORY FOR COMPANY " + @symbol
-
-      end
+      @yahoo_client.all_history_between(@symbol,period)    
     end
 
     def current_quote_realtime
-      data = @yahoo_client.quote(@symbol, [:ask_real_time])
-      data.ask_real_time.to_s
+      @yahoo_client.current_quote_realtime(@symbol)           
     end
 
     def last_quote
-      begin
-        l = self.all_history_between({ start_date: Time::now-(24*60*60*2), end_date: Time::now }).first
-        #puts "LASTQUOTE " + l.inspect
-        #    Quote.new(l['trade_date'],l['open'],l['close'],l['high'],l['low'],l['volume'],l['adjusted_close'],l['symbol'])
-        Quote.from_openstruct(l)
-      rescue
-        #puts "FAILED TO GET LAST QUOTE FOR COMPANY: " + @symbol
-      end
+      @yahoo_client.last_quote(@symbol)
     end
 
     def forecast(forecaster,amount_of_days)
