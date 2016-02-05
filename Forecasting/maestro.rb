@@ -49,7 +49,9 @@ class Maestro
     end
     
     
-    
+    every 1.day, :at => '4:00 pm' do
+      god :configfile => "scripts/webnews.god"
+    end
     
     
     every 1.day, :at => '4:00 pm' do
