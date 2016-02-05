@@ -1,50 +1,14 @@
-require 'god'
 require 'whenever'
-
+require 'json'
 
 module Maestro
   
 
-
-@god_lambdas = {
-  
-  :accucheck => Proc.new {
-    God.watch do |w|
-      w.name = "BatchForecasting"
-      w.dir = "/home/forecast/alphabrokers/Forecasting"
-      w.start = "ruby /home/forecast/alphabrokers/Forecasting/BatchForecasting.rb"
-      w.log = "batch.log"
-      w.keepalive
-    end
-    
-    
-  },
-    
-  :batch_forecasting => Proc.new {
-    God.watch do |w|
-      w.name = "AccuCheck"
-      w.dir = "/home/forecast/alphabrokers/Forecasting"
-      w.start = "ruby /home/forecast/alphabrokers/Forecasting/accucheck.rb"
-      w.log = "accucheck.log"
-      w.keepalive
-    end    
-  },
-  :word_crawler => Proc.new {
-    
-    every 1.day, :at => '0:00 am' do
-      runner "ruby scripts/"
-    end
-    
-    
-    
-    
-  }
   
   
+job_type :god, 'god -c :configfile'
+job_type :god_load_config, 'god :task :configfile'    
   
-  
-}
-
 
 
 
@@ -53,29 +17,53 @@ class Maestro
  
    
   @maestro
+  @trading_hours
+  @logger
   def self.get_instance
     if @maestro.nil?
       @maestro = Maestro.new    
     end
+    @logger = Logger.new('logs/execution.log')
     @maestro    
   end
   
   
-  def start
+  
+  def setup
     
+    
+    every 1.day, :at => '9:30 am' do
+      trading_start = {:type => "trading_start"}
+      @logger.info(trading_start) 
+    end
+    
+    every 1.day, :at => '4:00 pm' do
+      trading_finishes = {:type => "trading_finishes"}
+      @logger.info(trading_start)
+    end
+     
+      
+    
+    every 1.day, :at => '4:00 pm' do
+      god :configfile => "scripts/accucheck.god"
+    end
+    
+    
+    
+    
+    
+    every 1.day, :at => '4:00 pm' do
+      @god_lambdas[:word_crawler].call
+    end
+    
+ 
+    every 60.day, :at => '9:30 am' do
+      god_load_config "load", :configfile => "scripts/batchforecasting.god"
+    end
     
     
     
   end
-  
-  
- private
- 
-  
-
- 
-  
-  
   
   
   
@@ -87,7 +75,7 @@ end
 
 
 maestro = Maestro::Maestro.get_instance()
-maestro.start()
+maestro.setup
 
 
 
