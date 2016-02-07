@@ -2,6 +2,8 @@ require 'logger'
 
 @logger = Logger.new('logs/execution.log')
 
+  take_time_start = {:type => "process_start",:process_name => "batchforecasting", :start => Time.now }
+   
 
 
 God.watch do |w|
@@ -10,8 +12,8 @@ God.watch do |w|
   w.start = lambda {
 
 
-    take_time_start = {:type => "process_start",:process_name => "batchforecasting", :start => Time.now }
-    @logger.info(take_time.to_json)
+  @logger.info(take_time_start.to_json)
+  
 
     "ruby /home/forecast/alphabrokers/Forecasting/accucheck.rb"
 
