@@ -36,7 +36,7 @@ job_type :god, 'god :task :configfile'
       runner "Task.trading_starts"
     end
     
-    every :weeday, :at => '4:00 pm' do
+    every :weekday, :at => '4:00 pm' do
       runner "Task.trading_stops"
     end
      
