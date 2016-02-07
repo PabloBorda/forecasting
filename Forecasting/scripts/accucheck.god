@@ -15,7 +15,7 @@ God.watch do |w|
   @logger.info(take_time_start.to_json)
   
 
-    "ruby /home/forecast/alphabrokers/Forecasting/accucheck.rb"
+    "ruby /home/forecast/alphabrokers/Forecasting/scripts/accucheck.rb"
 
   } 
   w.transition(:up, :start) do |on|
