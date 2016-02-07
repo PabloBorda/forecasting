@@ -9,21 +9,18 @@ require 'bson'
 require 'net/ssh/gateway'
 require 'logger'
 
+
 include Forecasting
 
 class Accucheck
 
   include Mongo
-  include Logger
-  
+
   @db
   @gateway
   @last_symbol
   @logger
   def initialize
-    @logger = Logger.new('logs/execution.log')
-    @logger.info(take_time_start.to_json)
-    
     @gateway = Net::SSH::Gateway.new('178.62.123.38', 'root', :password => 'alphabrokers')
     @gateway.open('178.62.123.38', 27017, 27018)
 
@@ -74,6 +71,10 @@ class Accucheck
 
   def run
 
+    @logger = Logger.new('logs/execution.log')
+    @logger.info(take_time_start.to_json)
+    
+    
     count = @db[:Forecasts].count()
 
     insertion_counter = 0
