@@ -18,6 +18,7 @@ class Accucheck
   @db
   @gateway
   @last_symbol
+  @logger
   def initialize
     @logger = Logger.new('logs/execution.log')
     @logger.info(take_time_start.to_json)
