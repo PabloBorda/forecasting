@@ -20,47 +20,41 @@
 # Learn more: http://github.com/javan/whenever
 
 
-require 'logger'
+
 
 
 
 @logger = Logger.new('logs/execution.log')
 
 
-job_type :god, 'god -c :configfile'
-job_type :god_load_config, 'god :task :configfile'
+job_type :god, 'god :task :configfile'
+
 
 
 
     every 1.day, :at => '9:30 am' do
-      trading_start = {:type => "trading_start"}
-      @logger.info(trading_start) 
+      runner "Task.trading_starts"
     end
     
     every 1.day, :at => '4:00 pm' do
-      trading_finishes = {:type => "trading_finishes"}
-      @logger.info(trading_finishes)
+      runner "Task.trading_stops"
     end
      
       
     
     every 1.day, :at => '4:00 pm' do
-      god :configfile => "scripts/accucheck.god"
+      god "-c",:configfile => "scripts/accucheck.god"
     end
     
     
-    every 1.day, :at => '4:00 pm' do
-      god :configfile => "scripts/webnews.god"
-    end
-    
-    
-    every 1.day, :at => '4:00 pm' do
-     # @god_lambdas[:word_crawler].call
+    every 1.day, :at => '4:01 pm' do
+      god "load",:configfile => "scripts/webnews.god"
     end
     
  
+ 
     every 60.day, :at => '9:30 am' do
-      god_load_config "load", :configfile => "scripts/batchforecasting.god"
+      god "load", :configfile => "scripts/batchforecasting.god"
     end
     
 
