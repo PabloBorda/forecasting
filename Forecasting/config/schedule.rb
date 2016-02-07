@@ -24,7 +24,7 @@
 
 
 
-@logger = Logger.new('logs/execution.log')
+
 
 
 job_type :god, 'god :task :configfile'
