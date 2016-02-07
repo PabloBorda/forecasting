@@ -16,13 +16,16 @@ class Accucheck
 
   include Mongo
 
+
+
+
   @db
   @gateway
   @last_symbol
   @logger
   def initialize
     
-    @logger = Logger.new('../logs/execution.log')
+    @logger = Logger::Logger.new('../logs/execution.log')
     
     @gateway = Net::SSH::Gateway.new('178.62.123.38', 'root', :password => 'alphabrokers')
     @gateway.open('178.62.123.38', 27017, 27018)
