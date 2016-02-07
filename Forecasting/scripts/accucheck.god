@@ -12,7 +12,7 @@ God.watch do |w|
   w.start = lambda {
 
 
-  @logger.info(take_time_start.to_json)
+  
   
 
     "ruby /home/forecast/alphabrokers/Forecasting/scripts/accucheck.rb"
