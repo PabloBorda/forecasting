@@ -1,5 +1,8 @@
 require_relative '../model/Company.rb'
 require_relative '../model/Chunk.rb'
+require_relative '../algorithms/AvgForecaster.rb'
+require_relative '../algorithms/DeltaForecaster.rb'
+
 
 require 'date'
 require 'json'
