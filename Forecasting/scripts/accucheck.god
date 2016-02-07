@@ -1,11 +1,13 @@
+require 'logger'
+
+@logger = Logger.new('logs/execution.log')
+
+
 
 God.watch do |w|
   w.name = "AccuCheck"
   w.dir = "/home/forecast/alphabrokers/Forecasting"
   w.start = lambda {
-    require 'logger'
-
-    @logger = Logger.new('logs/execution.log')
 
 
     take_time_start = {:type => "process_start",:process_name => "batchforecasting", :start => Time.now }
