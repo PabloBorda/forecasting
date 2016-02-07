@@ -14,7 +14,8 @@ include Forecasting
 class Accucheck
 
   include Mongo
-
+  include Logger
+  
   @db
   @gateway
   @last_symbol
