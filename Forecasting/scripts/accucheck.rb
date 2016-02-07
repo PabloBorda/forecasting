@@ -17,7 +17,7 @@ require 'logger'
 
 class Accucheck
 
-   
+   include Forecasting
 
 
 
