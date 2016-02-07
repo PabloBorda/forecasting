@@ -32,22 +32,22 @@ job_type :god, 'god :task :configfile'
 
 
 
-    every 1.day, :at => '9:30 am' do
+    every :weekday, :at => '9:30 am' do
       runner "Task.trading_starts"
     end
     
-    every 1.day, :at => '4:00 pm' do
+    every :weeday, :at => '4:00 pm' do
       runner "Task.trading_stops"
     end
      
       
     
-    every 1.day, :at => '4:00 pm' do
+    every :weekday, :at => '4:00 pm' do
       god "-c",:configfile => "scripts/accucheck.god"
     end
     
     
-    every 1.day, :at => '4:01 pm' do
+    every :weekday, :at => '4:01 pm' do
       god "load",:configfile => "scripts/webnews.god"
     end
     
