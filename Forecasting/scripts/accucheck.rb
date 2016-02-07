@@ -10,12 +10,11 @@ require 'net/ssh/gateway'
 require 'logger'
 
 
-include Forecasting
+
 
 class Accucheck
 
-  include Mongo
-
+   
 
 
 
@@ -24,15 +23,18 @@ class Accucheck
   @last_symbol
   @logger
   def initialize
-    
-    @logger = Logger::Logger.new('../logs/execution.log')
-    
+   
     @gateway = Net::SSH::Gateway.new('178.62.123.38', 'root', :password => 'alphabrokers')
     @gateway.open('178.62.123.38', 27017, 27018)
 
     @db  = Mongo::Client.new([ 'localhost:27018' ], :database => 'alphabrokers')
 
     puts @db['alphabrokers'].find({}).limit(1).to_a.to_json
+    
+
+    @logger = Logger.new("../logs/accucheck.log")
+
+
   end
 
   def accuracy_per_algorithm_per_company
@@ -155,7 +157,7 @@ class Accucheck
   private
 
   def last_quote_from_symbol(symbol)
-    c = Company.new(symbol)
+    c = Forecasting::Company.new(symbol)
     #puts "FIRST HISTORY" + (c.last_quote).to_j
     return c.last_quote
 
