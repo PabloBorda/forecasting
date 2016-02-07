@@ -71,7 +71,7 @@ class Accucheck
 
   def run
 
-    @logger = Logger.new('logs/execution.log')
+    @logger = Logger.new('../logs/execution.log')
     take_time_start = {:type => "process_start",:process_name => "accucheck", :start => Time.now }
       
     @logger.info(take_time_start.to_json)
