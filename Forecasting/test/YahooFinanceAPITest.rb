@@ -12,7 +12,7 @@ class YahooFinanceAPITest < Test::Unit::TestCase
   
   
   def setup
-    @yahoo = YahooFinanceAPI.new
+    @yahoo = YahooFinanceAPI.get_instance
   end
   
   
@@ -53,7 +53,11 @@ class YahooFinanceAPITest < Test::Unit::TestCase
     
   end
   
-  
+  def test_get_all_us_symbols
+    symbols = @yahoo.get_all_us_symbols()
+    puts symbols.size.to_s + " symbols were returned"
+    assert(symbols.size>0,"Make sure there are many symbols")
+  end
   
   
   

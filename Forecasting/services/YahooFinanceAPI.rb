@@ -14,7 +14,7 @@ class YahooFinanceAPI
   @singleton
   @splits
   
-  def self.getInstance
+  def self.get_instance
     if @singleton.nil?
       @singleton = YahooFinanceAPI.new
     end
@@ -40,9 +40,11 @@ class YahooFinanceAPI
          end
  
          Chunk.new(@history)
+       rescue
+         puts "Error retrieving " + symbol
        end
  
-     end
+  end
   
   
   
@@ -57,9 +59,12 @@ class YahooFinanceAPI
 
   def get_last_split_date(symbol)
     if @splits.nil?
-      self.get_split_dates(symbol)[0]['date']
-    else
+      @splits = self.get_split_dates(symbol)      
+    end
+    if @splits.size>0
       @splits[0]['date']
+    else
+      nil 
     end
   end
   
