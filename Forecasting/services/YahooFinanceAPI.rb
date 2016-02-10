@@ -42,6 +42,7 @@ class YahooFinanceAPI
          Chunk.new(@history)
        rescue
          puts "Error retrieving " + symbol
+         nil
        end
  
   end
@@ -79,7 +80,7 @@ class YahooFinanceAPI
        data_chunk
      rescue
        #puts "FAILED TO GET HISTORY FOR COMPANY " + @symbol
-
+       nil
      end
  end
 
@@ -95,6 +96,7 @@ class YahooFinanceAPI
      #    Quote.new(l['trade_date'],l['open'],l['close'],l['high'],l['low'],l['volume'],l['adjusted_close'],l['symbol'])
      Quote.from_openstruct(l)
    rescue
+     nil
      #puts "FAILED TO GET LAST QUOTE FOR COMPANY: " + @symbol
    end
  end

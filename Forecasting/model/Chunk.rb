@@ -166,6 +166,14 @@ module Forecasting
       o
     end
 
+    def to_hashes
+      self.data.map do |q|
+        q.to_hash
+      end
+    end
+    
+    
+    
     def last
       @chunk_data.last
     end

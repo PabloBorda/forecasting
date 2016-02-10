@@ -70,9 +70,9 @@ class BatchForecasting
       
       
         output_to_insert_to_mongo = { :symbol => s ,              # we dont know company name
-                                    :company_name => s,
-                                    :forecasts => [] ,
-                                    :history =>  JSON.parse(company_history.to_j)} 
+                                      :company_name => s,
+                                      :forecasts => [],
+                                      :date => Time.now } 
       
         @algorithms.each do |a|
           forecast = a.forecast_on_me(company,amount_of_days)
