@@ -84,7 +84,7 @@ class YahooFinanceAPI
      end
  end
 
- def current_quote_realtime
+ def current_quote_realtime(symbol)
    data = @yahoo_client.quote(symbol, [:ask_real_time])
    data.ask_real_time.to_s
  end

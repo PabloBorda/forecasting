@@ -1,6 +1,8 @@
 require_relative '../model/Quote.rb'
 require_relative '../model/Chunk.rb'
 require_relative '../Files/symbols.rb'
+require_relative 'YahooFinanceAPI.rb'
+
 
 require 'date'
 require 'json'
@@ -25,7 +27,7 @@ class MongoFinanceAPI
   end
 
   def get_all_us_symbols
-    @symbols
+    YahooFinanceAPI.get_instance.get_all_us_symbols
   end
 
   def all_history(symbol)
@@ -33,30 +35,30 @@ class MongoFinanceAPI
   end
 
   def get_split_dates(symbol)
-    nil
+    YahooFinanceAPI.get_instance.get_split_dates(symbol)
   end
 
   def get_last_split_date(symbol)
-    nil
+    YahooFinanceAPI.get_instance.get_last_split_date(symbol)
   end
 
   def all_history_between(symbol,period)
-    @mongo_client[:Quotes].find({:symbol => symbol})[:history].select do |q|
+    @mongo_client[:Quotes].find({:symbol => symbol}).to_a[0][:history].select do |q|
       trade_date = Date.strptime(q[:trade_date],"%Y-%m-%d") 
-      (trade_date >= period[:start_date]) && (trade_date <= period[:end_date])
+      (trade_date >= period[:start_date].to_date) && (trade_date <= period[:end_date].to_date)
     end    
   end
 
-  def current_quote_realtime
-    nil
+  def current_quote_realtime(symbol)
+    YahooFinanceAPI.get_instance.current_quote_realtime(symbol)
   end
 
   def last_quote(symbol)
-    nil
+    Quote.from_ruby_hash(@mongo_client[:Quotes].find({:symbol => symbol})[:history].last)
   end
 
   def get_previous_quote(symbol)
-    nil
+    @mongo_client[:Quotes].find({:symbol => symbol})[:history][-2]
   end
 
   private
