@@ -15,7 +15,7 @@ module Forecasting
     attr_accessor :symbol
     def self.from_openstruct(quote_openstruct)
       # #puts "QUOTE_OPENSTRUCT CLASS IS " + quote_openstruct.class.to_s + "     " + quote_openstruct.inspect
-      if ((quote_openstruct.class.to_s.eql? "OpenStruct") or (quote_openstruct.class==Hash))
+      if ((quote_openstruct.class.to_s.eql? "OpenStruct") or (quote_openstruct.class.to_s.eql? "Hash"))
         return Quote.new(quote_openstruct['trade_date'].to_s,quote_openstruct['open'].to_f.round(2),quote_openstruct['close'].to_f.round(2),quote_openstruct['high'].to_f.round(2),quote_openstruct['low'].to_f.round(2),quote_openstruct['volume'].to_f.round(2),quote_openstruct['adjusted_close'].to_f.round(2),quote_openstruct['symbol'].to_s)
       else
         if quote_openstruct.class.to_s.include? "Quote"

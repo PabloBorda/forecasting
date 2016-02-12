@@ -31,7 +31,10 @@ class MongoFinanceAPI
   end
 
   def all_history(symbol)
-    @mongo_client[:Quotes].find({:symbol => symbol})    
+    Chunk.new(@mongo_client[:Quotes].find({:symbol => symbol}).to_a[0][:history].map do |qhash|
+                Quote.from_ruby_hash(JSON.parse(qhash.to_json))
+      
+              end)    
   end
 
   def get_split_dates(symbol)

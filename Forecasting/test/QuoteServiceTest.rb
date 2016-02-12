@@ -29,7 +29,7 @@ class QuoteServiceTest < Test::Unit::TestCase
   
   def test_all_history
     history = @quote_service.all_history("AAPL")    
-    assert((history.to_a.size > 0),("There are " + history.to_a.size.to_s + " elements.")) 
+    assert((history.size > 0),("There are " + history.size.to_s + " elements.")) 
   end
   
   
@@ -45,8 +45,9 @@ class QuoteServiceTest < Test::Unit::TestCase
   
   
   def test_all_history_between
-    quotes = @quote_service.all_history_between("AAPL",{ start_date: Time::now-(24*60*60*240), end_date: Time::now }) 
+    quotes = @quote_service.all_history_between("AAPL",{ start_date: Time::now-(24*60*60*4), end_date: Time::now }) 
     puts "quotes: " + quotes.size.to_s
+    puts "all_history_between" + quotes.to_json
     assert(quotes.size>0,"Many quotes were returned")
 
     
