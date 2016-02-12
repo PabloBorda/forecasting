@@ -44,9 +44,13 @@ module  Forecasting
             b = existing_symbol.to_a[0][:last_update]
             days_ago = ((Time.now - b)/(24*60*60)).to_i 
             missing_history = @source.all_history_between(s,{ start_date: Time::now-(24*60*60*days_ago), end_date: Time::now })
-            existing_symbol.to_a[0][:history] = existing_symbol.to_a[0][:history] + missing_history.to_hashes
-            puts "UPDATING " + s + "..."
-            @db[:Quotes].update_one({:symbol => s},existing_symbol.to_a[0]) 
+            if !missing_history.nil?  
+              existing_symbol.to_a[0][:history] = existing_symbol.to_a[0][:history] + missing_history.to_hashes
+              puts "UPDATING " + s + "..."
+              @db[:Quotes].update_one({:symbol => s},existing_symbol.to_a[0])
+            else
+              puts "No missing history for symbol: " + s
+            end 
           end
         end
 
