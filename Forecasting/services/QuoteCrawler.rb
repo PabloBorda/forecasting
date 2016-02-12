@@ -2,13 +2,15 @@ require 'rubygems'
 require 'mongo'
 require 'bson'
 require 'net/ssh/gateway'
+require 'aspector'
 
 require_relative 'YahooFinanceAPI.rb'
+require_relative '../aspects/TimingAspect.rb'
 
 module  Forecasting
   module QuoteData
-    class QuoteCrawler
-
+    class QuoteCrawler                       
+      
       @source
       @service
       @symbols
@@ -38,6 +40,8 @@ module  Forecasting
             
             
               @db[:Quotes].insert_one(q)                
+            else
+              puts "Connection to yahoo finance failed for symbol: " + s
             end
           else
             # Get only the missing quotes from the last_update on and append them to the history array and save
@@ -59,13 +63,18 @@ module  Forecasting
       private
 
       def initialize
+        
+        
+        TimingAspect.apply(YahooFinanceAPI)
         @source = YahooFinanceAPI.get_instance()
         @symbols = @source.get_all_us_symbols()
 
         @gateway = Net::SSH::Gateway.new('178.62.123.38', 'root', :password => 'alphabrokers')
         @gateway.open('178.62.123.38', 27017, 27018)
 
+        TimingAspect.apply(Mongo::Client)
         @db  = Mongo::Client.new([ 'localhost:27018' ], :database => 'alphabrokers')
+                                 
 
       end
       
