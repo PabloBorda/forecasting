@@ -32,9 +32,6 @@ class Accucheck
 
     @db  = Mongo::Client.new([ 'localhost:27018' ], :database => 'alphabrokers')
 
-    puts @db['alphabrokers'].find({}).limit(1).to_a.to_json
-    
-
     @logger = Logger.new("../logs/accucheck.log")
 
 
@@ -82,11 +79,7 @@ class Accucheck
 
   def run
 
-   
-    take_time_start = {:type => "process_start",:process_name => "accucheck", :start => Time.now }
-      
-    @logger.info(take_time_start.to_json)
-    
+ 
     
     count = @db[:Forecasts].count()
 

@@ -13,7 +13,8 @@ class TimingAspect < Aspector::Base
     before_time = Time::now
     result = proxy.call(*args, &block)
     after_time = Time::now - before_time
-    puts "Benchmark  #{class_method}: took #{after_time} seconds..."
+    timing_object = {:method_name => class_method, :duration => after_time}
+    puts timing_object.to_json
     result
   end
 end

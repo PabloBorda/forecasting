@@ -45,18 +45,21 @@ module  Forecasting
             end
           else
             # Get only the missing quotes from the last_update on and append them to the history array and save
-            b = existing_symbol.to_a[0][:last_update]
+            quote_to_update = existing_symbol.to_a[0]
+            b = quote_to_update[:last_update]
             days_ago = ((Time.now - b)/(24*60*60)).to_i 
             missing_history = @source.all_history_between(s,{ start_date: Time::now-(24*60*60*days_ago), end_date: Time::now })
             if !missing_history.nil?  
-              existing_symbol.to_a[0][:history] = existing_symbol.to_a[0][:history] + missing_history.to_hashes
+              quote_to_update[:history] = existing_symbol.to_a[0][:history] + missing_history.to_hashes
+              quote_to_update[:last_update] = Time::now
               puts "UPDATING " + s + "..."
-              @db[:Quotes].update_one({:symbol => s},existing_symbol.to_a[0])
+              @db[:Quotes].update_one({:symbol => s},quote_to_update)
             else
               puts "No missing history for symbol: " + s
             end 
           end
         end
+        
 
       end
 
@@ -65,14 +68,16 @@ module  Forecasting
       def initialize
         
         
-        TimingAspect.apply(YahooFinanceAPI)
+        #TimingAspect.apply(YahooFinanceAPI)
+        #TimingAspect.apply(Mongo::Client)
+        TimingAspect.apply(QuoteCrawler)
         @source = YahooFinanceAPI.get_instance()
         @symbols = @source.get_all_us_symbols()
 
         @gateway = Net::SSH::Gateway.new('178.62.123.38', 'root', :password => 'alphabrokers')
         @gateway.open('178.62.123.38', 27017, 27018)
 
-        TimingAspect.apply(Mongo::Client)
+        
         @db  = Mongo::Client.new([ 'localhost:27018' ], :database => 'alphabrokers')
                                  
 
