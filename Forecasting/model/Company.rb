@@ -21,7 +21,7 @@ module Forecasting
     @history
     @splits
     def initialize(symbol)
-      @source = QuoteService.getInstance
+      @source = Forecasting::Services::QuoteService.getInstance
       @symbol = symbol
       @history = nil
       @splits = nil
