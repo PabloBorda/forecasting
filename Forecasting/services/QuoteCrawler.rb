@@ -74,11 +74,8 @@ module  Forecasting
         @source = YahooFinanceAPI.get_instance()
         @symbols = @source.get_all_us_symbols()
 
-        @gateway = Net::SSH::Gateway.new('178.62.123.38', 'root', :password => 'alphabrokers')
-        @gateway.open('178.62.123.38', 27017, 27018)
-
-        
-        @db  = Mongo::Client.new([ 'localhost:27018' ], :database => 'alphabrokers')
+        connector = MongoConnector.get_instance
+        @db  = connector.connect
                                  
 
       end

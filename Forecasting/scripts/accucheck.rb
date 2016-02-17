@@ -3,6 +3,7 @@ require_relative '../model/Chunk.rb'
 require_relative '../algorithms/Forecaster.rb'
 require_relative '../algorithms/DeltaForecaster.rb'
 require_relative '../algorithms/AvgForecaster.rb'
+require_relative '../services/MongoConnector.rb'
 
 require 'date'
 require 'json'
@@ -25,57 +26,23 @@ class Accucheck
   @gateway
   @last_symbol
   @logger
-  def initialize
-   
-    @gateway = Net::SSH::Gateway.new('178.62.123.38', 'root', :password => 'alphabrokers')
-    @gateway.open('178.62.123.38', 27017, 27018)
+  @instance
 
-    @db  = Mongo::Client.new([ 'localhost:27018' ], :database => 'alphabrokers')
-
-    @logger = Logger.new("../logs/accucheck.log")
-
-
+  
+  def self.get_instance
+    if @instance.nil?
+      @instance = Accucheck.new
+    end
+    @instance
   end
-
+  
+  
+  
   def accuracy_per_algorithm_per_company
 
   end
 
-  def accuracy_global
-    count = @db[:Accuchecks].count()
 
-    pages = (count/10).round
-
-    page_size = 10
-
-    close_difference_sum = 0
-
-    pages.times.each do |i|
-      @db[:Accuchecks].find({}).skip(i*page_size).limit(page_size).to_a.each do |f|
-        f_parsed = JSON.parse(f.to_json)
-        close_difference_sum = close_difference_sum + f_parsed['difference']['close'].to_f
-        #puts f_parsed['symbol']
-        #accuracy_by_company_and_algorithm = {'symbol' => f_parsed['symbol'] }
-        #@db[:Accuchecks].find({'symbol' => f_parsed['symbol']}).each do
-        #  |ac|
-        #  if accuracy_by_company_and_algorithm[f_parsed['algorithm']].nil?
-        #    accuracy_by_company_and_algorithm[f_parsed['algorithm']] = 0
-        #  else
-        #    accuracy_by_company_and_algorithm[f_parsed['algorithm']] = accuracy_by_company_and_algorithm[f_parsed['algorithm']] + f_parsed['difference']['close'].to_f
-        #  end
-
-        #end
-
-        #puts f_parsed['algorithm']
-
-        #end
-      end
-
-    end
-
-    puts "THE AVERAGE ERROR IS: " + (close_difference_sum/count).to_s
-
-  end
 
   def run
 
@@ -151,6 +118,20 @@ class Accucheck
   end
 
   private
+  
+  
+  
+  def initialize
+   
+    connector = ::Services::MongoConnector.get_instance
+
+    @db  = connector.connect
+    #puts "AMOUNT QUPOTES! " + @db.methods.inspect
+
+    #@logger = Logger.new("../logs/accucheck.log")
+
+
+  end
 
   def last_quote_from_symbol(symbol)
     c = Forecasting::Company.new(symbol)
@@ -167,7 +148,7 @@ class Accucheck
 
 end
 
-ac = Accucheck.new
+ac = Accucheck.get_instance
 ac.run
 ac.accuracy_global
 

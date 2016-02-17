@@ -1,16 +1,16 @@
 require 'yahoo-finance'
 require 'json'
 
-require_relative 'MongoClient.rb'
+
 require_relative 'Quote.rb'
 require_relative 'Chunk.rb'
 
 module Forecasting
   class Point
 
-    include Mongoid::Document
-    has_one :quote
-    has_many :chunk
+    #include Mongoid::Document
+    #has_one :quote
+    #has_many :chunk
 
     attr_accessor :previous_n_quotes_chunk
     attr_accessor :next_n_quotes_chunk

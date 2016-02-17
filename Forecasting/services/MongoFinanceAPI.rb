@@ -2,6 +2,7 @@ require_relative '../model/Quote.rb'
 require_relative '../model/Chunk.rb'
 require_relative '../Files/symbols.rb'
 require_relative 'YahooFinanceAPI.rb'
+require_relative '../services/MongoConnector.rb'
 
 
 require 'date'
@@ -57,6 +58,7 @@ class MongoFinanceAPI
   end
 
   def last_quote(symbol)
+    puts "LAST QUOTE IS: " + @mongo_client[:Quotes].find({:symbol => symbol}).inspect
     Quote.from_ruby_hash(@mongo_client[:Quotes].find({:symbol => symbol})[:history].last)
   end
 
@@ -67,10 +69,9 @@ class MongoFinanceAPI
   private
 
   def initialize
-    @gateway = Net::SSH::Gateway.new('178.62.123.38', 'root', :password => 'alphabrokers')
-    @gateway.open('178.62.123.38', 27017, 27018)
 
-    @mongo_client  = Mongo::Client.new([ 'localhost:27018' ], :database => 'alphabrokers')
+    connector = ::Services::MongoConnector.get_instance
+    @mongo_client  = connector.connect
 
     
 
