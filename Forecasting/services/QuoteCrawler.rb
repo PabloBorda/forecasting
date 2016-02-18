@@ -6,6 +6,7 @@ require 'aspector'
 
 require_relative 'YahooFinanceAPI.rb'
 require_relative '../aspects/TimingAspect.rb'
+require_relative '../services/MongoConnector.rb'
 
 module  Forecasting
   module QuoteData
@@ -74,7 +75,7 @@ module  Forecasting
         @source = YahooFinanceAPI.get_instance()
         @symbols = @source.get_all_us_symbols()
 
-        connector = MongoConnector.get_instance
+        connector = ::Services::MongoConnector.get_instance
         @db  = connector.connect
                                  
 
