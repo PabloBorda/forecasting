@@ -58,13 +58,14 @@ class Accucheck
 
     pages.times.each do |i|
       @db[:Forecasts].find({}).skip(i*page_size).limit(page_size).to_a.each do |f|
+        
         f_parsed = JSON.parse(f.to_json)     # convert BSON to_json and then parse the JSON into a plain ruby object
         f_last_quote = last_quote_from_symbol(f_parsed['symbol'])
-
+        
         if !f_last_quote.nil? and f_last_quote.close>0
-
+          
           puts "Accucheck company " + f_parsed['symbol']
-
+          
           f_parsed['forecasts'].each do |forecast|
             puts "AccuCheck for: " + forecast['algorithm_name']
 
