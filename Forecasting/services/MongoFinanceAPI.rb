@@ -57,9 +57,11 @@ class MongoFinanceAPI
     YahooFinanceAPI.get_instance.current_quote_realtime(symbol)
   end
 
-  def last_quote(symbol)    
+  def last_quote(symbol)   
+   # puts "LAST QUOTEEEEE" 
     quote = @mongo_client[:Quotes].find({:symbol => symbol}).to_a[0][:history][0]    
-    Quote.from_ruby_hash(quote)
+   # puts "**********************************" + quote.inspect
+    Quote.from_ruby_hash(JSON.parse(quote.to_json))
   end
 
   def get_previous_quote(symbol)

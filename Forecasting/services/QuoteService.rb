@@ -90,7 +90,7 @@ module Forecasting
         source_num = 0
         previous_quote = @@sources[source_num].last_quote(symbol)
         puts "PREVIOUSQUOTE: " + previous_quote.inspect
-        while previous_quote.nil?
+        while previous_quote.nil?          
           source_num = source_num + 1
           previous_quote = @@sources[source_num].last_quote(symbol)
         end
