@@ -24,12 +24,12 @@ module Forecasting
         @service
       end
 
-      def get_previous_quote
+      def get_previous_quote(symbol)
         source_num = 0
-        previous_quote = @@sources[source_num].get_previous_quote
+        previous_quote = @@sources[source_num].get_previous_quote(symbol)
         while previous_quote.nil?
           source_num = source_num + 1
-          previous_quote = @@sources[source_num].get_previous_quote
+          previous_quote = @@sources[source_num].get_previous_quote(symbol)
         end
         previous_quote
       end

@@ -65,7 +65,7 @@ class MongoFinanceAPI
   end
 
   def get_previous_quote(symbol)
-    @mongo_client[:Quotes].find({:symbol => symbol})[:history][-2]
+    @mongo_client[:Quotes].find({:symbol => symbol}).to_a[0][:history][-2]
   end
 
   private

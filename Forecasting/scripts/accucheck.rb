@@ -85,7 +85,7 @@ class Accucheck
                   puts "forecasted_quote: " + forecasted_quote.inspect
                   puts "real quote value: " + f_last_quote.inspect
 
-                  difference = class_from_string(forecast['algorithm_name']).accucheck_me(Quote.from_openstruct(f_last_quote),Quote.from_openstruct(forecasted_quote))
+                  difference = class_from_string(forecast['algorithm_name']).accucheck_me(Quote.from_openstruct(f_last_quote.to_json),Quote.from_openstruct(forecasted_quote.to_json))
 
                   if !difference.nil?
 
@@ -100,7 +100,11 @@ class Accucheck
                     #puts accuracy_row.to_json
 
                     puts "INSERTING: " + accuracy_row.inspect
-                    @db[:Accuchecks].insert_one(accuracy_row)  # Here should go the mongo insert
+                    begin
+                      @db[:Accuchecks].insert_one(accuracy_row)  # Here should go the mongo insert
+                    rescue
+                      puts "ERROR INSERTING " + accuracy_row.inspect
+                    end
                     insertion_counter = insertion_counter + 1
 
                   end

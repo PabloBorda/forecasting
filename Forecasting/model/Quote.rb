@@ -20,6 +20,10 @@ module Forecasting
       else
         if quote_openstruct.class.to_s.include? "Quote"
           return quote_openstruct
+        else
+          if quote_openstruct.class.to_s.include? "BSON"
+            return self.from_ruby_hash(JSON.parse(quote_openstruct.to_json))
+          end
         end
         Forecasting::Quote.neutral_element()
       end
