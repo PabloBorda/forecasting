@@ -1,0 +1,55 @@
+ <!--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#reload").click(function(){                
+       $.ajax({
+         url: 'http://getstuffclose.com:81/captcha',
+         context: document.body,
+         success: function(data){
+           $("#image").html($(data).find("#image").html());
+         }
+       });
+    });
+    $("#validation").click(function(){
+      myurl = "http://getstuffclose.com:81/test/" + $("#valinput").val();
+      $.ajax({
+         url: myurl,
+         context: document.body,
+         success: function(data){
+           $("#image").html(data);
+         }
+       });
+    });
+
+  });
+
+
+</script>
+
+
+
+
+<div id="captcha" align="center">
+  <table>
+  <tr height="100">  
+    <td id="image" align="center"><img id="picvalidation" src="<%=@impath.to_s%>"/></td>
+  </tr>
+  <tr>
+   <td>
+    <table>
+      <tr>
+        <td><input id="valinput" type="text" name="captcha" maxlength="12" size="12"></td>
+        <td>          
+            <img id="reload" src="http://getstuffclose:81/images/reload.png"/>          
+        </td>
+        <td>          
+            <input id="validation" type="button" value="validate"/>
+        </td>
+      </tr>
+    </table>
+   </td>
+  </tr>
+
+  </table>
+</div>

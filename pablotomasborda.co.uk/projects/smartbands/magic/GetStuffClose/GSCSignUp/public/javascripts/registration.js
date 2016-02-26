@@ -1,0 +1,1 @@
+var registrationdata = new Object();

@@ -1,0 +1,42 @@
+<html>
+
+<link rel="stylesheet" href="stylesheets/green.min.css" />
+<link rel="stylesheet" href="stylesheets/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile.structure-1.4.0.min.css" />
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    alert("Document loaded");
+    $("#submit").bind('click',function(event){
+    
+      $("#submit").dialog("close");
+    });
+  });
+  
+  
+  </script>
+
+
+  <title>Contact Pablo Tomas Borda
+  <div id="contactfrm">
+    <label>Company Name:</label>
+    <input type="text" name="cname"/>
+    <label>Website</label>
+    <input type="text" name="website"/>
+    <label>Contact name:</label>
+    <input type="text" name="name"/>
+    <label>Contact email:</label>
+    <input type="email" name="email"/>
+    <label>Comments</label>
+    <textarea cols="40" rows="20" name="comments"></textarea>
+    <input id="submit" type="button" name="submit" value="Submit"/>
+    
+  </div>
+
+
+
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<title>
+		Delivery Magic
+	</title>
+  <head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	  <title>welcome.html</title>
+	  <%= javascript_include_tag :defaults %>
+	  <%= yield :head %>
+  </head>
+  <body>
+  	<div align="center">
+  	<table name="layout">
+  	<tr align="center">
+  	  <td></td>
+  	  <td>
+  	  	<div align="center">
+  	  	  <img src="/images/logo.jpg" />
+  	  	</div>
+  	  </td>
+  	  <td></td>	
+  	</tr>
+  	<tr>
+  	  <td></td>
+      <td>
+  	    <div align="center">
+  	      <form name="deliverymagic-login" action="login" method="post">
+  		  <table id="deliverymagic-login">
+  		  	<tr>
+  		  		<td>
+  		  		  User:
+  		  		</td>
+  		  		<td>
+  		  			<input type="text" name="deliverymagic-login" />
+  		  		</td>
+  		  	</tr>
+  		  	<tr>
+  		  		<td>
+  		  		  Pass: 
+  		  		</td>
+  		  		<td>
+  		  			<input type="password" name="deliverymagic-pass" />
+  		  		</td>
+  		  	</tr>
+  		  	<tr>
+  		  		<td></td>
+  		  		<td>
+  		  			<input type="submit" />
+  		  		</td>
+  		  		<td></td>
+  		  	</tr>
+  		  </table>
+  		  <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token"/>
+  		  </form>
+  	    </div>
+  	  </td>
+  	  <td></td>
+  	</tr>
+  	<tr>
+  		
+  	</tr>
+  	</table>
+  	</div>
+  <%= yield %>
+  </body>
+</html>

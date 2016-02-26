@@ -1,0 +1,109 @@
+<style>
+      .textarea {
+        font-size: 45px;
+        background-color: #000000;
+        border: 5px solid #D5A701;
+        color: #FBFE0D;
+      }
+
+</style>
+<div id="companydata" align="center">
+ <form id="company" >
+   <font size="20px">
+     Company Name
+   </font><br/>
+   <input align="center" name="company-name" type="text" class="textarea" id="overall-company-name" onChange="set_logo_upload_company_name();"/>
+</br>
+
+   <table>
+
+<tr>
+<td>
+   <font size="3px">
+    Choose Password
+   </font>
+
+</td>
+<td>
+  <input type="password" name="password"/>
+</td>
+</tr>
+
+<tr>
+<td>
+   <font size="3px">
+    Repeat Password
+   </font>
+
+</td>
+<td>
+  <input type="password" name="repeatpassword"/>
+</td>
+</tr>
+
+<tr>
+<td>
+   <font size="3px">
+    Company Logo
+   </font>
+
+</td>
+<td>
+ <form id="logo-upload-form" name="logo-upload-form" action="/picture_upload/upload" method="post" enctype="multipart/form-data">
+   <input type="file" name="company-logo" id="company-logo" onChange="triggerUploadAction();"/>
+   <input id="logo-upload-company-name" name="company-name" type="hidden"/>                                            
+ </form>
+</td>
+</tr>
+
+<tr>
+<td>
+   <font size="3px">
+    Contact Email
+   </font>
+
+</td>
+<td>
+  <input type="text" name="email"/>
+</td>
+</tr>
+
+<tr>
+<td>
+   <font size="3px">
+    Mobile Number
+   </font>
+
+</td>
+<td>
+  <input type="text" name="mobile"/>
+</td>
+</tr>
+
+<tr>
+<td>
+   <font size="3px">
+    Web Page
+   </font>
+
+</td>
+<td>
+  <input type="text" name="webpage"/>
+</td>
+</tr>
+
+
+
+</table>
+
+
+
+
+   <br/>
+   <br/>
+   <div id="logo-target">
+   </div>
+   <br/>
+   <br/>
+ </form>
+</div>

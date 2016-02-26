@@ -1,0 +1,9 @@
+<% if @prods_result.num_rows > 0                                                  %>
+<% out = "["                                                                      %>
+<%   while rw = @prods_result.fetch_row()                                         %>
+<%    out = out + "{" + "\"productid\": \"" + rw[0].to_s + "\",\"closeststoreid\": \"" + rw[1].to_s + "\",\"companyid\": \"" + rw[2].to_s + "\",\"storedistance\": \"" + rw[3].to_s + "\"},"  %>
+<%   end                                                                          %>
+<%  out = out[0..-2]                                                              %>
+<%= out = out + "]"                                                               %>
+<% end                                                                            %>
+  

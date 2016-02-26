@@ -1,0 +1,18 @@
+<div>
+<font size="1">
+<TABLE cellspacing=0 cellpadding=0 id=header border="1" width="150">
+<tr>
+	<td>Costo</td>
+	<td>Link</td>
+	<td>Vendidos</td>
+	<td>MostSoldDay</td>
+	<td>LeastSoldDay</td>
+</tr>
+
+ <% @most_sold_yesterday = (DashboardHelper::MostSoldProducts.new).most_sold  %>
+ <% while row = @most_sold_yesterday.fetch_row do %>
+      <tr> <td> <%=row[0]%> </td> <td> <a href="<%= row[2] %>"><%=row[1]%></a> </td> <td> <%= row[3] %> </td> <td> <%= row[4] %> </td> <td> <%= row[5] %> </td></tr>
+ <% end  %>
+</table>
+</font>
+</div>

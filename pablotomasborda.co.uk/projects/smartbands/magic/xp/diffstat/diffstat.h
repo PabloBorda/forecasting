@@ -1,0 +1,3 @@
+
+
+#define AVAILABLE_MEMORY_IN_MB 10

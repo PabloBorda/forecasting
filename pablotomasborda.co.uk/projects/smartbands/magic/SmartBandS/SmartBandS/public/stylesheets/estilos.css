@@ -1,0 +1,83 @@
+body {
+	margin-top: 0px;
+	margin-right: 160px;
+	margin-bottom: 0px;
+	margin-left: 160px;
+}
+
+nav {
+	margin: 0px 0px 0px 1000px;	
+}
+
+header {
+	height: 250px;
+}
+
+aside {
+	display: inline-block;
+	height:inherit;
+	width: 250px;
+}
+
+article{
+	display: inline-block;
+	height:inherit;
+	width: 715px;
+}
+
+#cuerpo {
+	
+}
+
+#seccioncuerpo {
+	height:600px;	
+}
+#subcuerpo{
+	margin-top: 0px;
+	margin-right: 5px;
+	margin-bottom: 0px;
+	margin-left: 5px;
+}
+
+
+#secheader {
+	height:165px;
+}
+
+#seclogo{
+	width: 100px;
+	height: 50px;
+}
+
+
+#secbuscador{
+	width: 100px;
+	height: 50px;
+}
+
+.linea {
+  background: #ddd;
+  display: inline-block;
+  height: inherit;
+  float:left;
+}
+ 
+.linea2 {
+  background: #ddd;
+  display: inline-table;
+  height: inherit;
+  width: 976px;
+  
+  
+}
+ 
+ #buscador {
+  margin-top:60px;
+  margin-left:10px;
+  width: 600px;
+  border-radius: 15px;
+  -webkit-border-radius: none;
+  height: 28px;
+
+ }
+ 

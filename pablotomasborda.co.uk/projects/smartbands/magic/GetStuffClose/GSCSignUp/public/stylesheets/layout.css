@@ -1,0 +1,171 @@
+#star {
+ position: absolute;
+ top: 25px;
+ right: 0;
+ z-index: -1;
+  
+}
+#arrow-right {
+ position: absolute;
+ top: 300px;
+ right: 0;
+ z-index: 1;
+}
+#arrow-left {
+ position: absolute;
+ top: 300px;
+ left: 0;
+ z-index: 1;
+}
+
+
+#tutto {
+ position: relative;
+ top: 0px;
+}
+#all {
+ position: static;
+ align: center;
+ width: 1000px;
+ height: 440px;
+
+}
+#header {
+ position: static; 
+ background: rgb(69,72,77); /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  rgba(69,72,77,1) 12%, rgba(0,0,0,1) 81%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(12%,rgba(69,72,77,1)), color-stop(81%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  rgba(69,72,77,1) 12%,rgba(0,0,0,1) 81%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  rgba(69,72,77,1) 12%,rgba(0,0,0,1) 81%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  rgba(69,72,77,1) 12%,rgba(0,0,0,1) 81%); /* IE10+ */
+background: radial-gradient(center, ellipse cover,  rgba(69,72,77,1) 12%,rgba(0,0,0,1) 81%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+
+#footer{
+  background-color: #000000;
+  font-color: #FFFFFF;
+  position: relative;
+  bottom: 0px;
+  background: rgb(69,72,77); /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(69,72,77,1) 12%, rgba(0,0,0,1) 81%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(12%,rgba(69,72,77,1)), color-stop(81%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(69,72,77,1) 12%,rgba(0,0,0,1) 81%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover,  rgba(69,72,77,1) 12%,rgba(0,0,0,1) 81%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover,  rgba(69,72,77,1) 12%,rgba(0,0,0,1) 81%); /* IE10+ */
+  background: radial-gradient(center, ellipse cover,  rgba(69,72,77,1) 12%,rgba(0,0,0,1) 81%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  top: 20px;
+  width: 980px;
+}
+
+#tutorial{
+ width: 980px: 
+  
+}
+
+#prosimg
+{
+ position:relative;
+ top: 21px;
+ float: left;
+ left: 20px;
+ width: 300px;
+ border-radius: 15px;
+ background: #f0b7a1; /* Old browsers */
+ background: -moz-linear-gradient(top, #f0b7a1 0%, #8c3310 50%, #752201 51%, #bf6e4e 100%); /* FF3.6+ */
+ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0b7a1), color-stop(50%,#8c3310), color-stop(51%,#752201), color-stop(100%,#bf6e4e)); /* Chrome,Safari4+ */
+ background: -webkit-linear-gradient(top, #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6e4e 100%); /* Chrome10+,Safari5.1+ */
+ background: -o-linear-gradient(top, #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6e4e 100%); /* Opera 11.10+ */
+ background: -ms-linear-gradient(top, #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6e4e 100%); /* IE10+ */
+ background: linear-gradient(top, #f0b7a1 0%,#8c3310 50%,#752201 51%,#bf6e4e 100%); /* W3C */
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0b7a1', endColorstr='#bf6e4e',GradientType=0 ); /* IE6-9 */
+}
+#descrvideo {
+ position:relative;
+ top: 5px;
+ float: right;
+ right: -10px;
+ width: 510px;
+ height: 450px;
+ border-radius: 15px;
+
+
+
+}
+
+#companydata{
+ width: 800px; 
+}
+
+#login{
+ width: 800px; 
+  
+}
+
+#bd{
+  width:800px;
+}
+
+#progress{
+  background: red;
+  width: 700px;
+  height: 40px;
+  position: relative;
+  top: -70px;
+  float: right;
+  border-radius: 15px;
+}
+
+#sharethis{
+  width: 50px;
+  height: 200px;
+  position: absolute;
+  
+}
+
+#stores-locations{
+ background: red;
+ border-radius: 15px;
+ left:125px;
+ position: relative;
+
+  
+}
+
+#iframediv{
+   position:relative;
+   left: 100px;
+   width: 800px;
+   height: 400px;
+}
+#stores-iframe{
+  background: red;
+  width: 600px;
+  height: 300px;
+  overflow: auto;
+}
+#qrcode{
+  position: relative;
+  top: 100px;
+  left: 270px;
+}
+#productlistdiv{
+    width: 800px; 
+}
+#iframeprods {
+  background: none repeat scroll 0 0 red;
+  height: 150px;
+  position: relative;
+  right: 350px;
+  top: 35px;
+  width: 330px;
+  overflow: auto;
+}
+#placecaptcha {
+  background: none repeat scroll 0 0 red;
+  left: -680px;
+  position: relative;
+  top: 190px;
+}

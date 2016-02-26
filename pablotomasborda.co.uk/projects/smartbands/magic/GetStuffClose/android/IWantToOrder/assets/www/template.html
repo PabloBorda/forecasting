@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+        </script>
+        <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js">
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput1">
+                            What are you looking for?
+                        </label>
+                        <input id="textinput1" placeholder="" value="product" type="text" />
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                        <legend>
+                            Filters:
+                        </legend>
+                        <input name="radiobuttons1" id="radio1" value="true" type="radio" />
+                        <label for="radio1">
+                            Online
+                        </label>
+                        <input name="radiobuttons1" id="radio2" value="true" type="radio" />
+                        <label for="radio2">
+                            Closer
+                        </label>
+                        <input name="radiobuttons1" id="radio3" value="false" type="radio" />
+                        <label for="radio3">
+                            Cheaper
+                        </label>
+                        <input name="radiobuttons1" id="radio4" value="true" type="radio" />
+                        <label for="radio4">
+                            Deliver
+                        </label>
+                    </fieldset>
+                </div>
+                <div data-role="collapsible-set" data-theme="a" data-content-theme="a">
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>
+                            El Noble Repulgue
+                        </h3>
+                        <div data-role="collapsible-set" data-theme="" data-content-theme="">
+                            <div data-role="collapsible" data-collapsed="false">
+                                <h3>
+                                    superproduct
+                                </h3>
+                                <div class="ui-grid-b">
+                                    <div class="ui-block-a">
+                                        <h5>
+                                            Empanada de Carne Suave
+                                        </h5>
+                                    </div>
+                                    <div class="ui-block-b">
+                                        <h5>
+                                            4,50 USD
+                                        </h5>
+                                    </div>
+                                    <div class="ui-block-c">
+                                        <div data-role="fieldcontain">
+                                            <fieldset data-role="controlgroup" data-mini="true">
+                                                <label for="textinput2">
+                                                    Amount
+                                                </label>
+                                                <input id="textinput2" placeholder="" value="0" type="number" />
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-role="collapsible-set" data-theme="" data-content-theme="">
+                            <div data-role="collapsible" data-collapsed="true">
+                                <h3>
+                                    Other products
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            //App custom javascript
+        </script>
+    </body>
+</html>

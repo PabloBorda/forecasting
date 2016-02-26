@@ -1,0 +1,71 @@
+  <html> 
+  <head> 
+	<script type="text/javascript" src="/js/jquery-1.6.2.min.js"></script> 
+        <script type="text/javascript" src="/js/jquery-ui-1.8.16.custom.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.facebook.multifriend.select.js"></script> 
+	<script type="text/javascript" src="/js/jquery.autocomplete.min.js"></script> 	
+
+
+        <link rel="stylesheet" href="/css/jquery.autocomplete.css"/>
+        <link rel="stylesheet" href="/css/jquery.facebook.multifriend.select.css" /> 
+        <link rel="stylesheet" href="/css/others.css"/>
+        <link rel="stylesheet" href="/css/fbdialog.css"/>
+        <style>
+           .textarea {
+             font-size: 20px;
+             background-color: #F7F7F7;
+             border: 5px solid #6D84B4;
+             color: #000000;
+           }
+           #profpic {
+             max-width: 125;
+             max-height: 150;
+           } 
+        </style>
+ </head> 
+    <body> 
+
+	<iframe id="pageBody"> 
+	    <div id="fb-root"></div> 
+	    <script src="http://connect.facebook.net/en_US/all.js"></script> 
+            <script type="text/javascript" src="/js/fbstuff.js"></script>
+            <script type="text/javascript" src="/js/chooseproduct.js"></script>
+	    <script type="text/javascript" src="/js/fbdialog.js"></script>
+            <script type="text/javascript" src="/js/autocomplete-products.js"></script>
+          
+	      
+	      <div id="logged-out-status" style=""> 
+		  <a href="javascript:login()">Login</a> 
+	      </div> 
+
+	      <div align="center"> 
+                  <table border="0">
+                    <tr>
+                      <td align="center" width="125" height="150">
+                        <div id="username"></div>
+                      </td>
+                      <td width="600" height="150" align="center" valign="center">
+  		        <form name="mainfrm">
+                          <input id="productname" name="productname" type="text" width="700" height="300" value="What do you want to give?" onfocus="clear_productname();" class="textarea"/><br/><div id="valid"></div>
+                        </form>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="center"><label><%= @user.name.split(" ")[0] %></label></td>
+                      <td></td>
+                    </tr>
+                  </table>
+		   
+		  <div id="sendingfrm"> 
+		    
+		  <!--<a href="#" id="show-friends" style="display:none;">Show Selected Friends</a> -->
+		  <!--<div id="selected-friends" style="height:30px"></div> -->
+		  <div id="jfmfs-container"></div> <br/><br/><br/><br/>
+                  <div align="center"><input id="mainsend" type="button" value="Send" onclick="ShowFacebookDialogue();"/></div>
+	      </div> 
+        <div id="dialogue"></div>
+        <div id="closeprods"></div>
+       </iframe> 
+
+    </body> 
+  </html>

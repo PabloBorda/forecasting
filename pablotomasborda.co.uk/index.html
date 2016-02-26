@@ -1,0 +1,760 @@
+<!-- STARTS FROM 506 -->
+
+	<meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	    <meta name="HandheldFriendly" content="True">
+	      <meta name="MobileOptimized" content="320"/>
+	      <meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		  <meta http-equiv="cleartype" content="on">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		      
+		      
+		      <!DOCTYPE html>
+		      <html>
+		      <head>
+			
+			
+			<link rel="stylesheet" href="stylesheets/themes/green-brown.min.css" />
+			<link rel="stylesheet" href="stylesheets/themes/jquery.mobile.icons.min.css" />
+			<link rel="stylesheet" href="stylesheets/jquery.mobile.structure-1.3.1.min.css" />
+			<link rel="stylesheet" href="javascript/slide/css/jquery-mobile-slide-menu.css" type="text/css" />
+			
+			
+			
+			<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+			<script type="text/javascript" src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+			<script type="text/javascript" src="javascript/slide/js/jquery-mobile-slide-menu.js"></script>
+			
+			
+			
+			
+			<!--
+			<script type="text/javascript">
+			$( document ).delegate("#pageone", "pageinit", function() {
+			$('iGallery').imageflip()
+			});
+			</script>
+			-->
+			
+			
+			<style>			  
+           #content-middle { 			     
+			        background: url(images/images/cartagena2.jpg) no-repeat center center fixed; 
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+			     }
+			     #contactfrm {
+			       background-color: #ED9E15;			   
+			     }
+			</style>
+			
+			
+			<script type="text/javascript">
+			  
+			  
+			  
+			  
+			  
+			  $(document).ready(function(){
+			  
+			  
+			  $.support.cors                 = true;
+			  $.mobile.allowCrossDomainPages = true;
+			  $.mobile.pushStateEnabled      = false;
+			  
+			  
+			  
+			  
+			  $('#side-menu').slideMenu();
+			  
+			  
+			  $("#hirebtn").click(function(){
+			    $("#contactfrm").show();
+			  });
+			  
+			  $("#contactbtn-menu").click(function(){
+			    $("#hirebtn").trigger('click');
+			  
+			  });
+			  
+			  $("#wemenu").click(function(){
+			    $("#weaccordion").trigger('expand');
+			  
+			  });
+			  
+			  $("#spmenu").click(function(){
+			    $("#spaccordion").trigger('expand');
+			  
+			  });
+			  
+			  
+			  
+			  
+			  
+			  $("#submitbtn").click(function(){
+			  var contact = {}
+			  contact["cname"] = $("[name=cname]").val();
+			  contact["website"] = $("[name=website]").val();
+			  contact["name"] = $("[name=name]").val();
+			  contact["email"] = $("[name=email]").val();
+			  contact["comments"] = $("[name=comments]").val();
+			  
+			  if (contact["cname"].length<=0){
+			    alert("Enter company name");
+			    
+			  } else {
+			    if (contact["website"].length<=0){
+			      alert("Enter company website url");
+			    } else {
+			      if (contact["name"].length<=0){
+				alert("Enter your name");
+			      } else {
+			        if (contact["email"].length<=0){
+				  alert("Enter your email");
+			        } else {
+				if ((contact["comments"].lenght<=0) || (contact["comments"].length>= 5000)){
+				  alert ("Enter your comments below 5000 characters");
+				
+			        } else {
+			          $.get("http://www.pablotomasborda.co.uk:82/contact",{ input: contact});
+				  $("#contactfrm").hide();
+			        }
+			      }
+			      
+			    }
+			  }
+			  }
+			  //alert("submit");
+			  //$("#contactfrm").dialog("close");
+			  });
+			  });
+			  
+			  
+			  </script>
+			  
+			  
+			  
+			  
+			  </head>
+			  <body>
+			  
+			  
+			  <div id="side-menu">
+			    <ul>
+			      <li><a href="/">Pablo's Menu</a><span class="icon"></span></li>
+			      <li><a id="wemenu" href="#">Work Experience</a><span class="icon"></span></li>
+			      <li><a id="spmenu" href="#">Software portfolio</a><span class="icon"></span></li>
+			      <li><a id="contactbtn-menu" href="#">Contact</a><span class="icon"></span></li>
+			      <li><a id="aboutmenu" href="#">About</a><span class="icon"></span></li>
+			    </ul>
+			  </div>
+			  <div data-role="page" id="pageone" data-theme="a">
+			    <div data-role="header" data-theme="a" style="width: 100%; height: 105;">
+			      <a href="#" class="showMenu" data-role="button"><image src="images/menu.png"/></a>
+			      <div id="titletext" align="center">
+				<h3 style="color: white;">Curriculum Vitae and Software Portfolio</h3>
+				<p style="color: white;">Pablo Tomas Borda</p>
+			      </div>
+			      <img src="prof.jpg" width="90px" height="100px" class="ui-btn-right"/>
+			      
+			      </div>
+			      
+			      <div data-role="content" data-theme="a" id="content-middle" style="height: 700">
+				<div id="weaccordion" data-role="collapsible" data-collapsed="true" data-theme="a" width="70%">
+				  <h3>Curriculum Vitae</h3>
+				  <p>
+				    <div data-role="content" data-theme="a">
+				      <div data-role="collapsible" data-collapsed="true" data-theme="a">
+					<h3>Read here on page...</h3>
+					<p>
+					  <div data-role="content" data-theme="a">
+					    <div data-role="collapsible" data-collapsed="true" data-theme="a">
+					      <h3>Personal Summary</h3>
+					      <p> I'm a proficient and proactive software developer with
+entrepreneur spirit who likes seeking and doing research on
+latest technologies. Always looking for cutting edge
+technologies and paradigms to ease software development,
+make it more enjoyable, and less prone to errors. I usually
+become a technology consultant for my coworkers. Looking for
+a place and environment that allows to develop the best of
+myself, fully apply my knowledge. I have experience working with multicultural and distributed
+teams.</p>
+					    </div>
+					  </div>
+					  <div data-role="content" data-theme="a">
+					    <div data-role="collapsible" data-collapsed="true" data-theme="a">
+					      <h3>Work Experience Sumary</h3>
+					      <p><p>My technical experience moved particularly and mainly from 6 years of java development
+						  
+						  to 4 ruby years, with emphasis on web/mobile front-end development. In java I worked
+						  
+						  using opensource technologies: struts,j2ee,hibernate, J2ME for mobile development in older handsets, 
+						  
+						  WAP. WindowsMobile,all with SOA java backends.</p>
+						<p>Then my career turned into ruby software development and mobile. My first project was a 
+						  
+						  ruby on rails e-commerce site, using ActiveRecord for database mapping, and gems such 
+						  
+						  as ActiveMerchant that integrates payment gateways. I worked for a New York startup 
+						  
+						  project called truveli using my previous gained ruby knowledge as a freelancer. 
+						  
+						  Since Ruby technologies were still not being adopted by companies that had their 
+						  
+						  legacy java software, I worked using ruby on my own personal projects. I founded my 
+						  
+						  first company Argenport, that did e-commerce, using my own set of tools, all of them 
+						  
+						  developed in ruby. I developed an investment plan generator that was fed using a ruby 
+						  
+						  website crawler or spider script, then a rails site to track all events in the company, 
+						  
+						  and a web UI for the investment generator. At the beginning used mysql, then migrated 
+						  
+						  to mongo, and learn about Big-data technologies, Apache Hadoop, MapReduce, that 
+						  
+						  adopted and reduced my development effort. The company closed its operations since 
+						  
+						  trade restrictions in Argentina. Then I continued on the development of my own sales 
+						  
+						  channels at SmartBandS, my new company, using web jquery/javascript/rails, and mobile
+						  
+						  android phonegap and android native. I started working on a big project for buying 
+						  
+						  and selling goods and services, using ruby web, migrating from Rails to Sinatra, and 
+						  
+						  phonegap mobile clients applications with ruby sinatra backends returning json. 
+						  
+						  I developed a couple of android apps to buy and sell in an instantaneous way by
+						  
+						  closer location. The apps are able to take pictures, use gps, android services, 
+						  
+						  chat protocol jabber/xmpp, push notifications, upload data to ruby backends, and are quite responsive.
+						  
+						  They basically cover most of the use cases of the android api.</pt>
+						
+						<p>My whole career overlaps with projects in other technologies, I also had experience on php, 
+						  
+						  did a web crawler, a document repository, an IVR for a USA campaign from the Buffalo Wild Wings restaurant, 
+						  
+						  and a couple of them for my company.  
+						  
+						  Also in a minor proportion worked using Python, C/C++, Groovy and Grails, OCaml, etc. This experience on multiple technologies 
+						  
+						  relies on that I enjoy working and doing research with different programming languages, 
+						  
+						  and in that I do software development since I was 15 for playing purposes. I used to have fun
+						  
+						  developing small games in C++, using SDL libs for 2D graphics, on caldera linux, a very old linux distro. Played with software
+						  
+						  such as blender3d, 3dstudio. Used to compile and modify linux kernels, try different operating systems.. BEOs, FreeBSD, QNX (today blackberry's),etc..
+						  
+						  My motivation comes out when I see a task that demanded weeks to be done in 
+						  
+						  a couple of days. I have a good code repository and software portfolio. You can see a 
+						  
+						  deeper description of my tasks and used technologies below.</p>
+                                      
+                                
+                                      
+                                      
+						<div data-role="collapsible" data-collapsed="true" data-theme="a">
+						  <h3>Work Experience</h3>
+						  <p>
+              
+              <div data-role="collapsible" data-collapsed="true" data-theme="a">
+						    <h3>PayPal - Merchant Technical Support Engineer June 2014 - Present - Dublin, Ireland </h3>
+						    <p>Technical support for software developers that make use of our APIs, help on integrations with huge and small companies as well. Dealing with merchants that cannot receive payments, being on call some hours everyday, working tickets
+I do software development as well by automating processes and building new tools when I identify something that is tedious or repetitive, at everyday work. Technologoies: ORACLE RIGHT NOW - PHP - JQUERY - RUBY - SINATRA - PAYPAL - NODEJS - BROWSERIFY - REQUIREJS - WEBIX - ELASTICSEARCH - MONGODB - NYLAS - MECHANIZE
+                </p>
+              </div>                 
+              
+               
+						    <div data-role="collapsible" data-collapsed="true" data-theme="a">
+						      <h3>SmartBandS - January 2013 to June 2014 - Buenos Aires</h3>
+						      <p>
+							Role: Founder and CEO (My Own company)
+							<li>
+							  <ul> Development of new technologies to ease the retail process. Including webapps, mobile clients, etc.. </ul>
+							  <ul> Do business intelligence on data gathered from different websites, to generate investment plans in an automatic and coordinated way.</ul>
+							  <ul> WEB Tool for investors to check how we are investing their money based on software business intelligence data.</ul>
+							  <ul> Development of sales channels, e-commerce, stores, social networks etc..</ul>
+							  <ul> Consulting and software development on the retail sector</ul>
+							  <ul> Technologies: BigData, MongoDB NoSQL, Grid FileSystem, MapReduce technology, BI, GIS, GeoJSon, Sinatra, Android Native, phonegap,Titanium, JQueryMobile, CloudComputing, SaaS, IaaS, Ruby, Mechanize, XMPP, Smack, BOSH, IVR, VoiceXML, CCXML</ul>
+							  <ul> Looking for partners, must be creative, ambitious and want to progress.</ul>
+							</li>
+						      </p>
+						    </div>
+						    
+						    
+						    <div data-role="collapsible" data-collapsed="true" data-theme="a">
+						      <h3>Hewlett-Packard - January 2013 to Present (1 year 1 month) Buenos Aires</h3>
+						      <p>
+							Svc Information Development III
+							<li>
+							  <ul> Support and maintanance of existing applications for Nextel (NII). Development of new features, java, seam framework, javascript. </ul>                      
+							</li>
+						      </p>
+						    </div>
+						    
+						    
+						    <div data-role="collapsible" data-collapsed="true" data-theme="a">
+						      <h3>Argenport - July 2011 to July 2012 (1 year 1 month) Argentina</h3>
+						      <p>
+							CEO (Own Company)
+							<li>
+							  <ul> E-Commerce company. :'( ended due to Argentina's commerce and currency restrictions. :'( :'( </ul>
+							  <ul> Buy products from china suppliers </ul>   
+							  <ul> Selling products in Buenos Aires </ul> 
+							  <ul> Business intelligence on data gathered from different websites </ul>   
+							  <ul> Investment plan generator tool </ul>
+							  <ul> Web tool to query the investment generator and also track all company events, from product delivered to buyer complaint. </ul>
+							  <ul><li><ul>Technologies: </ul><ul>Ruby, Ruby on Rails, ActiveRecord,MySQL</ul></li></ul>
+							</li>
+						      </p>
+						    </div>
+						    
+						    
+						    
+						    <div data-role="collapsible" data-collapsed="true" data-theme="a">
+						      <h3>IBM Global Services July 2011 – January 2012 (7 months)</h3>
+						      <p>
+							Business Analyst
+							<li>
+							  <ul> Working as a Business Analyst for Wal-Mart </ul>                      
+							</li>
+						      </p>
+						    </div>
+						    
+						    
+						    <div data-role="collapsible" data-collapsed="true" data-theme="a">
+						      <h3>IBM - July 2009 – September 2011 (2 years 3 months)</h3>
+						      <p>
+							Software Developer
+							<li>
+							  <ul> Working as a Production Support Developer. Work most of the time with IBM technologies, RSA, Java,Tivoli, Job Scheduling Console, AIX, Z-Linux, CMVC (like subversion with more features, from IBM), JSC, J2EE, WAS, DB2 as the database, RTC, the Lotus suite: notes, sametime, symphony, connections. </ul>                      
+							</li>
+						      </p>
+						    </div>
+						    
+						    
+						    <div data-role="collapsible" data-collapsed="true" data-theme="a">
+						      <h3>Truveli - April 2010 – July 2010 (4 months) freelancer - New York startup company</h3>
+						      <p>
+							Ruby Developer
+							<li>
+							  <ul> Worked in a Ruby and Rails web system as a part time developer during weekends. The technologies I used were mysql, ajax with jquery and javascript, rails, svn, linux, redmine, Active Merchant, Paypal, Authlogic, Migrations, Active Record, webrick and mongrel </ul>                      
+							</li>
+						      </p>
+						    </div>
+						    
+						    <div data-role="collapsible" data-collapsed="true" data-theme="a">
+						      <h3>Movilogic - 2008 – 2009 (1 year)</h3>
+						      <p>
+							Java Developer
+							<li>
+							  <ul> I acquired experience in the following technologies: Hibernate, Mysql, Jboss, Java, Struts, Maven, JavaScript, JQuery, HTML, JSP, DWR, JSon, Ajax, JUnit, doing internal web systems for OSDE, which is a prepaid medicine company. </ul>                      
+							  <ul>
+							    Linked-In recomendation by Bruno Fontana: I've managed Pablo as an external J2EE developer in one of our projects. His compromise in accomplishing his task on time, even when it was complex or "diffuse", is very remarkable. Pablo is also an easygoing person and good team player
+							  </ul>
+							  
+							  </li>
+							</p>
+						      </div>
+						      
+						      <div data-role="collapsible" data-collapsed="true" data-theme="a">
+							<h3>Ecommerce site from December 2008 – January 2009 (2 months) as a freelancer</h3>
+							<p>
+							  Ruby on Rails Developer
+							  <li>
+							    <ul> Design an implementation of general purpose E-Commerce using Ajax, Ruby on Rails, Active Records, the new ORM from Ruby on Rails, Mysql as the database, JQuery and Ajax. Interaction with Authorize.net and other payment gateways supported. </ul>                      
+							  </li>
+							</p>
+						      </div>
+						      
+						      <div data-role="collapsible" data-collapsed="true" data-theme="a">
+							<h3>GOMBu from San Diego as a Freelancer from May 2008 to November 2008 (7 months)</h3>
+							<p>
+							  Freelance Mobile Consultant
+							  <li>
+							    <ul> I created a j2me application which was tested mostly on Sony Ericsson mobile phones, preferably 240x320. When you take a picture of a person it returns its facebook profile. I got experience with the following technologies: J2ME, MMAPI, python, mechanize, php.
+							      This demo application which was supposed to be sold at a 500000U$S in the USA, makes use of a third party service. Also without the service the application is able to upload pictures to a server by posting the images taken by the camera. I got this cool software patent myself, since I was not paid for the development. If you are interested, and would like to work with this, do not hesitate to call me, and we can meet. This software is patented under file number 742246.
+							      
+							      </ul>                      
+							    </li>
+							  </p>
+							</div>
+							
+							<div data-role="collapsible" data-collapsed="true" data-theme="a">
+							  <h3>Whoop from May 2007 to May 2008 (1 year 1 month) , USA Startup company</h3>
+							  <p>
+							    Software Developer, Mobile Developer, J2ME
+							    <li>
+							      <ul> I got experience with the following technologies: Java, J2ME, Apache, TomCat, Mysql, UML, XML, XSLT, Web Services, VoiceXML, IVR systems, SVN, Virtualization using vmware, Eclipse, NetBeans, Linux, writing documents, ant, maven, C# .NET using Visual Studio 2008, UML, Use Cases, Class Diagrams,RUP, WAP, Qualcomm Brew, C++ , JSON, Design Patterns, Model Driven Architectures, Aspect Oriented Software Development,
+								Groovy, Java, JavaScript, JQuery, Groovy & Grails, IntelliJ, Agile project planning, Agile, BugZilla, Unit test cases using dynamic languages, QUnit the jquery testing framework, Selenium
+								
+								
+								
+								Tasks
+								
+								*
+								
+								Worked in the development of new technologies to ease the development of mobile applications.
+								*
+								
+								Created a platform independant model (PIM) to generate both WAP, Windows Mobile applications at once, plus the posibility to add more target platforms.
+								*
+								
+								Worked as technical interviewer. </ul>                      
+							    </li>
+							  </p>
+							</div>
+							
+							
+							<div data-role="collapsible" data-collapsed="true" data-theme="a">
+							  <h3>Globant at Google's offices, Mountain View, California   from January 2007 to April 2007 (4 months)</h3>
+							  <p>
+							    QA Engineer for load & performance
+							    <li>
+							      <ul> QA Engineer, in Mountain View, California. Technologies got experience with: Java, Python, Linux, JUnit, MySql </ul>                      
+							      <ul>
+								Linked-In recomendation by Samuel Falvo:     
+								Quality Engineer III at Rackspace, the Open Cloud Company
+								
+								Pablo worked well with his peers to deliver automated testing solutions. It's been many years since I've worked with Pablo, but I recall he had a firm grasp of many computer science topics, including some pretty obscure algorithms (to me at least)
+							      </ul>
+							      
+							      </li>
+							    </p>
+							  </div>
+							  
+							  <div data-role="collapsible" data-collapsed="true" data-theme="a">
+							    <h3>Technisys - June 2006 – January 2007 (8 months)</h3>
+							    <p>
+							      Java J2EE Developer
+							      <li>
+								<ul> http://www.technisys.net as Java/J2EE
+								  
+								  developer for banking applications.
+								  
+								  Technologies I got more experience with: J2EE, Struts, Maven, Hibernate, HiveMind,
+								  
+								  TomCat, Debian Linux, Eclipse, Cactus for testing servlets, XML, XSLT for transformations between two XMLs, iText for generating PDFs, Oracle. </ul>                      
+								
+								</li>
+							      </p>
+							    </div>
+							    
+							    
+							    <div data-role="collapsible" data-collapsed="true" data-theme="a">
+							      <h3>LIFIA from February 2004 – January 2007 (3 years)</h3>
+							      <p>
+								Trainee Research Assistant
+								<li>
+								  <ul> (Laboratorio de Investigacion y Formacion en Informatica
+								    
+								    Avanzada) ´s e-Platero project, an eclipse plug-in to edit UML diagrams#&ui-state=dialog, validate OCL (Object Constraint Language) expressions, declare refinement relations between models, refactor models to design patterns. Design patterns are particular instances of refinement relations.
+								    
+								    
+								    Acquired knowledges: UML meta-model, OCL meta-model, Design of Eclipse plug-ins, EMF, GEF, GMF, OMG's Model Driven Architectures (MDA), Model Driven Development (MDD), OCL, QVT, ATL (Atlas Transformation Language) developed at Inria, IBM's Model Transformation Framework, IBM's Rational Software Architect.
+								    
+								    I got good ideas while being there, like for example
+								    
+								    Model Transformation by Commands:
+								    
+								    http://mtbycommands.blogspot.com/
+								    
+								    Behavioral Oriented Programming:
+								    
+								    http://docs.google.com/Doc?id=dg9zr9h8_3d676tq
+								  </ul>
+								  
+								  </li>
+								</p>
+							      </div>
+							      
+							      </p>
+							    </div>
+							  </div> 
+							  
+							  </div>
+							  
+							  
+							  
+							  
+							  </div>
+							  <div data-role="content" data-theme="a">
+							    <div data-role="collapsible" data-collapsed="true" data-theme="a">
+							      <h3>Download CV (printable)</h3>
+							      <p>
+								<div align="left">
+								  <div align="center">
+								    <table border="0">
+								      <tr><td>
+								        <a data-ajax="false" href="downloads/resume1.docx"><img src="images/word.jpeg" width="80px" height="85px" /></a>
+								      </td>
+								      <td>
+								        <a data-ajax="false" href="downloads/resume1.pdf"><img src="images/pdf.jpeg" width="80px" height="85px" /></a>
+									</td>
+									<td>
+								        <a data-ajax="false" href="downloads/resume1.odt"><img src="images/odt.jpg" width="80px" height="85px" /></a>
+									</td></tr>
+								  </table>
+								  </div>
+								  </div>
+								  
+								  
+								  </p>
+								</div>
+							      </div>
+							      <div data-role="content" data-theme="a">
+								<div data-role="collapsible" data-collapsed="true" data-theme="a">
+								  <h3>My linked-in profile</h3>
+								  <p>
+								    <div align="center">
+                                                                      <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+                                                                      <script type="IN/MemberProfile" data-id="http://www.linkedin.com/in/pabloborda" data-format="inline" data-related="false"></script>
+                                                                    </div>
+								  </p>
+								</div>
+							      </div>
+							      
+							      
+							      
+							      </div>
+							      
+							      </div>
+							      <div data-role="content" data-theme="a">
+								<div id="spaccordion" data-role="collapsible" data-collapsed="true" data-theme="a">
+								  <h3>Software Portfolio</h3>
+								  <p>
+								    <p>This software portfolio is intended for demo purposes, contains my own source code, and represents a 10% of my experience. You will see a video in the android section. </p>
+								    <div data-role="content" data-theme="a">
+								      <div data-role="collapsible" data-collapsed="true" data-theme="a">
+									<h3>By Technology</h3>
+									<p>
+									  <div data-role="collapsible" data-collapsed="true" data-theme="a" class='page-swipe'>
+									    <h3>PHONEGAP</h3>
+									    <p>
+									      <p>The following is a phonegap application able to take pictures, use GPS, and lists products. Puts the platform at the limit.-<br/>
+										<a href="https://github.com/PabloBorda/phonegap_products_pictures.git">https://github.com/PabloBorda/phonegap_products_pictures.git</a><br/>
+									      </p><br/>
+									      
+									      
+									      <a href="#ph1" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/phonegap/thumb/thumb.ph1.jpg" alt="PHONEGAP"></a>
+										<div data-role="popup" id="ph1" data-overlay-theme="b" data-theme="b" data-corners="false">
+										  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/phonegap/full/ph1.jpg" style="max-height:512px;" alt="PHONEGAP">
+										  </div>
+										  <a href="#ph2" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/phonegap/thumb/thumb.ph2.jpg" alt="PHONEGAP"></a>
+										    <div data-role="popup" id="ph2" data-overlay-theme="b" data-theme="b" data-corners="false">
+										      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/phonegap/full/ph2.jpg" style="max-height:512px;" alt="PHONEGAP">
+										      </div>
+										      <a href="#ph3" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/phonegap/thumb/thumb.ph3.jpg" alt="PHONEGAP"></a>
+											<div data-role="popup" id="ph3" data-overlay-theme="b" data-theme="b" data-corners="false">
+											  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/phonegap/full/ph3.jpg" style="max-height:512px;" alt="PHONEGAP">
+											  </div>
+											  <a href="#ph4" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/phonegap/thumb/thumb.ph4.jpg" alt="PHONEGAP"></a>
+											    <div data-role="popup" id="ph4" data-overlay-theme="b" data-theme="b" data-corners="false">
+											      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/phonegap/full/ph4.jpg" style="max-height:512px;" alt="PHONEGAP">
+											      </div>
+											      <a href="#ph5" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/phonegap/thumb/thumb.ph5.jpg" alt="PHONEGAP"></a>
+												<div data-role="popup" id="ph5" data-overlay-theme="b" data-theme="b" data-corners="false">
+												  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/phonegap/full/ph5.jpg" style="max-height:512px;" alt="PHONEGAP">
+												  </div>
+												</p>
+											      </div>
+											      
+											      <div data-role="collapsible" data-collapsed="true" data-theme="a" class='page-swipe'>
+												<h3>ANDROID</h3>
+												<p> <iframe width="640" height="360" src="//www.youtube.com/embed/20lTfka0ExI?feature=player_detailpage" frameborder="0" allowfullscreen></iframe><br/><br/><br/>
+												  
+												  <a href="#a1" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/android/thumb/thumb.a1.png" alt="PHONEGAP"></a>
+												    <div data-role="popup" id="a1" data-overlay-theme="b" data-theme="b" data-corners="false">
+												      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/android/full/a1.png" style="max-height:512px;" alt="PHONEGAP">
+												      </div>
+												      <a href="#a2" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/android/thumb/thumb.a2.png" alt="PHONEGAP"></a>
+													<div data-role="popup" id="a2" data-overlay-theme="b" data-theme="b" data-corners="false">
+													  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/android/full/a2.png" style="max-height:512px;" alt="PHONEGAP">
+													  </div>
+													  <a href="#a3" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/android/thumb/thumb.a3.png" alt="PHONEGAP"></a>
+													    <div data-role="popup" id="a3" data-overlay-theme="b" data-theme="b" data-corners="false">
+													      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/android/full/a3.png" style="max-height:512px;" alt="PHONEGAP">
+													      </div>
+													      <a href="#a4" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/android/thumb/thumb.a4.png" alt="PHONEGAP"></a>
+														<div data-role="popup" id="a4" data-overlay-theme="b" data-theme="b" data-corners="false">
+														  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/android/full/a4.png" style="max-height:512px;" alt="PHONEGAP">
+														  </div>
+														  <a href="#a5" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/android/thumb/thumb.a5.png" alt="PHONEGAP"></a>
+														    <div data-role="popup" id="a5" data-overlay-theme="b" data-theme="b" data-corners="false">
+														      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/android/full/a5.png" style="max-height:512px;" alt="PHONEGAP">
+														      </div>
+														      <a href="#a6" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/android/thumb/thumb.a6.png" alt="PHONEGAP"></a>
+															<div data-role="popup" id="a6" data-overlay-theme="b" data-theme="b" data-corners="false">
+															  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/android/full/a6.png" style="max-height:512px;" alt="PHONEGAP">
+															  </div>
+															  <a href="#a7" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/android/thumb/thumb.a7.png" alt="PHONEGAP"></a>
+															    <div data-role="popup" id="a7" data-overlay-theme="b" data-theme="b" data-corners="false">
+															      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/android/full/a7.png" style="max-height:512px;" alt="PHONEGAP">
+															      </div>
+															      <a href="#a8" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/android/thumb/thumb.a8.png" alt="PHONEGAP"></a>
+																<div data-role="popup" id="a8" data-overlay-theme="b" data-theme="b" data-corners="false">
+																  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/android/full/a8.png" style="max-height:512px;" alt="PHONEGAP">
+																  </div>
+																  <a href="#a9" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/android/thumb/thumb.a9.png" alt="PHONEGAP"></a>
+																    <div data-role="popup" id="a9" data-overlay-theme="b" data-theme="b" data-corners="false">
+																      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/android/full/a9.png" style="max-height:512px;" alt="PHONEGAP">
+																      </div>
+																      <a href="#a10" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/android/thumb/thumb.a10.png" alt="PHONEGAP"></a>
+																	<div data-role="popup" id="a10" data-overlay-theme="b" data-theme="b" data-corners="false">
+																	  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/android/full/a10.png" style="max-height:512px;" alt="PHONEGAP">
+																	  </div>
+																	  <a href="#a11" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/android/thumb/thumb.a11.png" alt="PHONEGAP"></a>
+																	    <div data-role="popup" id="a11" data-overlay-theme="b" data-theme="b" data-corners="false">
+																	      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/android/full/a11.png" style="max-height:512px;" alt="PHONEGAP">
+																	      </div>
+																	      <a href="#a12" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/android/thumb/thumb.a12.png" alt="PHONEGAP"></a>
+																		<div data-role="popup" id="a12" data-overlay-theme="b" data-theme="b" data-corners="false">
+																		  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/android/full/a12.png" style="max-height:512px;" alt="PHONEGAP">
+																		  </div>
+																		  <a href="#a13" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/android/thumb/thumb.a13.png" alt="PHONEGAP"></a>
+																		    <div data-role="popup" id="a13" data-overlay-theme="b" data-theme="b" data-corners="false">
+																		      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/android/full/a13.png" style="max-height:512px;" alt="PHONEGAP">
+																		      </div>
+																		      <a href="#a14" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/android/thumb/thumb.a14.png" alt="PHONEGAP"></a>
+																			<div data-role="popup" id="a14" data-overlay-theme="b" data-theme="b" data-corners="false">
+																			  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/android/full/a14.png" style="max-height:512px;" alt="PHONEGAP">
+																			  </div>
+																			</p>
+																		      </div>
+																		    
+																			  <div data-role="collapsible" data-collapsed="true" data-theme="a">
+																			<h3>GOOGLE CHROME EXTENSIONS</h3>
+																			<p>
+																			  <p>GitHub Repository</p>
+																			  <p>Smart Form Filler: <a href="https://github.com/PabloBorda/smartfiller-chrome">https://github.com/PabloBorda/smartfiller-chrome</a></p>
+                                                                                                                                                                                                                                                                                                                                                      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                          <input type="hidden" name="cmd" value="_s-xclick">
+                                          <input type="hidden" name="hosted_button_id" value="9UU8U5K394TFQ">
+                                          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                          <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                        </form>
+
+<a class="coinbase-button" data-code="54c740790ef1b900ad94701ed1184c91" data-button-style="donation_large" href="https://coinbase.com/checkouts/54c740790ef1b900ad94701ed1184c91">Donate Bitcoins</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
+
+
+
+																		      </div>
+																			  <div data-role="collapsible" data-collapsed="true" data-theme="a">
+																			<h3>RUBY</h3>
+																			<p>
+																			  <p>GitHub Repository</p>
+																			  <p>Sinatra TimeTracker: <a href="https://github.com/PabloBorda/timetracker">https://github.com/PabloBorda/timetracker</a></p>
+																			  <p>PDF Bill Generator: <a href="https://github.com/PabloBorda/pdf-bill-generator">https://github.com/PabloBorda/pdf-bill-generator</a></p>
+																			  <p>Ruby Captcha: <a href="https://github.com/PabloBorda/rubycaptcha">https://github.com/PabloBorda/rubycaptcha</a></p>
+																			</p>
+																		      </div>
+																		      <div data-role="collapsible" data-collapsed="true" data-theme="a" class='page-swipe'>
+																			<h3>RUBY ON RAILS</h3>
+																			<p>
+																			  <p>GitHub Repositories</p>
+																			  <p>Delivery Magic: Rails Application that renders a list of products using old WAP technology that used handsets in the past: <a href="https://github.com/PabloBorda/delivery-magic-wap">https://github.com/PabloBorda/delivery-magic-wap</a></p>
+																			  <p>ECommerce site: ECommerce site has a picture gallery, mysql, and Authorize.net payment gateway integration code. </p>
+																			  <p><a href="https://github.com/PabloBorda/ECommerceRails">https://github.com/PabloBorda/ECommerceRails</a></p>                <p>Screenshots</p>
+																			  
+																			  <a href="#p1" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/web/thumb/thumb.p1.jpg" alt="PHONEGAP"></a>
+																			    <div data-role="popup" id="p1" data-overlay-theme="b" data-theme="b" data-corners="false">
+																			      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/web/full/p1.jpg" style="max-height:512px;" alt="PHONEGAP">
+																			      </div>
+																			      <a href="#p2" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/web/thumb/thumb.p2.jpg" alt="PHONEGAP"></a>
+																				<div data-role="popup" id="p2" data-overlay-theme="b" data-theme="b" data-corners="false">
+																				  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/web/full/p2.jpg" style="max-height:512px;" alt="PHONEGAP">
+																				  </div>
+																				  <a href="#p3" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/web/thumb/thumb.p3.jpg" alt="PHONEGAP"></a>
+																				    <div data-role="popup" id="p3" data-overlay-theme="b" data-theme="b" data-corners="false">
+																				      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/web/full/p3.jpg" style="max-height:512px;" alt="PHONEGAP">
+																				      </div>
+																				      <a href="#p4" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/web/thumb/thumb.p4.jpg" alt="PHONEGAP"></a>
+																					<div data-role="popup" id="p4" data-overlay-theme="b" data-theme="b" data-corners="false">
+																					  <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/web/full/p4.jpg" style="max-height:512px;" alt="PHONEGAP">
+																					  </div>
+																					  <a href="#p5" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="images/web/thumb/thumb.p5.jpg" alt="PHONEGAP"></a>
+																					    <div data-role="popup" id="p5" data-overlay-theme="b" data-theme="b" data-corners="false">
+																					      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="/images/web/full/p5.jpg" style="max-height:512px;" alt="PHONEGAP">
+																					      </div>
+																					    </p>
+																					  </div>              
+																					</p>
+                                                                                                                                                                                                                                                                    <div data-role="collapsible" data-collapsed="true" data-theme="a">
+																			<h3>SINATRA-WEBIX-ELASTICSEARCH-JQUERY-RUBY-CKEDITOR</h3>
+																			<p>
+																			  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p><!--
+                                                                                                                                                                                                                                                                          <a href="https://drive.google.com/open?id=0B0UqSt2ne0L_elZnLUhwQ2dNX2s">Click here to view screencast</a>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                --> </p>
+																			                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+																			</p>
+																		      </div>  
+																				      </div>
+                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                    
+																				    </div>
+																				    
+																				    </p>
+																				  </div>
+																				</div>
+																				<div data-role="footer" data-theme="a" data-position="fixed" style="height: 40"> 
+																				  <h1>      
+																				    <a id="hirebtn" href="#contactfrm" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-a" data-transition="pop">HIRE ME, DO BUSINESS OR BECOME PARTNER!</a>      
+																				    
+																				    <a href="http://www.easycounter.com/">
+                                                                                                                                                                   
+                                                                                                                                                                   <img src="http://www.easycounter.com/counter.php?pablotomasborda" border="0" alt="HTML Hit Counters"  class="ui-btn-right"></a><br>
+                                                                                                                                                                   <a href="http://www.easycounter.com/">stats counter</a>
+
+																				    
+																				    
+																				    <div id="contactfrm" data-role="popup" data-theme="a" class="ui-corner-all">
+																				      <label>Company Name:</label>
+																				      <input type="text" name="cname"/>
+																				      <label>Website</label>
+																				      <input type="text" name="website"/>
+																				      <label>Contact name:</label>
+																				      <input type="text" name="name"/>
+																				      <label>Contact email:</label>
+																				      <input type="email" name="email"/>
+																				      <label>Comments</label>
+																				      <textarea cols="40" rows="20" name="comments"></textarea>
+																				      <button id="submitbtn" type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Submit</button>
+																				      
+																				      </div>
+																				    </div>
+																				  </div> 
+																				  
+																				  
+																				  
+																				  
+																				  
+																				  <script type="text/javascript">
+																				    
+																				    var _gaq = _gaq || [];
+																				    _gaq.push(['_setAccount', 'UA-36251023-1']);
+																				    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+																				    _gaq.push(['_trackPageview']);
+																				    
+																				    (function() {
+																				    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+																				    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+																				    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+																				    })();
+																				    
+																				    </script>
+																				    
+																				    </body>
+																				    
+																				    
+																				    
+																				    </html>
+																				    

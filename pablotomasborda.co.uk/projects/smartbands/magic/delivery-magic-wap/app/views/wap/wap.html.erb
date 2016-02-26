@@ -1,0 +1,68 @@
+<%  response.headers["Content-Type"] = "text/vnd.wap.wml" %> 
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1.1.xml">
+<xml version="1.0">
+
+
+
+<wml> 
+  <card id="delivery" title="<%=company_name=Company.find_by_id(@company).name%>"> 
+  	<%=  "<img src=\"/images/companies/" + Company.find_by_id(@company).logo +  "\" align=\"center\"/>"  %>
+
+  	<table columns='2'>
+  		
+    
+    
+    <% categories = Category.find_all_by_companies_id(@company) 
+    
+     categories.each {
+    	|c|
+       concat "<tr><td><b><label>" + c.name + "</label></b></td></tr>\n"
+    #Product.find_all_by_companies_id(@company)  
+       product_per_cat = Product.find_all_by_categories_id(c.id)
+       product_per_cat.each { |p|     	
+    	concat "<tr><td><label>" + p.name.to_s + "</label></td><td><input size=\"2\" type=\"text\" format=\"2N\" maxlength=\"2\" name =\"" + p.name.to_s.delete(" ") + "\"/></td></tr>\n"    	
+       }  	
+    }%>
+
+   
+   </table>
+   
+   <table columns='2'>
+   	<tr>
+      <td><label>Calle: </label></td>
+      <td><input type="text" name="street"/></td>
+   </tr>
+   <tr>
+     <td><label> Numero: </label></td>
+     <td><input type="text" name="number"/></td>
+   </tr>
+   <tr>
+     <td><label> Departamento: </label></td>
+     <td><input type="text" name="depto"/></td>
+   </tr>
+   <tr>
+     <td><label> Telefono celular: </label></td> 
+     <td><input type="text" name="phone"/></td>
+   </tr>
+  </table>
+
+   <anchor>
+  <go method="post" href="/wap/confirm">
+  	<%  
+  	   products = Product.find_all_by_companies_id(@company) 
+  	   products.each { |p|
+          concat "<postfield name=\"" + p.name.to_s.delete(" ") + "\" value=\"$(" + p.name.to_s.delete(" ") + ")\"/>\n" 
+        }
+          %>
+     <postfield name="street" value="$(street)"/>
+     <postfield name="number" value="$(number)"/>
+     <postfield name="depto" value="$(depto)"/>
+     <postfield name="phone" value="$(phone)"/>
+
+     <postfield name="authenticity_token" value="<%= form_authenticity_token%>" />
+  </go>
+   Pedir
+   </anchor>
+  </card> 
+</wml> 
+</xml>

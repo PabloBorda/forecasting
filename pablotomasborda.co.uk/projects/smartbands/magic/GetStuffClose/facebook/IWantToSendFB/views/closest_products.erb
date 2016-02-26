@@ -1,0 +1,8 @@
+<% if @prods_result.num_rows > 0                                          %>
+<% out = ""                                                               %>
+<%   while rw = @prods_result.fetch_row()                                 %>
+<%    out = out + rw[0].to_s + rw[1].to_s + rw[2].to_s + rw[3].to_s + "\n"%>
+<%   end                                                                  %>
+<%=  out = out[0..-1]                                                     %>
+<% end                                                                    %>
+  

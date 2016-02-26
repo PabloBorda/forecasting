@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>IWantToOrder</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<link rel="stylesheet" href="jquery.mobile-1.1.0-rc.1.min.css" />
+
+<link rel="stylesheet" href="jquery.mobile.simpledialog.min.css" />
+
+
+
+<script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script>
+<script type="text/javascript" charset="utf-8" src="jquery-1.7.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="jquery.mobile-1.1.0-rc.1.min.js"></script>
+
+<script type="text/javascript" charset="utf-8" src="jquery.mobile.simpledialog2.min.js"></script>
+ 
+<script type="text/javascript" charset="utf-8" src="geolocation.js"></script>
+<script type="text/javascript" charset="utf-8" src="urlEncode.js"></script>
+<script type="text/javascript" charset="utf-8" src="jquery.papito.gallery.js"></script>
+<script type="text/javascript" charset="utf-8" src="jquery.transform-1.0.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="jquery.activity-indicator-1.0.0.min.js"></script>
+
+
+<script type="text/javascript" charset="utf-8" src="jquery.ui.core.js"></script>
+<script type="text/javascript" charset="utf-8" src="jquery.ui.widget.js"></script>
+<script type="text/javascript" charset="utf-8" src="jquery.ui.position.js"></script>
+<script type="text/javascript" charset="utf-8" src="jquery.ui.autocomplete.js"></script>
+
+
+<script type="text/javascript" charset="utf-8" src="products.js"></script>
+<script type="text/javascript" charset="utf-8" src="stores.js"></script>
+<script type="text/javascript" charset="utf-8" src="search.js"></script>
+<script type="text/javascript" charset="utf-8">
+  
+
+
+  
+  
+  $("document").ready(function(){
+     window.globaldata = {picture_repository: "http://dev.getstuffclose.com/images/"};
+     window.globaldata['order'] = [];
+     $.support.cors = true;
+     $.mobile.allowCrossDomainPages = true;
+     
+
+     $("#filters").hide();
+     $("#but").hide();
+
+    $("#search").click(function(e){
+       clear();
+     });
+    $("#search").bind("valueset",function(e){
+      $("#filters").show();
+      search_product();
+      window.globaldata['superproduct'] = $("#search").val();
+      search_product();
+    });
+
+    $("#search").autocomplete({
+      target: $('#productsuggest'), // the listview to receive results
+      source: 'http://soa1.getstuffclose.com:9494/superproducts', // URL return JSON data
+      link: '#', // link to be attached to each result
+      minLength: 1 // minimum length of search string
+    });
+
+   
+  });
+</script>
+
+</head>
+<body>
+
+<div data-role="page" align="left" data-theme="a" id="page1">
+  <div data-role="content" align="left">
+   
+    
+
+      <input id="search" placeholder="" value="What are you looking for?" type="text" />  <!-- search_product(); -->
+
+      <ul id="productsuggest" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+
+
+  <div name="screen" id="filters">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                        <legend>
+                            Filters:
+                        </legend>
+                        <input name="radiobuttons1" id="radio1" value="true" type="radio" />
+                        <label for="radio1">
+                            Online
+                        </label>
+                        <input name="radiobuttons1" id="radio2" value="true" type="radio" />
+                        <label for="radio2">
+                            Closer
+                        </label>                        
+                        <input name="radiobuttons1" id="radio3" value="false" type="radio" />
+                        <label for="radio3">
+                            Cheaper
+                        </label>
+                        <input name="radiobuttons1" id="radio4" value="true" type="radio" />
+                        <label for="radio4">
+                            Deliver
+                        </label>
+                    </fieldset>
+                </div>
+   </div>
+
+  </div>
+
+  <div id="results" data-role="content">
+    <div data-role="collapsible-set" data-theme="a" data-content-theme="a">
+    
+
+    </div>
+  </div>
+  <div id="but">
+    <input type="button" id="submitall" onclick="submitorder();" value="Place Order"/>
+  </div>
+</div>
+
+</div>
+</br>
+
+
+<div id="showprod" align="center"></div>
+
+</div>
+</body>
+</html>

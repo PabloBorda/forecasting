@@ -1,0 +1,2 @@
+/home/papito/xp/trunk/xp-commons/CMakeFiles/test/tester.dir
+/home/papito/xp/trunk/xp-commons/CMakeFiles/xp-commons.dir

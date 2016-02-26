@@ -1,0 +1,13 @@
+<%  response.headers["Content-Type"] = "text/vnd.wap.wml" %> 
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1.1.xml">
+<xml version="1.0">
+
+<wml>
+	<card id="confirmation" title="Confirmation">
+		<center> <label>Muchas Gracias!</label> </center> <br/>
+		<center><label>Su pedido a sido derivado a nuestra sucursal de </label></center><br/>
+		<center><label>  <%= Address.find_by_id(Store.find_by_id(session["cs"]).addresses_id).address.to_s %> </label></center><br/>
+		<center> <label>Recibira un SMS de confirmacion a la brevedad</label> </center><br/>
+	</card>
+</wml>
+</xml>

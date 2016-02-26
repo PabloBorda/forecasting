@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Autocomplete Example</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+	<script src="javascripts/propios/cnvinicio.js"></script>
+	<script src="//connect.facebook.net/en_US/all.js"></script>
+	<link href="stylesheets/main.css" rel="stylesheet"/>
+	<link href="stylesheets/header.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" />	
+
+
+</head>
+
+<body language="es">
+
+<!-- Ini script fcbk -->
+	<div id="fb-root"></div>
+ 	<script type="text/javascript">
+       window.fbAsyncInit = function() {
+         FB.init({
+           appId      : '282608235205757', // App ID
+           channelUrl : 'http://www.papitomarket.com:4568', // Channel File
+           status     : true, // check login status
+           cookie     : true, // enable cookies to allow the server to access the session
+           xfbml      : true  // parse XFBML
+         });
+ 
+        /* Revisar es status del usuario al entrar a la pagina */
+        FB.getLoginStatus(function(response) {
+          if (response.status === 'connected') { // Esta conectado
+            var uid = response.authResponse.userID;
+            var accessToken = response.authResponse.accessToken;
+                login();
+          } else if (response.status === 'not_authorized') { // La aplicacion no esta atoriada
+                logout();
+          } else { // No esta conectado
+                logout();
+          }
+         });
+ 
+         /* Eventos para capturar el login del usuario */
+         FB.Event.subscribe('auth.login', function(response) { // cuando autoriza conexion
+             login();
+         });
+ 
+       /* Funcion que se ejecuta cuando ya se autoriza la conexion */
+       function login(){
+           FB.api('/me', function(response) {
+                document.getElementById('login').style.display = "block";
+                document.getElementById('name').style.display = "block";
+                document.getElementById('login').innerHTML = response.name + " estás conectado!";
+                document.getElementById('fb-login').style.display = "none";
+                fqlQuery();
+           });
+       }
+       /* Funcion que se ejecuta cuando aun no se hace la conexion con facebook */
+       function logout(){
+            document.getElementById('login').style.display = "none";
+            document.getElementById('name').style.display = "none";
+            document.getElementById('fb-login').style.display = "block";
+       }
+       /* Funcion para extraer algunos datos del susuario, como nombre y foto */
+       function fqlQuery(){
+           FB.api('/me', function(response) {
+                var query = FB.Data.query('select name, hometown_location, sex, pic_square from user where uid={0}', response.id);
+                query.wait(function(rows) {
+ 
+                  document.getElementById('name').innerHTML =
+                    'Your name: ' + rows[0].name + "<br />" +
+                    '<img src="' + rows[0].pic_square + '" alt="" />' + "<br />";
+                });
+           });
+       }
+       };
+        /* Funcion para abrir la ventanita y conectarse a facebook */
+        function facebookLogin() {
+            FB.login(function(response){
+                scope: 'email,user_birthday,status_update,publish_stream' // estos son los permisos que necesita la aplicacion
+            });
+        }
+ 
+       // Load the SDK Asynchronously
+       (function(d){
+          var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement('script'); js.id = id; js.async = true;
+          js.src = "//connect.facebook.net/en_US/all.js";
+          ref.parentNode.insertBefore(js, ref);
+        }(document));
+ 
+     </script>
+  <!--  Fin script fcbk -->
+
+	<header>
+		<nav>
+        	
+        	<a id="fb-login" href="#" onclick="facebookLogin()">
+        		<div class="fb-login-button" data-show-faces="true" data-width="200" data-max-rows="1"></div>
+	        </a>
+	        <div id="login"></div>
+			<div id="name"></div>
+   		 
+		</nav>
+		<section class="flexbox">
+			<canvas id="micanvas" width="800px" >
+				Este texto se muestra para los navegadores no compatibles con canvas.
+				<br>
+				Por favor, utiliza Firefox, Chrome, Safari u Opera.
+			</canvas>
+			<div id="divbuscador">
+				<input type="text" id="searchField" placeholder="Search">
+				<ul id="suggestions" data-role="listview" data-inset="true"></ul>
+			</div>
+		</section>
+	</header>
+
+	<section class="cuerpo" >
+	  	<ul id="productsuggest" data-role="listview" data-inset="true"></ul>
+	  	
+	  	<!--	<div id="results">
+	        <div data-role="collapsible-set" data-theme="b" data-content-theme="a">
+	        </div> 
+	  	</div> -->               
+	</section>
+	<footer class="pie">
+	</footer>
+
+<script>
+var sugList = $("#suggestions");
+
+$("#searchField").on("input", function(e) {
+	var text = $(this).val();
+	if(text.length < 1) {
+		sugList.html("");
+		sugList.listview("refresh");
+	} else {
+		$.get("/superproducts", {search:text}, function(res,code) {
+			var str = "";
+			for(var i=0, len=res.length; i<len; i++) {
+				str += "<li>"+res[i].label+"</li>";
+			}
+			sugList.html(str);
+			sugList.listview("refresh");
+			console.dir(res);
+		},"json");
+	}
+});
+</script>
+
+</body>
+</html>

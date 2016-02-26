@@ -1,0 +1,1318 @@
+
+
+Processing WapController#wap (for 186.22.36.240 at 2011-03-20 11:03:28) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 92ms (View: 87, DB: 4) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-20 11:04:04) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Jeronimo Salguero", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+Rendering wap/confirm
+Completed in 65ms (View: 4, DB: 8) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 186.22.36.240 at 2011-03-20 11:04:06) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"67.0", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  /app/helpers/application_helper.rb:38:in `find_closest_store'
+  app/controllers/wap_controller.rb:83:in `order_product'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-20 11:07:15) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116, La Plata", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+Rendering wap/confirm
+Completed in 113ms (View: 4, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-20 11:07:26) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116, La Plata", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+Rendering wap/confirm
+Completed in 118ms (View: 2, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 186.22.36.240 at 2011-03-20 11:07:30) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"Calle 116 1485, La Plata, Buenos Aires Province, Argentina", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"67.0", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+
+Errno::ECONNREFUSED (Connection refused - connect(2)):
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/connection.rb:66:in `initialize'
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/connection.rb:66:in `new'
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/connection.rb:66:in `connect'
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/client.rb:70:in `connect'
+  /app/helpers/application_helper.rb:13:in `initialize'
+  app/controllers/wap_controller.rb:127:in `new'
+  app/controllers/wap_controller.rb:127:in `order_product'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#wap (for 186.22.36.240 at 2011-03-20 12:44:16) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 11ms (View: 9, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-20 12:44:27) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Jeronimo Salguero", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+Rendering wap/confirm
+Completed in 153ms (View: 2, DB: 14) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 186.22.36.240 at 2011-03-20 12:44:30) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"67.0", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  /app/helpers/application_helper.rb:38:in `find_closest_store'
+  app/controllers/wap_controller.rb:83:in `order_product'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#order_product (for 186.22.36.240 at 2011-03-20 12:44:59) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"67.0", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  /app/helpers/application_helper.rb:38:in `find_closest_store'
+  app/controllers/wap_controller.rb:83:in `order_product'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#wap (for 186.22.36.240 at 2011-03-20 12:46:40) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 55ms (View: 50, DB: 3) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-20 12:46:43) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Jeronimo Salguero", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+Rendering wap/confirm
+Completed in 72ms (View: 4, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 186.22.36.240 at 2011-03-20 12:46:46) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"JerÃ³nimo Salguero 568, Buenos Aires, Capital Federal, Argentina", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"67.0", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+
+Errno::ECONNREFUSED (Connection refused - connect(2)):
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/connection.rb:66:in `initialize'
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/connection.rb:66:in `new'
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/connection.rb:66:in `connect'
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/client.rb:70:in `connect'
+  /app/helpers/application_helper.rb:28:in `initialize'
+  app/controllers/wap_controller.rb:130:in `new'
+  app/controllers/wap_controller.rb:130:in `order_product'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#order_product (for 186.22.36.240 at 2011-03-20 12:48:18) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"JerÃ³nimo Salguero 568, Buenos Aires, Capital Federal, Argentina", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"67.0", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+
+Errno::ECONNREFUSED (Connection refused - connect(2)):
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/connection.rb:66:in `initialize'
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/connection.rb:66:in `new'
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/connection.rb:66:in `connect'
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/client.rb:70:in `connect'
+  /app/helpers/application_helper.rb:28:in `initialize'
+  app/controllers/wap_controller.rb:130:in `new'
+  app/controllers/wap_controller.rb:130:in `order_product'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#order_product (for 186.22.36.240 at 2011-03-20 12:48:29) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"JerÃ³nimo Salguero 568, Buenos Aires, Capital Federal, Argentina", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"67.0", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+
+Errno::ECONNREFUSED (Connection refused - connect(2)):
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/connection.rb:66:in `initialize'
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/connection.rb:66:in `new'
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/connection.rb:66:in `connect'
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/client.rb:70:in `connect'
+  /app/helpers/application_helper.rb:28:in `initialize'
+  app/controllers/wap_controller.rb:130:in `new'
+  app/controllers/wap_controller.rb:130:in `order_product'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#order_product (for 186.22.36.240 at 2011-03-20 12:49:22) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"JerÃ³nimo Salguero 568, Buenos Aires, Capital Federal, Argentina", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"67.0", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+
+Errno::ECONNREFUSED (Connection refused - connect(2)):
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/connection.rb:66:in `initialize'
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/connection.rb:66:in `new'
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/connection.rb:66:in `connect'
+  /usr/local/rvm/gems/ruby-1.8.7-p334/gems/xmpp4r-0.5/lib/xmpp4r/client.rb:70:in `connect'
+  /app/helpers/application_helper.rb:28:in `initialize'
+  app/controllers/wap_controller.rb:130:in `new'
+  app/controllers/wap_controller.rb:130:in `order_product'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#order_product (for 186.22.36.240 at 2011-03-20 12:50:13) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"JerÃ³nimo Salguero 568, Buenos Aires, Capital Federal, Argentina", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"67.0", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+Rendering wap/order_product
+Completed in 213ms (View: 5, DB: 20) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-20 12:50:28) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+Rendering wap/confirm
+Completed in 109ms (View: 4, DB: 11) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-20 12:50:41) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116 La Plata", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+Rendering wap/confirm
+Completed in 100ms (View: 3, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 186.22.36.240 at 2011-03-20 12:50:46) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"Calle 116 1485, La Plata, Buenos Aires Province, Argentina", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"67.0", "authenticity_token"=>"NlLNqGg+mLZkfS8jW4dpKHkmrEx0PixsBeffHMoV1hc=", "EmpanadaCarneSuave"=>"3", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"6", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"1", "depto"=>"6e"}
+Rendering wap/order_product
+Completed in 109ms (View: 2, DB: 8) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#wap (for 190.191.188.205 at 2011-03-20 15:25:13) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 15ms (View: 11, DB: 2) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 200.49.206.196 at 2011-03-20 16:06:01) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 200.49.206.196 at 2011-03-20 16:08:41) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 200.49.193.196 at 2011-03-20 16:09:28) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 200.49.206.196 at 2011-03-20 16:13:22) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"4", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"2", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"4", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"2", "authenticity_token"=>"QlcUqAlQj0wgIpLfF0SYumlpTU28fUkBh5toIfXT5zM=", "EmpanadaCarneSuave"=>"2", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"2", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 134ms (View: 2, DB: 21) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 200.49.193.196 at 2011-03-20 16:13:42) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"4", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"2", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"4", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"2", "authenticity_token"=>"QlcUqAlQj0wgIpLfF0SYumlpTU28fUkBh5toIfXT5zM=", "EmpanadaCarneSuave"=>"2", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"2", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 74ms (View: 2, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#wap (for 190.191.188.205 at 2011-03-20 16:20:22) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 190.191.188.205 at 2011-03-20 16:22:31) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 89ms (View: 2, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 190.191.188.205 at 2011-03-20 16:22:58) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 68ms (View: 2, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 190.191.188.205 at 2011-03-20 16:23:12) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 48ms (View: 2, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 190.191.188.205 at 2011-03-20 16:23:16) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 113ms (View: 2, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#wap (for 190.191.188.205 at 2011-03-20 16:29:25) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 22ms (View: 18, DB: 3) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 190.191.188.205 at 2011-03-20 16:29:30) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 85ms (View: 3, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 190.191.188.205 at 2011-03-20 16:30:33) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 85ms (View: 2, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 190.191.188.205 at 2011-03-20 16:30:40) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "amount"=>"75.6", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/wap_controller.rb:81:in `order_product'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 190.191.188.205 at 2011-03-20 16:31:34) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116  La Plata", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 92ms (View: 2, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 190.191.188.205 at 2011-03-20 16:31:38) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"Calle 116 1485, La Plata, Buenos Aires Province, Argentina", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "amount"=>"75.6", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/order_product
+Completed in 193ms (View: 3, DB: 13) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#confirm (for 190.191.188.205 at 2011-03-20 16:33:52) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1227", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"diagonal 79 ", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 98ms (View: 2, DB: 12) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 190.191.188.205 at 2011-03-20 16:33:56) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"", "number"=>"1227", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "amount"=>"75.6", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/wap_controller.rb:81:in `order_product'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 190.191.188.205 at 2011-03-20 16:34:20) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"122", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"diagonal 79 La Platq", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 93ms (View: 2, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 190.191.188.205 at 2011-03-20 16:34:30) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"Av Pres. Roque SÃ¡enz Pena, Buenos Aires, Capital Federal, Argentina", "number"=>"122", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "amount"=>"75.6", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/order_product
+Completed in 109ms (View: 2, DB: 8) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#confirm (for 190.191.188.205 at 2011-03-20 16:34:52) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"122", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"diagonal 79 La Plata", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 84ms (View: 2, DB: 13) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 190.191.188.205 at 2011-03-20 16:34:55) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"Av Pres. Roque SÃ¡enz Pena, Buenos Aires, Capital Federal, Argentina", "number"=>"122", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "amount"=>"75.6", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/order_product
+Completed in 120ms (View: 2, DB: 23) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#confirm (for 190.191.188.205 at 2011-03-20 16:35:49) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"122", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"diag 79 La Plata", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 104ms (View: 2, DB: 16) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 190.191.188.205 at 2011-03-20 16:36:27) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"Diag. 79 122, La Plata, Buenos Aires Province, Argentina", "number"=>"122", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "amount"=>"75.6", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/order_product
+Completed in 103ms (View: 1, DB: 8) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#confirm (for 190.191.188.205 at 2011-03-20 16:37:29) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"colon  berisso", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 91ms (View: 2, DB: 13) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 190.191.188.205 at 2011-03-20 16:37:31) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"ColÃ³n, Berisso, Buenos Aires Province, Argentina", "number"=>"", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "amount"=>"75.6", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/order_product
+Completed in 81ms (View: 2, DB: 19) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#confirm (for 190.191.188.205 at 2011-03-20 16:38:48) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1158", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"67  La Plata", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 136ms (View: 2, DB: 14) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 190.191.188.205 at 2011-03-20 16:38:51) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"Calle 67 1158, La Plata, Buenos Aires Province, Argentina", "number"=>"1158", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "amount"=>"75.6", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/order_product
+Completed in 190ms (View: 2, DB: 99) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#confirm (for 190.191.188.205 at 2011-03-20 16:39:09) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1158", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"67  ", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 111ms (View: 2, DB: 15) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 190.191.188.205 at 2011-03-20 16:39:12) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"", "number"=>"1158", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"4", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"1", "CuatroQuesos"=>"", "amount"=>"75.6", "authenticity_token"=>"xerNctiEhdWydW3KjFtIfbq+q9y2XgjxjxSMeZGhFiw=", "EmpanadaCarneSuave"=>"7", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"221155446271", "EmpanadaCarnePicante"=>"8", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"1", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"3", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/wap_controller.rb:81:in `order_product'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#wap (for 186.22.36.240 at 2011-03-22 11:18:06) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 64ms (View: 52, DB: 4) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 11:18:41) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:56:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 11:19:26) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:56:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 11:20:18) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+NoMethodError (undefined method `quitar_acentos' for #<WapController:0xb6decd88>):
+  app/controllers/wap_controller.rb:56:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 11:20:45) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+NoMethodError (undefined method `quitar_acentos' for #<WapController:0xb6c6e0b0>):
+  app/controllers/wap_controller.rb:56:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 11:21:06) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:56:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 11:23:16) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:56:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 11:24:13) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:56:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 11:26:25) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:56:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 11:27:38) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:56:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 11:27:56) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:57:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 11:29:43) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:57:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 11:31:35) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:58:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 11:32:54) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:58:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 11:35:33) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:58:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 11:37:25) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:58:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 12:09:15) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:58:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 13:07:34) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:58:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 13:27:06) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:58:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 13:45:44) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Neuquén&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:58:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:55:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 13:46:53) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 695ms (View: 8, DB: 16) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 13:57:42) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 560ms (View: 1, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 14:02:05) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"1", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"1", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"2", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"2", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"1", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=116%201485,%20Paraná&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:61:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:58:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#wap (for 186.22.36.240 at 2011-03-22 21:07:55) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 29ms (View: 23, DB: 5) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 190.188.65.249 at 2011-03-22 21:10:12) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 21ms (View: 6, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 190.188.65.249 at 2011-03-22 21:11:11) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-22 21:22:18) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"6", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"u8RpfnJlZoef3KSrW4CEqdH2bpr+pdw7NlnKPPEW6bs=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Jeronimo Salguero", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"5e"}
+
+URI::InvalidURIError (bad URI(is not URI?): http://maps.googleapis.com/maps/api/geocode/json?address=Jeronimo%20Salguero%20568,%20Paraná&sensor=false):
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:436:in `split'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/uri/common.rb:485:in `parse'
+  app/controllers/wap_controller.rb:61:in `confirm'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each_key'
+  /usr/local/rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/set.rb:195:in `each'
+  app/controllers/wap_controller.rb:58:in `confirm'
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#wap (for 186.22.36.240 at 2011-03-23 12:07:37) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 28ms (View: 20, DB: 4) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-23 12:08:04) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"1", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"2", "authenticity_token"=>"LOx6jRZsY+n1MdioyRpTaCy88GIZKq/31gKgk63regU=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 5420ms (View: 4, DB: 162) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 186.22.36.240 at 2011-03-23 12:08:19) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"Calle 116 1485, La Plata, Buenos Aires Province, Argentina", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"1", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"2", "amount"=>"27.8", "authenticity_token"=>"LOx6jRZsY+n1MdioyRpTaCy88GIZKq/31gKgk63regU=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"1", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/order_product
+Completed in 230ms (View: 2, DB: 14) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#wap (for 186.22.36.240 at 2011-03-23 12:08:30) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-23 12:09:01) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"184", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"2", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"1", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"LOx6jRZsY+n1MdioyRpTaCy88GIZKq/31gKgk63regU=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Montevideo", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"1a"}
+Rendering wap/confirm
+Completed in 122ms (View: 1, DB: 14) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 186.22.36.240 at 2011-03-23 12:09:10) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"Montevideo 184, Buenos Aires, Capital Federal, Argentina", "number"=>"184", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"2", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"1", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"43.4", "authenticity_token"=>"LOx6jRZsY+n1MdioyRpTaCy88GIZKq/31gKgk63regU=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"1a"}
+Rendering wap/order_product
+Completed in 78ms (View: 1, DB: 7) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#wap (for 186.22.36.240 at 2011-03-23 12:15:38) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 9ms (View: 7, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 186.22.36.240 at 2011-03-24 10:51:36) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 23ms (View: 17, DB: 4) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-24 10:52:30) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"532", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"F9cUw8UzSew9+1P5OiIddFBFjvZIXH772oHX3PedBwc=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Humahuaca", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"4c"}
+Rendering wap/confirm
+Completed in 1315ms (View: 4, DB: 16) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-24 10:52:44) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"532", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"F9cUw8UzSew9+1P5OiIddFBFjvZIXH772oHX3PedBwc=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Humauaca", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"4c"}
+Rendering wap/confirm
+Completed in 1276ms (View: 2, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-24 10:53:46) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"532", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"F9cUw8UzSew9+1P5OiIddFBFjvZIXH772oHX3PedBwc=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Billinghurst", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"4c"}
+Rendering wap/confirm
+Completed in 143ms (View: 47, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 186.22.36.240 at 2011-03-24 10:53:55) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"Billinghurst 532, Buenos Aires, Capital Federal, Argentina", "number"=>"532", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"35.0", "authenticity_token"=>"F9cUw8UzSew9+1P5OiIddFBFjvZIXH772oHX3PedBwc=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"4c"}
+Rendering wap/order_product
+Completed in 101ms (View: 2, DB: 7) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-24 12:20:56) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"F9cUw8UzSew9+1P5OiIddFBFjvZIXH772oHX3PedBwc=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"JerÃ³nimo Salguero", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"4c"}
+Rendering wap/confirm
+
+ActionView::TemplateError (undefined method `[]' for #<Set:0xb689b000>) on line #24 of app/views/wap/confirm.html.erb:
+21:         }
+22:         concat "</select><br/>"
+23:       else
+24:       	concat "<input type=\"hidden\" name=\"onestreet\" value=\"" + @possible_locations[0] + "\"/>"
+25:         concat "<label>Son estos datos correctos? </label><br/>"
+26:         concat "<label>Calle: " + @possible_locations[0] + "</label><br/>"
+27:       end
+
+    app/views/wap/confirm.html.erb:24
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#wap (for 186.22.36.240 at 2011-03-25 02:37:38) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 30ms (View: 23, DB: 4) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 186.22.36.240 at 2011-03-25 02:37:42) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 186.22.36.240 at 2011-03-25 02:39:15) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"5", "EmpanadaPollo"=>"5", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"236", "EmpanadaAtun"=>"5", "EspinacaconQueso"=>"5", "EmpanadaHumita"=>"55", "SalteadodeVegetales"=>"5", "Roquefortconjamon"=>"5", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"5", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"gi+bzaC0WiLKrH3KWKIzz0Q55xysv8h3hn7bD8hT0Wc=", "EmpanadaCarneSuave"=>"5", "Carnecortadaacuchillo"=>"5", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"64", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"02215071493", "EmpanadaCarnePicante"=>"5", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"5", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"5", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 1155ms (View: 7, DB: 8) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 186.22.36.240 at 2011-03-25 02:39:37) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"5", "EmpanadaPollo"=>"5", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"Calle 64 236, La Plata, Buenos Aires Province, Argentina", "number"=>"236", "EmpanadaAtun"=>"5", "EspinacaconQueso"=>"5", "EmpanadaHumita"=>"55", "SalteadodeVegetales"=>"5", "Roquefortconjamon"=>"5", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"5", "EmpanadaPolloconhierbas"=>"5", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"336.0", "authenticity_token"=>"gi+bzaC0WiLKrH3KWKIzz0Q55xysv8h3hn7bD8hT0Wc=", "EmpanadaCarneSuave"=>"5", "Carnecortadaacuchillo"=>"5", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"02215071493", "EmpanadaCarnePicante"=>"5", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"5", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"5", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/order_product
+Completed in 186ms (View: 2, DB: 29) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#wap (for 186.22.36.240 at 2011-03-25 10:15:32) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 25ms (View: 18, DB: 4) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing ApplicationController#index (for 186.22.36.240 at 2011-04-09 15:09:37) [GET]
+
+ActionController::RoutingError (No route matches "/delivery/companyid=0" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing WapController#wap (for 186.22.36.240 at 2011-04-09 15:09:55) [GET]
+Rendering wap/wap
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #8 of app/views/wap/wap.html.erb:
+5: 
+6: 
+7: <wml> 
+8:   <card id="delivery" title="<%=company_name=Company.find_by_id(@company).name%>"> 
+9:   	<%=  "<img src=\"/images/companies/" + Company.find_by_id(@company).logo +  "\" align=\"center\"/>"  %>
+10: 
+11:   	<table columns='2'>
+
+    app/views/wap/wap.html.erb:8
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing ApplicationController#index (for 186.22.36.240 at 2011-04-09 15:10:06) [GET]
+
+ActionController::RoutingError (No route matches "/delivery/companyid=0" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 186.22.36.240 at 2011-04-09 16:28:34) [GET]
+
+ActionController::RoutingError (No route matches "/deliver/companyid=0" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-04-12 17:23:30) [GET]
+
+ActionController::RoutingError (No route matches "/deliver/companyid=0" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-04-14 15:59:03) [GET]
+
+ActionController::RoutingError (No route matches "/deliver/companyid=0" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-04-14 15:59:13) [GET]
+  Parameters: {"companyid"=>"0"}
+
+ActionController::RoutingError (No route matches "/deliver" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-04-14 16:30:17) [GET]
+  Parameters: {"companyid"=>"0"}
+
+ActionController::RoutingError (No route matches "/deliver/wap" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing WapController#wap (for 190.55.90.36 at 2011-04-14 16:30:38) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 69ms (View: 40, DB: 5) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 190.55.90.36 at 2011-04-15 09:13:59) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 190.55.90.36 at 2011-04-15 09:39:26) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 8ms (View: 6, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-15 09:43:20) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"3", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"IxWFnj7HoDUzqQIfkx1FZ96Li9QzHov3xl1jmxcwtVI=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Jeronimo Salguero", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"4", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"152234585", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"2", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"6E"}
+Rendering wap/confirm
+
+ActionView::TemplateError (undefined method `[]' for #<Set:0xb6ceb7cc>) on line #24 of app/views/wap/confirm.html.erb:
+21:         }
+22:         concat "</select><br/>"
+23:       else
+24:       	concat "<input type=\"hidden\" name=\"onestreet\" value=\"" + @possible_locations[0] + "\"/>"
+25:         concat "<label>Son estos datos correctos? </label><br/>"
+26:         concat "<label>Calle: " + @possible_locations[0] + "</label><br/>"
+27:       end
+
+    app/views/wap/confirm.html.erb:24
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#wap (for 190.55.90.36 at 2011-04-16 09:19:01) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 22ms (View: 18, DB: 3) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-16 09:19:32) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"2", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"LlFg6P4oIBZDt5qfhkPUQe/wtdpjxesx8qk20OyQufM=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Jeronimo Salguero", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"15408452399", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"2", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"3", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"6e"}
+Rendering wap/confirm
+Completed in 94ms (View: 3, DB: 14) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 190.55.90.36 at 2011-04-16 09:19:37) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"JerÃ³nimo Salguero 568, Buenos Aires, Capital Federal, Argentina", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"2", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"22.4", "authenticity_token"=>"LlFg6P4oIBZDt5qfhkPUQe/wtdpjxesx8qk20OyQufM=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"15408452399", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"2", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"3", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"6e"}
+Rendering wap/order_product
+Completed in 172ms (View: 3, DB: 9) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#wap (for 190.55.90.36 at 2011-04-18 16:31:11) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:32:31) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"607", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"122 ", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 2031ms (View: 2, DB: 11) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:33:03) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"607", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"122", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 2466ms (View: 2, DB: 13) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:33:24) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 2231ms (View: 1, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:33:50) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"607", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"122", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 1835ms (View: 1, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:34:16) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"607", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Calle 122", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 2198ms (View: 2, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:35:22) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1665", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Boulevard 84", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 2055ms (View: 1, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:35:41) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1665", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Blvd 84", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 1557ms (View: 2, DB: 8) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:36:01) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1665", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"66", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 2304ms (View: 2, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:36:32) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"607", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"122", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 1697ms (View: 2, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:39:09) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"558", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Diagonal 79", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 125ms (View: 1, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:39:26) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"607", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Calle 122", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 1895ms (View: 2, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:40:26) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"568", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Jeronimo Salguero", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"6E"}
+Rendering wap/confirm
+Completed in 75ms (View: 1, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 190.55.90.36 at 2011-04-18 16:40:36) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"JerÃ³nimo Salguero 568, Buenos Aires, Capital Federal, Argentina", "number"=>"568", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"33.6", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"6E"}
+Rendering wap/order_product
+Completed in 262ms (View: 2, DB: 6) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#wap (for 190.55.90.36 at 2011-04-23 23:08:45) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 10ms (View: 9, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-05-07 16:32:51) [GET]
+  Parameters: {"companyid"=>"0"}
+
+ActionController::RoutingError (No route matches "/delivery/wap/delivery" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-05-07 16:32:56) [GET]
+  Parameters: {"companyid"=>"0"}
+
+ActionController::RoutingError (No route matches "/delivery/wap/deliver" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-05-07 16:33:03) [GET]
+  Parameters: {"companyid"=>"0"}
+
+ActionController::RoutingError (No route matches "/delivery/deliver" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-05-07 16:33:09) [GET]
+  Parameters: {"companyid"=>"0"}
+
+ActionController::RoutingError (No route matches "/delivery/wap" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-05-07 16:33:13) [GET]
+  Parameters: {"companyid"=>"0"}
+
+ActionController::RoutingError (No route matches "/deliver/wap" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-05-07 16:34:09) [GET]
+  Parameters: {"companyid"=>"0"}
+
+ActionController::RoutingError (No route matches "/delivery/wap" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing WapController#wap (for 190.55.90.36 at 2011-05-07 16:35:37) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 10ms (View: 9, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-07-06 10:48:47) [GET]
+Rendering wap/wap
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #8 of app/views/wap/wap.html.erb:
+5: 
+6: 
+7: <wml> 
+8:   <card id="delivery" title="<%=company_name=Company.find_by_id(@company).name%>"> 
+9:   	<%=  "<img src=\"/images/companies/" + Company.find_by_id(@company).logo +  "\" align=\"center\"/>"  %>
+10: 
+11:   	<table columns='2'>
+
+    app/views/wap/wap.html.erb:8
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-07-06 10:50:48) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 9ms (View: 7, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-07-06 10:51:04) [GET]
+Rendering wap/wap
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #8 of app/views/wap/wap.html.erb:
+5: 
+6: 
+7: <wml> 
+8:   <card id="delivery" title="<%=company_name=Company.find_by_id(@company).name%>"> 
+9:   	<%=  "<img src=\"/images/companies/" + Company.find_by_id(@company).logo +  "\" align=\"center\"/>"  %>
+10: 
+11:   	<table columns='2'>
+
+    app/views/wap/wap.html.erb:8
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-07-06 10:51:16) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-07-06 13:43:52) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 10ms (View: 9, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-07-06 13:50:34) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 8ms (View: 6, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 186.23.14.175 at 2011-07-06 13:51:09) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"2", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"2", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"1", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"3", "CuatroQuesos"=>"", "authenticity_token"=>"MZXR6zy3BjRrQlkblWPfBM8Acrc4WzmWjbAJ9v6Nv/Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1550845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 6191ms (View: 2, DB: 14) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#order_product (for 186.23.14.175 at 2011-07-06 13:51:50) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"2", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"2", "ChocolateItaliano"=>"", "onestreet"=>"Calle 116 1485, La Plata, Buenos Aires Province, Argentina", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"1", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"3", "CuatroQuesos"=>"", "amount"=>"111.8", "authenticity_token"=>"MZXR6zy3BjRrQlkblWPfBM8Acrc4WzmWjbAJ9v6Nv/Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1550845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/order_product
+Completed in 370ms (View: 1, DB: 31) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#companyid=0 (for 186.23.14.175 at 2011-08-06 14:42:17) [GET]
+
+ActionController::UnknownAction (No action responded to companyid=0. Actions: confirm, order_product, and wap):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-08-06 14:42:26) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 89ms (View: 87, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-08-06 14:48:09) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 11ms (View: 9, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 186.23.14.175 at 2011-08-06 15:23:48) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"estBUbmaLUaZhBJeJkcCIcdRadkuNp1OndDqtWJHCqI=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 917ms (View: 1, DB: 13) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-08-06 15:24:13) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 9ms (View: 8, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#confirm (for 186.23.14.175 at 2011-08-06 15:24:28) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"estBUbmaLUaZhBJeJkcCIcdRadkuNp1OndDqtWJHCqI=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 882ms (View: 2, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-08-06 15:24:51) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 10ms (View: 9, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-08-06 15:24:53) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]

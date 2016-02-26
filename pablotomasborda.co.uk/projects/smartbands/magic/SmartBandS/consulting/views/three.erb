@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Smartbands by HTML5Templates.com</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<noscript>
+		<link rel="stylesheet" href="stylesheets/5grid/core.css" />
+		<link rel="stylesheet" href="stylesheets/5grid/core-desktop.css" />
+		<link rel="stylesheet" href="stylesheets/5grid/core-1200px.css" />
+		<link rel="stylesheet" href="stylesheets/5grid/core-noscript.css" />
+		<link rel="stylesheet" href="stylesheets/style.css" />
+		<link rel="stylesheet" href="stylesheets/style-desktop.css" />
+		<style type="text/css">
+          
+        </style>
+		
+		
+		
+		</noscript>
+		<script src="stylesheets/5grid/jquery.js"></script>
+		<script src="stylesheets/5grid/init.js?use=mobile,desktop,1000px&amp;mobileUI=1&amp;mobileUI.theme=none"></script>
+		<script src="javascripts/jquery-1.8.3.js"></script>
+		<script src="javascripts/jquery.validate.min.js"></script>
+		
+		
+		
+		
+		
+     <script type="text/javascript">
+
+     
+      $(document).ready(function(){
+      	
+      
+        $("#webcontact").validate({ errorLabelContainer: "#messageBox",
+                                    wrapper: "li"});
+      	
+      	
+      	
+       $.ajax({
+         url: "http://66.228.62.196:81/captcha",
+         context: document.body,
+         success: function(data){
+         	alert(data);
+           $("#placecaptcha").html(data);
+
+         }
+       });
+      });
+
+     </script>
+		<!--[if IE 9]><link rel="stylesheet" href="css/style-ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+		<div id="header-wrapper">
+		
+			<header id="header">
+				<div class="5grid-layout">
+					<div class="row">
+						<div class="4u" id="logo">
+							<h1><a href="#" class="mobileUI-site-name">Smartbands Consulting</a></h1>
+						</div>
+						<div class="8u" id="menu">
+							<nav class="mobileUI-site-nav">
+								<ul>
+									<li><a href="/">Homepage</a></li>
+									<li><a href="/one">Who we are</a></li>
+									<li><a href="/two">What we do</a></li>
+									<li class="current_page_item"><a href="/three">Contact</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</header>
+			
+		</div>
+		<!-- Header Ends Here -->
+
+
+		<!-- Wrapper -->
+		<div id="wrapper" class="5grid-layout">
+		
+			<!-- Page Content -->
+			<div id="page" class="row">
+				
+				<!-- Sidebar Area -->
+				<div id="sidebar" class="4u">
+				
+					<!-- Sidebar Section 1 -->
+					<section id="box1">
+						
+						<!-- Two Column Content Area -->
+						<div class="5grid">
+							<h2>Where we are</h2>
+							<img src="images/mapa.jpg" width="100%" />
+						</div>
+						<!-- Two Column Content Area Ends Here -->
+					
+					</section>
+	
+					<!-- Sidebar Section 2 -->
+					<section id="box2">
+						<h2>Contact</h2>
+						<ul class="style2">
+							<li class="first">
+								<p><a href="#"><img src="images/skype.jpg" width="60px" height="60px" alt="">Find Us on Skype: smartbands </a></p>
+							</li>
+							<li>
+								<p><a href="#"><img src="images/phone.jpg" width="60px" height="60px" alt="">Call US: +54-11-20513618</a></p>
+							</li>
+						</ul>
+					</section>
+
+
+				</div>
+				
+				<!-- Content Area -->
+				<div id="content" class="8u mobileUI-main-content">
+					
+					<!-- Main Content Area -->
+					<section>
+						<h2 class="main-title">Contact US</h2>
+						<a href="#" class="image-style1"><img src="images/mapa1.jpg" alt=""></a>
+                        <h1 class="main-title"> Send your inquiries by using our contact form</h1>
+                        <div id="messageBox"></div>
+                        <form id="webcontact" action="/upload" enctype="multipart/form-data" method="post">
+                        	<table>
+                        	<tr><td>Name</td><td><input type="text" size="85" name="name" class="required"/></td><td>* required</td></tr>
+                        	<tr><td>Email</td><td><input type="text" size="85" name="email" class="required email"/></td><td>* required</td></tr>
+                        	
+                        	<tr><td valign="center">Message</td><td><textarea name="message" cols="85" rows="10" class="required"></textarea></td><td>* required</td></tr>
+                        	<tr>
+                        		<td id="cap"> 
+                        		</td>	
+                            </tr>
+                            <div id="placecaptcha"></div>                       
+                        	<tr><td>Attach your file: </td><td><input type="file" name="doc" /></td></tr>
+                        	<tr> <td><input type="submit" /></td></tr>
+                        	</table>
+                        </form>
+
+
+					</section>
+					
+				</div>
+
+			</div>
+			<!-- Page Content -->
+		
+		</div>
+		<!-- Wrapper Ends Here -->
+
+
+
+		<!-- Copyright -->
+		<div class="5grid-layout" id="copyright">
+			<div class="row">
+				<div class="12u">
+					<section>
+						<p>&copy; SmartBandS.com | Design: <a href="http://www.smartbands.com/">smartbands.com</a></p>
+					</section>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>

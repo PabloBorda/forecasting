@@ -1,0 +1,36 @@
+
+
+	/* override the root element to enable scrolling */
+	#middle {
+		position:relative;
+		overflow:hidden;
+		clear:both;
+		position:relative;
+		height: 400px;
+		width: 800px;
+                left: 0px;
+                background-image:url('/images/leafs.jpg');
+		top: -50px;
+
+	}
+
+	/* override single pane */
+	#middle div {
+		float:left;
+		display:block;
+		font-size:14px;
+	}
+
+	/* our additional wrapper element for the items */
+	#middle .items {
+		width:40000em;
+		position:relative;
+		clear:both;
+		margin:0;
+		padding:0;
+	}
+
+	#middle .less, #middle .less a {
+		color:#999 !important;
+		font-size:11px;
+	}

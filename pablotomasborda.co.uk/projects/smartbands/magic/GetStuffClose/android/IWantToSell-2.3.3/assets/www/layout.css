@@ -1,0 +1,21 @@
+#fbpic{
+	float: left;
+}
+#wellcome{
+	word-wrap: break-word;
+}
+#logout{
+	float: right;
+	
+}
+
+#progressnum{
+	
+	
+}
+#otherprod{
+	bottom: 0px;
+	
+}
+[data-role=page]{height: 100% !important; position:relative !important;}
+[data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%;} 

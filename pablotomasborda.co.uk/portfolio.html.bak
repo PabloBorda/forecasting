@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+  <head>
+    <link rel="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css">
+    <script type="javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="javascript" src="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+  </head>
+  <body>
+    <div align="center">
+      <div data-role="page" data-theme="a">
+        <div data-role="header">
+          <h1>Curriculum Vitae and Software Portfolio</h1>
+        </div>
+        <div data-role="content"> </div>
+        <div data-role="footer"> </div>
+      </div>
+    </div>
+    
+  </body>
+</html>

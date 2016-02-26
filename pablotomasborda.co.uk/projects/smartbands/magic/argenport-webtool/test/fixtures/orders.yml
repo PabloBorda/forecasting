@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  types_id: 1
+  amount: 1
+  products_id: 1
+  address: MyString
+  users_id: 1
+  sites_id: 1
+  track: MyString
+  carriers_id: MyString
+  status_id: 1
+  days: 1
+  declared: 1.5
+  tax: 1.5
+  experiment: false
+
+two:
+  types_id: 1
+  amount: 1
+  products_id: 1
+  address: MyString
+  users_id: 1
+  sites_id: 1
+  track: MyString
+  carriers_id: MyString
+  status_id: 1
+  days: 1
+  declared: 1.5
+  tax: 1.5
+  experiment: false

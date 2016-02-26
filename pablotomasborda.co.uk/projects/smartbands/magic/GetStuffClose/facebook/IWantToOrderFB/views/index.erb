@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>IWantToOrder</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<link rel="stylesheet" href="/stylesheets/jquery.mobile-1.1.0-rc.1.min.css" />
+
+<link rel="stylesheet" href="/stylesheets/jquery.mobile.simpledialog.min.css" />
+
+
+<style>
+#head {
+ position:relative;
+}
+#you {
+ position:absolute;
+ top:0;
+ left:0; 
+ width: 50%;
+}
+#sessiondata {
+ position:absolute;
+ top:0;
+ left:0;
+ width: 50%;
+}
+
+</style>
+
+
+<script type="text/javascript" charset="utf-8" src="/javascripts/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/javascripts/jquery.mobile-1.1.0-rc.1.min.js"></script>
+
+<script type="text/javascript" charset="utf-8" src="/javascripts/jquery.mobile.simpledialog2.min.js"></script>
+
+ 
+<script type="text/javascript" charset="utf-8" src="/javascripts/geolocation.js"></script>
+<script type="text/javascript" charset="utf-8" src="/javascripts/urlEncode.js"></script>
+<script type="text/javascript" charset="utf-8" src="/javascripts/jquery.papito.gallery.js"></script>
+<script type="text/javascript" charset="utf-8" src="/javascripts/jquery.transform-1.0.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/javascripts/jquery.activity-indicator-1.0.0.min.js"></script>
+
+
+<script type="text/javascript" charset="utf-8" src="/javascripts/jquery.ui.core.js"></script>
+<script type="text/javascript" charset="utf-8" src="/javascripts/jquery.ui.widget.js"></script>
+<script type="text/javascript" charset="utf-8" src="/javascripts/jquery.ui.position.js"></script>
+<script type="text/javascript" charset="utf-8" src="/javascripts/jquery.ui.autocomplete.js"></script>
+
+
+<script type="text/javascript" charset="utf-8" src="/javascripts/products.js"></script>
+<script type="text/javascript" charset="utf-8" src="/javascripts/stores.js"></script>
+<script type="text/javascript" charset="utf-8" src="/javascripts/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="/javascripts/misc.js"></script>
+
+
+<script type="text/javascript" charset="utf-8" src="/javascripts/facebookmanager.js"></script>
+
+<script type="text/javascript">
+
+
+document.addEventListener("deviceready", gpsReady, false);
+function onDeviceReady() {
+    alert("device ready!");
+}
+
+
+</script>
+
+
+
+</head>
+<body>
+
+<script>
+function yslow(){
+javascript:(function(y,p,o){p=y.body.appendChild(y.createElement('iframe'));p.id='YSLOW-bookmarklet';p.style.cssText='display:none';o=p.contentWindow.document;o.open().write('<head><body onload="YUI_config={win:window.parent,doc:window.parent.document};var d=document;d.getElementsByTagName(\'head\')[0].appendChild(d.createElement(\'script\')).src=\'http://yslow.org/yslow-bookmarklet.js\'">');o.close()}(document))
+}
+</script>
+
+
+
+
+
+<div data-role="page" align="left" data-theme="a" id="page1">
+
+  <div data-role="content" align="left">
+     <div id="head">
+        <div id="you">
+    
+        </div>
+        <div id="sessiondata">
+          <table border="0">
+            <tr><td>
+                  <img src="http://graph.facebook.com/<%= @user['id'] %>/picture"/>
+                </td>
+                <td>
+                  <label><%= @user['name'] %></label>
+                </td>
+            </tr>
+          </table>
+       </div>
+     </div>
+     <br/><br/> <br/><br/>
+    
+    
+      <input id="search" placeholder="" value="What are you looking for?" type="text" />  <!-- search_product(); -->
+
+      <ul id="productsuggest" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+
+
+  <div id="filters">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                        <legend>
+                            Filters:
+                        </legend>
+                        <input name="radiobuttons1" id="radio1" value="true" type="radio" />
+                        <label for="radio1">
+                            Online
+                        </label>
+                        <input name="radiobuttons1" id="radio2" value="true" type="radio" />
+                        <label for="radio2">
+                            Closer
+                        </label>                        
+                        <input name="radiobuttons1" id="radio3" value="false" type="radio" />
+                        <label for="radio3">
+                            Cheaper
+                        </label>
+                        <input name="radiobuttons1" id="radio4" value="true" type="radio" />
+                        <label for="radio4">
+                            Deliver
+                        </label>
+                    </fieldset>
+                </div>
+   </div>
+
+  </div>
+
+  <div id="results" data-role="content">
+    <div data-role="collapsible-set" data-theme="a" data-content-theme="a">
+    
+
+    </div>
+  </div>
+  <div id="but">
+    <input type="button" id="submitall" onclick="submitorder();" value="Place Order"/>
+  </div>
+
+</div>
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

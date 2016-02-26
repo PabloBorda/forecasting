@@ -1,0 +1,114 @@
+<form id="F4">
+  <block>
+<prompt xml:lang="<%=@msgs[:prompt_extension].to_s%>">
+  <%=@msgs[:card_intro].to_s%>
+</prompt>
+ </block> 
+  <field name="card_type"> 
+    <prompt xml:lang="<%=@msgs[:prompt_extension].to_s%>" count="1">
+      <%=@msgs[:card_type_prompt].to_s%>
+    </prompt>
+    <prompt xml:lang="<%=@msgs[:prompt_extension].to_s%>" count="2">
+      <%=@msgs[:card_type].to_s%>
+    </prompt> 
+    <!-- This is an inline grammar. -->
+    <grammar type="application/srgs+xml" root="r2" version="1.0"> 
+      <rule id="r2" scope="public">
+        <one-of>
+          <item>
+            visa
+          </item> 
+          <item>
+            master
+          <item repeat="0-1">
+            card
+          </item>
+          </item>
+          <item>
+            amex
+          </item> 
+          <item>
+            american express
+          </item> 
+          </one-of> 
+          </rule>
+          </grammar> 
+          <help>
+            <%=@msgs[:card_say_type].to_s%>
+          </help>
+        </field> 
+       <field name="card_num">
+         <grammar type="application/srgs+xml" src="/grammars/digits.grxml"/>
+           <prompt count="1">
+             <%=@msgs[:card_input_number_prompt].to_s%>
+           </prompt>
+           <prompt count="2">
+             <%=@msgs[:card_number].to_s%>
+           </prompt> 
+           <catch event="help">
+           <if cond="card_type =='amex' || card_type =='american express'">
+             <%=@msgs[:card_number_input_fifteen].to_s%>
+           <else/>
+             <%=@msgs[:card_number_input_sixteen].to_s%>
+           </if>
+           </catch> 
+           <filled>
+           <if cond="(card_type == 'amex' || card_type =='american express') &amp;&amp; card_num.length != 15">
+             <%=@msgs[:card_number_info_amex].to_s%>
+              <clear namelist="card_num"/>
+              <throw event="nomatch"/>    
+           <elseif cond="card_type != 'amex' &amp;&amp; card_type !='american express' &amp;&amp; card_num.length != 16"/>
+
+             <%=@msgs[:card_number_info_visa_master].to_s%>
+ 
+            <clear namelist="card_num"/>
+            <throw event="nomatch"/> 
+          </if> 
+       </filled> 
+    </field> 
+    <field name="expiry_date">
+      <grammar type="application/srgs+xml" src="/grammars/digits.grxml"/>
+      <prompt count="1" xml:lang="<%=@msgs[:prompt_extension].to_s%>">
+        <%=@msgs[:card_input_expiration].to_s%>
+      </prompt>
+      <prompt count="2">
+        <%=@msgs[:card_expiration].to_s%>
+      </prompt> 
+      <help xml:lang="<%=@msgs[:prompt_extension].to_s%>">
+        <%=@msgs[:card_expiration_input_ie].to_s%>
+      </help> 
+<filled> 
+<!-- validate the mmyy -->
+ <var name="mm"/>
+ <var name="i" expr="expiry_date.length"/>
+ <if cond="i == 3"> 
+<assign name="mm" expr="expiry_date.substring(0,1)"/>
+ <elseif cond="i == 4"/> 
+<assign name="mm" expr="expiry_date.substring(0,2)"/>
+ </if>
+ <if cond="mm == '' || mm &lt; 1 || mm &gt; 12">
+ <clear namelist="expiry_date"/> 
+<throw event="nomatch"/>
+ </if>
+ </filled>
+ </field> 
+<field name="confirm"> 
+<grammar type="application/srgs+xml" src="/grammars/boolean.grxml"/>
+ <prompt xml:lang="<%=@msgs[:prompt_extension].to_s%>">
+   <%=@msgs[:card_i_have].to_s%>
+<value expr="card_type"/>
+   <%=@msgs[:number].to_s%>
+ <value expr="card_num"/>
+   <%=@msgs[:card_expires_when].to_s%>
+<value expr="expiry_date"/>
+   <%=@msgs[:card_ask_if_correct].to_s%>
+</prompt>
+ <filled>
+   <if cond="confirm"> 
+     <submit next="place_order.asp" namelist="card_type card_num expiry_date"/>
+   </if>
+   <clear namelist="card_type card_num expiry_date confirm"/>
+ </filled> 
+</field>
+</form>
+

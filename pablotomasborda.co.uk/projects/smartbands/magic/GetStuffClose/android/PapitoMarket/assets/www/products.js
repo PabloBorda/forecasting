@@ -1,0 +1,149 @@
+
+function showpic(picurl){
+  
+     $("#picscr").html("<img src=\"" + picurl + "\" width=\"221px\" height=\"227px\"/>");
+  
+  
+}
+
+function up(price){
+	if ((parseInt($("#amountnum").val())+1)<1000){
+		$("#amountnum").val(parseInt($("#amountnum").val())+1);
+		
+		$("#pricelabel").html(parseFloat(price)*parseInt($("#amountnum").val()) + " $");
+	}
+	
+}
+
+function down(price){
+	if ((parseInt($("#amountnum").val())-1)>0){
+		$("#amountnum").val(parseInt($("#amountnum").val())-1);
+		$("#pricelabel").html(parseFloat(price)*parseInt($("#amountnum").val()) + " $");
+	}
+}
+
+function renderproduct1(product){
+  //      window.global.gal = true;
+        
+	var tmp = "<div id=\"productdialog\">";
+	var currenturl = "";
+	var companyname = "";
+	var dir = "http://soa1.papitomarket.com:9494/company/" + product.product.company_id;
+	if (product.product.pictures.length > 0){
+	  if (($('.ui-page-active').attr('id')!="loading") && (window.globaldata["input"]!="back")){
+		//$.mobile.changePage($("#loading"));
+	  }
+	  tmp = tmp + "<div id=\"gallery\" align=\"center\"><div id=\"picscr\"></div><table><tr>";
+	  $.ajax({url: dir,
+	        dataType: "json",
+	        async: true,
+	        timeout: 25000,
+	        context: document.body
+	}).done(function(data){
+	  companyname = data.company.name;
+	  
+	});
+	$.each(product.product.pictures,function(k,v){
+		fullpicurl = window.globaldata.picture_repository + companyname.split(' ').join('') + "/products/" + product.product.id + v.picture.url;
+		thumburl = window.globaldata.picture_repository + companyname.split(' ').join('') + "/products/" + product.product.id + "/thumbs" + v.picture.url;
+	});
+
+	tmp = tmp + "</tr></table></div>";
+
+	
+	}
+	tmp = tmp + "<div id=\"description\" align=\"center\"><h3>" + product.product.description + "</h3></div>";
+	tmp = tmp + "<div align=\"right\"><table><tr><td><label id=\"pricelabel\">" + product.product.price + " $</label></td><td><table style=\"width: 122px; height: 66px;\">" + 
+                     "<tr>" + 
+                       "<td> <input type=\"number\" value=\"1\" min=\"0\" max=\"1000\" name=\"num\" id=\"amountnum\"> </td>" + 
+                     "<td>" +                                             
+                    "</tr>" +
+                   "</table></td>" + "<td><table>" +
+                   "<tr>" +
+                   "<td><img id=\"up\" style=\"width: 50px; height: 54px;\" src=\"images/up.png\" onclick=\"up(" + product.product.price + ");\"/></td>" +
+                 "</tr>" +
+                 "<tr>" +
+                   "<td><img id=\"down\" style=\"width: 50px; height: 54px;\" src=\"images/down.png\" onclick=\"down(" + product.product.price + ");\"/></td>" +
+                 "</tr>" +
+             "</table></td></table>" + 
+                   "</div>";
+	tmp = tmp + "</div>" + "<a rel='close' data-role='button' href='#' ontouchstart='backtoresults();'>Add to cart</a>";
+
+    if (($('.ui-page-active').attr('id')!="page1") && (window.globaldata["input"]!="back")){
+	  //$.mobile.changePage($("#loading"));
+	}
+
+    $("<div id=\"showprod\">").simpledialog2({
+	    mode: 'blank',
+	    headerText: product.product.name,
+	    headerClose: true,
+	    blankContent : tmp,
+	    dialogAllow: true,
+	    showModal: false,
+	    dialogForce: true,
+	    zindex: 3,
+	    top: true,
+	    fullScreen: true,
+        fullScreenForce: true,
+        animate: false
+	  });
+	
+    
+    
+    return tmp;	
+}
+
+
+function backtoresults(){
+	window.globaldata["input"] = "back";
+	$.mobile.changePage($("#page1"));
+	   
+	 
+}
+
+
+function renderproduct(product){
+
+	$.mobile.changePage("#showprod");
+	
+	var tmp = "";
+	var companyname = product["companyname"];
+    $("#sptitle").html("<label>" + product.name + "</label>");  
+	$("#spdescription").html("<label>" + product.description + "</label>");
+	$("#spprice").html("<label>" + Math.round(product.price) + "</label>");
+    $("#spgal").html("");	  
+	if (product.pictures.length > 0){
+	  initialize_gallery();	
+	  tmp = tmp + "<ul class=\"gallery\">";
+	  $.each(product.pictures,function(k,v){
+			fullpicurl = window.globaldata.picture_repository + companyname.split(' ').join('') + "/products/" + product.id + v.picture.url;
+			console.log("Fullpic: " + fullpicurl);
+			thumburl = window.globaldata.picture_repository + companyname.split(' ').join('') + "/products/" + product.id + "/thumbs" + v.picture.url;				
+			console.log("Thumb: " + fullpicurl);
+			tmp = tmp + "<li><a href=\"" + fullpicurl  + "\" rel=\"external\"><img src=\"" + thumburl + "\" alt=\"" + product.description + "\"/></a></li>";
+	  });
+	  tmp = tmp + "</ul>";
+   	  $("#spgal").html(tmp); 
+	}
+
+}
+
+
+function loadproduct(productid){
+
+	
+  var product = {};
+  $.each(window.globaldata.search_results,function(e,f){
+	  $.each(f.products,function(k,v){
+		  $.each(v,function(p,q){
+			  if (q.product.id==productid) {				  
+				  product = q.product;
+				  product["companyname"] = f.store[5];
+				  
+			  }
+		  });
+	  });
+  });
+  renderproduct(product);
+
+}

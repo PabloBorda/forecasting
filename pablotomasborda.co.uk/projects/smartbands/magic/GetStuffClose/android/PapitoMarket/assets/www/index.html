@@ -1,0 +1,594 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Papito Market</title>
+        <meta id="extViewportMeta" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"> 
+	 
+        <link rel="stylesheet" href="jquery.mobile.structure-1.1.1.min.css" />
+        <link rel="stylesheet" href="jquery.mobile-1.1.1.min.css">	
+        <link rel="stylesheet" href="jquery.mobile.simpledialog.min.css">	
+        
+        <link rel="stylesheet" href="performance.css">
+		<!--<link rel="stylesheet" href="layout.css" />-->
+		<link rel="stylesheet" href="red.min.css" />
+		
+		<link rel="stylesheet" href="photoswipe.css" />
+		
+		<link rel="stylesheet" href="menuslide.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
+		
+		
+		<script type="text/javascript" src="klass.min.js"></script>
+
+		<script type="text/javascript" charset="utf-8" src="cordova-1.7.0rc1.js"></script>
+		<script type="text/javascript" charset="utf-8" src="jquery-1.7.1.min.js"></script>
+		
+		<script type="text/javascript" charset="utf-8" src="jquery.mobile-1.1.1.min.js"></script>
+		<script type="text/javascript" src="code.photoswipe.jquery-3.0.5.min.js"></script>
+		<!--<script type="text/javascript" charset="utf-8" src="jquery.mobile-1.1.0-rc.1.min.js"></script>-->
+
+        <script type="text/javascript" charset="utf-8" src="sell.js"></script>
+		<script type="text/javascript" charset="utf-8" src="splash.js"></script>
+		<script type="text/javascript" charset="utf-8" src="menu.js"></script>
+		<script type="text/javascript" charset="utf-8" src="gallery.js"></script>
+		
+		<script type="text/javascript" charset="utf-8" src="cdv-plugin-fb-connect.js"></script>
+		<script type="text/javascript" charset="utf-8" src="facebook_js_sdk.js"></script>
+		<script type="text/javascript" charset="utf-8" src="facebookmanager.js"></script>
+
+		<script type="text/javascript" charset="utf-8" src="takepic.js"></script>
+		<script type="text/javascript" charset="utf-8" src="geolocation.js"></script>
+		<script type="text/javascript" charset="utf-8" src="fileuploader.js"></script>
+        
+        <script type="text/javascript" charset="utf-8" src="publish.js"></script>
+
+        <script type="text/javascript" charset="utf-8" src="jquery.ui.core.js"></script>
+        <script type="text/javascript" charset="utf-8" src="jquery.ui.widget.js"></script>
+        <script type="text/javascript" charset="utf-8" src="jquery.ui.position.js"></script>
+        <script type="text/javascript" charset="utf-8" src="jquery.ui.autocomplete.js"></script>
+
+        <script type="text/javascript" charset="utf-8" src="jquery.mobile.simpledialog2.min.js"></script>        
+        <script type="text/javascript" charset="utf-8" src="products.js"></script>
+        <script type="text/javascript" charset="utf-8" src="buy.js"></script>
+        <script type="text/javascript" charset="utf-8" src="menuslide.js"></script>
+        <script type="text/javascript" charset="utf-8" src="misc.js"></script>
+<!--        <script type="text/javascript" charset="utf-8" src="iscroll.js"></script>
+
+
+<script type="text/javascript"> 
+ 
+var myScroll;
+function loaded() {
+	myScroll = new iScroll('wrapper', {
+		useTransform: false,
+		onBeforeScrollStart: function (e) {
+			var target = e.target;
+			while (target.nodeType != 1) target = target.parentNode;
+ 
+			if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA')
+				e.preventDefault();
+		}
+	});
+}
+ 
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+document.addEventListener('DOMContentLoaded', loaded, false);
+ 
+</script> 
+
+<style type="text/css" media="all"> 
+body,ul,li {
+	padding:0;
+	margin:0;
+	border:0;
+}
+ 
+body {
+	font-size:12px;
+	-webkit-user-select:none;
+    -webkit-text-size-adjust:none;
+	font-family:helvetica;
+}
+ 
+#header {
+	position:absolute; z-index:2;
+	top:0; left:0;
+	width:100%;
+	height:45px;
+	line-height:45px;
+	background-color:#d51875;
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #fe96c9), color-stop(0.05, #d51875), color-stop(1, #7b0a2e));
+	background-image:-moz-linear-gradient(top, #fe96c9, #d51875 5%, #7b0a2e);
+	background-image:-o-linear-gradient(top, #fe96c9, #d51875 5%, #7b0a2e);
+	padding:0;
+	color:#eee;
+	font-size:20px;
+	text-align:center;
+}
+ 
+#header a {
+	color:#f3f3f3;
+	text-decoration:none;
+	font-weight:bold;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.5);
+}
+ 
+#footer {
+	position:absolute; z-index:2;
+	bottom:0; left:0;
+	width:100%;
+	height:48px;
+	background-color:#222;
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #999), color-stop(0.02, #666), color-stop(1, #222));
+	background-image:-moz-linear-gradient(top, #999, #666 2%, #222);
+	background-image:-o-linear-gradient(top, #999, #666 2%, #222);
+	padding:0;
+	border-top:1px solid #444;
+}
+ 
+div[name=wrapper] {
+/*	position:absolute;
+	top:45px; bottom:48px; left:0;
+	width:100%;
+	background:#aaa;*/
+	overflow:auto;
+}
+ 
+div[name=scroller] {
+/*	position:absolute; */
+/*	-webkit-touch-callout:none;*/
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+/*	width:100%;
+	padding:0;*/
+}
+ 
+div[name=scroller] ul {
+	list-style:none;
+/*	padding:0;
+	margin:0;
+	width:100%;*/
+	text-align:left;
+}
+ 
+div[name=scroller] li {
+/*	padding:0 10px;
+	height:40px;
+	line-height:40px;
+	border-bottom:1px solid #ccc;
+	border-top:1px solid #fff;
+	background-color:#fafafa;
+	font-size:14px;*/
+}
+ /*
+#myFrame {
+	position:absolute;
+	top:0; left:0;
+}
+ */
+</style>
+-->
+	</head>
+	
+
+	
+	<body>
+		
+
+<!--====================================== MAIN APPLICATION ======================================== -->
+
+
+     
+		<div data-role="page" data-theme="b" id="splash">
+			<div data-role="content">
+
+			</div>
+
+		</div>
+
+
+		<div data-role="page" id="fbloginpage" data-theme="b">
+			<div data-role="content" style="width:100%;">
+				<div align="center">
+				  <a src="#" ontouchstart="login()"><img width="300" height="45" src="images/fbutton.png"/></a>
+				</div>
+
+				<div id="data">
+				</div>
+               
+				<div id="fb-root"></div>
+				<div id="log"></div>
+
+			</div>
+
+		</div>
+
+
+
+        <div id="menu"> 
+         <a href="#"class="showMenu"><img src="menuList.png"/></a> 
+	      <ul> 
+		   <li class="active"><a href="#" class="contentLink" ontouchstart="window.Menu.buy();">Search </a></li>  
+		   <li><a href="#home" class="contentLink" ontouchstart="window.Menu.browse();">Browse </a></li> 
+		   <li><a href="#home" class="contentLink" ontouchstart="window.Menu.sell();">Sell </a></li> 
+		   <li><a href="#home" class="contentLink" ontouchstart="window.Menu.tagfeeds();">Tags </a></li>
+		   <li><a href="#home" class="contentLink" ontouchstart="window.Menu.buycredit();">Credit </a></li>  
+		   <li><a href="#home" class="contentLink" ontouchstart="window.Menu.log();">Log </a></li>
+		    
+	      </ul> 
+        </div> 
+
+
+
+
+        <div id="mainmenu" data-role="page" data-theme="b">
+
+		
+	<div id="hh" data-theme="b" data-role="header" align="center" data-tap-toggle="false">
+	    
+	   <table width="100%" border="0" cellspacing="4" cellpadding="2">
+	     <tr>
+		     <td align="left"><a href="#"class="showMenu"><img src="menuList.png"/></a></td>
+		     <td name="wellcome" align="center" valign="top"></td>
+	         <td name="fbpic" align="left"></td>
+		   </tr> 
+	     </table>
+
+			 
+     </div>
+        	<div data-role="content" align="center" style="vertical-align:middle;">
+        	  <br/><br/>
+        	  <div align="center">
+        		<div class="ui-grid-a">
+                	<div class="ui-block-a"><img ontouchstart="window.Menu.buy();" src="images/search.jpg"/></div>
+	                <div class="ui-block-b"><img ontouchstart="window.Menu.sell();" src="images/sell.jpg"/></div>	   
+                </div>
+           		<div class="ui-grid-a">
+                	<div class="ui-block-a"><img ontouchstart="window.Menu.tagfeeds();" src="images/test.jpg"/></div>
+	                <div class="ui-block-b"><img ontouchstart="window.Menu.log();" src="images/log.jpg"/></div>	   
+                </div>
+                <div class="ui-grid-a">
+                	<div class="ui-block-a"><img ontouchstart="window.Menu.browse();" src="images/test.jpg"/></div>
+	                <div class="ui-block-b"><img ontouchstart="window.Menu.buycredit();" src="images/buycredit.jpg"/></div>	   
+                </div>
+                <div class="ui-grid-a">
+                	<div class="ui-block-a"><img ontouchstart="window.Menu.findbybarcode();" src="images/barcode.jpg"/></div>
+	                <div class="ui-block-b"><img ontouchstart="window.Menu.exit();" src="images/test.jpg"/></div>                	
+                </div>
+
+        	  </div>
+
+
+              
+
+
+        	</div>
+
+        </div>
+
+
+
+<!-- ================================ SELL PAGES HERE =========================================== -->
+
+	<div data-role="page" data-theme="b" id="sell">
+
+	<div id="hh" data-theme="b" data-role="header" align="center" data-tap-toggle="false">
+	    
+	   <table width="100%" border="0" cellspacing="4" cellpadding="2">
+	     <tr>
+		     <td align="left"><a href="#"class="showMenu"><img src="menuList.png"/></a></td>
+		     <td name="wellcome" align="center" valign="top"></td>
+	         <td name="fbpic" align="left"></td>
+		   </tr> 
+	     </table>
+
+			 
+     </div>
+
+			<div data-role="content">
+
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup" data-mini="true">
+						<label for="textinput4"> <b> Product Title </b> </label>
+						<input id="name" placeholder="" value="i.e: Red Hat with green flowers" type="text" name="name" />
+						<label for="textinput5"> <b> Category </b> </label>
+						<input id="category" placeholder="" value="i.e: Clothes" type="text"  name="category"/>
+						<label for="price"> <b> Price </b> </label>
+						<input id="price" placeholder="" value="0" type="number" name="price" />
+						<label for="superproduct"> <b> Product tag </b> </label>
+						<input id="superproduct" placeholder="" value="i.e: Hat" type="text" name="superproduct"/>
+						<br/>
+						<label for="description"> <b> Product Description </b> </label>
+						<textarea id="description" name="description" value="Description" rows="4" cols="50"></textarea>
+                   </fieldset>
+                </div> 
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-mini="true">
+						<label for="deliver"> <b> Do you deliver? </b> </label>
+						<input id="deliver" type="checkbox" value="" checked>
+					</fieldset>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div data-role="page" data-theme="b" id="sell1">
+
+			<div data-theme="b" data-role="content">
+
+				<div data-role="fieldcontain">
+					<label for="selectmenu1"> <b> Add pic to description </b> </label>
+					<select name="selectmenu1" id="selectmenu1" data-mini="true" onchange="addpic();">
+						<option value="camera"> Add Picture from Cam </option>
+						<option value="file"> Add Picture from File </option>
+					</select>
+				</div>
+				<table id="gallery">
+					<tr>
+
+					</tr>
+				</table>
+				<div align="center">
+					<img style="display:none;width: 250px;height: 350px" id="largeImage" src="" />
+				</div>
+
+			</div>
+
+		</div>
+
+		<div data-role="page" data-theme="b" id="sell2">
+
+			<div data-theme="b" data-role="content">
+				<div align="center">
+					<p>
+						We need to verify you are a human, so your
+					</p>
+					<p>
+						advertisment is published..
+					</p>
+				</div>
+				<div align="center" id="captcha">
+
+				</div>
+				<div align="center" id="map"></div>
+				<br/>
+				<br/>
+				<input id="pbutton" type="button" ontouchstart="publish();" value="Sell Now!" />
+			</div>
+
+		</div>
+
+		
+		
+		<div data-role="page" data-theme="b" id="progress">         
+			<div data-role="content" data-theme="b">
+				<font size="7"><label>Publishing...</label></font>
+				<div id="progressnum" align="center"></div>
+				<div id="progressdetail"></div>
+			</div>
+		</div>
+		
+		
+
+		<div data-role="page" data-theme="b" id="invite">
+        	<div id="hh" data-theme="b" data-role="header" align="center"  data-tap-toggle="false">
+  			  <td name="fbpic" align="left"></td>
+			  <h5>Invite your friends to buy and sell, and get your next sale free!</h5>
+			  <input type="button" ontouchstart="invertSelection();" value="Invert Selection" style="font-size: 60px;"/>
+ 		    </div>
+
+			<div data-role="content" data-theme="b" align="center">
+
+				<div id="people" align="left"></div>
+			</div>
+
+		</div>
+
+
+<!-- =================================SEARCH AND BUY PRODUCTS HERE=============================== -->
+
+
+
+
+
+
+
+  <div data-role="page" align="left" data-theme="b" id="page1">
+
+  <div data-role="header" align="left" data-tap-toggle="false" height="70px">  	
+  	<table width="100%">
+  		<tr>
+  			<td align="left">
+  			  <a href="#"class="showMenu"><img src="menuList.png"/></a>
+  			</td>
+  			<td align="right">
+  	          <input id="search" placeholder="" value="What are you looking for?" type="text" />  <!-- search_product(); -->
+  	        </td>
+  	    </tr>
+  	    <tr><td></td></tr>
+  	</table>
+  </div>
+
+
+  <div data-role="content" align="left">
+      <ul id="productsuggest" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"></ul>
+      <div id="results">
+        <div data-role="collapsible-set" data-theme="b" data-content-theme="a">
+    
+
+        </div>
+      </div>
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+      <input type="button" id="submitall" onclick="submitorder();" value="Place Order"/>
+  </div>
+
+</div>
+
+
+
+
+
+<div data-role="page" id="showprod" data-theme="b"  class="gallery-page">	
+	<div data-role="content" align="center">
+		<div align="center">
+			<div id="sptitle"></div>
+            <div id="spgal"></div>			
+			<div id="spdescription"></div>
+
+            <div style="position: relative;float: right;">			
+					<table style="width: 122px; height: 66px;"> 
+                      <tr> 
+                        <td> <input type="number" value="1" min="0" max="1000" name="num" id="amountnum"/> </td> 
+                        <td>
+                        	<table>
+                                <tr>
+                                  <td><img id="up" style="width: 50px; height: 54px;" src="images/up.png"/></td>
+                               </tr>
+                              <tr>  
+                                <td><img id="down" style="width: 50px; height: 54px;" src="images/down.png"/></td>
+                              </tr>
+                            </table>                            
+                        </td>            
+                        <td>
+                        	<h1><div id="spprice"></div></h1>
+                        </td>            
+                      </tr>
+                    </table>
+            </div>
+
+	  </div>
+	</div>
+	
+</div>
+
+
+
+
+<!-- ==================================== SETTINGS PAGE =================================== -->
+
+<div id="settings" data-role="page" data-theme="b">
+
+           <div data-role="content">
+           	
+           	
+           	
+           	</div>
+	
+</div>
+
+
+<!-- ===================================== PAYMENTS ======================================== -->
+
+
+<div id="buycredit" data-role="page" data-theme="b">
+	<div id="hh" data-theme="b" data-role="header" align="center" data-tap-toggle="false">
+	    
+	   <table width="100%" border="0" cellspacing="4" cellpadding="2">
+	     <tr>
+		     <td align="left"><a href="#"class="showMenu"><img src="menuList.png"/></a></td>
+		     <td name="wellcome" align="center" valign="top"></td>
+	         <td name="fbpic" align="left"></td>
+		   </tr> 
+	     </table>			 
+     </div>
+	<div data-role="content">
+		<form id="cardinfo" name="cardinfo" action="/payment/pay" method="post">
+            <table>
+            <tr>
+              <td>		
+			    <b>First name:</b><br />
+		        <input id="first_name" name="first_name" type="text"/><br />
+		      </td>
+		      <td>
+		        <b>Last name:</b><br />
+		        <input id="last_name" name="last_name" type="text"/><br />
+		      </td>
+			</tr>
+			<tr>
+				<td>
+			      Select your card:
+			      <select name="type">
+				    <option value="visa">Visa</option>
+				    <option value="mastercard">Master Card</option>
+         		    <option value="amex">American Express</option>				
+			      </select>
+			    </td>
+			</tr>
+			<tr>
+				<td colspan="2">
+				  <b>Enter card number</b>
+			      <input type="number" name="number"/>
+			   </td>
+			</tr>
+			<tr>
+				<td><b>Expiration date</b></td>
+			<tr>
+				<td>			      
+			      Select month: 
+			      <select name="month">			 
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+			        <option value="4">4</option>
+			        <option value="5">5</option>
+			        <option value="6">6</option>
+			        <option value="7">7</option>
+			        <option value="8">8</option>
+			        <option value="9">9</option>
+			        <option value="10">10</option>
+			        <option value="11">11</option>
+			        <option value="12">12</option>			  
+                 </select>
+               </td>
+				<td>
+			      Select year:
+			      <select name="year">			 
+                    <option value="2010">2010</option>
+			        <option value="2011">2011</option>
+			        <option value="2012">2012</option>
+			        <option value="2013">2013</option>
+			        <option value="2014">2014</option>
+			        <option value="2015">2015</option>			  			  
+                  </select>
+                </td>
+            </tr>
+            <tr>
+            	<td>
+			      Verification Value:
+			      <input name="verification_value" type="number" size="3"/>
+			    </td>
+			</tr>			
+
+		  </table>			
+	</form>	
+		
+	</div>
+    <div data-role="footer" data-position="fixed">
+		<input id="paybutton" type="button" value="Pay"/>      
+    </div>
+  
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </body>
+   
+</html>

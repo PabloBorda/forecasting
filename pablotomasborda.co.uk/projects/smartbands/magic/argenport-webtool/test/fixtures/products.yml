@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  title: MyString
+  link: MyString
+  sold: 1
+  maxsoldday: 1
+  leastsoldday: 1
+  updated: 2011-09-18 15:45:42
+  localcost: 1.5
+  chinacost: 1.5
+  maxsolddate: 2011-09-18
+  minsolddate: 2011-09-18
+  currency: MyString
+
+two:
+  id: 1
+  title: MyString
+  link: MyString
+  sold: 1
+  maxsoldday: 1
+  leastsoldday: 1
+  updated: 2011-09-18 15:45:42
+  localcost: 1.5
+  chinacost: 1.5
+  maxsolddate: 2011-09-18
+  minsolddate: 2011-09-18
+  currency: MyString

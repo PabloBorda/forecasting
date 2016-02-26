@@ -1,0 +1,95 @@
+
+
+<div id="productlistdiv" align="center">
+ <form id="products-form">
+
+    <div align="left">
+      <div id="externalproduct">Fetch product from (ebay url, mercadolibre url) [Optional]: <input type="text" name="producturl"/></div></br></br>
+        <table name="input-products">
+          <tr>
+            <td>
+              <form id="single-product">
+                <table id="pinfo">
+                  <tr>
+                    <td>Superproduct:</td>
+                    <td>
+                      <input id="superproduct" type="text" name="superproduct"/>
+		      <img src="/images/help.png"/>
+                      <br/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Product name:</td>
+                    <td>
+                      <input id="name" type="text" name="name"/>
+                      <br/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Product price:</td>
+                    <td>
+                      <input id="price" type="text" name="price" style="width=5"/>
+                      <br/>
+                    </td>
+                  </tr>
+		  <tr>
+                    <td>Picture:</td>
+                    <td>
+                      <input id="productpic" type="file" name="productpic" style="width=5"/>
+                      <br/>
+                    </td>
+                  </tr>
+                  </tr>
+		  <tr>
+                    <td>Description:</td>
+                    <td>
+		      <textarea name="description" rows="4" cols="40"> </textarea>
+                      <br/>
+                    </td>
+                  </tr>
+                </table>
+              </form>
+              <div align="right">
+                <input type="button" value=">>" id="add-to-products" />
+              </div>
+            </td>
+            </tr>
+            </table>
+          </div>
+          </form>
+ </div>
+ <div id="iframeprods">
+   <div id="productstablediv">
+
+  <table id="productstable" border="2px" name="list">
+    <thead>
+      <tr>
+        <th>Product Title</th>
+        <th>Price</th>
+        <th>Preview</th>
+      </tr>
+    </thead>
+
+  </table>
+
+</div>
+ </div>
+
+<script type="text/javascript">
+
+  $.ajax({
+         url: "/captcha",
+         context: document.body,
+         success: function(data){
+           $("#placecaptcha").html(data);
+
+         }
+  });
+
+
+</script>
+<div id="placecaptcha">
+  
+
+</div>
+

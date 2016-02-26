@@ -1,0 +1,41 @@
+4 bytes = 2^32 addresses
+
+maxwords = 2^32 * bucket_size
+
+if bucket_size==2 then
+  maxwords = 2^32*2 = 2^33 = 8589934592
+
+
+maxmem = maxwords * wordsize
+
+if wordsize == 1024 then
+  maxmem = maxwords * 1024 = 8796093022208 bytes = 8589934592 kilobytes = 8388608 megabytes = 8192 gigabytes
+
+
+if (maxshotsize == 1024 words) then
+  maxshotsize = 1024 * wordsize bytes = 1024 * 1024 = 1048576 bytes = 1 megabyte
+
+
+
+
+
+If a shot is taken every five working minutes
+
+
+  8388608 shots seems to be the maximun per user, then the whole system would work for
+                    
+                     8388608*5 = 41943040 minutes = 699050 work hours 
+
+
+So the system theoretically should work for as long as 699050 work hours without deleting information
+
+If a person works for 4 hours a day, then the whole system should work for as long as 174762.5 days
+
+which is 478 work years!!
+
+
+
+
+
+
+

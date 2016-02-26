@@ -1,0 +1,3 @@
+en el index va el menu de pociones del teclado.
+En cada opci;ón, se puede generar el codigo con helpers o escriplet.
+

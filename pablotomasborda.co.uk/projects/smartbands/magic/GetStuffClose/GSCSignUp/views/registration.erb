@@ -1,0 +1,172 @@
+    <style type="text/css">  img {
+                            border:none;
+                        }
+                        #masthead {
+                            height:100px;
+                            background-color:#555555;
+                            margin:0px;
+                            padding:0px;
+                        }
+                        .main {
+                            height:300px;
+                            background-color:#CCCCCC;
+                            border-top:#FFFFFF 2px solid;
+                            margin:0px;
+                            padding:0px;
+                        }
+                        #secondary {
+                            height:300px;
+                            background-color:#333333;
+                            border-top:#FFFFFF 2px solid;
+                            margin:0px;
+                            padding:0px;
+                        }
+                        #secondaryFull {
+                            height:50px;
+                            background-color:#333333;
+                            border-top:#FFFFFF 2px solid;
+                            margin:0px;
+                            padding:0px;
+                        }
+                        #footer {
+                            height:50px;
+                            background-color:#555555;
+                            border-top:#FFFFFF 2px solid;
+                            margin:0px;
+                            padding:0px;
+                        }
+                        .googleAds {
+                            text-align:center;
+                        }
+                        .textarea {
+                            font-size: 45px;
+                            background-color: #CCCCCC;
+                            border: 5px solid #000000;
+                            color: #000000;
+                        }
+                        table {
+                            border-width: 0px;
+                        }
+                        #tabletop {
+                        }
+                        </style>
+                        <div id="bd" align="center">
+                            <div id="yui-main">
+                                <div class="yui-b">
+                                    <div align="center">
+                                        <form id="company">
+                                            <font size="50px">
+                                                Company Name
+                                            </font>
+                                            <br/>
+                                            <input name="company-name" type="text" class="textarea" id="overall-company-name" onChange="set_logo_upload_company_name();"/>
+                                            <br/>
+                                            <br/>
+                                            <font size="50px">
+                                                Company Logo
+                                            </font>
+                                            <br/>
+                                            <br/>
+                                            <div id="logo-target">
+                                            </div>
+                                            <br/>
+                                            <br/>
+                                        </form>
+                                        <form id="logo-upload-form" name="logo-upload-form" action="/picture_upload/upload" method="post" enctype="multipart/form-data">
+                                            <input type="file" name="company-logo" id="company-logo" onChange="triggerUploadAction();"/>
+                                            <input id="logo-upload-company-name" name="company-name" type="hidden"/>                                            
+                                        </form>
+                                        <br/>
+                                        <br/>
+                                        <div align="center">
+                                            <form id="stores-form">
+                                                <table id="stores">
+                                                    <tr>
+                                                        <td>
+                                                        Enter your mobile number:
+                                                        <input name="mobile" type="text" maxlength="15"/>
+                                                        <br/>
+                                                        Enter your email address:
+                                                        <input name="email" type="text" maxlength="512"/>                                                        
+                                                        </td>
+                                                        <td align="center" valign="top" style="background-color: black;color: white;">
+                                                        <b>Stores</b>
+                                                        </td>
+                                                        <td align="center" valign="top" style="background-color: black;color: white;">
+                                                        <b>Products</b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td valign="top">
+                                                        Do you want pictures for the products? (not recommended for older devices)
+                                                        <input id="want-pictures" type="checkbox" name="want-pictures"/>
+                                                        <br/>
+                                                        Store addresses (Enter city,country, also):
+                                                        <input type="text" name="address" id="addr"/>
+                                                        <div align="right">
+                                                            <input type="button" value=">>" id="add-to-bottom"/>
+                                                        </div>
+                                                        <br/>
+                                                        <br/>
+                                                        <form id="products-form">
+
+                                                            <div align="left">
+                                                                <table name="input-products">
+                                                                    <tr>
+                                                                        <td>
+                                                                        <form id="single-product">
+                                                                            <table id="pinfo">
+                                                                                <tr>
+                                                                                    <td>Product name:</td>
+                                                                                    <td>
+                                                                                    <input id="name" type="text" name="name"/>
+                                                                                    <br/>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Product price:</td>
+                                                                                    <td>
+                                                                                    <input id="price" type="text" name="price" style="width=5"/>
+                                                                                    <br/>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </form>
+                                                                        <div align="right">
+                                                                            <input type="button" value=">>" id="add-to-products" />
+                                                                        </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </form>
+                                                        </td>
+                                                        <td valign="top">
+                                                        <table id="stores-list">
+                                                        </table>
+                                                        </td>
+                                                        <td valign="top">
+                                                        <table id="products-list">
+                                                        </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                    </tr>
+                                                </table>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="yui-b" align="center">
+                                <input id="create-demo-button" type="button" value="Create Demo"/>
+                                <div id="demo-answer">
+                                </div>
+                                <div id="ilikeit">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ft">
+                            <%= erb :footer %>
+                        </div>
+                    

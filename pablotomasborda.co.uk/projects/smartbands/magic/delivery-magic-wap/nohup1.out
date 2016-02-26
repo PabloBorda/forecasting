@@ -1,0 +1,673 @@
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3001
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing WapController#wap (for 190.55.90.36 at 2011-04-16 09:19:01) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 22ms (View: 18, DB: 3) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=Jeronimo+Salguero+568&sensor=false
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-16 09:19:32) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"2", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"LlFg6P4oIBZDt5qfhkPUQe/wtdpjxesx8qk20OyQufM=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Jeronimo Salguero", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"15408452399", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"2", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"3", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"6e"}
+Rendering wap/confirm
+Completed in 94ms (View: 3, DB: 14) | 200 OK [http://74.207.234.92/wap/confirm]
+=================SELECT delivery.stores.id, ( 3959 * acos( cos( radians(-34.6038775) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians(-58.4196027) ) + sin( radians(-34.6038775) ) * sin( radians( lat ) ) ) ) AS distance FROM (delivery.stores inner join delivery.addresses on delivery.stores.addresses_id = delivery.addresses.id) where companies_id = 0 HAVING distance < 25 ORDER BY distance LIMIT 0 , 20;
+=======================store0-6@74.207.234.92
+
+
+Processing WapController#order_product (for 190.55.90.36 at 2011-04-16 09:19:37) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"Jerónimo Salguero 568, Buenos Aires, Capital Federal, Argentina", "number"=>"568", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"1", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"2", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"22.4", "authenticity_token"=>"LlFg6P4oIBZDt5qfhkPUQe/wtdpjxesx8qk20OyQufM=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"15408452399", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"2", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"3", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"6e"}
+Rendering wap/order_product
+Completed in 172ms (View: 3, DB: 9) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#wap (for 190.55.90.36 at 2011-04-18 16:31:11) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=122++607&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BLa%2BPlata&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2CSan%2BJer%25F3nimo%2B3116&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2CAv%2BMitre&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BQuilmes&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BR%25EDo%2BGallegos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BRamos%2BMejia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BHaedo&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2CArtigas%2B868&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BSan%2BIsidro&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BBuenos%2BAires&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BTrelew&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BC%25F3rdoba&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BAvellaneda&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BGeneral%2BPacheco&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BOlivos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BSan%2BJusto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BRosario&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BBah%25EDa%2BBlanca&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BMonte%2BGrande&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BComodoro%2BRivadavia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BCarapachay&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BVenado%2BTuerto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2CGral.%2BManuel%2BBelgrano%2B239&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BCity%2BBell&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BSan%2BMiguel&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BPinamar&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BFlorida&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BParan%25E1&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BCampana&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122++607%2C%2BSan%2BFernando&sensor=false
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:32:31) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"607", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"122 ", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 2031ms (View: 2, DB: 11) | 200 OK [http://74.207.234.92/wap/confirm]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=122+607&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BLa%2BPlata&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2CSan%2BJer%25F3nimo%2B3116&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2CAv%2BMitre&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BQuilmes&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BR%25EDo%2BGallegos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BRamos%2BMejia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BHaedo&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2CArtigas%2B868&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BSan%2BIsidro&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BBuenos%2BAires&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BTrelew&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BC%25F3rdoba&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BAvellaneda&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BGeneral%2BPacheco&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BOlivos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BSan%2BJusto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BRosario&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BBah%25EDa%2BBlanca&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BMonte%2BGrande&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BComodoro%2BRivadavia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BCarapachay&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BVenado%2BTuerto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2CGral.%2BManuel%2BBelgrano%2B239&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BCity%2BBell&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BSan%2BMiguel&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BPinamar&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BFlorida&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BParan%25E1&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BCampana&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BSan%2BFernando&sensor=false
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:33:03) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"607", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"122", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 2466ms (View: 2, DB: 13) | 200 OK [http://74.207.234.92/wap/confirm]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BLa%2BPlata&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2CSan%2BJer%25F3nimo%2B3116&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2CAv%2BMitre&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BQuilmes&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BR%25EDo%2BGallegos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BRamos%2BMejia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BHaedo&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2CArtigas%2B868&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BSan%2BIsidro&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BBuenos%2BAires&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BTrelew&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BC%25F3rdoba&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BAvellaneda&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BGeneral%2BPacheco&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BOlivos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BSan%2BJusto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BRosario&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BBah%25EDa%2BBlanca&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BMonte%2BGrande&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BComodoro%2BRivadavia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BCarapachay&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BVenado%2BTuerto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2CGral.%2BManuel%2BBelgrano%2B239&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BCity%2BBell&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BSan%2BMiguel&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BPinamar&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BFlorida&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BParan%25E1&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BCampana&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BSan%2BFernando&sensor=false
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:33:24) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 2231ms (View: 1, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=122+607&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BLa%2BPlata&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2CSan%2BJer%25F3nimo%2B3116&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2CAv%2BMitre&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BQuilmes&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BR%25EDo%2BGallegos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BRamos%2BMejia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BHaedo&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2CArtigas%2B868&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BSan%2BIsidro&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BBuenos%2BAires&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BTrelew&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BC%25F3rdoba&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BAvellaneda&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BGeneral%2BPacheco&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BOlivos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BSan%2BJusto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BRosario&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BBah%25EDa%2BBlanca&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BMonte%2BGrande&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BComodoro%2BRivadavia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BCarapachay&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BVenado%2BTuerto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2CGral.%2BManuel%2BBelgrano%2B239&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BCity%2BBell&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BSan%2BMiguel&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BPinamar&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BFlorida&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BParan%25E1&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BCampana&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BSan%2BFernando&sensor=false
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:33:50) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"607", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"122", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 1835ms (View: 1, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BLa%2BPlata&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2CSan%2BJer%25F3nimo%2B3116&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2CAv%2BMitre&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BQuilmes&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BR%25EDo%2BGallegos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BRamos%2BMejia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BHaedo&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2CArtigas%2B868&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BSan%2BIsidro&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BBuenos%2BAires&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BTrelew&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BC%25F3rdoba&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BAvellaneda&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BGeneral%2BPacheco&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BOlivos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BSan%2BJusto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BRosario&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BBah%25EDa%2BBlanca&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BMonte%2BGrande&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BComodoro%2BRivadavia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BCarapachay&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BVenado%2BTuerto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2CGral.%2BManuel%2BBelgrano%2B239&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BCity%2BBell&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BSan%2BMiguel&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BPinamar&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BFlorida&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BParan%25E1&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BCampana&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BSan%2BFernando&sensor=false
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:34:16) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"607", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Calle 122", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 2198ms (View: 2, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BLa%2BPlata&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2CSan%2BJer%25F3nimo%2B3116&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2CAv%2BMitre&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BQuilmes&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BR%25EDo%2BGallegos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BRamos%2BMejia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BHaedo&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2CArtigas%2B868&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BSan%2BIsidro&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BBuenos%2BAires&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BTrelew&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BC%25F3rdoba&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BAvellaneda&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BGeneral%2BPacheco&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BOlivos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BSan%2BJusto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BRosario&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BBah%25EDa%2BBlanca&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BMonte%2BGrande&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BComodoro%2BRivadavia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BCarapachay&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BVenado%2BTuerto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2CGral.%2BManuel%2BBelgrano%2B239&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BCity%2BBell&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BSan%2BMiguel&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BPinamar&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BFlorida&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BParan%25E1&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BCampana&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Boulevard+84+1665%2C%2BSan%2BFernando&sensor=false
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:35:22) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1665", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Boulevard 84", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 2055ms (View: 1, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BLa%2BPlata&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2CSan%2BJer%25F3nimo%2B3116&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2CAv%2BMitre&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BQuilmes&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BR%25EDo%2BGallegos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BRamos%2BMejia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BHaedo&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2CArtigas%2B868&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BSan%2BIsidro&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BBuenos%2BAires&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BTrelew&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BC%25F3rdoba&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BAvellaneda&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BGeneral%2BPacheco&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BOlivos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BSan%2BJusto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BRosario&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BBah%25EDa%2BBlanca&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BMonte%2BGrande&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BComodoro%2BRivadavia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BCarapachay&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BVenado%2BTuerto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2CGral.%2BManuel%2BBelgrano%2B239&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BCity%2BBell&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BSan%2BMiguel&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BPinamar&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BFlorida&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BParan%25E1&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BCampana&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Blvd+84+1665%2C%2BSan%2BFernando&sensor=false
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:35:41) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1665", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Blvd 84", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 1557ms (View: 2, DB: 8) | 200 OK [http://74.207.234.92/wap/confirm]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BLa%2BPlata&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2CSan%2BJer%25F3nimo%2B3116&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2CAv%2BMitre&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BQuilmes&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BR%25EDo%2BGallegos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BRamos%2BMejia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BHaedo&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2CArtigas%2B868&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BSan%2BIsidro&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BBuenos%2BAires&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BTrelew&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BC%25F3rdoba&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BAvellaneda&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BGeneral%2BPacheco&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BOlivos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BSan%2BJusto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BRosario&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BBah%25EDa%2BBlanca&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BMonte%2BGrande&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BComodoro%2BRivadavia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BCarapachay&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BVenado%2BTuerto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2CGral.%2BManuel%2BBelgrano%2B239&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BCity%2BBell&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BSan%2BMiguel&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BPinamar&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BFlorida&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BParan%25E1&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BCampana&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=66+1665%2C%2BSan%2BFernando&sensor=false
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:36:01) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"1665", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"66", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 2304ms (View: 2, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=122+607&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BLa%2BPlata&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2CSan%2BJer%25F3nimo%2B3116&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2CAv%2BMitre&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BQuilmes&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BR%25EDo%2BGallegos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BRamos%2BMejia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BHaedo&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2CArtigas%2B868&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BSan%2BIsidro&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BBuenos%2BAires&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BTrelew&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BC%25F3rdoba&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BAvellaneda&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BGeneral%2BPacheco&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BOlivos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BSan%2BJusto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BRosario&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BBah%25EDa%2BBlanca&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BMonte%2BGrande&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BComodoro%2BRivadavia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BCarapachay&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BVenado%2BTuerto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2CGral.%2BManuel%2BBelgrano%2B239&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BCity%2BBell&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BSan%2BMiguel&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BPinamar&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BFlorida&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BParan%25E1&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BCampana&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=122+607%2C%2BSan%2BFernando&sensor=false
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:36:32) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"607", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"122", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 1697ms (View: 2, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=Diag+79+558&sensor=false
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:39:09) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"558", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Diagonal 79", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 125ms (View: 1, DB: 6) | 200 OK [http://74.207.234.92/wap/confirm]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BLa%2BPlata&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2CSan%2BJer%25F3nimo%2B3116&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2CAv%2BMitre&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BQuilmes&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BR%25EDo%2BGallegos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BRamos%2BMejia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BHaedo&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2CArtigas%2B868&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BSan%2BIsidro&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BBuenos%2BAires&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BTrelew&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BC%25F3rdoba&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BAvellaneda&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BGeneral%2BPacheco&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BOlivos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BSan%2BJusto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BRosario&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BBah%25EDa%2BBlanca&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BMonte%2BGrande&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BComodoro%2BRivadavia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BCarapachay&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BVenado%2BTuerto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2CGral.%2BManuel%2BBelgrano%2B239&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BCity%2BBell&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BSan%2BMiguel&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BPinamar&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BFlorida&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BParan%25E1&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BCampana&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=Calle+122+607%2C%2BSan%2BFernando&sensor=false
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:39:26) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"607", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Calle 122", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 1895ms (View: 2, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=Jeronimo+Salguero+568&sensor=false
+
+
+Processing WapController#confirm (for 190.55.90.36 at 2011-04-18 16:40:26) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"568", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"Jeronimo Salguero", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"6E"}
+Rendering wap/confirm
+Completed in 75ms (View: 1, DB: 7) | 200 OK [http://74.207.234.92/wap/confirm]
+=================SELECT delivery.stores.id, ( 3959 * acos( cos( radians(-34.6038775) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians(-58.4196027) ) + sin( radians(-34.6038775) ) * sin( radians( lat ) ) ) ) AS distance FROM (delivery.stores inner join delivery.addresses on delivery.stores.addresses_id = delivery.addresses.id) where companies_id = 0 HAVING distance < 25 ORDER BY distance LIMIT 0 , 20;
+=======================store0-6@74.207.234.92
+
+
+Processing WapController#order_product (for 190.55.90.36 at 2011-04-18 16:40:36) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "onestreet"=>"Jerónimo Salguero 568, Buenos Aires, Capital Federal, Argentina", "number"=>"568", "EmpanadaAtun"=>"6", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "amount"=>"33.6", "authenticity_token"=>"sqEtiz+Biw5EsnigQaQZuMq3NK0eRnNxg2+6XLaGv8Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1540845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"6", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>"6E"}
+Rendering wap/order_product
+Completed in 262ms (View: 2, DB: 6) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#wap (for 190.55.90.36 at 2011-04-23 23:08:45) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 10ms (View: 9, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-05-07 16:32:51) [GET]
+  Parameters: {"companyid"=>"0"}
+
+ActionController::RoutingError (No route matches "/delivery/wap/delivery" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-05-07 16:32:56) [GET]
+  Parameters: {"companyid"=>"0"}
+
+ActionController::RoutingError (No route matches "/delivery/wap/deliver" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-05-07 16:33:03) [GET]
+  Parameters: {"companyid"=>"0"}
+
+ActionController::RoutingError (No route matches "/delivery/deliver" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-05-07 16:33:09) [GET]
+  Parameters: {"companyid"=>"0"}
+
+ActionController::RoutingError (No route matches "/delivery/wap" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-05-07 16:33:13) [GET]
+  Parameters: {"companyid"=>"0"}
+
+ActionController::RoutingError (No route matches "/deliver/wap" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing ApplicationController#index (for 190.55.90.36 at 2011-05-07 16:34:09) [GET]
+  Parameters: {"companyid"=>"0"}
+
+ActionController::RoutingError (No route matches "/delivery/wap" with {:method=>:get}):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing WapController#wap (for 190.55.90.36 at 2011-05-07 16:35:37) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 10ms (View: 9, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-07-06 10:48:47) [GET]
+Rendering wap/wap
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #8 of app/views/wap/wap.html.erb:
+5: 
+6: 
+7: <wml> 
+8:   <card id="delivery" title="<%=company_name=Company.find_by_id(@company).name%>"> 
+9:   	<%=  "<img src=\"/images/companies/" + Company.find_by_id(@company).logo +  "\" align=\"center\"/>"  %>
+10: 
+11:   	<table columns='2'>
+
+    app/views/wap/wap.html.erb:8
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-07-06 10:50:48) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 9ms (View: 7, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-07-06 10:51:04) [GET]
+Rendering wap/wap
+
+ActionView::TemplateError (undefined method `name' for nil:NilClass) on line #8 of app/views/wap/wap.html.erb:
+5: 
+6: 
+7: <wml> 
+8:   <card id="delivery" title="<%=company_name=Company.find_by_id(@company).name%>"> 
+9:   	<%=  "<img src=\"/images/companies/" + Company.find_by_id(@company).logo +  "\" align=\"center\"/>"  %>
+10: 
+11:   	<table columns='2'>
+
+    app/views/wap/wap.html.erb:8
+
+Rendering /home/magic/dm/delivery-magic-wap/public/500.html (500 Internal Server Error)
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-07-06 10:51:16) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-07-06 13:43:52) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 10ms (View: 9, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-07-06 13:50:34) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 8ms (View: 6, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BLa%2BPlata&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2CSan%2BJer%25F3nimo%2B3116&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2CAv%2BMitre&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BQuilmes&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BR%25EDo%2BGallegos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BRamos%2BMejia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BHaedo&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2CArtigas%2B868&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BSan%2BIsidro&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BBuenos%2BAires&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BTrelew&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BC%25F3rdoba&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BAvellaneda&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BGeneral%2BPacheco&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BOlivos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BSan%2BJusto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BRosario&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BBah%25EDa%2BBlanca&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BMonte%2BGrande&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BComodoro%2BRivadavia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BCarapachay&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BVenado%2BTuerto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2CGral.%2BManuel%2BBelgrano%2B239&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BCity%2BBell&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BSan%2BMiguel&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BPinamar&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BFlorida&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BParan%25E1&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BCampana&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=116+1485%2C%2BSan%2BFernando&sensor=false
+
+
+Processing WapController#confirm (for 186.23.14.175 at 2011-07-06 13:51:09) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"2", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"2", "ChocolateItaliano"=>"", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"1", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"3", "CuatroQuesos"=>"", "authenticity_token"=>"MZXR6zy3BjRrQlkblWPfBM8Acrc4WzmWjbAJ9v6Nv/Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"116", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1550845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 6191ms (View: 2, DB: 14) | 200 OK [http://74.207.234.92/wap/confirm]
+=================SELECT delivery.stores.id, ( 3959 * acos( cos( radians(-34.9153169) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians(-57.9307193) ) + sin( radians(-34.9153169) ) * sin( radians( lat ) ) ) ) AS distance FROM (delivery.stores inner join delivery.addresses on delivery.stores.addresses_id = delivery.addresses.id) where companies_id = 0 HAVING distance < 25 ORDER BY distance LIMIT 0 , 20;
+=======================store0-39@74.207.234.92
+
+
+Processing WapController#order_product (for 186.23.14.175 at 2011-07-06 13:51:50) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"2", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"2", "ChocolateItaliano"=>"", "onestreet"=>"Calle 116 1485, La Plata, Buenos Aires Province, Argentina", "number"=>"1485", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"1", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"1", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"3", "CuatroQuesos"=>"", "amount"=>"111.8", "authenticity_token"=>"MZXR6zy3BjRrQlkblWPfBM8Acrc4WzmWjbAJ9v6Nv/Q=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"1550845239", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/order_product
+Completed in 370ms (View: 1, DB: 31) | 200 OK [http://74.207.234.92/wap/order_product]
+
+
+Processing WapController#companyid=0 (for 186.23.14.175 at 2011-08-06 14:42:17) [GET]
+
+ActionController::UnknownAction (No action responded to companyid=0. Actions: confirm, order_product, and wap):
+  
+
+Rendering /home/magic/dm/delivery-magic-wap/public/404.html (404 Not Found)
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-08-06 14:42:26) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 89ms (View: 87, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-08-06 14:48:09) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 11ms (View: 9, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=+&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BLa%2BPlata&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2CSan%2BJer%25F3nimo%2B3116&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2CAv%2BMitre&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BQuilmes&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BR%25EDo%2BGallegos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BRamos%2BMejia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BHaedo&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2CArtigas%2B868&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BSan%2BIsidro&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BBuenos%2BAires&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BTrelew&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BC%25F3rdoba&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BAvellaneda&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BGeneral%2BPacheco&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BOlivos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BSan%2BJusto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BRosario&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BBah%25EDa%2BBlanca&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BMonte%2BGrande&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BComodoro%2BRivadavia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BCarapachay&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BVenado%2BTuerto&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2CGral.%2BManuel%2BBelgrano%2B239&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BCity%2BBell&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BSan%2BMiguel&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BPinamar&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BFlorida&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BParan%25E1&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BCampana&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BSan%2BFernando&sensor=false
+
+
+Processing WapController#confirm (for 186.23.14.175 at 2011-08-06 15:23:48) [POST]
+  Parameters: {"EmpanadaCarneconaceitunayhuevo"=>"", "EmpanadaPollo"=>"", "Chipatradicionalopandequeso"=>"", "Fugazzeta"=>"", "ChocolateItaliano"=>"", "number"=>"", "EmpanadaAtun"=>"", "EspinacaconQueso"=>"", "EmpanadaHumita"=>"", "SalteadodeVegetales"=>"", "Roquefortconjamon"=>"", "Mascarponeconfrutosdelbosque"=>"", "EspinacaconSalsaBlanca"=>"", "Muzzarella"=>"", "CremaAmericana"=>"", "DulcedeLecheElNoble"=>"", "EmpanadaQuesoycebolla"=>"", "EmpanadaPolloconhierbas"=>"", "Jamonquesohuevoycebolla"=>"", "CuatroQuesos"=>"", "authenticity_token"=>"estBUbmaLUaZhBJeJkcCIcdRadkuNp1OndDqtWJHCqI=", "EmpanadaCarneSuave"=>"", "Carnecortadaacuchillo"=>"", "Pancetamorronymozzarella"=>"", "Fusionde4quesos"=>"", "Muzzarellaycebolla"=>"", "Frutillaalacrema"=>"", "street"=>"", "Pollolaqueadoconmielycerveza"=>"", "Sambayon"=>"", "Chocolate"=>"", "Limon"=>"", "Carneconhongos"=>"", "JamonyMuzzarella"=>"", "Esparragoscongruyere"=>"", "phone"=>"", "EmpanadaCarnePicante"=>"", "Patagonicadecordero"=>"", "DulcedeLecheGranizado"=>"", "EmpanadaJamonyQueso"=>"", "Cebollasglaceadasconquesoazul"=>"", "Tramontana"=>"", "EmpanadaMuzzarella"=>"", "Champignonconquesoyjerez"=>"", "Puerrosconparmesano"=>"", "BananaSplit"=>"", "depto"=>""}
+Rendering wap/confirm
+Completed in 917ms (View: 1, DB: 13) | 200 OK [http://74.207.234.92/wap/confirm]
+
+
+Processing WapController#wap (for 186.23.14.175 at 2011-08-06 15:24:13) [GET]
+  Parameters: {"companyid"=>"0"}
+Rendering wap/wap
+Completed in 9ms (View: 8, DB: 1) | 200 OK [http://74.207.234.92/wap/wap?companyid=0]
+======================http://maps.googleapis.com/maps/api/geocode/json?address=+&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BLa%2BPlata&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2CSan%2BJer%25F3nimo%2B3116&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2CAv%2BMitre&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BQuilmes&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BR%25EDo%2BGallegos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BRamos%2BMejia&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BHaedo&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2CArtigas%2B868&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BSan%2BIsidro&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BBuenos%2BAires&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BTrelew&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BC%25F3rdoba&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BAvellaneda&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BGeneral%2BPacheco&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BOlivos&sensor=false
+=================http://maps.googleapis.com/maps/api/geocode/json?address=+%2C%2BSan%2BJusto&sensor=false
+=================ht

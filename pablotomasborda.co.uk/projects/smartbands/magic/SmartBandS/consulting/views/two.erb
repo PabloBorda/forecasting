@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+
+<!--
+	Smartbands: A responsive HTML5 website template by HTML5Templates.com
+	Released for free under the Creative Commons Attribution 3.0 license (html5templates.com/license)
+	Visit http://html5templates.com for more great templates or follow us on Twitter @HTML5T
+-->
+
+
+<html>
+	<head>
+		<title>Smartbands Consulting</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<noscript>
+		<link rel="stylesheet" href="stylesheets/5grid/core.css" />
+		<link rel="stylesheet" href="stylesheets/5grid/core-desktop.css" />
+		<link rel="stylesheet" href="stylesheets/5grid/core-1200px.css" />
+		<link rel="stylesheet" href="stylesheets/5grid/core-noscript.css" />
+		<link rel="stylesheet" href="stylesheets/style.css" />
+		<link rel="stylesheet" href="stylesheets/style-desktop.css" />
+		</noscript>
+		<script src="stylesheets/5grid/jquery.js"></script>
+		<script src="stylesheets/5grid/init.js?use=mobile,desktop,1000px&amp;mobileUI=1&amp;mobileUI.theme=none"></script>
+		<!--[if IE 9]><link rel="stylesheet" href="css/style-ie9.css" /><![endif]-->
+		<script type="text/javascript">
+		
+		
+		    function clickweb(){
+		    	$("#content").html($("#web").html());
+		    }
+		    
+		    function clicksoa(){
+		    	$("#content").html($("#soa").html());
+		    }
+		
+		    function clickmobile(){
+		    	$("#content").html($("#mobile").html());
+		    }
+		
+		    function clickhowwework(){
+		    	$("#content").html($("#howwework").html());
+		    }
+		    function clickivr(){
+		    	$("#content").html($("#ivr").html());
+		    }
+		    
+			$(document).ready(function(){
+				$("#howwework").hide();
+				$("#mobile").hide();
+				$("#web").hide();
+				$("#soa").hide();
+				$("#ivr").hide();
+				$("#content").html($("#web").html());
+				
+			});
+		</script>
+	</head>
+	<body>
+
+		<!-- Header -->
+		<div id="header-wrapper">
+		
+			<header id="header">
+				<div class="5grid-layout">
+					<div class="row">
+						<div class="4u" id="logo">
+							<h1><a href="#" class="mobileUI-site-name">Smartbands Consulting</a></h1>
+						</div>
+						<div class="8u" id="menu">
+							<nav class="mobileUI-site-nav">
+								<ul>
+									<li><a href="/">Homepage</a></li>
+									<li><a href="/one">Who we are</a></li>
+									<li class="current_page_item"><a href="/two">What we do</a></li>
+									<li><a href="/three">Contact</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</header>
+			
+		</div>
+		<!-- Header Ends Here -->
+
+
+		<!-- Wrapper -->
+		<div id="wrapper" class="5grid-layout">
+		
+			<!-- Page Content -->
+			<div id="page" class="row">
+				
+				<!-- Content Area -->
+				<div id="content" class="8u">
+					
+
+				</div>
+	
+				<!-- Sidebar Area -->
+				<div id="sidebar" class="4u">
+				
+					<!-- Sidebar Section 1 -->
+					<section id="box1">
+						
+						<!-- Two Column Content Area -->
+						<div class="5grid">
+							<div class="row">
+							</div>
+						</div>
+						<!-- Two Column Content Area Ends Here -->
+					
+					</section>
+	
+					<!-- Sidebar Section 2 -->
+					<section id="box2">
+						<h2>What we do</h2>
+						<ul class="style2">
+							<li class="first">
+								<p><a href="#"><img src="images/pics07.jpg" onclick="clickweb();" alt="">Web Development </a></p>
+								<a class="button button-style1" href="#" onclick="clickweb();" >Read More</a>
+							</li>
+							<li>
+								<p><a href="#"><img src="images/pics08.jpg" onclick="clickmobile();" alt="">Mobile Development</a></p>
+								<a class="button button-style1" href="#" onclick="clickmobile();">Read More</a>
+							</li>
+							<li>
+								<p><a href="#"><img src="images/pics09.jpg"  onclick="clicksoa();" alt="">SOA System Design</a></p>
+								<a class="button button-style1"  onclick="clicksoa();" href="#">Read More</a>
+							</li>
+							<li>
+								<p><a href="#"><img src="images/pics09.jpg"  onclick="clickivr();" alt="">IVR - Interactive Voice Response</a></p>
+								<a class="button button-style1"  onclick="clickivr();" href="#">Read More</a>
+							</li>
+							<li>
+								<p><a href="#"><img src="images/pics10.jpg" onclick="clickhowwework();" alt="">How we work</a></p>
+								<a class="button button-style1" onclick="clickhowwework();" href="#">Read More</a>
+							</li>
+						</ul>
+						
+					</section>
+
+
+				</div>
+				
+			</div>
+			<!-- Page Content -->
+		
+		</div>
+		<!-- Wrapper Ends Here -->
+
+
+		<!-- Copyright -->
+		<div class="5grid-layout" id="copyright">
+			<div class="row">
+				<div class="12u">
+					<section>
+						<p>&copy; SmartBandS.com | Design: <a href="http://www.smartbands.com/">smartbands.com</a></p>
+					</section>
+				</div>
+			</div>
+		</div>
+		
+		<div id="howwework">
+			<h2 class="main-title">How we work</h2>
+		    <a href="#" class="image-style1"></a>
+			<p>We work using the redmine tool, a version control software, and open source technologies. So you will not pay for license costs, unless you need us to work with a specific tool.</p>		
+			<p>Our process is quite straightforward, and involves the following steps:</p>
+		    <p>
+		    	<ol>
+		    		<li>1- You will have a set of brief interviews with us, so we are able to capture your specs, and pick them in a drawing so you can understand them.</li>
+  		            <li>2- Once we get feedback from you, saying the specs we captured match yours. We will then start to do the tasking.</li>	
+		    	    <li>3- For each task we discover from your specs, as a team, we will vote and estimate how dificult is it to achieve according our perspectives, as a software developer, as a database admin, as a tester, etc.. Then the time estimation for the task comes up.</li>
+                    <li>4- We will input each task in the redmine tool, that has an owner, an estimation, and a status.</li>
+                    <li>5- We require feedback from you, so you will approve our tasking, and the estimation. Or will complain, by giving us reasons.</li>
+                    <li>6- Once you approve, you sign, and we will then start working.</li>
+                    <li>7- At the end of the day we backup all developments, and the task owner updates the status of the task.</li>
+                    <li>8- At the end of the week we will require payment for the accomplished tasks, to continue working. We will not charge overtime, if an estimation went wrong.</li>
+		    	
+		    	</ol>
+		    </p>
+			
+			<p>
+				This process warraties no surprises for you, and no unwanted stuff.
+			</p>
+			<div align="center">
+			<h2 class="main-title"><p>Contact US</p></h2>
+			<a href="/three"><img width="50" height="50" src="images/email.jpg"/></a>
+			</div>			
+		</div>
+		<div id="mobile">
+			<h2 class="main-title">Mobile Software Development</h2>
+			<a href="#" class="image-style1"><img src="images/pic02.jpg" alt=""></a>
+			<p>We have broad experience regarding mobile software development. We cover most of the platforms
+			in the market today, and also legacy systems.</p>
+			<p>We cover application on most today platforms:</p>
+			<ol>
+				<li>Android Native Applications</li>
+				<li>Cross Platform - Phonegap HTML5 applications, using JQueryMobile</li>
+				<li>Rhodes Framework- Cross platform development using RUBY</li>
+				<li>Sencha</li>
+				<li>Blackberry 10</li>
+			</ol> 
+			<p>Legacy Applications:</p>
+			<ol>
+				<li>WAP</li>
+				<li>J2ME</li>
+				<li>Windows Mobile</li>
+			</ol>
+			<p>We plan to cover iphone in the near future</p>
+			<h2 class="main-title"><p>Contact US</p></h2>
+			<div align="center">
+			<a href="/three"><img width="50" height="50" src="images/email.jpg"/></a>
+			</div>
+		</div>
+		<div id="web">
+			<h2 class="main-title">Web Development</h2>
+			<p>Web development became the most important client software in the world. We do web development by using the most
+			productive latest and also legacy technologies around. </p>
+			<p>Our expertise involves the following technologies for back-end and front-end:</p>
+			<p>Back-end</p>
+			<ol>
+				<li>J2EE</li>
+				<li>Ruby on Rails</li>
+				<li>Sinatra</li>
+				<li>PHP</li>
+				<li>Grails</li>
+			</ol>
+			
+			<p>Front-end</p>
+			<ol>
+				<li>JavaScript</li>
+			    <li>JQuery</li>
+			    <li>HTML</li>
+			    <li>CSS</li>
+			</ol>
+			<h2 class="main-title"><p>Contact US</p></h2>
+			<div align="center">
+			<a href="/three"><img width="50" height="50" src="images/email.jpg"/></a>
+			</div>
+			<a href="#" class="image-style1"></a>
+		</div>
+		<div id="ivr">
+			<h2 class="main-title">Interative Voice Response</h2>
+			<p>Interactive Voice Response are automatic answering machine applications. They are quite usefull for your company, and allows you to interact with the customer, by reducing human call center work. </p>
+			<p>A wide range of organizations use them, from goverment to banks. You can now have your own!</p>
+			<h2 class="main-title"><p>Contact US</p></h2>
+			<div align="center">
+			<a href="/three"><img width="50" height="50" src="images/email.jpg"/></a>
+			</div>
+			<a href="#" class="image-style1"></a>
+		</div>
+		<div id="soa">
+			<h2 class="main-title">SOA Architecture</h2>
+			<p>Our software is based on SOA (Service Oriented Architecture), so we warranty it will work on a broad range of devices, by working less, and making the software easier to maintain.</p>
+			<p>We rapidly respond JSON to match your specs. JSON, or JavaScript Object Notation, is a compact format to serialize and transfer data in contrast to XML (Extensible Markup Language). This data will be consumed by web pages or mobile devices, so they will render in the UI (User Interface).</p>
+			<h2 class="main-title"><p>Contact US</p></h2>
+			<div align="center">
+			<a href="/three"><img width="50" height="50" src="images/email.jpg"/></a>
+			</div>
+			<a href="#" class="image-style1"></a>
+		</div>		
+		
+
+	</body>
+</html>

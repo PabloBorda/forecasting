@@ -1,0 +1,65 @@
+.flexbox {
+	display: box;
+	box-orient: horizontal;
+	
+	display: -webkit-box;    /*  Esto es para que funcione en Chrome */
+	-webkit-box-orient: horizontal;
+	
+/* 	display: -moz-box;        Esto es para que funcione en Firefox 
+	-moz-box-orient: horizontal; */
+	
+	
+	height: 160px;
+	
+	width:inherit;
+}
+
+
+.borde {
+	display:box;
+	box-orient: horizontal;
+	display: -webkit-box;    /*  Esto es para que funcione en Chrome */
+	-webkit-box-orient: horizontal;
+ 	display: -moz-box;      /*  Esto es para que funcione en Firefox */
+	-moz-box-orient: horizontal; 
+	}
+
+#divlogo {
+	margin-top: 94px;	
+}
+
+#divbuscador {
+	border-right-color: blue;
+	padding:30px;	
+	position:absolute;
+	margin-top: 90px;	
+	margin-left:37px;
+	
+}
+
+#divlogo, #divbuscador {
+	
+}
+
+#searchField {
+	width: 425px;
+}
+
+#buscador {
+	margin-top: 100px;	
+	width: 373px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	height: 27px;
+	border-color: #F00;
+	margin-left:37px;
+	
+}
+
+#micanvas {
+
+	position:absolute;
+	height:167px;
+	
+
+}

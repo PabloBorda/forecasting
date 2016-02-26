@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/papito/xp/trunk/xp-levenshtein/../xp-commons/levenshtein.h
+string
+-
+
+/home/papito/xp/trunk/xp-levenshtein/levenstein.cpp
+../xp-commons/levenshtein.h
+/home/papito/xp/trunk/xp-levenshtein/../xp-commons/levenshtein.h
+iostream
+-
+

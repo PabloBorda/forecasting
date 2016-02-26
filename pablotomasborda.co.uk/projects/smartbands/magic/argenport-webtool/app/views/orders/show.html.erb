@@ -1,0 +1,68 @@
+<p>
+  <b>Types:</b>
+  <%=h @order.types_id %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%=h @order.amount %>
+</p>
+
+<p>
+  <b>Products:</b>
+  <%=h @order.products_id %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @order.address %>
+</p>
+
+<p>
+  <b>Users:</b>
+  <%=h @order.users_id %>
+</p>
+
+<p>
+  <b>Sites:</b>
+  <%=h @order.sites_id %>
+</p>
+
+<p>
+  <b>Track:</b>
+  <%=h @order.track %>
+</p>
+
+<p>
+  <b>Carriers:</b>
+  <%=h @order.carriers_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @order.status_id %>
+</p>
+
+<p>
+  <b>Days:</b>
+  <%=h @order.days %>
+</p>
+
+<p>
+  <b>Declared:</b>
+  <%=h @order.declared %>
+</p>
+
+<p>
+  <b>Tax:</b>
+  <%=h @order.tax %>
+</p>
+
+<p>
+  <b>Experiment:</b>
+  <%=h @order.experiment %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

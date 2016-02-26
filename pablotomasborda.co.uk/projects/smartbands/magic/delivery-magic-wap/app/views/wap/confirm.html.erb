@@ -1,0 +1,85 @@
+<%  response.headers["Content-Type"] = "text/vnd.wap.wml" %> 
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1.1.xml">
+<xml version="1.0">
+
+<wml>
+
+<card id="confirm" title="Confirme sus datos">
+  
+  <%
+    if @possible_locations.size == 0
+    	concat "<b><label>Su direccion no pudo ser encontrada, vuelva atras para corregir</label></b><br/>"
+    	concat "<b><label>Sugerencia: Introduzca el nombre de la calle completo, si incluye el nombre de la ciudad tambien ayuda</label></b><br/>"
+    	concat "<b><label>No utilice acentos ni ñ</label></b><br/>"
+    else
+      if @possible_locations.size > 1
+        concat "<label>Su direccion puede ser cualquiera de estas, seleccione la correcta</label><br/>"
+        concat "<select name=\"onestreet\">"
+        @possible_locations.each {
+        	|l|
+        	concat "<option value=\"" + l + "\">" + l + "</option><br/>"
+        }
+        concat "</select><br/>"
+      else
+      	concat "<input type=\"hidden\" name=\"onestreet\" value=\"" + @possible_locations.first.to_s + "\"/>"
+        concat "<label>Son estos datos correctos? </label><br/>"
+        concat "<label>Calle: " + @possible_locations.first.to_s + "</label><br/>"
+      end
+    end
+    concat "<label>Depto: " + @depto + "</label><br/>"
+    concat "<label>Telefono: " + @phone + "</label><br/>"
+  %>
+      
+   <table columns='2'>
+   	<%
+   	    @to_pay = 0
+   	    @products.each {
+   	      |p|
+   	      amount_per_product = (p.price * params[p.name.to_s.delete(" ")].to_f)
+   	      if amount_per_product > 0
+   	        @to_pay = @to_pay + amount_per_product
+   	        concat "<tr>"
+   	        concat "<td><label>" + p.name.to_s + "</label></td> \n <td><label>" + amount_per_product.to_s + "</label></td>\n"
+   	        concat "</tr>"    	
+   	      end	
+   	    }
+   	    
+   	    concat "<label>Total a pagar: <b>" + @to_pay.to_s + "</b> </label>"
+   	%>
+
+   	
+   	
+   </table>   
+      
+   <br/>
+   <anchor>
+   <go method="post" href="/wap/order_product">
+  
+   <%
+   
+      @products.each {
+      	|p|
+      	concat "<postfield name='"+ p.name.to_s.delete(" ") + "' value='" + params[p.name.to_s.delete(" ")]+ "'/>\n"      	
+      }
+   
+   
+   
+      concat "<postfield name='onestreet' value='$(onestreet)'/>\n";
+      concat "<postfield name='number' value='" + @number + "'/>\n";
+      concat "<postfield name='depto' value='" + @depto + "'/>\n";
+      concat "<postfield name='phone' value='" + @phone + "'/>\n";
+      concat "<postfield name='amount' value='" + @to_pay.to_s + "'/>\n";
+      
+     
+      %>
+     <postfield name="authenticity_token" value="<%= form_authenticity_token%>" />
+   </go>
+      Pedir
+   </anchor> 
+  
+</card>
+
+
+</wml>  
+
+</xml>

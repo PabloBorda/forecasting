@@ -1,0 +1,2 @@
+require 'newcompany'
+require 'sinatra/activerecord/rake'

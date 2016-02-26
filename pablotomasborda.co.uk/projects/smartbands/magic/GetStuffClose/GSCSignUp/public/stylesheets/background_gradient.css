@@ -1,0 +1,13 @@
+
+html{
+
+ background: rgb(69,72,77); /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  rgba(69,72,77,1) 12%, rgba(0,0,0,1) 81%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(12%,rgba(69,72,77,1)), color-stop(81%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  rgba(69,72,77,1) 12%,rgba(0,0,0,1) 81%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  rgba(69,72,77,1) 12%,rgba(0,0,0,1) 81%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  rgba(69,72,77,1) 12%,rgba(0,0,0,1) 81%); /* IE10+ */
+background: radial-gradient(center, ellipse cover,  rgba(69,72,77,1) 12%,rgba(0,0,0,1) 81%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}

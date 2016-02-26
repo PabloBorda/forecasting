@@ -1,0 +1,64 @@
+<h1>Editing order</h1>
+
+<% form_for(@order) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :types_id %><br />
+    <%= f.text_field :types_id %>
+  </p>
+  <p>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </p>
+  <p>
+    <%= f.label :products_id %><br />
+    <%= f.text_field :products_id %>
+  </p>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :users_id %><br />
+    <%= f.text_field :users_id %>
+  </p>
+  <p>
+    <%= f.label :sites_id %><br />
+    <%= f.text_field :sites_id %>
+  </p>
+  <p>
+    <%= f.label :track %><br />
+    <%= f.text_field :track %>
+  </p>
+  <p>
+    <%= f.label :carriers_id %><br />
+    <%= f.text_field :carriers_id %>
+  </p>
+  <p>
+    <%= f.label :status_id %><br />
+    <%= f.text_field :status_id %>
+  </p>
+  <p>
+    <%= f.label :days %><br />
+    <%= f.text_field :days %>
+  </p>
+  <p>
+    <%= f.label :declared %><br />
+    <%= f.text_field :declared %>
+  </p>
+  <p>
+    <%= f.label :tax %><br />
+    <%= f.text_field :tax %>
+  </p>
+  <p>
+    <%= f.label :experiment %><br />
+    <%= f.check_box :experiment %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @order %> |
+<%= link_to 'Back', orders_path %>

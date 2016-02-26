@@ -1,0 +1,37 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	margin-right: 0;
+}
+
+/* * {
+	border: 1px solid blue
+}
+*/
+
+
+
+nav {
+/*	margin: 0px 0px 0px 1000px;	
+	height: 60px;
+	
+	*/
+	position:fixed;
+	margin-left: 800px;
+}
+
+header {
+	height: 160px;
+	margin-left: 200px;	
+	margin-right: 200px;	
+}
+
+.cuerpo {
+	background-color:#F92D32; 
+	height: 650px;
+	border-top: 1px solid black;  
+
+}
+
+

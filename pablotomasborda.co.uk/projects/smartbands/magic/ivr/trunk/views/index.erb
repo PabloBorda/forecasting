@@ -1,0 +1,83 @@
+<vxml version = "2.1" >
+  <menu id="menu">
+    <prompt xml:lang="<%=@msgs[:prompt_extension].to_s%>">
+      <%=@msgs[:intro].to_s%> <%= @user.to_s %>  <%=@msgs[:intro_after_user].to_s%>
+    </prompt>
+    <prompt xml:lang="<%=@msgs[:prompt_extension].to_s%>"><%=@msgs[:address].to_s%>, <%= @addr.to_s %>.</prompt>
+    <prompt xml:lang="<%=@msgs[:prompt_extension].to_s%>"> <%=@msgs[:product_iteration].to_s%></prompt>
+    <%= @products.to_s %>
+    <%= @pays_with.to_s %>
+   <prompt xml:lang="<%=@msgs[:prompt_extension].to_s%>">
+     <%=@msgs[:choose_one].to_s%>
+       <enumerate>
+         <%=@msgs[:push].to_s%> <value expr="_dtmf"/> <%=@msgs[:for].to_s%> <value expr="_prompt"/>
+       </enumerate> 
+    </prompt>
+    <choice xml:lang="<%=@msgs[:prompt_extension].to_s%>" next="#F1" dtmf="1">
+      <%=@msgs[:repeat].to_s%>
+    </choice>
+    <choice xml:lang="<%=@msgs[:prompt_extension].to_s%>" next="#F2" dtmf="2">
+      <%=@msgs[:confirmation].to_s%>
+    </choice>
+    <choice xml:lang="<%=@msgs[:prompt_extension].to_s%>" next="#F3" dtmf="3">
+      <%=@msgs[:cancelation].to_s%>
+    </choice>
+    <choice xml:lang="<%=@msgs[:prompt_extension].to_s%>" next="#F4" dtmf="4">
+      <%=@msgs[:balance].to_s%>
+    </choice>
+     <choice xml:lang="<%=@msgs[:prompt_extension].to_s%>" next="#F5" dtmf="5">
+       <%=@msgs[:ban].to_s%>
+    </choice>
+     <choice xml:lang="<%=@msgs[:prompt_extension].to_s%>" next="#F6" dtmf="6">
+       <%=@msgs[:exit].to_s%>
+    </choice>
+ 
+
+
+   </menu>
+   
+
+  <form id="F1">
+     <block>
+       <goto next="#menu"/>
+     </block>
+   </form>
+
+   <form id="F2">
+     <block>
+       <prompt xml:lang="<%=@msgs[:prompt_extension].to_s%>">
+         <%=@msgs[:confirmed].to_s%>
+       </prompt>
+     </block>
+   </form>
+
+   <form id="F3">
+     <block>
+       <prompt xml:lang="<%=@msgs[:prompt_extension].to_s%>">
+         <%=@msgs[:canceled].to_s%>
+       </prompt>
+     </block>
+   </form>
+
+    <%= erb :card %> 
+
+   <form id="F5">
+     <block>
+       <prompt xml:lang="<%=@msgs[:prompt_extension].to_s%>">
+         <%=@msgs[:sorry].to_s%>
+       </prompt>
+     </block>
+   </form>
+
+   <form id="F6">
+     <block>
+       <prompt xml:lang="<%=@msgs[:prompt_extension].to_s%>">
+         <%=@msgs[:thankyou].to_s%>
+       </prompt>
+     </block>
+   </form>
+
+
+
+
+</vxml>

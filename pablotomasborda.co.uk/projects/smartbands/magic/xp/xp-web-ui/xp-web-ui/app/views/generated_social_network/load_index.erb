@@ -1,0 +1,46 @@
+<script src="/javascripts/jquery.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.treeview.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/stylesheets/jquery.treeview.css"/>
+<script type="text/javascript">
+$(document).ready(function(){
+
+// third example
+ $("#red").treeview({ collapsed: true });
+
+});
+</script>
+
+
+<html>
+  <title> Generated Social Network </title>
+  <body>
+    <div align="center">This is the generated experience social network</div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div align="left">
+
+    <ul id="red" class="filetree">
+    <% @retrieved_list.each do | x | %>
+       <li>
+         <span class="folder"><%= x.email %></span>
+          <ul> 
+       <%  @relatives = UsersHasUser.all(:conditions => ["user_id = ?", x.id])%>
+       <%  @relatives.each do | y |  %>
+             <li> <%= User.find(y.relatives_id).email %> Difference rate:  <%= y.comparison_value%>... </li>
+       <%  end %>
+          </ul>
+    <%  end  %>
+    </li>
+    </ul>
+    </div>
+  </body>
+
+
+
+</html>

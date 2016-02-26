@@ -1,0 +1,8 @@
+<% if @res.num_rows > 0            %>
+<% out = ""                        %>
+<%   while rw = @res.fetch_row()   %>
+<%    out = out + rw[0].to_s + "\n"%>
+<%   end                           %>
+<%=  out = out[0..-1]              %>
+<% end                             %>
+  

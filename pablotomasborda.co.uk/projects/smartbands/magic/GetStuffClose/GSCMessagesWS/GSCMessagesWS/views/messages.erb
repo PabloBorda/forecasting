@@ -1,0 +1,11 @@
+{ 
+  "address": "<%= @address %>",
+  "messages":    <% res = []
+                  @messages.each do
+                    |m|
+                    res.push(m.message.to_s)
+                  end 
+                %>
+                <%= res.to_s %>
+
+}

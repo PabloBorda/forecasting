@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Autocomplete Example</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" />
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+</head>
+
+<body>
+<div data-role="page" id="mainPage">
+
+	<div data-role="header">
+		<h1>Autocomplete Example</h1>
+	</div>
+
+	<div data-role="content">
+
+		<p>
+		<input type="text" id="searchField" placeholder="Search">
+		<ul id="suggestions" data-role="listview" data-inset="true"></ul>
+		</p>
+
+	</div>
+
+	<div data-role="footer">
+		<h4></h4>
+	</div>
+
+</div>
+
+<script>
+		var sugList = $("#suggestions");
+	
+		$("#searchField").on("input", function(e) {
+			var text = $(this).val();
+			if(text.length < 1) {
+				sugList.html("");
+				sugList.listview("refresh");
+			} else {
+				$.get("/superproducts", {search:text}, function(res,code) {
+					var str = "";
+					for(var i=0, len=res.length; i<len; i++) {
+						str += "<li>"+res[i].label+"</li>";
+					}
+					sugList.html(str);
+					sugList.listview("refresh");
+					console.dir(res);
+				},"json");
+			}
+		});
+
+</script>
+
+</body>
+</html>

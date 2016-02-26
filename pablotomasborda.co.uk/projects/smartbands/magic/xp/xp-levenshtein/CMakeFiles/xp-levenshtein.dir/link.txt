@@ -1,0 +1,1 @@
+/usr/bin/c++     -fPIC CMakeFiles/xp-levenshtein.dir/levenstein.o  -o xp-levenshtein -rdynamic -L/home/papito/xp/trunk/xp-levenshtein/../xp-commons -lxp-commons -Wl,-rpath,/home/papito/xp/trunk/xp-levenshtein/../xp-commons 

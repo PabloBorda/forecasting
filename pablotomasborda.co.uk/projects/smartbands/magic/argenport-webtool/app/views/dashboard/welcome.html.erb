@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<%= stylesheet_link_tag 'dashlayout' %>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>welcome.html</title>
+		<%= javascript_include_tag :defaults %>
+		<%= javascript_include_tag "jquery-1.6.2.min.js"%>
+		<%= javascript_include_tag "jquery-ui-1.8.16.custom.min.js"%>
+		<%= javascript_include_tag "jquery.form.js"%>
+		<%= stylesheet_link_tag "cupertino/jquery-ui-1.8.16.custom.css"%>
+		
+			  
+		<style>
+	     .column {  float: left; padding-bottom: 100px; }
+	     .portlet { margin: 0 1em 1em 0; }
+	     .portlet-header { margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em; }
+	     .portlet-header .ui-icon { float: right; }
+	     .portlet-content { padding: 0.4em; }
+	     .ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 50px !important; }
+	     .ui-sortable-placeholder * { visibility: hidden; }
+	   </style>
+		<%= yield :head %>
+	<script>
+
+
+	$(function() {
+		
+		
+		$("#accounting-button").click(function(){
+			$("#accounting").empty();
+			$("#accounting").dialog({ height: 530,width: 1000});
+            $.ajax({
+              url: "/accounting/show_balance",
+              success: function(html){
+                $("#accounting").append(html);          
+          }});
+	      return false;  
+		});
+		
+		$("#investor-results").hide();		
+		$("#investment-generator").ajaxForm( { target:'#investor-results' } );				
+		$("#investment-generator").submit(function() {		
+		  $("#investor-results").dialog({ height: 530,width: 1000});		  			  	
+		});
+			
+		$( ".column" ).sortable({
+			connectWith: ".column"
+		});
+
+		$( ".portlet" ).addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
+			.find( ".portlet-header" )
+				.addClass( "ui-widget-header ui-corner-all" )
+				.prepend( "<span class='ui-icon ui-icon-minusthick'></span>")
+				.end()
+			.find( ".portlet-content" );
+
+		$( ".portlet-header .ui-icon" ).click(function() {
+			$( this ).toggleClass( "ui-icon-minusthick" ).toggleClass( "ui-icon-plusthick" );
+			$( this ).parents( ".portlet:first" ).find( ".portlet-content" ).toggle();
+		});
+
+		$( ".column" ).disableSelection();
+		$("#investor-results").dialog("open");
+	});
+	</script>
+
+
+	</head>
+	<body>
+		<div id="sample-container">
+			
+			<div style="float: right;" align="center">
+				<a href="/application/logout"><img src="/images/exit.png" alt="Log out" />Log Out</a>
+			</div>
+			<div style="float: left" align="left">
+				
+			  <img src="/images/logo.jpg" />
+			  <h5> Argenport Web Platform - Dashboard </h5>
+			  <div style="float: left;">
+			    <% @usr = User.find_by_email(session["user"])%>
+			    <img src="<%= @usr.pic %>" style="max-width: 200px;max-height: 300px;"/><br />
+			    <p><%=@usr.name %></p>
+			    <p><%=@usr.lastname %></p>
+			    <a href="<%= "mailto:" + @usr.email %>" ><%=@usr.email %></a><br />
+			    <div align="left" style="float: left;">
+			  	  <a href="/application/logout"><img src="/images/exit.png" alt="Log out" />Log Out</a>
+			    </div>			 
+			    <div style="float: right;">
+			      <a id="accounting-button" href=""><img src="/images/account.png" /></a>
+			  	</div>
+			  </div>
+			</div>
+			
+			<div id="sample14">
+
+				<div class="demo">
+
+<div class="column">
+
+	<div class="portlet">
+		<div class="portlet-header">Images</div>
+		<div class="portlet-content"></div>
+	</div>
+	
+    <div class="portlet">
+		<div class="portlet-header">New User</div>
+		<div class="portlet-content"><%= render "/users/new" %></div>
+	</div>
+	
+
+</div>
+
+<div class="column">
+
+    <div class="portlet">
+		<div class="portlet-header">Investment Plans</div>
+		<div class="portlet-content">
+			<%= render "/dashboard/generate_plan" %>
+			</div>
+	</div>
+	
+
+    
+    <div class="portlet">
+		<div class="portlet-header">User questions</div>
+		<div class="portlet-content"><%= render "/dashboard/show_questions" %></div>
+	</div>
+</div>
+
+<div class="column">
+
+    <div class="portlet">
+		<div class="portlet-header">Most sold product list</div>
+		<div class="portlet-content"><%= render "/dashboard/show_most_sold_yesterday" %></div>
+	</div>
+
+	
+	<div class="portlet">
+		<div class="portlet-header">ToDo List ()</div>
+		<div class="portlet-content"></div>
+	</div>
+
+</div>
+
+<div class="column">
+
+    <div class="portlet">
+		<div class="portlet-header">Order Annotation</div>
+		<div class="portlet-content"><%= render "/orders/new" %></div>
+	</div>
+
+	
+	<div class="portlet">
+		<div class="portlet-header">Images</div>
+		<div class="portlet-content"></div>
+	</div>
+
+</div>
+
+
+<div class="column">
+
+    <div class="portlet">
+		<div class="portlet-header">Investment Suggestions</div>
+		<div class="portlet-content"><%= render "/orders/new" %></div>
+	</div>
+	
+	<div class="portlet">
+		<div class="portlet-header">User questions</div>
+		<div class="portlet-content"><%= render "/dashboard/show_questions" %></div>
+	</div>
+	
+	
+
+
+</div>
+
+</div>
+<div id="investor-results"></div>
+
+<div id="accounting"></div>
+
+<%= %>
+
+<!-- End demo -->
+			<%= yield %>
+	</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    	<meta name="keywords" content=""><meta name="description" content="">
+        <title>GetStuffClose.Com - Buy and Sell by distance </title>
+        <%= stylesheet_link_tag "background_gradient.css" %>
+        <%= stylesheet_link_tag "base.css" %>
+        <%= stylesheet_link_tag "demo.css" %>
+        <%= stylesheet_link_tag "ui-lightness/jquery-ui-1.8.9.custom.css" %>
+        <%= stylesheet_link_tag "layout.css" %>
+        <%= stylesheet_link_tag "scrollable.css" %>
+
+        <%= javascript_include_tag "jquery.min.js"%>
+        <%= javascript_include_tag "jquery.tools.min.js"%>
+        <%= javascript_include_tag "jquery-ui-1.8.9.custom.min.js"%>
+        <%= javascript_include_tag "jquery.form.js"%>
+        <%= javascript_include_tag "application.js"%>
+        <%= javascript_include_tag "company-logo-upload.js"%>
+        <%= javascript_include_tag "stores.js"%>
+        <%= javascript_include_tag "products.js"%>
+        <%= javascript_include_tag "autocomplete_address.js"%>
+        <%= javascript_include_tag "like_service.js"%>
+        <%= javascript_include_tag "submit-company.js"%>
+        <!--  <%= javascript_include_tag "tabs.js"%>  -->
+        <%= javascript_include_tag "want_pictures.js"%>
+        <%= javascript_include_tag "horscroll.js"%>
+        <%= javascript_include_tag "page-switcher.js"%>
+        <%= javascript_include_tag "arrow.js"%>
+	
+		<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f0e4aba7158d569"></script>
+		<script src="//connect.facebook.net/en_US/all.js"></script>
+    </head>
+    <body>		
+    	
+
+    	    	
+   <div id="fb-root"></div>
+	<script>
+  	// Additional JS functions here
+  	window.fbAsyncInit = function() {
+   	 FB.init({
+      appId      : '282608235205757', // App ID
+      channelUrl : '//www.papitomarket.com', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+
+	  FB.getLoginStatus(function(response) {
+  		if (response.status === 'connected') {
+    	  	status: 'connected',
+    		authResponse: {
+        		accessToken: '...',
+        		expiresIn:'...',
+        		signedRequest:'...',
+        		userID:'...'
+    		}	
+    		puts "conectado"
+  		} else if (response.status === 'not_authorized') {
+  	  		login()
+	  	} else {
+	    	login();
+	  	}
+	  });
+    	// Additional init code here
+     };
+	
+	function login() {
+	    FB.login(function(response) {
+	        if (response.authResponse) {
+	            // connected
+	            testAPI();
+	        } else {
+	            // cancelled
+	        }
+	    });
+	}
+	
+	function testAPI() {
+    	console.log('Welcome!  Fetching your information.... ');
+    	FB.api('/me', function(response) {
+        	console.log('Good to see you, ' + response.name + '.');
+    	});
+	}
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+   </script>
+    	
+    	
+    	
+      <div id="arrow-left"></div>
+      <div id="star">
+        <img src="/images/star.png"/>
+      </div>
+      <div id="tutto" align="center">
+      	<div id="all">
+        	<%= erb :header %>
+      
+      		<div id="arrow-left">
+      			<a class="prev browse left">
+      				<img id="arrow-left-on" src="/images/arrowleft.png" onmouseover="switch_arrow('arrow-left-on');" onmouseout="switch_arrow('arrow-left-off');"  onclick="update_progress('prev');"/>
+      			</a>
+      		</div>
+        	<div id="middle" align="center">
+            <!-- 1st scrollable and its navigational actions are wrapped inside an extra DIV -->
+          		<div class="items" valign="center">
+            		<div class="item" name="Tutorial">
+              			<%= erb :tutorial %>
+            		</div>
+            		<div class="item" name="Company Data">
+						<%= erb :companydata %>
+            		</div>
+            		<div class="item" align="center" name="Stores">
+						<%= erb :stores %>
+            		</div>
+            		<div class="item" align="center" name="Products">
+                		<%= erb :products %>
+            		</div>
+            		<div class="item" align="center" name="Finish">
+                		<%= erb :finish %>
+            		</div>
+          		</div>
+          		
+      		</div>
+      		<input type="button" onclick="FB.login()" value="LogIn" id="add-to-bottom"/>
+      		<div id="arrow-right">
+      			<a class="next browse right">
+      				<img id="arrow-right-on" src="/images/arrowright.png" onmouseover="switch_arrow('arrow-right-on');" onmouseout="switch_arrow('arrow-right-off');"  onclick="update_progress('next');"/>
+      			</a>
+      		</div>
+			<div align="center">
+        		<%= erb :footer %>
+      		</div>
+     	</div>
+     </div>
+  </body>
+</html>

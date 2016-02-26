@@ -1,0 +1,15 @@
+development:
+api_key: 321194527954132 
+secret_key: 3afcc0c7f64805bb7cfb07fac38cd92b
+canvas_page_name: yourcanvashere 
+callback_url: http://getstuffclose.com:4567
+test:
+api_key: 321194527954132 
+secret_key: 3afcc0c7f64805bb7cfb07fac38cd92b
+canvas_page_name: yourcanvashere 
+callback_url: http://getstuffclose.com:4567
+production:
+api_key: 321194527954132 
+secret_key: 3afcc0c7f64805bb7cfb07fac38cd92b
+canvas_page_name: yourcanvashere 
+callback_url: http://getstuffclose.com:4567
