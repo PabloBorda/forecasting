@@ -23,7 +23,7 @@ God.watch do |w|
       text = "Process Finished <br> Process: AccuCheck <br> Start: " +
              take_time_start.to_json +
              "<br> Finish" +
-             take_time_finish.json +
+             take_time_finish.to_json +
              "<br> Duration: " +
              duration.to_json + 
              "Node Information: " + 
