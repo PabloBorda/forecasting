@@ -16,6 +16,7 @@ God.watch do |w|
       @logger.info(take_time_finish.to_json)      
       duration = {:type => "process_duration",:process_name => "accucheck", :finish => (Time.now - take_time_start[:start])}
       @logger.info(duration.to_json)    
+      
     end
   end
   w.log = "../logs/accucheck.log"
