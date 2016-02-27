@@ -17,7 +17,7 @@ God.watch do |w|
       @logger.info(take_time_finish.to_json)      
       duration = {:type => "process_duration",:process_name => "accucheck", :finish => (Time.now - take_time_start[:start])}
       @logger.info(duration.to_json)    
-      @email_service = EmailSender.get_instance
+      @email_service = ::Services::EmailSender.get_instance
       node_info = %x( ifconfig )
       text = "Process Finished <br> Process: AccuCheck <br> Start: " +
              take_time_start.to_json +
@@ -27,6 +27,7 @@ God.watch do |w|
              duration.to_json + 
              "Node Information: " + 
              node_info
+     @email_sender.send_email("pablotomasborda@gmail.com","process_notification@localhost",text)
     end
   end
   w.log = "../logs/accucheck.log"
