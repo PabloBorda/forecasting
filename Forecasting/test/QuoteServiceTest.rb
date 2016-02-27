@@ -60,7 +60,11 @@ class QuoteServiceTest < Test::Unit::TestCase
     assert(symbols.size>0,"Make sure there are many symbols")
   end
   
-  
+  def test_last_quote
+    last_quote = @quote_service.last_quote("AAPL")
+    assert((!last_quote.nil? and last_quote.close!=0),"last quote error")
+    
+  end
   
   
     

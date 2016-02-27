@@ -59,7 +59,10 @@ class MongoFinanceAPITest < Test::Unit::TestCase
     assert(symbols.size>0,"Make sure there are many symbols")
   end
   
-  
+  def test_last_quote
+    quote = @mongo_service.last_quote("AAPL")
+    assert((!quote.nil? and quote.close>0),"The las quote is erroneus")
+  end
   
   
     
