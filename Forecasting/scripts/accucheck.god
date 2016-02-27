@@ -1,4 +1,5 @@
 require 'logger'
+require 'json'
 require_relative '../services/EmailSender.rb'
 
 @logger = Logger.new('../logs/accucheck.log')
