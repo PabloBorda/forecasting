@@ -25,7 +25,10 @@ class EmailSender
        from     'contact@localhost'
        to       'pablotomasborda@gmail.com'
        subject  'Contact from alphabrokers'
-       body     input.to_s
+       html_part do
+         content_type 'text/html; charset=UTF-8'
+         body message.to_s
+       end
       end
          
     true
