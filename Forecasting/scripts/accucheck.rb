@@ -70,47 +70,70 @@ class Accucheck
             puts "AccuCheck for: " + forecast['algorithm_name']
 
             if @db[:Accuchecks].find({:symbol => f_parsed['symbol'],:date => f_last_quote.trade_date, :algorithm => forecast['algorithm_name'] }).to_a.size == 0
-              puts "NO EXISTING RECORD"
+              #puts "NO EXISTING RECORD"
               pivot_quote_trade_date = forecast['forecast']['quote']['trade_date']
               left_chunk_from_forecast_to_check = forecast['forecast'][' previous_n_quotes_chunk']
               right_chunk_from_forecast_to_check = forecast['forecast'][' next_n_quotes_chunk']
               #puts "RIGHT: " + forecast['forecast'][' next_n_quotes_chunk'].inspect
-              if !right_chunk_from_forecast_to_check.nil?
-                forecasted_quote = right_chunk_from_forecast_to_check.find do
+
+                
+                
+                
+                
+                
+                
+                
+                
+                forecasted_quotes = right_chunk_from_forecast_to_check.select do
                   |q|
-                  (q['trade_date'] == f_last_quote.trade_date)
+                  (Date.strptime(q['trade_date'],"%Y-%m-%d") <= Date.strptime(f_last_quote.trade_date,"%Y-%m-%d"))
                 end
-                if !forecasted_quote.nil? and forecasted_quote['close'].to_f>0
+               # puts "FORECASTED_QUOTES_VARS: " + forecasted_quotes.inspect
+                forecasted_quotes.each do
+                  |forecasted_quote|
+                  
+                  if !forecasted_quote.nil? and forecasted_quote['close'].to_f>0
+                    #puts "forecasted_quote: " + forecasted_quote.inspect
+                    #puts "real quote value: " + f_last_quote.inspect
+                    puts "PREDICTED: " + Quote.from_openstruct(f_last_quote.to_json).inspect
+                    puts "REAL: " + Quote.from_openstruct(forecasted_quote.to_json).inspect
 
-                  puts "forecasted_quote: " + forecasted_quote.inspect
-                  puts "real quote value: " + f_last_quote.inspect
-
-                  difference = class_from_string(forecast['algorithm_name']).accucheck_me(Quote.from_openstruct(f_last_quote.to_json),Quote.from_openstruct(forecasted_quote.to_json))
-
-                  if !difference.nil?
-
-                    accuracy_row = { :symbol => f_parsed['symbol'],
-                      :algorithm => forecast['algorithm_name'],
-                      :date => f_last_quote.trade_date,
-                      :real_quote => Quote.from_openstruct(f_last_quote).to_hash,
-                      :forecasted_quote => Quote.from_openstruct(forecasted_quote).to_hash,
-                      :difference => difference.to_hash
-                    }
-
-                    #puts accuracy_row.to_json
-
-                    puts "INSERTING: " + accuracy_row.inspect
-                    begin
-                      @db[:Accuchecks].insert_one(accuracy_row)  # Here should go the mongo insert
-                    rescue
-                      puts "ERROR INSERTING " + accuracy_row.inspect
+                    difference = class_from_string(forecast['algorithm_name']).accucheck_me(Quote.from_openstruct(f_last_quote.to_json),Quote.from_openstruct(forecasted_quote.to_json))
+                    puts "DIFFERENCE! " + difference.inspect
+                    if !difference.nil?
+                    
+                       accuracy_row = { :symbol => f_parsed['symbol'],
+                       :algorithm => forecast['algorithm_name'],
+                       :date => f_last_quote.trade_date,
+                       :real_quote => Quote.from_openstruct(f_last_quote).to_hash,
+                       :forecasted_quote => Quote.from_openstruct(forecasted_quote).to_hash,
+                       :difference => difference.to_hash
+                      }
+                    
+                      #puts accuracy_row.to_json
+                    
+                   #   puts "INSERTING: " + accuracy_row.inspect
+                      begin
+                        @db[:Accuchecks].insert_one(accuracy_row)  # Here should go the mongo insert
+                      rescue
+                        puts "ERROR INSERTING " + accuracy_row.inspect
+                      end
+                      insertion_counter = insertion_counter + 1                  
                     end
-                    insertion_counter = insertion_counter + 1
-
-                  end
-                else
-                  puts "FORECASTED_QUOTE_NOT_FOUND!"
+                  else
+                    puts "FORECASTED_QUOTE_NOT_FOUND!"
+                  end                                                                
                 end
+                  
+                           
+                
+                
+                
+                
+                
+                
+                
+                
 
               end
             end
@@ -120,7 +143,7 @@ class Accucheck
       end
     end
 
-  end
+  
 
   private
   
