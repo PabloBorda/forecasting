@@ -45,9 +45,9 @@ class QuoteServiceTest < Test::Unit::TestCase
   
   
   def test_all_history_between
-    quotes = @quote_service.all_history_between("AAPL",{ start_date: Time::now-(24*60*60*4), end_date: Time::now }) 
+    quotes = @quote_service.all_history_between("AAPL",{ start_date: Time::now-(24*60*60*5), end_date: Time::now }) 
     puts "quotes: " + quotes.size.to_s
-    puts "all_history_between" + quotes.to_json
+    puts "all_history_between" + quotes.to_j
     assert(quotes.size>0,"Many quotes were returned")
 
     
@@ -62,8 +62,17 @@ class QuoteServiceTest < Test::Unit::TestCase
   
   def test_last_quote
     last_quote = @quote_service.last_quote("AAPL")
+    puts "LAST_QUOTE " + last_quote.inspect
     assert((!last_quote.nil? and last_quote.close!=0),"last quote error")
     
+  end
+  
+  
+  
+  def test_get_quote_for_date
+    my_quote = @quote_service.get_quote_for_symbol_date("AAPL",Time.strptime("2016-03-10",'%Y-%m-%d'))
+    puts "quote for date is " + my_quote.inspect
+    assert(!my_quote.nil?,"Wrong quote")
   end
   
   

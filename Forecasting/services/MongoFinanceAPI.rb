@@ -67,6 +67,15 @@ class MongoFinanceAPI
   def get_previous_quote(symbol)
     @mongo_client[:Quotes].find({:symbol => symbol}).to_a[0][:history][-2]
   end
+  
+  
+  def get_quote_for_symbol_date(symbol,at)
+    quote_for_date = @mongo_client[:Quotes].find({:symbol => symbol}).to_a[0][:history].find do |quote|  
+      Time.strptime(Quote.from_openstruct(quote).trade_date,'%Y-%m-%d') == at  
+    end  
+    quote_for_date
+  end
+  
 
   private
 

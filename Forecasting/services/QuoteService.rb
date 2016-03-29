@@ -69,7 +69,7 @@ module Forecasting
       def all_history_between(symbol,period)
         source_num = 0
         previous_quote = @@sources[source_num].all_history_between(symbol,period)
-        while previous_quote.nil?
+        while previous_quote.size==0
           source_num = source_num + 1
           previous_quote = @@sources[source_num].all_history_between(symbol,period)
         end
@@ -106,6 +106,19 @@ module Forecasting
         end
         previous_quote
 
+      end
+      
+      
+      
+      def get_quote_for_symbol_date(symbol,at)
+        
+        source_num = 0
+        previous_quote = @@sources[source_num].get_quote_for_symbol_date(symbol,at)
+        while previous_quote.nil?
+          source_num = source_num + 1
+          previous_quote = @@sources[source_num].get_quote_for_symbol_date(symbol,at)
+        end
+        previous_quote
       end
 
       private

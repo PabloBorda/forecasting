@@ -112,6 +112,22 @@ class YahooFinanceAPI
  
  
  
+ def get_quote_for_symbol_date(symbol,at)
+   puts "SYMBOL: " + symbol.to_s
+   get_quotes = @yahoo_client.historical_quotes(symbol,{start_date: at-(24*60*60*3), end_date: at+(24*60*60*1) })
+   my_quote = get_quotes.find do 
+     |q|
+     Time.strptime(Quote.from_openstruct(q).trade_date,"%Y-%m-%d")==at
+   end
+   
+   return Quote.from_openstruct(my_quote)
+   
+   
+   
+ end
+ 
+ 
+ 
  
   
   private

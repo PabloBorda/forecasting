@@ -1,5 +1,6 @@
 require_relative '../model/Point.rb'
 require_relative '../model/Chunk.rb'
+require_relative '../model/Quote.rb'
 
 module Forecasting
   class DeltaForecaster < Forecaster
@@ -28,7 +29,7 @@ module Forecasting
         company = Company.new(q1.symbol)
         previous_quote_to_current_one = company.get_previous_quote
         if !previous_quote_to_current_one.nil?
-          forecasted_result =  previous_quote_to_current_one + q2
+          forecasted_result =  Quote.from_openstruct(previous_quote_to_current_one) + q2
           return (q1 - forecasted_result)
         else
           return nil

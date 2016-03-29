@@ -29,7 +29,7 @@ class MongoFinanceAPITest < Test::Unit::TestCase
   
   def test_all_history
     history = @mongo_service.all_history("AAPL")    
-    assert((history.to_a.size > 0),("There are " + history.to_a.size.to_s + " elements.")) 
+    assert((history.size > 0),("There are " + history.size.to_s + " elements."))
   end
   
   
@@ -61,8 +61,18 @@ class MongoFinanceAPITest < Test::Unit::TestCase
   
   def test_last_quote
     quote = @mongo_service.last_quote("AAPL")
+    puts "LAST QUOTE" + quote.inspect
     assert((!quote.nil? and quote.close>0),"The las quote is erroneus")
   end
+  
+  
+  def test_get_quote_for_date
+    my_quote = @mongo_service.get_quote_for_symbol_date("AAPL",Time.strptime("2016-03-10",'%Y-%m-%d'))
+    puts "quote for date is " + my_quote.inspect
+    assert(!my_quote.nil?,"Wrong quote")
+  end
+  
+  
   
   
     

@@ -59,10 +59,23 @@ class YahooFinanceAPITest < Test::Unit::TestCase
     assert(symbols.size>0,"Make sure there are many symbols")
   end
   
-  
-  
-  
+  def test_get_last_quote
+    last_quote = @yahoo.last_quote("AAPL")
+    puts "LAST_QUOTE " + last_quote.inspect
+    assert(!last_quote.nil?,"Last quote is nil")
     
+  end
+  
+  
+  def test_get_quote_for_date
+    my_quote = @yahoo.get_quote_for_symbol_date("AAPL",Time.strptime("2016-03-10",'%Y-%m-%d'))
+    puts "quote for date is " + my_quote.inspect
+    assert(!my_quote.nil?,"Wrong quote")
+  end
+  
+  
+  
+      
 end
 
 
