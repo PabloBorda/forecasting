@@ -34,3 +34,36 @@ db.getCollection('Accuchecks').aggregate({
         accuracy: { $avg: "$difference.close"}
      }
 })
+
+
+
+
+
+
+select symbol, algorithm, AVG(amount) as average
+from Accucheck
+group by symbol, algorithm
+order by desc average
+
+
+
+
+
+db.getCollection('Accuchecks').aggregate([
+
+{
+ $group:    
+    {
+        _id: {
+           symbol: "$symbol",
+           algorithm: "$algorithm"
+        },
+        average_error: { $avg: "$difference.close"}
+     }
+ },
+ 
+ { $sort: { average_error: -1 } }
+
+
+
+])
