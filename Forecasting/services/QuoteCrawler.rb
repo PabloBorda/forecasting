@@ -24,6 +24,7 @@ module  Forecasting
 
       def crawl
         @symbols.each do |s|
+          insertion_counter = 0
           existing_symbol = @db[:Quotes].find({:symbol => s}) 
           if (existing_symbol.to_a.size==0)
             history = @source.all_history(s)
@@ -39,8 +40,12 @@ module  Forecasting
 
               }
             
-            
-              @db[:Quotes].insert_one(q)                
+              if insertion_counter==0
+                @db[:Quotes].insert_one(q)
+                insertion_counter = insertion_counter + 1
+              else
+                insertion_counter = 0
+              end                
             else
               puts "Connection to yahoo finance failed for symbol: " + s
             end
