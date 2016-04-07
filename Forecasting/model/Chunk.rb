@@ -19,6 +19,26 @@ module Forecasting
 
     end
 
+
+    
+    
+    def min_historic_value
+      ::Forecasting::Quote::from_openstruct(@chunk_data.min do |p,q|
+                                              p[:close] <=> q[:close]
+                                            end)                                                                                                   
+    end
+    
+    def max_historic_value
+      ::Forecasting::Quote::from_openstruct(@chunk_data.max do |p,q|
+                                              p[:close] <=> q[:close]
+                                            end)                                                                                                   
+    end    
+    
+    
+    
+    
+    
+    
     def set_future_dates_in_all_quotes
       current_trade_date = Date.today - 1
       @chunk_data = @chunk_data.map {|q|
