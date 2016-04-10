@@ -34,7 +34,7 @@ class MinHistoricCurrentQuoteDifferenceReport < Reporter
 
     pages = (count/page_size).round
 
-    pages.times.each do |i|
+    1.times.each do |i|
 
       puts "Processing page " + i.to_s + " of " + pages.to_s
  
@@ -44,6 +44,8 @@ class MinHistoricCurrentQuoteDifferenceReport < Reporter
  
         min_quote_in_history = history.min_historic_value
         max_quote_in_history = history.max_historic_value
+        
+        
         
         #puts "The min quote for " + f[:symbol] + " is " + min_quote_in_history.inspect
       
@@ -56,8 +58,20 @@ class MinHistoricCurrentQuoteDifferenceReport < Reporter
 
           if !difference.nil?          
 
-            differences.push({:symbol => f[:symbol],:current => JSON.parse(::Forecasting::Quote.from_openstruct(last_quote).to_j),:diff => difference,:max_threshold => (max_quote_in_history-min_quote_in_history)})
-
+            myd = {:symbol => f[:symbol],
+                 :current => JSON.parse(::Forecasting::Quote.from_openstruct(last_quote).to_j),
+                 :diff => difference,
+                 :max_threshold => JSON.parse((max_quote_in_history-min_quote_in_history).to_j),
+                 :max=>JSON.parse(max_quote_in_history.to_j),
+                 :min=>JSON.parse(min_quote_in_history.to_j),
+                 :time_between_min_max=> (Date.strptime(max_quote_in_history.trade_date,"%Y-%m-%d") - Date.strptime(min_quote_in_history.trade_date,"%Y-%m-%d")).to_i.to_s 
+                }
+            
+            if (differences.select{ |e| e.hash==myd.hash  }.size==0) and (myd[:time_between_min_max].to_i>0)
+              differences.push(myd)
+            end
+            
+            
           end
 
         else
@@ -72,11 +86,22 @@ class MinHistoricCurrentQuoteDifferenceReport < Reporter
 
     output = File.open( "report-mins-" + Date.today.to_s + ".json" ,"w" )
     
-    output << differences.sort_by{|d| d[:diff] }.reverse.sort_by{|d| d[:max_threshold]}.reverse.to_json
+    puts "Writing file...."
+    
+    # sort by least difference with current quote
+    # sort by the max amount earned between min and max values
+    # sort by the shortest time first
+    
+    
+    
+    output << differences.sort_by{|d| ::Forecasting::Quote.from_openstruct(d[:diff]) }.
+                          sort_by{|d|  ::Forecasting::Quote.from_openstruct(d[:max_threshold])}.
+                          reverse.sort_by{|d| d[:time_between_min_max].to_i.abs.to_s }.
+                          to_json
     
     output.close
     
-    
+    puts "File written !!"
   end
   
   
