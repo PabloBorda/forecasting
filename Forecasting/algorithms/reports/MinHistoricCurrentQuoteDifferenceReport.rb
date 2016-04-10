@@ -30,25 +30,40 @@ class MinHistoricCurrentQuoteDifferenceReport < Reporter
  
     count = @db[:Forecasts].count()
 
-    pages = (count/10).round
+    page_size = 20
 
-    page_size = 50
+    pages = (count/page_size).round
 
     pages.times.each do |i|
+
+      puts "Processing page " + i.to_s + " of " + pages.to_s
  
-    
-  
       @db[:Forecasts].find({}).skip(i*page_size).limit(page_size).to_a.each do |f|
-     
-        min_quote_in_history = min_historic_value(f[:history])
+    
+        history = ::Forecasting::Chunk.new(f[:history])
+ 
+        min_quote_in_history = history.min_historic_value
+        max_quote_in_history = history.max_historic_value
+        
         #puts "The min quote for " + f[:symbol] + " is " + min_quote_in_history.inspect
       
         last_quote = get_last_quote(f[:symbol])
         #puts "The last quote for " + f[:symbol] + " is " + last_quote.inspect
         
-        difference = ::Forecasting::Quote.from_openstruct(min_quote_in_history) - ::Forecasting::Quote.from_openstruct(last_quote)
+        if (!min_quote_in_history.nil? and !last_quote.nil? and !max_quote_in_history.nil?)
 
-        differences.push(difference)
+          difference = JSON.parse((min_quote_in_history - ::Forecasting::Quote::from_openstruct(last_quote)).to_j)
+
+          if !difference.nil?          
+
+            differences.push({:symbol => f[:symbol],:current => JSON.parse(::Forecasting::Quote.from_openstruct(last_quote).to_j),:diff => difference,:max_threshold => (max_quote_in_history-min_quote_in_history)})
+
+          end
+
+        else
+          puts "There is an error calculating the difference for symbol: " + f[:symbol]
+ 
+        end
 
     
       end 
@@ -57,7 +72,7 @@ class MinHistoricCurrentQuoteDifferenceReport < Reporter
 
     output = File.open( "report-mins-" + Date.today.to_s + ".json" ,"w" )
     
-    output << differences.sort.to_json
+    output << differences.sort_by{|d| d[:diff] }.reverse.sort_by{|d| d[:max_threshold]}.reverse.to_json
     
     output.close
     
@@ -68,11 +83,8 @@ class MinHistoricCurrentQuoteDifferenceReport < Reporter
   
   private
   
-  def min_historic_value(history)
-    history.min do |p,q|
-      p[:close] <=> q[:close]
-    end    
-  end
+
+
   
   def get_last_quote(symbol)
     lastq = @service.last_quote(symbol)
