@@ -3,8 +3,8 @@
 require_relative "../algorithms/reports/MinHistoricCurrentQuoteDifferenceReport.rb"
 
 
-@reporter = MinHistoricCurrentQuoteDifferenceReport.new
+reporter = ::Reports::MinHistoricCurrentQuoteDifferenceReport.new
 
-@reporter.run
+reporter.run
     
   

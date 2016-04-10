@@ -34,7 +34,7 @@ class MinHistoricCurrentQuoteDifferenceReport < Reporter
 
     pages = (count/page_size).round
 
-    1.times.each do |i|
+    pages.times.each do |i|
 
       puts "Processing page " + i.to_s + " of " + pages.to_s
  
