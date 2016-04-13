@@ -23,6 +23,7 @@ module  Forecasting
       end
 
       def crawl
+        fails = 0
         @symbols.each do |s|
           insertion_counter = 0
           existing_symbol = @db[:Quotes].find({:symbol => s}) 
@@ -30,6 +31,7 @@ module  Forecasting
             history = @source.all_history(s)
             history_j = ""
             if !history.nil?
+              fails = 0
               history_j = history.to_j
 
               q = {
@@ -47,7 +49,11 @@ module  Forecasting
                 insertion_counter = 0
               end                
             else
+              fails = fails + 1
               puts "Connection to yahoo finance failed for symbol: " + s
+              if fails > 10
+                abort("FAILURE TO GET QUOTES - WAIT 5 HOURS")
+              end
             end
           else
             # Get only the missing quotes from the last_update on and append them to the history array and save
