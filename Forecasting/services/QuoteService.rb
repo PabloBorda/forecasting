@@ -49,7 +49,7 @@ module Forecasting
       def get_split_dates(symbol)
         source_num = 0
         previous_quote = @@sources[source_num].get_split_dates(symbol)
-        while (previous_quote.nil? or previous_quote.is_neutral?)  
+        while (previous_quote.nil?)  
           source_num = source_num + 1
           previous_quote = @@sources[source_num].get_split_dates(symbol)
         end
