@@ -27,7 +27,7 @@ module Forecasting
       def get_previous_quote(symbol)
         source_num = 0
         previous_quote = @@sources[source_num].get_previous_quote(symbol)
-        while previous_quote.nil?
+        while (previous_quote.nil? or previous_quote.is_neutral?)  
           source_num = source_num + 1
           previous_quote = @@sources[source_num].get_previous_quote(symbol)
         end
@@ -38,7 +38,7 @@ module Forecasting
         source_num = 0
         puts "CLASS IS" + @@sources.class.to_s
         previous_quote = @@sources[source_num].all_history(symbol)
-        while previous_quote.nil?
+        while (previous_quote.nil? or previous_quote.is_neutral?)  
           source_num = source_num + 1
           previous_quote = @@sources[source_num].all_history(symbol)
         end
@@ -49,7 +49,7 @@ module Forecasting
       def get_split_dates(symbol)
         source_num = 0
         previous_quote = @@sources[source_num].get_split_dates(symbol)
-        while previous_quote.nil?
+        while (previous_quote.nil? or previous_quote.is_neutral?)  
           source_num = source_num + 1
           previous_quote = @@sources[source_num].get_split_dates(symbol)
         end
@@ -59,7 +59,7 @@ module Forecasting
       def get_last_split_date(symbol)
         source_num = 0
         previous_quote = @@sources[source_num].get_last_split_date(symbol)
-        while previous_quote.nil?
+        while (previous_quote.nil? or previous_quote.is_neutral?)  
           source_num = source_num + 1
           previous_quote = @@sources[source_num].get_last_split_date(symbol)
         end
@@ -79,7 +79,7 @@ module Forecasting
       def current_quote_realtime(symbol)
         source_num = 0
         previous_quote = @@sources[source_num].current_quote_realtime(symbol)
-        while previous_quote.nil?
+        while (previous_quote.nil? or previous_quote.is_neutral?)  
           source_num = source_num + 1
           previous_quote = @@sources[source_num].current_quote_realtime(symbol)
         end
@@ -90,7 +90,7 @@ module Forecasting
         source_num = 0
         previous_quote = @@sources[source_num].last_quote(symbol)
         puts "PREVIOUSQUOTE: " + previous_quote.inspect
-        while previous_quote.nil?          
+        while (previous_quote.nil? or previous_quote.is_neutral?)          
           source_num = source_num + 1
           previous_quote = @@sources[source_num].last_quote(symbol)
         end
@@ -100,7 +100,7 @@ module Forecasting
       def get_all_us_symbols
         source_num = 0
         previous_quote = @@sources[source_num].get_all_us_symbols
-        while previous_quote.nil?
+        while (previous_quote.nil? or previous_quote.is_neutral?)  
           source_num = source_num + 1
           previous_quote = @@sources[source_num].get_all_us_symbols
         end
@@ -114,7 +114,7 @@ module Forecasting
         
         source_num = 0
         previous_quote = @@sources[source_num].get_quote_for_symbol_date(symbol,at)
-        while previous_quote.nil?
+        while (previous_quote.nil? or previous_quote.is_neutral?)  
           source_num = source_num + 1
           previous_quote = @@sources[source_num].get_quote_for_symbol_date(symbol,at)
         end

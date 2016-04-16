@@ -39,6 +39,7 @@ module Forecasting
       self.from_openstruct(quote_hash)
 
     end
+    
 
     def self.from_json_string(quote_json_string)
       self.from_openstruct(JSON.parse(quote_json_string))
@@ -73,6 +74,11 @@ module Forecasting
       Quote.new(Time.now.strftime("%Y-%m-%d").to_s,'0'.to_f.round(2),'0'.to_f.round(2),'0'.to_f.round(2),'0'.to_f.round(2),'0'.to_i,'0'.to_f.round(2),@symbol)
     end
 
+    def is_neutral?
+      self.close.to_i==0
+    end
+    
+    
     def to_row
 
       a = "<tr><td>" + self.symbol.to_s + "</td><td>" + self.trade_date.to_s + "</td><td>" + self.open.to_s +  "</td><td>"  + self.close.to_s + "</td><td>" + self.high.to_s + "</td><td>" + self.low.to_s + "</td><td>" + self.volume.to_s + "</td><td>" + self.adjusted_close.to_s + "</td></tr>"
