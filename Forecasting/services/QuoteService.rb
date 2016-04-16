@@ -94,6 +94,7 @@ module Forecasting
           source_num = source_num + 1
           puts "LASTUPDATE " + @@sources[source_num].inspect
           previous_quote = @@sources[source_num].last_quote(symbol)
+          puts "PREVIOUSQUOTE " + previous_quote.inspect
         end
         previous_quote
       end
