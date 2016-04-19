@@ -93,8 +93,10 @@ module Forecasting
         while (previous_quote.nil? or previous_quote.is_neutral?) and (source_num < @@sources.size)         
           source_num = source_num + 1
           puts "LASTUPDATE " + @@sources[source_num].inspect
-          previous_quote = @@sources[source_num].last_quote(symbol)
-          puts "PREVIOUSQUOTE " + previous_quote.inspect
+          if !@@sources[source_num].nil?
+            previous_quote = @@sources[source_num].last_quote(symbol)
+            puts "PREVIOUSQUOTE " + previous_quote.inspect
+          end
         end
         previous_quote
       end
