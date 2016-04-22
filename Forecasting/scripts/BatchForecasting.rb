@@ -2,11 +2,11 @@ require_relative '../model/Chunk.rb'
 require_relative '../model/Company.rb'
 require_relative '../model/Point.rb'
 require_relative '../model/Quote.rb'
-require_relative 'algorithms/selectors/DrawSelector.rb'
-require_relative 'algorithms/Forecaster.rb'
-require_relative 'algorithms/AvgForecaster.rb'
-require_relative 'algorithms/DeltaForecaster.rb'
-load 'Files/symbols.rb'
+require_relative '../algorithms/selectors/DrawSelector.rb'
+require_relative '../algorithms/Forecaster.rb'
+require_relative '../algorithms/AvgForecaster.rb'
+require_relative '../algorithms/DeltaForecaster.rb'
+load '../Files/symbols.rb'
 require 'date'
 require 'json'
 require 'rubygems'
@@ -48,7 +48,7 @@ class BatchForecasting
   
   def run(amount_of_days)
     
-    @last_symbol = File.open('Files/last_symbol.rb',"rb").read
+    @last_symbol = File.open('../Files/last_symbol.rb',"rb").read
 
     puts "LAST SYMBOL: " + @last_symbol
     
@@ -60,9 +60,13 @@ class BatchForecasting
 
     puts "THE INDEX IS: " + index.to_s    
     count_insert = 1
-    
+   
+    total_symbols = -1
+    symbols_size = @symbols[index..-1].size
     @symbols[index..-1].each do |s|
-      
+      total_symbols = total_symbols + 1
+      puts "PROGRESS, SYMBOL: " + s + " NUMBER: " +  total_symbols.to_s + " OF " + symbols_size.to_s
+    
       company = Forecasting::Company.new(s)
       company_history = company.all_history
       
@@ -106,7 +110,7 @@ class BatchForecasting
       
       company = nil
       company_history = nil
-      File.open("Files/last_symbol.rb", 'w') {|f| f.write(s) }
+      File.open("../Files/last_symbol.rb", 'w') {|f| f.write(s) }
       count_insert = 1  
       
     end

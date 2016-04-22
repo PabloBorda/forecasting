@@ -28,7 +28,10 @@ module  Forecasting
           insertion_counter = 0
           existing_symbol = @db[:Quotes].find({:symbol => s}) 
           if (existing_symbol.to_a.size==0)
+            time_to_get_all_history_start = Time::now
             history = @source.all_history(s)
+            time_to_get_all_history = Time::now - time_to_get_all_history_start
+            puts "Time to get all history is: " + time_to_get_all_history.to_s
             history_j = ""
             if !history.nil?
               fails = 0

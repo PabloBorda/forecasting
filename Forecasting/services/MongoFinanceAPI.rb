@@ -59,9 +59,14 @@ class MongoFinanceAPI
 
   def last_quote(symbol)   
    # puts "LAST QUOTEEEEE" 
-    quote = @mongo_client[:Quotes].find({:symbol => symbol}).to_a[0][:history][0]    
-   # puts "**********************************" + quote.inspect
-    Quote.from_ruby_hash(JSON.parse(quote.to_json))
+    quote = @mongo_client[:Quotes].find({:symbol => symbol}).to_a[0]
+    if !quote.nil?
+      quote_last_from_history = quote[:history][0]    
+     # puts "**********************************" + quote.inspect
+      Quote.from_ruby_hash(JSON.parse(quote.to_json))
+    else
+      Quote.neutral_element
+    end
   end
 
   def get_previous_quote(symbol)

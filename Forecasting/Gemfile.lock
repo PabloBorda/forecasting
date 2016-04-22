@@ -24,6 +24,8 @@ GEM
     json (1.8.3)
     json (1.8.3-java)
     logger (1.2.8)
+    mail (2.6.4)
+      mime-types (>= 1.16, < 4)
     mechanize (2.7.3)
       domain_name (~> 0.5, >= 0.5.1)
       http-cookie (~> 1.0)
@@ -87,6 +89,7 @@ DEPENDENCIES
   god
   json
   logger
+  mail
   mechanize
   mongo
   mongoid

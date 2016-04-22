@@ -14,6 +14,7 @@ module Forecasting
 
     attr_accessor :previous_n_quotes_chunk
     attr_accessor :next_n_quotes_chunk
+    attr_accessor :quote
     attr_accessor :amount_of_samples
     def initialize(quote,previous_n_quotes_chunk,next_n_quotes_chunk)
       if (!quote.nil? and !previous_n_quotes_chunk.nil? and !next_n_quotes_chunk.nil?)
