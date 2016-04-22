@@ -6,7 +6,7 @@ require_relative '../algorithms/selectors/DrawSelector.rb'
 require_relative '../algorithms/Forecaster.rb'
 require_relative '../algorithms/AvgForecaster.rb'
 require_relative '../algorithms/DeltaForecaster.rb'
-load '../Files/symbols.rb'
+require_relative '../Files/symbols.rb'
 require 'date'
 require 'json'
 require 'rubygems'
@@ -47,8 +47,8 @@ class BatchForecasting
   
   
   def run(amount_of_days)
-    
-    @last_symbol = File.open('../Files/last_symbol.rb',"rb").read
+    puts "DIR: " + Dir.pwd
+    @last_symbol = File.open("Files/last_symbol.rb","rb").read
 
     puts "LAST SYMBOL: " + @last_symbol
     
@@ -110,7 +110,7 @@ class BatchForecasting
       
       company = nil
       company_history = nil
-      File.open("../Files/last_symbol.rb", 'w') {|f| f.write(s) }
+      File.open("Files/last_symbol.rb", 'w') {|f| f.write(s) }
       count_insert = 1  
       
     end
