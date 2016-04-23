@@ -35,7 +35,7 @@ class MongoFinanceAPI
     
   history = @mongo_client[:Quotes].find({:symbol => symbol}).to_a[0][:history].nil? rescue true
     
-  unless res
+  unless history
     Chunk.new(@mongo_client[:Quotes].find({:symbol => symbol}).to_a[0][:history].map do |qhash|
                     Quote.from_ruby_hash(JSON.parse(qhash.to_json))
           
