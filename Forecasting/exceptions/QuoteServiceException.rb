@@ -1,0 +1,3 @@
+class QuoteServiceException < StandardError
+  
+end
