@@ -62,7 +62,7 @@ class MongoFinanceAPITest < Test::Unit::TestCase
   def test_last_quote
     quote = @mongo_service.last_quote("AAPL")
     puts "LAST QUOTE" + quote.inspect
-    assert((!quote.nil? and quote.close>0),"The las quote is erroneus")
+    assert((!quote.nil? and quote.close>0),"The last quote is erroneus")
   end
   
   
