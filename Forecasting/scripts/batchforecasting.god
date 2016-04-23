@@ -36,7 +36,7 @@ God.watch do |w|
              
      @email_service.send_email("pablotomasborda@gmail.com","process_notification@localhost",text)
     end
-    on.condition(:process_starts) do |c|
+    on.condition(:process_running) do |c|
       @email_service = ::Services::EmailSender.get_instance
       node_info = %x( ifconfig )
       text = "<b>Process Started</b> <br> <b>Process: BatchForecasting</b> <br> Start: " +
