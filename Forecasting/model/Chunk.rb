@@ -10,13 +10,14 @@ module Forecasting
 
     @selector
     def initialize(chunk)
-      if (chunk.class.to_s.include? "Chunk")
-        puts "YOU INSERTING A CHUNK!"
+      if !chunk.nil?
+        if (chunk.class.to_s.include? "Chunk")
+          puts "YOU INSERTING A CHUNK!"
+        end
+        @chunk_data = chunk.compact
+  
+        @selector = DrawSelector.new(self)
       end
-      @chunk_data = chunk.compact
-
-      @selector = DrawSelector.new(self)
-
     end
 
 
