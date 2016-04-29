@@ -48,7 +48,7 @@ class BatchForecasting
   
   def run(amount_of_days)
     puts "DIR: " + Dir.pwd
-    @last_symbol = File.open("Files/last_symbol.rb","rb").read
+    @last_symbol = File.open("../Files/last_symbol.rb","rb").read
 
     puts "LAST SYMBOL: " + @last_symbol
     
@@ -110,7 +110,7 @@ class BatchForecasting
       
       company = nil
       company_history = nil
-      File.open("Files/last_symbol.rb", 'w') {|f| f.write(s) }
+      File.open("../Files/last_symbol.rb", 'w') {|f| f.write(s) }
       count_insert = 1  
       
     end

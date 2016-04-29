@@ -56,7 +56,7 @@ class MinHistoricCurrentQuoteDifferenceReport < Reporter
           
           if (!min_quote_in_history.nil? and !last_quote.nil? and !max_quote_in_history.nil?)
   
-            difference = JSON.parse((min_quote_in_history - ::Forecasting::Quote::from_openstruct(last_quote)).to_j)
+            difference = JSON.parse((::Forecasting::Quote::from_openstruct(last_quote) - min_quote_in_history).to_j)
   
             if !difference.nil?          
   
