@@ -24,15 +24,20 @@ module Forecasting
     
     
     def min_historic_value
-      ::Forecasting::Quote::from_openstruct(@chunk_data.min do |p,q|
-                                              p[:close] <=> q[:close]
-                                            end)                                                                                                   
+      min = @chunk_data.min_by do |p|
+        p["close"]
+      end
+      
+      puts "MINIMUM: " + min.inspect
+      ::Forecasting::Quote::from_openstruct(min)                                                                                                   
     end
     
     def max_historic_value
-      ::Forecasting::Quote::from_openstruct(@chunk_data.max do |p,q|
-                                              p[:close] <=> q[:close]
-                                            end)                                                                                                   
+      max = @chunk_data.max_by do |p|
+        p["close"]
+      end
+      puts "MAXIMUM: " + max.inspect
+      ::Forecasting::Quote::from_openstruct(max)                                                                                                   
     end    
     
     
