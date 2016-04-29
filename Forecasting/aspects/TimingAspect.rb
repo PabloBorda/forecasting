@@ -9,7 +9,7 @@ class TimingAspect < Aspector::Base
 
   around ALL_METHODS, except: :class, method_arg: true do |method, proxy, *args, &block|
     class_method = "#{self.class}.#{method}"
-    #puts "Entering #{class_method}: #{args.join(',')}"
+    puts Time::now.to_s + "| Entering #{class_method}: #{args.join(',')}"
     before_time = Time::now
     result = proxy.call(*args, &block)
     after_time = Time::now - before_time
