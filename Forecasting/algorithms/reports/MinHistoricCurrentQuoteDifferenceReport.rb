@@ -51,6 +51,9 @@ class MinHistoricCurrentQuoteDifferenceReport < Reporter
             min_quote_in_history = history.min_historic_value
             max_quote_in_history = history.max_historic_value
             
+            if min_quote_in_history >= max_quote_in_history
+              puts "LAPUTA MADRE QUE PASAAAAAA"
+            end
            
             puts "HISTORY: " + history.to_j
             

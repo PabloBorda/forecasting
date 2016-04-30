@@ -25,6 +25,7 @@ module Forecasting
     
     def min_historic_value
       min = @chunk_data.min_by do |p|
+       # puts "COMPARING MIN" + p.inspect
         p["close"]
       end
       
@@ -34,6 +35,8 @@ module Forecasting
     
     def max_historic_value
       max = @chunk_data.max_by do |p|
+        #puts "COMPARING MAX" + p.inspect
+
         p["close"]
       end
       puts "MAXIMUM: " + max.inspect
