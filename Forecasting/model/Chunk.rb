@@ -26,7 +26,7 @@ module Forecasting
     def min_historic_value
       min = @chunk_data.min_by do |p|
        # puts "COMPARING MIN" + p.inspect
-        p["close"]
+        p["close"].to_f
       end
       
       puts "MINIMUM: " + min.inspect
@@ -37,13 +37,19 @@ module Forecasting
       max = @chunk_data.max_by do |p|
         #puts "COMPARING MAX" + p.inspect
 
-        p["close"]
+        p["close"].to_f
       end
       puts "MAXIMUM: " + max.inspect
       ::Forecasting::Quote::from_openstruct(max)                                                                                                   
     end    
     
-    
+    def get_close_history_sequence
+      @chunk_data.collect do
+        |a|
+        a["close"]
+                   
+      end
+    end
     
     
     
