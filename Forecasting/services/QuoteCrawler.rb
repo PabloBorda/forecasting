@@ -24,7 +24,8 @@ module  Forecasting
 
       def crawl
         fails = 0
-        @symbols.each do |s|
+        @symbols.each_with_index do |s,i|
+          puts "VISITING SYMBOL " + s + " NUMBER " + i.to_s + " OF " + @symbols.size.to_s
           insertion_counter = 0
           existing_symbol = @db[:Quotes].find({:symbol => s}) 
           if (existing_symbol.to_a.size==0)
@@ -77,7 +78,7 @@ module  Forecasting
             end 
           end
         end
-        
+        puts "AMOUNT OF FAILED SYMBOLS: " + failed.to_s + " OF " + @symbols.size.to_s
 
       end
 
