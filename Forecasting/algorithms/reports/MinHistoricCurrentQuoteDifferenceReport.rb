@@ -61,8 +61,11 @@ class MinHistoricCurrentQuoteDifferenceReport < Reporter
             
               last_quote = get_last_quote(f[:symbol])
               #puts "The last quote for " + f[:symbol] + " is " + last_quote.inspect
-            
-              if (!min_quote_in_history.nil? and !last_quote.nil? and !max_quote_in_history.nil?)
+                          
+              if (!min_quote_in_history.nil? and 
+                  !last_quote.nil? and 
+                  !max_quote_in_history.nil? and 
+                  last_quote.close.to_f!=0)
       
                 difference = JSON.parse((::Forecasting::Quote::from_openstruct(last_quote) - min_quote_in_history).to_j)
       
@@ -88,6 +91,7 @@ class MinHistoricCurrentQuoteDifferenceReport < Reporter
                 puts "There is an error calculating the difference for symbol: " + f[:symbol]
        
               end
+              
             end   
           end
         end
