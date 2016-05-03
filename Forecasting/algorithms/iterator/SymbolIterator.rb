@@ -1,0 +1,2 @@
+class SymbolIterator
+end
