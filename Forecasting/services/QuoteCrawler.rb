@@ -23,8 +23,20 @@ module  Forecasting
       end
 
       def crawl
+        
+        puts "DIR: " + Dir.pwd
+        @last_symbol = File.open("../Files/last_symbol_quotecrawler.rb","rb").read
+   
+        puts "LAST SYMBOL: " + @last_symbol
+       
+        if !@last_symbol.include? "nil"
+          index = @symbols.find_index(@last_symbol) + 1
+        else
+          index = 0
+        end
+        
         fails = 0
-        @symbols.each_with_index do |s,i|
+        @symbols[index..-1].each_with_index do |s,i|
           puts "VISITING SYMBOL " + s + " NUMBER " + i.to_s + " OF " + @symbols.size.to_s
           insertion_counter = 0
           existing_symbol = @db[:Quotes].find({:symbol => s}) 
@@ -77,6 +89,7 @@ module  Forecasting
               puts "No missing history for symbol: " + s
             end 
           end
+          File.open("../Files/last_symbol_quotecrawler.rb", 'w') {|f| f.write(s) }
         end
         puts "AMOUNT OF FAILED SYMBOLS: " + failed.to_s + " OF " + @symbols.size.to_s
 
