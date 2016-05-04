@@ -47,6 +47,6 @@ God.watch do |w|
     end
   end
   w.log = "../logs/batchforecasting.log"
-  w.keepalive
+#  w.keepalive
 end
 
