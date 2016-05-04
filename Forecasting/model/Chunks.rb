@@ -94,6 +94,12 @@ module Forecasting
       end
 
     end
+    
+    def append(chunk)
+      @chunks.push(chunk)
+    end
+    
+    
 
   end
 

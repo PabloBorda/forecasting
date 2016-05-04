@@ -2,6 +2,7 @@ require 'yahoo-finance'
 require 'json'
 
 require_relative '../algorithms/selectors/DrawSelector.rb'
+require_relative 'Chunks.rb'
 
 module Forecasting
   class Chunk
@@ -22,7 +23,6 @@ module Forecasting
 
 
     
-    
     def min_historic_value
       min = @chunk_data.min_by do |p|
        # puts "COMPARING MIN" + p.inspect
@@ -42,6 +42,37 @@ module Forecasting
       puts "MAXIMUM: " + max.inspect
       ::Forecasting::Quote::from_openstruct(max)                                                                                                   
     end    
+    
+    
+    def maxdrop
+      @chunk_data
+      i=@chunk_data.size-1
+      puts "MAXDROP RUNNING"
+      while i >= 0
+        current_drop = Chunk.new([])
+        drops = ::Forecasting::Chunks.new([])
+        while self.get_quote_by_number(i) <= self.get_quote_by_number(i-1)
+          current_drop.append(self.get_quote_by_number(i))
+          if i > 0
+            i = i-1
+          else
+            break
+          end
+        end  
+        drops.append(current_drop)
+      end
+      puts "DROPS ARE: " + drops.to_j
+      max = drops.max_by do 
+        |d|
+        d.size
+      end
+      puts "MAX DROP IS: " + max.to_s
+      max
+    end
+    
+    
+    
+    
     
     def get_close_history_sequence
       @chunk_data.collect do
@@ -251,6 +282,14 @@ module Forecasting
       }
       Forecasting::Chunk.new(result)
 
+    end
+
+    def append(quote)
+      @chunk_data.push(quote)
+    end
+    
+    def size
+      @chunk_data.size
     end
 
   end
