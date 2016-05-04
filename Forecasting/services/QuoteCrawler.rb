@@ -3,6 +3,7 @@ require 'mongo'
 require 'bson'
 require 'net/ssh/gateway'
 require 'aspector'
+require 'date'
 
 require_relative 'YahooFinanceAPI.rb'
 require_relative '../aspects/TimingAspect.rb'
