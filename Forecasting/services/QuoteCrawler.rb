@@ -25,17 +25,20 @@ module  Forecasting
       def crawl
         
         puts "DIR: " + Dir.pwd
-        @last_symbol = File.open("../Files/last_symbol_quotecrawler.rb","rb").read
+        tmpfile_content = File.open("../Files/last_symbol_quotecrawler.rb","rb").read
    
-        puts "LAST SYMBOL: " + @last_symbol
+        @last_symbol = tmpfile_content.split("|")[0]
+        @last_date = Date.strptime(tmpfile_content.split("|")[1],"%Y-%m-%d") 
+        
+        puts "LAST SYMBOL: " + @last_symbol + " FROM DATE " + @last_date.to_s
        
-        if !@last_symbol.include? "nil"
+        if (!@last_symbol.include? "nil")
           index = @symbols.find_index(@last_symbol) + 1
         else
           index = 0
         end
         
-        if (index==@symbols.size-1)
+        if (index==@symbols.size-1) and (@last_date.to_s==Date.today.to_s)
           exit
         end  
         fails = 0
@@ -92,7 +95,7 @@ module  Forecasting
               puts "No missing history for symbol: " + s
             end 
           end
-          File.open("../Files/last_symbol_quotecrawler.rb", 'w') {|f| f.write(s) }
+          File.open("../Files/last_symbol_quotecrawler.rb", 'w') {|f| f.write(s+"|"+Date.today.to_s) }
         end
         puts "AMOUNT OF FAILED SYMBOLS: " + failed.to_s + " OF " + @symbols.size.to_s
 
