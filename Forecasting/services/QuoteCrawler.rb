@@ -35,6 +35,9 @@ module  Forecasting
           index = 0
         end
         
+        if (index==@symbols.size-1)
+          exit
+        end  
         fails = 0
         @symbols[index..-1].each_with_index do |s,i|
           puts "VISITING SYMBOL " + s + " NUMBER " + i.to_s + " OF " + @symbols.size.to_s
