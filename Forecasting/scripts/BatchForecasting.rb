@@ -48,7 +48,7 @@ class BatchForecasting
   
   def run(amount_of_days)
     puts "DIR: " + Dir.pwd
-    @last_symbol = File.open("../Files/last_symbol.rb","rb").read
+    @last_symbol = File.open("/Files/last_symbol.rb","rb").read
 
     puts "LAST SYMBOL: " + @last_symbol
     

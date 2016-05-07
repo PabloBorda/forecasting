@@ -37,10 +37,9 @@ module Forecasting
       def all_history(symbol)
         source_num = 0
         puts "CLASS IS" + @@sources.class.to_s
-        previous_quote = @@sources[source_num].all_history(symbol)
-        while (previous_quote.nil?)  
-          source_num = source_num + 1
+        until (@@sources[source_num].nil?)  
           previous_quote = @@sources[source_num].all_history(symbol)
+          source_num = source_num + 1
         end
         previous_quote
 
