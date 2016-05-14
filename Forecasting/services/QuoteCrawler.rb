@@ -99,7 +99,7 @@ module  Forecasting
           File.open(Dir.pwd + "/Files/last_symbol_quotecrawler.rb", 'w') {|f| f.write(s+"|"+Date.today.to_s) }
         end
         puts "AMOUNT OF FAILED SYMBOLS: " + failed.to_s + " OF " + @symbols.size.to_s
-
+        puts "FINISHED"
       end
 
       private
