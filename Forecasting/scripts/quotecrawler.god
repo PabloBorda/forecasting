@@ -10,7 +10,7 @@ require_relative '../services/EmailSender.rb'
 
 God.watch do |w|
   w.name = "QuoteCrawler"
-  w.dir = "/home/alphabrokers/Forecasting/scripts"
+  w.dir = "/home/forecast/alphabrokers/Forecasting/scripts"
   w.start = "ruby quotecrawler.rb"
   w.transition(:up, :start) do |on|
     on.condition(:process_exits) do |c|
@@ -26,7 +26,7 @@ God.watch do |w|
              "<br> Finish" +
              take_time_finish.to_json +
              "<br> Duration: " +
-             duration.to_json + 
+             duration.to_json + "<br>" + 
              "Node Information: " + 
              node_info
      @email_service.send_email("pablotomasborda@gmail.com","process_notification@localhost",text)
@@ -40,12 +40,14 @@ God.watch do |w|
              "Node Information: <br>" +
              node_info
       @email_service.send_email("pablotomasborda@gmail.com","process_notification@localhost",text)
+      c.interval = 30.seconds
+      c.running = false 
     end
 
 
 
   end
   w.log = "../logs/quotecrawler.log"
-  w.keepalive
+#  w.keepalive
 end
 
