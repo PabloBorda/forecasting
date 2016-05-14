@@ -7,6 +7,8 @@ require_relative '../algorithms/Forecaster.rb'
 require_relative '../algorithms/AvgForecaster.rb'
 require_relative '../algorithms/DeltaForecaster.rb'
 require_relative '../Files/symbols.rb'
+require_relative '../aspects/TimingAspect.rb'
+require 'aspector'
 require 'date'
 require 'json'
 require 'rubygems'
@@ -47,8 +49,18 @@ class BatchForecasting
   
   
   def run(amount_of_days)
+    
+    if !Dir.pwd.include?("scripts")
+      Dir.chdir(Dir.pwd + "/scripts")
+    end
     puts "DIR: " + Dir.pwd
-    @last_symbol = File.open("../Files/last_symbol.rb","rb").read
+    
+    if !FileTest.exists?(Dir.pwd + "/Files/last_symbol.rb")
+      last_processed_symbol = File.new(Dir.pwd + "/Files/last_symbol.rb", "w")
+      last_processed_symbol.puts("nil")
+      last_processed_symbol.close
+    end
+    @last_symbol = File.open(Dir.pwd + "/Files/last_symbol.rb","rb").read
 
     puts "LAST SYMBOL: " + @last_symbol
     
@@ -94,8 +106,8 @@ class BatchForecasting
           
             output_to_insert_to_mongo[:forecasts].push algorithm      
           end
-                             
-          ##puts output_to_insert_to_mongo.to_json
+                        
+          puts "TOMONGO" + output_to_insert_to_mongo.to_json
         end
         
         if count_insert==1
@@ -110,7 +122,7 @@ class BatchForecasting
       
       company = nil
       company_history = nil
-      File.open("../Files/last_symbol.rb", 'w') {|f| f.write(s) }
+      File.open(Dir.pwd + "/Files/last_symbol.rb", 'w') {|f| f.write(s) }
       count_insert = 1  
       
     end
@@ -134,7 +146,7 @@ end
 
 
 
-
+TimingAspect.apply(BatchForecasting)
 bf = BatchForecasting.new(@symbols)
 
 bf.run(60)
