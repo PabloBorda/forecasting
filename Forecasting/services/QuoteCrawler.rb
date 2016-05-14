@@ -26,7 +26,7 @@ module  Forecasting
       def crawl
         
         puts "DIR: " + Dir.pwd
-        tmpfile_content = File.open("../Files/last_symbol_quotecrawler.rb","rb").read
+        tmpfile_content = File.open(Dir.pwd + "/Files/last_symbol_quotecrawler.rb","rb").read
    
         @last_symbol = tmpfile_content.split("|")[0]
         @last_date = Date.strptime(tmpfile_content.split("|")[1],"%Y-%m-%d") 
@@ -96,7 +96,7 @@ module  Forecasting
               puts "No missing history for symbol: " + s
             end 
           end
-          File.open("../Files/last_symbol_quotecrawler.rb", 'w') {|f| f.write(s+"|"+Date.today.to_s) }
+          File.open(Dir.pwd + "/Files/last_symbol_quotecrawler.rb", 'w') {|f| f.write(s+"|"+Date.today.to_s) }
         end
         puts "AMOUNT OF FAILED SYMBOLS: " + failed.to_s + " OF " + @symbols.size.to_s
 
@@ -114,7 +114,9 @@ module  Forecasting
         @symbols = @source.get_all_us_symbols()
 
         connector = ::Services::MongoConnector.get_instance
+        puts "MYCONNECTOR: " + connector.inspect
         @db  = connector.connect
+        puts "DB CONTENT: " + @db.inspect
                                  
 
       end
