@@ -23,6 +23,7 @@ module Forecasting
     end
 
     def forecast_merge(points_with_chunks)
+      puts "ALGORITHM: AvgForecaster"
       all_chunks = super(points_with_chunks)
       if (!all_chunks.nil?)
         pivot_quote = @company.last_quote

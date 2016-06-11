@@ -5,6 +5,7 @@ require_relative '../model/Quote.rb'
 module Forecasting
   class DeltaForecaster < Forecaster
     def forecast_merge(points_with_chunks)
+      puts "ALGORITHM: DeltaForecaster"
       all_chunks = super(points_with_chunks)
       if (!all_chunks.nil?) and (!all_chunks[1].nil?) and (!all_chunks[2].nil?)
         pivot_quote = @company.last_quote

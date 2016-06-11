@@ -15,7 +15,7 @@ module Services
    
     
     @@instance = MongoConnector.new
-
+    @connected = false
     
     def self.get_instance
       return @@instance
@@ -23,15 +23,23 @@ module Services
     
     
     def connect
-      puts "INITIALIZE"
+      if !connected?
+        puts "INITIALIZE"
 
-      @gateway = Net::SSH::Gateway.new('178.62.123.38', 'root', :password => 'alphabrokers')
+        @gateway = Net::SSH::Gateway.new('178.62.123.38', 'root', :password => 'alphabrokers')
       
-      @gateway.open('178.62.123.38', 27017, 27018)
-      @db  ||= Mongo::Client.new([ 'localhost:27018' ], :database => 'alphabrokers')
+        @gateway.open('178.62.123.38', 27017, 27018)
+        @connected=true
+        @db  ||= Mongo::Client.new([ 'localhost:27018' ], :database => 'alphabrokers')    
+      else
+        @db
+      end
 
     end
     
+    def connected?
+      @connected
+    end
     
     
     private_class_method :new

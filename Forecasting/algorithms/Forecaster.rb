@@ -9,7 +9,9 @@ module Forecasting
 
     def forecast_on_me(company,amount_of_days)
       @company = company
+      puts"GETTING COMPANY " + company.inspect + " history"
       @company.all_history
+      puts "ALL HISTORY PASSED"
       @amount_of_days = amount_of_days
       self.forecast_merge(self.forecast(amount_of_days))
     end

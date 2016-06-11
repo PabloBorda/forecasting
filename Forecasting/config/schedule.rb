@@ -30,7 +30,7 @@
 job_type :god, 'god :task :configfile'
 
    every :weekday, :at => '0:00 am' do
-     god "load",:configfile => "scripts/quotecrawler.god"
+     god "load",:configfile => Dir.pwd + "scripts/quotecrawler.god"
    end
 
 
@@ -45,18 +45,18 @@ job_type :god, 'god :task :configfile'
       
     
     every :weekday, :at => '4:00 pm' do
-      god "-c",:configfile => "scripts/accucheck.god"
+      god "-c",:configfile => Dir.pwd + "scripts/accucheck.god"
     end
     
     
     every :weekday, :at => '4:01 pm' do
-      god "load",:configfile => "scripts/webnews.god"
+      god "load",:configfile => Dir.pwd + "scripts/webnews.god"
     end
     
 
  
     every 60.day, :at => '9:30 am' do
-      god "load", :configfile => "scripts/batchforecasting.god"
+      god "load", :configfile => Dir.pwd + "scripts/batchforecasting.god"
     end
     
 
