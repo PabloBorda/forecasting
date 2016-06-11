@@ -32,7 +32,12 @@ module Forecasting
     end
 
     def all_history
-      @source.all_history(@symbol)
+      if @history.nil?
+        @history = @source.all_history(@symbol)
+      else
+        @history
+      end
+      
     end
 
     def get_split_dates
