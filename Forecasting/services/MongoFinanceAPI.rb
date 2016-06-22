@@ -94,7 +94,7 @@ class MongoFinanceAPI
   def initialize
 
     connector = ::Services::MongoConnector.get_instance
-    @mongo_client  = connector.connect
+    @mongo_client  = connector
 
     
 

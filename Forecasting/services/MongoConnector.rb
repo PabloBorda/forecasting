@@ -18,6 +18,10 @@ module Services
     @connected = false
     
     def self.get_instance
+      if @@instance.nil? 
+        @@instance = MongoConnector.new
+      end
+      
       return @@instance
     end
     
@@ -30,7 +34,8 @@ module Services
       
         @gateway.open('178.62.123.38', 27017, 27018)
         @connected=true
-        @db  ||= Mongo::Client.new([ 'localhost:27018' ], :database => 'alphabrokers')    
+        @db  ||= Mongo::Client.new([ 'localhost:27018' ], :database => 'alphabrokers')   
+        @@instance = @db 
       else
         @db
       end
