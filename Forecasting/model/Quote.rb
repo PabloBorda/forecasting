@@ -15,6 +15,14 @@ module Forecasting
     attr_accessor :symbol
     
     
+    def self.from_symbol_and_price(symbol,price)
+      
+      return Quote.new(Time.now.strftime("%Y-%m-%d").to_s,'0'.to_f.round(2),price.to_f.round(2),'0'.to_f.round(2),'0'.to_f.round(2),'0'.to_i,'0'.to_f.round(2),symbol)
+      
+    end
+    
+    
+    
     
     def self.from_openstruct(quote_openstruct)
       
