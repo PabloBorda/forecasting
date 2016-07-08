@@ -32,33 +32,60 @@ end
 
 
 
-class NeuralNetwork
+
+class Node
   
+  attr_accessor :quote
+  attr_accessor :left_node
+  attr_accessor :right_node
   
-  attr_accessor :drop
-  
-  def initialize
-    @values = []
-    self.drop = 0
+  def initialize(quote)
+    self.quote = quote 
+    self.left_node = nil
+    self.right_node = nil  
   end
   
-  def teach_you(current_price)
-    value = current_price.close
-    #puts "values:" + @values.inspect
-    #puts "JU:" + value.inspect
-    if (@values[@values.size-1].to_f<value.to_f)
-      self.drop = self.drop - 1
-    else
-      if (@values[@values.size-1].to_f > value.to_f)
-        self.drop = self.drop + 1
+
+  
+   
+  def insert_quote(quote)    
+    if (self.left_node.nil? and self.right_node.nil?)
+      self.quote = quote
+    else       
+      if (quote < self.quote)
+        self.left_node.insert_quote(Node.new(quote))
       else
-        self.drop = 0
-      end    
+        if (quote > self.quote)
+          self.right_node.insert_quote(Node.new(quote))
+        end
+      end
+    end        
+  end
+  
+  def print_tree
+    lo = ""
+    qo = ""
+    ro = ""
+    if self.left_node.nil? 
+      lo = "nil"
+    else
+      lo = self.left_node.print_tree
+    end
+    if self.right_node.nil?
+      ro = "nil"
+    else
+      ro = self.right_node.print_tree
+    end
+    if self.quote.nil?
+      qo = "nil"
+    else
+      qo = self.quote.close.to_s
     end
     
-    @values.push value
-     
+    "[" + lo + "]" + "{" + qo + "}" + "[" + ro + "]" 
+    
   end
+  
   
   
 end
@@ -66,33 +93,89 @@ end
 
 
 
-
-#  ["43 778,39","1 361,66","43,78","#00FF00","-0,18%","639,80","19,90","0,64","#00FF00","-0,95%","39 505,62","1 228,76","39,51","#00FF00","-0,06%","577,36","17,96","0,58","#00FF00","-0,82%"]
-
-
-
-#{"d":["43 832,72","1 363,35","43,83","#FF0000","-0,06%","641,09","19,94","0,64","#FF0000","-0,75%","39 563,41","1 230,56","39,56","#FF0000","0,09%","578,64","18,00","0,58","#FF0000","-0,60%"]}
+class BTree
+  
+  
+  attr_accessor :drop
+  attr_accessor :tree
+  @last_quote
+  
+  def initialize     
+    self.drop = 0
+  end
+  
+  def teach_you(current_price)
+    if (!@last_quote.nil?)
+      value = current_price.close      
+      #puts "values:" + @values.inspect
+      #puts "JU:" + value.inspect
+    
+      if (@last_quote.close.to_f<value.to_f)
+        self.drop = self.drop - 1
+      else
+        if (@last_quote.close.to_f > value.to_f)
+          self.drop = self.drop + 1
+        else
+          self.drop = 0
+        end    
+      end
+    end
+    @last_quote = current_price 
+    self.insert_quote(current_price)
+    
+  end
+  
+  
+  def insert_quote(quote)
+    if self.tree.nil?
+      self.tree = Node.new(quote)
+    else
+      self.tree.insert_quote(quote)
+    end
+  end
+  
+  
+  def print_tree
+    if self.tree.nil?
+      puts "nil"
+    else
+      puts "TREE IS: " + self.tree.print_tree
+    end
+  end
+  
+  
+  
+end
 
 
 gold_service = GoldRealTime.instance
-gold_neural_network = NeuralNetwork.new
+btree_quotes = BTree.new
+rise_count = 0
+drop_count = 0
+quiet_count = 0
+
 while (1==1)
   
   current_prices = gold_service.real_time_quote
   
-  gold_neural_network.teach_you(current_prices[0])
-  #puts "drop: " + gold_neural_network.drop.to_s
-  if (gold_neural_network.drop < -3)
-    puts "DROPPING!!!"
+  btree_quotes.teach_you(current_prices[0])
+  #puts "drop: " + btree_quotes.drop.to_s
+  if (btree_quotes.drop < -3)
+    
+    drop_count = drop_count + 1
+    puts "DROPPING!!!: " + drop_count.to_s
   else
-    if (gold_neural_network.drop == 0)
-      puts "IS QUIET"
+    if (btree_quotes.drop == 0)      
+      quiet_count = quiet_count + 1
+      puts "quiet: " + quiet_count.to_s
     else
-      if (gold_neural_network.drop > 3)
-        puts "RISING!!!"
+      if (btree_quotes.drop > 3)        
+        rise_count = rise_count + 1
+        puts "RISING!!!: " + rise_count.to_s 
       end
     end
   end
+  puts btree_quotes.inspect
   sleep(2)
   
 end
