@@ -1,4 +1,5 @@
 require 'singleton'
+require 'json'
 require 'unirest'
 require 'json'
 require_relative '../model/Quote.rb'
@@ -44,24 +45,39 @@ class Node
     self.left_node = nil
     self.right_node = nil  
   end
+ 
   
+  def <=> (n)
+    ((self.quote) < (n.quote))
+    
+  end
 
   
    
   def insert_quote(quote)    
-    if (self.left_node.nil? and self.right_node.nil?)
+    if (self.quote.nil?)
       self.quote = quote
     else       
       if (quote < self.quote)
-        self.left_node.insert_quote(Node.new(quote))
+        if self.left_node.nil?
+          self.left_node = Node.new(quote)
+        else
+          self.left_node.insert_quote(quote)
+        end
       else
         if (quote > self.quote)
-          self.right_node.insert_quote(Node.new(quote))
+          if (self.right_node.nil?)
+            self.right_node = Node.new(quote)
+          else
+            if (quote > self.quote)
+              self.right_node.insert_quote(quote)
+            end
+          end
         end
-      end
-    end        
+      end        
+    end
   end
-  
+    
   def print_tree
     lo = ""
     qo = ""
@@ -82,7 +98,31 @@ class Node
       qo = self.quote.close.to_s
     end
     
-    "[" + lo + "]" + "{" + qo + "}" + "[" + ro + "]" 
+    
+    simple_chart_config = {
+      :chart => { :container => "#tree-simple" },
+       
+      :nodeStructure => {
+      
+        :text => {:name => qo },
+        :children => [
+          {
+            :text => {:name => lo} 
+          },
+          {
+            :text => {:name => ro }
+          }
+          
+          
+         ]
+      
+      
+      }
+    }
+    
+    simple_chart_config.to_json
+    #"[" + lo + "]----" + "{" + qo + "}" + "----[" + ro + "]"
+     
     
   end
   
@@ -175,7 +215,7 @@ while (1==1)
       end
     end
   end
-  puts btree_quotes.inspect
+  puts btree_quotes.print_tree
   sleep(2)
   
 end

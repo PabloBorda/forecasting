@@ -1,0 +1,8 @@
+
+To generate UML from ruby code
+------------------------------
+
+
+gem install umlify
+
+umlify -s *
