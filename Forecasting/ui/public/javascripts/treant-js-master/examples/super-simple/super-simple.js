@@ -1,21 +1,74 @@
 
 var simple_chart_config = {
-	chart: {
-		container: "#OrganiseChart-simple"
-	},
-	
-	nodeStructure: {
-		text: { name: "Parent node" },
-		children: [
-			{
-				text: { name: "First child" }
-			},
-			{
-				text: { name: "Second child" }
-			}
-		]
-	}
-};
+		  "chart": {
+			    "container": "#OrganiseChart-simple"
+			  },
+			  "nodeStructure": {
+			    "text": {
+			      "name": "1341.81"
+			    },
+			    "children": [
+			      {
+			        "text": {
+			          "name": "nil"
+			        }
+			      },
+			      {
+			        "text": {
+			          "name": {
+			            "text": {
+			              "name": "1341.82"
+			            },
+			            "children": [
+			              {
+			                "text": {
+			                  "name": "nil"
+			                }
+			              },
+			              {
+			                "text": {
+			                  "name": {
+			                    "text": {
+			                      "name": "1341.93"
+			                    },
+			                    "children": [
+			                      {
+			                        "text": {
+			                          "name": {
+			                            "text": {
+			                              "name": "1341.91"
+			                            },
+			                            "children": [
+			                              {
+			                                "text": {
+			                                  "name": "nil"
+			                                }
+			                              },
+			                              {
+			                                "text": {
+			                                  "name": "nil"
+			                                }
+			                              }
+			                            ]
+			                          }
+			                        }
+			                      },
+			                      {
+			                        "text": {
+			                          "name": "nil"
+			                        }
+			                      }
+			                    ]
+			                  }
+			                }
+			              }
+			            ]
+			          }
+			        }
+			      }
+			    ]
+			  }
+			};
 
 // // // // // // // // // // // // // // // // // // // // // // // // 
 
@@ -23,21 +76,6 @@ var config = {
 	container: "#OrganiseChart-simple"
 };
 
-var parent_node = {
-	text: { name: "Parent node" }
-};
 
-var first_child = {
-	parent: parent_node,
-	text: { name: "First child" }
-};
 
-var second_child = {
-	parent: parent_node,
-	text: { name: "Second child" }
-};
-
-var simple_chart_config = [
-	config, parent_node,
-		first_child, second_child 
-];
+var simple_chart_config = simple_chart_config;

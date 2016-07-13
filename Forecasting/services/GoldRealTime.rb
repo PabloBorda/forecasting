@@ -87,22 +87,28 @@ class Node
     else
       lo = self.left_node.print_tree
     end
+
+
     if self.right_node.nil?
       ro = "nil"
     else
       ro = self.right_node.print_tree
     end
+
+        
     if self.quote.nil?
       qo = "nil"
     else
       qo = self.quote.close.to_s
     end
     
+    puts "qo" + qo.inspect
+    puts "lo" + lo.inspect
+    puts "ro" + ro.inspect
     
     simple_chart_config = {
-      :chart => { :container => "#tree-simple" },
        
-      :nodeStructure => {
+     
       
         :text => {:name => qo },
         :children => [
@@ -115,12 +121,13 @@ class Node
           
           
          ]
-      
-      
       }
-    }
+      
+      
+      
     
-    simple_chart_config.to_json
+    
+    simple_chart_config
     #"[" + lo + "]----" + "{" + qo + "}" + "----[" + ro + "]"
      
     
@@ -179,7 +186,7 @@ class BTree
     if self.tree.nil?
       puts "nil"
     else
-      puts "TREE IS: " + self.tree.print_tree
+      puts ({:chart => { :container => "#OrganiseChart-simple" },:nodeStructure => self.tree.print_tree }.to_json)
     end
   end
   
